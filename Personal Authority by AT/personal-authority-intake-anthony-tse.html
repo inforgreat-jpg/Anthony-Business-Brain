@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personal Authority Foundation · Purely Personal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Poppins:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #E8294C; --primary-dark: #C4203D; --primary-light: #F5607A;
+    --primary-rgb: 232,41,76;
+    --bg-page: #0A0A0A; --bg-card: #111111; --bg-card-2: #181818; --bg-card-3: #1F1F1F;
+    --border: rgba(255,255,255,0.07); --border-bright: rgba(255,255,255,0.13);
+    --text-primary: #FFFFFF; --text-secondary: rgba(255,255,255,0.58); --text-muted: rgba(255,255,255,0.28);
+    --r-sm:8px; --r-md:16px; --r-lg:24px; --r-xl:32px; --r-pill:9999px;
+    --font-display:'Playfair Display',Georgia,serif; --font-body:'Poppins',system-ui,sans-serif; --font-mono:'DM Mono',monospace;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font-body);background:var(--bg-page);color:var(--text-primary);min-height:100vh;-webkit-font-smoothing:antialiased}
+  ::-webkit-scrollbar{width:6px} ::-webkit-scrollbar-track{background:var(--bg-card)} ::-webkit-scrollbar-thumb{background:rgba(232,41,76,0.4);border-radius:3px}
+  ::selection{background:rgba(232,41,76,0.3)}
+  .screen{display:none;min-height:100vh}
+  .screen.active{display:flex}
+  #screen-welcome{flex-direction:column;align-items:center;justify-content:center;padding:60px 24px;text-align:center;background:radial-gradient(ellipse 70% 50% at 50% 30%,rgba(232,41,76,0.1) 0%,transparent 70%)}
+  .welcome__dot{width:10px;height:10px;border-radius:50%;background:var(--primary);margin:0 auto 28px;box-shadow:0 0 20px rgba(232,41,76,0.6)}
+  .welcome__brand{font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--primary);margin-bottom:24px}
+  .welcome__title{font-family:var(--font-display);font-size:clamp(36px,6vw,56px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:20px}
+  .welcome__title span{color:var(--primary)}
+  .welcome__subtitle{font-size:16px;color:var(--text-secondary);line-height:1.7;max-width:520px;margin:0 auto 40px}
+  .welcome__card{background:var(--bg-card);border:1px solid var(--border-bright);border-radius:var(--r-xl);padding:36px 40px;max-width:520px;width:100%;text-align:left}
+  .welcome__card label{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--primary);display:block;margin-bottom:8px}
+  .welcome__card input{width:100%;background:var(--bg-card-2);border:1px solid var(--border-bright);border-radius:var(--r-md);color:var(--text-primary);font-family:var(--font-body);font-size:15px;padding:13px 16px;outline:none;transition:border-color 0.2s;margin-bottom:24px}
+  .welcome__card input:focus{border-color:var(--primary)}
+  .welcome__card input::placeholder{color:var(--text-muted)}
+  .welcome__time{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-muted);margin-bottom:24px}
+  .welcome__time::before{content:'';display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--text-muted)}
+  #screen-question{flex-direction:column;align-items:center;justify-content:flex-start;padding:40px 24px 80px}
+  .q-wrap{width:100%;max-width:660px}
+  .q-topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+  .q-brand{font-family:var(--font-display);font-size:16px;font-weight:800;color:var(--primary)}
+  .q-counter{font-family:var(--font-mono);font-size:12px;color:var(--text-muted)}
+  .progress-track{height:3px;background:var(--bg-card-3);border-radius:var(--r-pill);margin-bottom:40px;overflow:hidden}
+  .progress-fill{height:3px;background:var(--primary);border-radius:var(--r-pill);transition:width 0.5s cubic-bezier(.4,0,.2,1);box-shadow:0 0 10px rgba(232,41,76,0.5)}
+  .q-card{background:var(--bg-card);border:1px solid var(--border-bright);border-radius:var(--r-xl);overflow:hidden;animation:cardIn 0.3s ease}
+  @keyframes cardIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+  .q-card__header{padding:20px 28px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+  .q-block-badge{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--primary);background:rgba(232,41,76,0.1);padding:4px 12px;border-radius:var(--r-pill)}
+  .q-num{font-family:var(--font-mono);font-size:12px;color:var(--text-muted)}
+  .q-card__body{padding:28px 28px 20px}
+  .q-title{font-family:var(--font-display);font-size:22px;font-weight:800;letter-spacing:-0.01em;color:var(--text-primary);margin-bottom:12px;line-height:1.3}
+  .q-body{font-size:15px;color:var(--text-secondary);line-height:1.75;margin-bottom:24px}
+  .q-optional{font-size:12px;color:var(--text-muted);background:var(--bg-card-3);border-left:2px solid var(--text-muted);border-radius:0 var(--r-sm) var(--r-sm) 0;padding:8px 12px;margin-bottom:16px}
+  textarea{width:100%;background:var(--bg-card-2);border:1px solid var(--border-bright);border-radius:var(--r-md);color:var(--text-primary);font-family:var(--font-body);font-size:15px;line-height:1.7;padding:14px 16px;resize:vertical;min-height:120px;outline:none;transition:border-color 0.2s,box-shadow 0.2s}
+  textarea.transcript{min-height:180px}
+  textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,41,76,0.1)}
+  textarea::placeholder{color:var(--text-muted)}
+  textarea.error{border-color:#EF4444;box-shadow:0 0 0 3px rgba(239,68,68,0.1)}
+  .q-card__footer{padding:16px 28px 24px;display:flex;align-items:center;justify-content:space-between}
+  .q-hint{font-size:12px;color:var(--text-muted)}
+  .q-hint span{color:rgba(232,41,76,0.7)}
+  .btn-row{display:flex;gap:10px;align-items:center}
+  .btn-back{font-family:var(--font-body);font-size:13px;font-weight:600;color:var(--text-muted);background:transparent;border:1px solid var(--border-bright);border-radius:var(--r-md);padding:10px 18px;cursor:pointer;transition:color 0.2s,border-color 0.2s}
+  .btn-back:hover{color:var(--text-primary);border-color:rgba(255,255,255,0.25)}
+  .btn-next{font-family:var(--font-body);font-size:14px;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:var(--r-md);padding:11px 26px;cursor:pointer;transition:background 0.2s,transform 0.1s;letter-spacing:0.02em}
+  .btn-next:hover{background:var(--primary-dark)} .btn-next:active{transform:scale(0.98)}
+  .btn-start{font-family:var(--font-body);font-size:15px;font-weight:700;color:#fff;background:var(--primary);border:none;border-radius:var(--r-lg);padding:14px 36px;cursor:pointer;width:100%;transition:background 0.2s}
+  .btn-start:hover{background:var(--primary-dark)}
+  .q-answers{margin-top:20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-lg);padding:18px 20px;max-height:200px;overflow-y:auto}
+  .q-answers__label{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px}
+  .answer-row{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px}
+  .answer-row:last-child{margin-bottom:0}
+  .answer-qnum{font-family:var(--font-mono);font-size:11px;color:var(--primary);min-width:24px;padding-top:1px}
+  .answer-text{font-size:13px;color:var(--text-secondary);line-height:1.5}
+  #screen-finish{flex-direction:column;align-items:center;justify-content:flex-start;padding:60px 24px 80px}
+  .finish-wrap{width:100%;max-width:720px}
+  .finish__header{text-align:center;margin-bottom:40px}
+  .finish__tick{width:56px;height:56px;border-radius:50%;background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.3);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:24px}
+  .finish__title{font-family:var(--font-display);font-size:36px;font-weight:900;letter-spacing:-0.02em;margin-bottom:10px}
+  .finish__subtitle{font-size:15px;color:var(--text-secondary)}
+  .output-box{background:var(--bg-card);border:1px solid var(--border-bright);border-radius:var(--r-xl);overflow:hidden;margin-bottom:20px}
+  .output-box__header{padding:16px 24px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+  .output-box__label{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--primary)}
+  .btn-copy{font-family:var(--font-body);font-size:12px;font-weight:600;color:var(--text-secondary);background:var(--bg-card-2);border:1px solid var(--border-bright);border-radius:var(--r-sm);padding:6px 14px;cursor:pointer;transition:color 0.2s}
+  .btn-copy:hover{color:var(--text-primary)} .btn-copy.copied{color:#22C55E;border-color:rgba(34,197,94,0.3)}
+  .output-text{font-family:var(--font-mono);font-size:13px;color:var(--text-secondary);line-height:1.8;padding:20px 24px;white-space:pre-wrap;word-break:break-word;max-height:360px;overflow-y:auto}
+  .finish__instruction{background:rgba(232,41,76,0.07);border:1px solid rgba(232,41,76,0.2);border-radius:var(--r-lg);padding:20px 24px;font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:20px}
+  .finish__instruction strong{color:var(--text-primary)}
+  footer{text-align:center;padding:32px 24px;border-top:1px solid var(--border);margin-top:60px}
+  .footer__brand{font-family:var(--font-display);font-size:16px;font-weight:800;color:var(--primary)}
+</style>
+</head>
+<body>
+<div id="screen-welcome" class="screen active">
+  <div class="welcome__dot"></div>
+  <div class="welcome__brand">Purely Personal</div>
+  <h1 class="welcome__title">Personal Authority<br><span>Foundation</span></h1>
+  <p class="welcome__subtitle">16 questions. Your real story, the moments, decisions, and voice that make your brand unmistakably yours.</p>
+  <div class="welcome__card">
+    <div class="welcome__time">Takes about 25–35 minutes · Answer like you're talking to a close friend</div>
+    <label for="input-name">Your full name</label>
+    <input type="text" id="input-name" placeholder="e.g. Sarah Johnson" autocomplete="name" value="Anthony Tse" style="margin-bottom:28px">
+    <button class="btn-start" onclick="startIntake()">Start the intake →</button>
+  </div>
+</div>
+<div id="screen-question" class="screen">
+  <div class="q-wrap">
+    <div class="q-topbar">
+      <span class="q-brand">Purely Personal</span>
+      <span class="q-counter" id="q-counter">1 / 16</span>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:6%"></div></div>
+    <div class="q-card" id="q-card">
+      <div class="q-card__header">
+        <span class="q-block-badge" id="q-block">Block 1 · Origin</span>
+        <span class="q-num" id="q-num">Q01</span>
+      </div>
+      <div class="q-card__body">
+        <h2 class="q-title" id="q-title">Origin moment</h2>
+        <p class="q-body" id="q-body">What's the one moment...</p>
+        <div class="q-optional" id="q-optional" style="display:none"></div>
+        <textarea id="q-answer" placeholder="Type your answer here…" onkeydown="handleKey(event)"></textarea>
+      </div>
+      <div class="q-card__footer">
+        <span class="q-hint"><span>⌘</span> + Enter to continue</span>
+        <div class="btn-row">
+          <button class="btn-back" id="btn-back" onclick="prevQ()" style="display:none">← Back</button>
+          <button class="btn-next" id="btn-next" onclick="nextQ()">Continue →</button>
+        </div>
+      </div>
+    </div>
+    <div class="q-answers" id="q-answers" style="display:none">
+      <div class="q-answers__label">Captured so far</div>
+      <div id="answers-list"></div>
+    </div>
+  </div>
+</div>
+<div id="screen-finish" class="screen">
+  <div class="finish-wrap">
+    <div class="finish__header">
+      <div class="finish__tick">✓</div>
+      <h2 class="finish__title">Done, <span id="finish-name" style="color:var(--primary)"></span>.</h2>
+      <p class="finish__subtitle">16 questions answered. Your Personal Authority Foundation is ready to be built.</p>
+    </div>
+    <div class="finish__instruction"><strong>Next step:</strong> Copy everything below and paste it into your Claude chat where your Personal Authority session is running.</div>
+    <div class="output-box">
+      <div class="output-box__header">
+        <span class="output-box__label">Your answers</span>
+        <button class="btn-copy" id="copy-btn" onclick="copyOutput()">Copy all</button>
+      </div>
+      <div class="output-text" id="output-text"></div>
+    </div>
+    <footer><span class="footer__brand">Purely Personal</span></footer>
+  </div>
+</div>
+<script>
+const QUESTIONS = [
+  { block:"Block 1 · Origin", title:"Origin moment", body:"What is one specific moment that permanently changed how you think about your work or your life? Not a phase or a period. One situation. Walk me through what actually happened.", optional:null, minWords:20, isTranscript:false },
+  { block:"Block 1 · Origin", title:"The person who shaped you", body:"Who is one person whose specific words or actions you still carry with you today? It could be a mentor, a parent, a difficult boss, anyone. What did they actually say or do, and why does it still stick?", optional:null, minWords:20, isTranscript:false },
+  { block:"Block 1 · Origin", title:"The value that runs everything", body:"What's one principle from how you were raised or how you grew up that still quietly runs your decisions today? Give me a specific situation where you felt it operating.", optional:null, minWords:15, isTranscript:false },
+  { block:"Block 2 · Pressure", title:"The hardest chapter", body:"What is the hardest period you have gone through, professionally or personally? What did you have to become to get through it? I am not looking for the lesson. Tell me what it actually felt like.", optional:null, minWords:20, isTranscript:false },
+  { block:"Block 2 · Pressure", title:"The risk that defined you", body:"Tell me about a time you made a decision that genuinely scared you. What was the real risk underneath it, not just the obvious one? And what happened on the other side of it?", optional:null, minWords:20, isTranscript:false },
+  { block:"Block 2 · Pressure", title:"The mistake you're glad you made", body:"What's a mistake or failure that hurt badly at the time but completely changed how you operate today? What specifically did it cost you, and what did that cost teach you?", optional:null, minWords:20, isTranscript:false },
+  { block:"Block 2 · Pressure", title:"Standing your ground", body:"Tell me about a time you held a position or made a choice that cost you something because it was the right thing to do. It could be a relationship, a deal, an opportunity. What was the actual situation?", optional:null, minWords:15, isTranscript:false },
+  { block:"Block 3 · The Work", title:"The moment you knew", body:"When did you first feel like this work was actually meant for you? Not the plan or the career path. The moment where something clicked. What were you doing?", optional:null, minWords:15, isTranscript:false },
+  { block:"Block 3 · The Work", title:"The thing everyone gets wrong", body:"What is the most common mistake you see people make in your field? Not the obvious one. The one that actually frustrates you because you have watched it play out too many times. Why does it keep happening?", optional:null, minWords:20, isTranscript:false },
+  { block:"Block 3 · The Work", title:"Your different method", body:"What do you do differently from most people in your space, and why does your way actually produce better results? Be specific. I want to understand the mechanics, not just a general answer.", optional:null, minWords:20, isTranscript:false },
+  { block:"Block 3 · The Work", title:"The reframe that changes everything", body:"What's one idea or perspective you share that consistently makes people stop and say they've never seen it that way? Walk me through the actual idea, not just that it exists.", optional:null, minWords:20, isTranscript:false },
+  { block:"Block 4 · Worldview", title:"When success changed shape", body:"How has your definition of success genuinely changed over the years? What did you used to think it meant, and what do you actually think it means now? What changed your mind?", optional:null, minWords:15, isTranscript:false },
+  { block:"Block 4 · Worldview", title:"The work that made you proud", body:"Tell me about a specific client, project, or situation where your work made a real difference. What was the actual before and after, for them and for you?", optional:null, minWords:20, isTranscript:false },
+  { block:"Block 4 · Worldview", title:"Where this is all going", body:"Where do you genuinely think your industry is heading in the next few years? Not the safe answer. Your actual read on it. And what does that mean for the people you work with?", optional:null, minWords:15, isTranscript:false },
+  { block:"Block 4 · Worldview", title:"What they actually get", body:"When someone finishes working with you, what is the real change? Not the deliverable or the outcome on paper. What is different about how they think, how they move, or who they believe they are?", optional:null, minWords:15, isTranscript:false },
+  { block:"Block 5 · Voice source", title:"Client transcript", body:"Paste any transcript, recording notes, client call summary, or raw conversation you've had with a client or colleague. It can be messy. I will use it only to sharpen the Voice DNA.", optional:"Optional but powerful. Skip this if you do not have anything handy. Just type skip or leave it blank.", minWords:0, isTranscript:true }
+];
+let current = 0;
+let clientName = "Anthony Tse";
+const answers = new Array(16).fill("");
+function wordCount(s){ return s.trim().split(/\s+/).filter(w=>w.length>0).length; }
+function show(id){ document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active')); document.getElementById(id).classList.add('active'); window.scrollTo(0,0); }
+function startIntake(){
+  const n = document.getElementById('input-name').value.trim();
+  if(!n){ document.getElementById('input-name').style.borderColor='var(--primary)'; setTimeout(()=>document.getElementById('input-name').style.borderColor='var(--border-bright)',900); return; }
+  clientName = n;
+  current = 0;
+  renderQ();
+  show('screen-question');
+  setTimeout(()=>document.getElementById('q-answer').focus(),100);
+}
+function renderQ(){
+  const q = QUESTIONS[current];
+  document.getElementById('q-block').textContent = q.block;
+  document.getElementById('q-num').textContent = 'Q'+String(current+1).padStart(2,'0');
+  document.getElementById('q-title').textContent = q.title;
+  document.getElementById('q-body').textContent = q.body;
+  document.getElementById('q-answer').value = answers[current];
+  document.getElementById('q-answer').className = q.isTranscript ? 'transcript' : '';
+  document.getElementById('q-answer').placeholder = q.isTranscript ? 'Paste transcript here, or type "skip"…' : 'Type your answer here…';
+  document.getElementById('q-counter').textContent = (current+1)+' / 16';
+  document.getElementById('progress-fill').style.width = Math.max(6,Math.round(((current+1)/16)*100))+'%';
+  document.getElementById('btn-back').style.display = current>0?'inline-block':'none';
+  document.getElementById('btn-next').textContent = current===15?'Finish ✓':'Continue →';
+  const opt = document.getElementById('q-optional');
+  if(q.optional){ opt.textContent=q.optional; opt.style.display='block'; } else { opt.style.display='none'; }
+  renderAnswersList();
+  const card=document.getElementById('q-card'); card.style.animation='none'; card.offsetHeight; card.style.animation='cardIn 0.3s ease';
+}
+function nextQ(){
+  const val = document.getElementById('q-answer').value.trim();
+  const q = QUESTIONS[current];
+  if(!q.isTranscript && !val){ document.getElementById('q-answer').classList.add('error'); setTimeout(()=>document.getElementById('q-answer').classList.remove('error'),800); return; }
+  answers[current] = val || 'skip';
+  if(current===15){ buildOutput(); return; }
+  current++;
+  renderQ();
+  document.getElementById('q-answer').focus();
+}
+function prevQ(){
+  answers[current]=document.getElementById('q-answer').value.trim();
+  if(current>0){ current--; renderQ(); }
+}
+function handleKey(e){ if((e.metaKey||e.ctrlKey)&&e.key==='Enter'){ e.preventDefault(); nextQ(); } }
+function renderAnswersList(){
+  const filled=answers.filter(a=>a.length>0);
+  const wrap=document.getElementById('q-answers');
+  const list=document.getElementById('answers-list');
+  if(!filled.length){ wrap.style.display='none'; return; }
+  wrap.style.display='block';
+  list.innerHTML=answers.map((a,i)=>{ if(!a)return''; const short=a.length>90?a.slice(0,90)+'…':a; return`<div class="answer-row"><span class="answer-qnum">Q${i+1}</span><span class="answer-text">${short}</span></div>`; }).filter(Boolean).join('');
+  wrap.scrollTop=wrap.scrollHeight;
+}
+function buildOutput(){
+  const lines=[
+    `PERSONAL AUTHORITY FOUNDATION — ${clientName.toUpperCase()}`,
+    `Purely Personal`,
+    `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,``,
+    `CLIENT NAME: ${clientName}`,``,
+    `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,``
+  ];
+  QUESTIONS.forEach((q,i)=>{ lines.push(`Q${i+1} — ${q.title.toUpperCase()}`); lines.push(answers[i]||'[No answer provided]'); lines.push(''); });
+  lines.push('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+  lines.push('END OF INTAKE · Build Personal Story and Voice DNA from these answers.');
+  document.getElementById('output-text').textContent=lines.join('\n');
+  document.getElementById('finish-name').textContent=clientName.split(' ')[0];
+  show('screen-finish');
+}
+function copyOutput(){
+  const text=document.getElementById('output-text').textContent;
+  const btn=document.getElementById('copy-btn');
+  function onSuccess(){ btn.textContent='Copied ✓'; btn.classList.add('copied'); setTimeout(()=>{ btn.textContent='Copy all'; btn.classList.remove('copied'); },2500); }
+  function fallback(){ const ta=document.createElement('textarea'); ta.value=text; ta.style.cssText='position:fixed;top:-9999px;opacity:0'; document.body.appendChild(ta); ta.focus(); ta.select(); try{ document.execCommand('copy'); onSuccess(); }catch(e){} document.body.removeChild(ta); }
+  if(navigator.clipboard&&window.isSecureContext){ navigator.clipboard.writeText(text).then(onSuccess).catch(fallback); } else { fallback(); }
+}
+</script>
+</body>
+</html>

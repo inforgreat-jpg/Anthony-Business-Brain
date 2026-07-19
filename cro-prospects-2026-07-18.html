@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRO Weekly Prospect Pack · Institute for Greatness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#F05A28; --primary-light:#F59473;
+    --black:#003444; --ink:#003444; --white:#FFFFFF; --off-white:#F8F7F5;
+    --gray:#E4E3E0; --gray-text:#5b5b62; --gray-light:#F2F1EE;
+    --good:#16A34A; --warn:#D97706; --bad:#DC2626;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.04),0 8px 28px rgba(0,0,0,.06);
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 78%, #000) 0%, var(--primary) 48%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:radial-gradient(80% 60% at 96% -12%, color-mix(in srgb,var(--primary) 14%, transparent), transparent 60%), radial-gradient(60% 50% at 0% 6%, color-mix(in srgb,var(--primary-light) 10%, transparent), transparent 55%), var(--off-white);background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:900px;margin:0 auto;padding:34px 22px 70px;}
+
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px color-mix(in srgb,var(--primary) 30%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.82;font-weight:600;}
+  .ohead h1{font-size:clamp(22px,4vw,30px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.85;}
+
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-text);font-weight:700;margin:26px 0 12px;}
+  .card{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:16px 18px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .stat{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
+  .stat .l{font-size:12px;color:var(--gray-text);} .stat .n{font-size:34px;font-weight:800;letter-spacing:-.02em;margin-top:4px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;}
+  .t-grn{background:#e7f6ee;color:var(--good);} .t-amb{background:#fdf1de;color:var(--warn);} .t-blue{background:#e6f0fc;color:#1E6FE0;} .t-grey{background:var(--gray-light);color:var(--gray-text);} .t-red{background:#fdecec;color:var(--bad);}
+
+  .pcard{background:#fff;border:1px solid var(--gray);border-radius:var(--r-lg);box-shadow:var(--sh);padding:20px 22px;margin-bottom:16px;}
+  .pcard .ph{display:flex;align-items:flex-start;gap:12px;margin-bottom:10px;flex-wrap:wrap;}
+  .pcard .av{width:46px;height:46px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;}
+  .pcard .nm{font-weight:800;font-size:17px;} .pcard .rl{font-size:13px;color:var(--gray-text);margin-top:1px;}
+  .pcard .signal{font-size:13px;color:var(--gray-text);background:var(--gray-light);border-radius:10px;padding:8px 12px;margin:10px 0;}
+  .modrow{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;}
+  .modchip{font-size:11px;font-weight:600;background:var(--gray-light);color:var(--ink);padding:5px 10px;border-radius:var(--pill);}
+  .modchip b{color:var(--primary);}
+  .hook{font-style:italic;font-size:14px;color:var(--ink);border-left:3px solid var(--primary-light);padding:8px 12px;margin:10px 0;background:#fff8f5;}
+  .seq{margin-top:12px;}
+  .seq .m{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--gray-light);font-size:13.5px;}
+  .seq .m:last-child{border-bottom:none;}
+  .seq .mlabel{flex-shrink:0;width:108px;font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--primary);padding-top:1px;}
+  .seq .mtext{color:var(--ink);}
+
+  .note{background:linear-gradient(135deg, var(--ink) 0%, color-mix(in srgb,var(--primary) 26%, var(--ink)) 100%);color:#fff;border-radius:var(--r-md);padding:18px 22px;font-size:15px;margin-top:6px;box-shadow:0 14px 36px rgba(0,0,0,.16);}
+  .note b{color:var(--primary-light);}
+
+  footer{text-align:center;padding:30px 22px 10px;color:var(--gray-text);font-size:13px;}
+  footer b{color:var(--ink);}
+
+  @media(max-width:640px){.grid3{grid-template-columns:1fr;} .seq .m{flex-direction:column;gap:2px;} .seq .mlabel{width:auto;}}
+</style>
+</head>
+<body data-theme="standard">
+  <div class="doc">
+
+    <div class="ohead"><div class="k">CRO · Weekly prospect pack</div><h1>3 matched. 0 hot.</h1><div class="d">Sourced from your ETA ICP via Apify · DMs drafted, nothing sent</div></div>
+
+    <div class="grid3">
+      <div class="stat"><div class="l">Prospects</div><div class="n">3</div></div>
+      <div class="stat"><div class="l">Hot</div><div class="n" style="color:var(--good);-webkit-text-fill-color:var(--good)">0</div></div>
+      <div class="stat"><div class="l">DMs drafted</div><div class="n">15</div></div>
+    </div>
+
+    <div class="card"><h4 style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-text);margin-bottom:8px">Sourcing note</h4>
+    <div style="font-size:14px;color:var(--ink)">This week's cold search hit real diminishing returns, the connector's underlying dataset kept resurfacing largely the same pool as last week. Of 10 raw results, 5 were established ETA professors, program founders, or advisory-practice operators (competitors, filtered per the standing rule), one was a duplicate already in your funnel (Antonia Heng), and one was too junior for your budget range (a college senior). That left 3 genuinely new, qualified prospects. Shipping at 3 this week rather than padding with weaker matches, per your call.</div></div>
+
+    <div class="sec">The prospects</div>
+
+    <!-- 1 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">DS</div><div><div class="nm">Debanjan Sengupta</div><div class="rl">Entrepreneurship Through Acquisition, PES Capital · Basel, Switzerland</div></div><span class="tagi t-amb" style="margin-left:auto">warm</span></div>
+      <div class="signal">Signal: 15 years in senior innovation and strategy roles at Nestlé and P&G (most recently Head of Data Analytics & Digital Innovation, Global Nutrition at Nestlé), reporting into Global Sector CEO on strategic projects. Took a full year off for full-time parenting (Apr 2022-May 2023), came back for an Executive MBA at HEC Paris (completed Jul 2024, "Très Bien" honors and a scholarship), then left Nestlé in Sep 2024 to launch a personal search for an SME in Switzerland or Germany. Strongest fit of the three, closest to Anthony's own corporate-to-acquisition arc.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>8/10</b> (role 9 · pain 9 · timing 8 · relationship 6)</span>
+        <span class="modchip">Temp <b>Warm</b></span>
+        <span class="modchip">Style <b>Analytical / Expressive</b></span>
+        <span class="modchip">Opener <b>Peer Opener</b></span>
+      </div>
+      <div class="hook">"15 years at Nestlé and P&G, a parenting career break, now searching to buy an SME."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 · Connect</div><div class="mtext">Hi Debanjan, 15 years at Nestlé and P&G, a parenting career break, then an HEC Paris EMBA, now searching to buy an SME yourself, that's a real arc. I made a similar jump from finance into buying a business outside my lane. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 · Icebreaker</div><div class="mtext">Taking a full year for full-time parenting, then coming back for an Executive MBA at HEC Paris, then launching a search to buy an SME in Switzerland or Germany, that's a lot of deliberate reflection before a big move. What made the parenting break the thing that clarified it?</div></div>
+        <div class="m"><div class="mlabel">3 · Value-add</div><div class="mtext">Your framing about securing a seller's legacy with no predefined holding period, rather than optimising for an exit multiple, is not how most searchers talk. Has that patience been an asset or a liability so far in conversations with owners?</div></div>
+        <div class="m"><div class="mlabel">4 · Pivot</div><div class="mtext">Different question: after 15 years inside Nestlé and P&G's innovation machine, does owning one SME feel smaller in scale, or exactly the point after that pace?</div></div>
+        <div class="m"><div class="mlabel">5 · Clean exit</div><div class="mtext">No pressure to respond, Debanjan. Respect the thinking that went into this move, most people don't take a full year to get clear before acting. If the search ever needs a perspective from someone who bought into a business he knew nothing about, I'm around.</div></div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">DN</div><div><div class="nm">David Neff</div><div class="rl">Entrepreneurship Through Acquisition, self-employed · New York, USA</div></div><span class="tagi t-amb" style="margin-left:auto">warm</span></div>
+      <div class="signal">Signal: NYU Stern MBA, left a management consulting role at SSA & Company in Jan 2025 to launch a solo, self-funded acquisition search, now roughly 18 months in with no deal closed. Earlier career spanned Morgan Stanley wealth management and healthcare/tech investing at RAB Ventures.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>7/10</b> (role 8 · pain 8 · timing 7 · relationship 6)</span>
+        <span class="modchip">Temp <b>Warm</b></span>
+        <span class="modchip">Style <b>Analytical</b></span>
+        <span class="modchip">Opener <b>Peer Opener</b></span>
+      </div>
+      <div class="hook">"Left management consulting for a solo search, eighteen months in, no deal yet."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 · Connect</div><div class="mtext">Hi David, leaving management consulting to search solo for a business is a real bet on yourself. I made a similar jump from finance into buying something outside my lane. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 · Icebreaker</div><div class="mtext">Eighteen months into a self-funded search after consulting at SSA & Company, that's long enough to have hit real friction. What's been the hardest part of searching without a team or a fund behind you?</div></div>
+        <div class="m"><div class="mlabel">3 · Value-add</div><div class="mtext">Going from wealth management at Morgan Stanley early on, to healthcare and tech investing at RAB Ventures, to consulting, to now searching solo, that's a lot of vantage points on the same question of where to put your energy. Has that range made the search faster, or just made you pickier?</div></div>
+        <div class="m"><div class="mlabel">4 · Pivot</div><div class="mtext">Different one: NYU Stern teaches plenty of strategy and accounting, did any of it actually prepare you for the parts of a search that aren't on a spreadsheet?</div></div>
+        <div class="m"><div class="mlabel">5 · Clean exit</div><div class="mtext">No pressure to reply, David. Respect the solo search, that's a genuinely lonely road some days. If eighteen months in ever needs an outside voice, I've made my own version of that leap, happy to talk.</div></div>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">AA</div><div><div class="nm">Alexander Amirian</div><div class="rl">Entrepreneurship Through Acquisition, self-employed · Los Angeles, USA</div></div><span class="tagi t-amb" style="margin-left:auto">warm</span></div>
+      <div class="signal">Signal: spent 4 years at ServiceTitan (SaaS for home service businesses) working directly with hundreds of home service owners, then launched a personal, capital-backed acquisition search in Jan 2024, now roughly 2.5 years in. Explicitly frames his search around preserving a seller's legacy and team continuity over a rushed exit.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>7/10</b> (role 6 · pain 7 · timing 6 · relationship 5)</span>
+        <span class="modchip">Temp <b>Warm</b></span>
+        <span class="modchip">Style <b>Amiable</b></span>
+        <span class="modchip">Opener <b>Peer Opener</b></span>
+      </div>
+      <div class="hook">"Spent 4 years inside ServiceTitan's home-service world, now buying one of his own."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 · Connect</div><div class="mtext">Hi Alexander, four years inside ServiceTitan working with home service owners, now searching to buy one yourself, that's a natural bridge. I made a similar jump from finance into buying a business outside my lane. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 · Icebreaker</div><div class="mtext">Spending four years watching hundreds of home service owners run their businesses from the ServiceTitan side, then deciding to buy one yourself, what convinced you it was time to stop advising from the outside?</div></div>
+        <div class="m"><div class="mlabel">3 · Value-add</div><div class="mtext">Your line about protecting what's been built rather than chasing a rushed exit is the exact mindset that determines whether a seller trusts you enough to actually hand over the keys. Has that framing helped you get further in conversations with owners?</div></div>
+        <div class="m"><div class="mlabel">4 · Pivot</div><div class="mtext">Different question: two and a half years in, does the ServiceTitan network make sourcing easier, or is it still mostly cold ground?</div></div>
+        <div class="m"><div class="mlabel">5 · Clean exit</div><div class="mtext">No pressure to respond, Alexander. Respect the patience this search has taken. If it ever helps to talk to someone who bought into an industry he knew nothing about and made it work, I'm around.</div></div>
+      </div>
+    </div>
+
+    <div class="sec">Pipeline review</div>
+    <div class="card"><div style="font-size:14px;color:var(--gray-text)">Still no pipeline document on file, this step is skipped again. You're thinking over the questions needed to set it up (active conversations, clients to check on, your most worried-about deal), whenever you're ready I'll build it and this section stops getting skipped.</div></div>
+
+    <div class="note">Open <b>Debanjan Sengupta</b> first, the closest mirror of your own path in this batch: senior corporate career, a deliberate pause to get clear, then the leap. David Neff and Alexander Amirian are both mid-search with real duration behind them, good second and third picks. Every DM here is a draft. You send, after you read it.</div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>Built by Daniel Paul · Purely Personal</b></footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    window.addEventListener('load',function(){
+      if(!window.gsap)return; gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.ohead',{y:26,opacity:0,scale:.98,duration:.7,ease:'power3.out'});
+      gsap.from('.ohead h1',{y:14,opacity:0,duration:.7,delay:.12,ease:'power3.out'});
+      gsap.from('.card,.stat,.pcard,.note',{y:20,opacity:0,duration:.5,stagger:.05,ease:'power2.out',scrollTrigger:{trigger:'.doc',start:'top 85%'}});
+    });
+  </script>
+</body>
+</html>

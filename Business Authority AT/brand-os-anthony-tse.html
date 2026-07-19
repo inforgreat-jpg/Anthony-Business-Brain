@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brand OS · Anthony Tse · Institute for Greatness</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Poppins:wght@300;400;500;600;700;800&family=Oswald:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Colors extracted from IFG brand logos · Primary: #E8521A · Secondary: #1A1A1A */
+:root {
+  --primary: #E8521A;
+  --primary-dark: #C44010;
+  --primary-light: #F07040;
+  --primary-rgb: 232, 82, 26;
+  --bg-page: #0A0A0A;
+  --bg-card: #111111;
+  --bg-card-2: #181818;
+  --bg-card-3: #1F1F1F;
+  --border: rgba(255,255,255,0.07);
+  --border-bright: rgba(255,255,255,0.13);
+  --text-primary: #FFFFFF;
+  --text-secondary: rgba(255,255,255,0.60);
+  --text-muted: rgba(255,255,255,0.30);
+  --r-sm: 8px; --r-md: 16px; --r-lg: 24px; --r-xl: 32px; --r-pill: 9999px;
+  --shadow-card: 0 4px 24px rgba(0,0,0,0.5);
+  --shadow-glow: 0 0 40px rgba(232,82,26,0.18);
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-heading: 'Oswald', sans-serif;
+  --font-body: 'Poppins', system-ui, sans-serif;
+  --font-mono: 'DM Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--bg-page); color: var(--text-primary); -webkit-font-smoothing: antialiased; min-height: 100vh; }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-card); }
+::-webkit-scrollbar-thumb { background: rgba(232,82,26,0.35); border-radius: 3px; }
+
+/* COVER */
+.cover {
+  min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 80px 24px; text-align: center;
+  background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(232,82,26,0.08) 0%, transparent 65%);
+}
+.cover__dot { width: 12px; height: 12px; border-radius: 50%; background: var(--primary); margin: 0 auto 32px; box-shadow: var(--shadow-glow); }
+.cover__brand { font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--primary); margin-bottom: 24px; }
+.cover__name { font-family: var(--font-display); font-size: clamp(40px, 7vw, 72px); font-weight: 900; letter-spacing: -0.03em; line-height: 1.0; margin-bottom: 12px; }
+.cover__biz { font-family: var(--font-display); font-size: clamp(18px, 3vw, 28px); font-weight: 700; color: var(--primary); margin-bottom: 32px; }
+.cover__subtitle { font-size: 15px; color: var(--text-secondary); margin-bottom: 48px; }
+.cover__pills { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.cover__pill { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--primary); background: rgba(232,82,26,0.08); border: 1px solid rgba(232,82,26,0.25); padding: 6px 16px; border-radius: var(--r-pill); }
+.cover__scroll { margin-top: 60px; font-size: 12px; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; }
+
+/* TABS NAV */
+.tabs-nav { position: sticky; top: 0; z-index: 100; background: rgba(10,10,10,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-bright); }
+.tabs-nav__inner { max-width: 900px; margin: 0 auto; display: flex; padding: 0 24px; overflow-x: auto; scrollbar-width: none; }
+.tabs-nav__inner::-webkit-scrollbar { display: none; }
+.tab-btn { font-family: var(--font-body); font-size: 13px; font-weight: 600; color: var(--text-muted); background: transparent; border: none; border-bottom: 2px solid transparent; padding: 16px 20px; cursor: pointer; white-space: nowrap; transition: color 0.2s, border-color 0.2s; letter-spacing: 0.02em; }
+.tab-btn:hover { color: var(--text-secondary); }
+.tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
+
+/* PANELS */
+.tab-panel { display: none; max-width: 900px; margin: 0 auto; padding: 48px 24px 80px; }
+.tab-panel.active { display: block; }
+
+/* CARDS */
+.card { background: var(--bg-card); border: 1px solid var(--border-bright); border-radius: var(--r-xl); padding: 32px; margin-bottom: 24px; }
+.card--accent { border-color: rgba(232,82,26,0.3); background: linear-gradient(135deg, rgba(232,82,26,0.06) 0%, var(--bg-card) 60%); }
+.card--full { border-radius: var(--r-xl); }
+
+.section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--primary); margin-bottom: 20px; }
+.section-title { font-family: var(--font-display); font-size: clamp(22px, 3vw, 32px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 12px; line-height: 1.2; }
+.section-body { font-size: 15px; color: var(--text-secondary); line-height: 1.8; }
+
+/* TABLES */
+.data-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.data-table th { text-align: left; font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); padding: 10px 16px; border-bottom: 1px solid var(--border-bright); }
+.data-table td { padding: 14px 16px; border-bottom: 1px solid var(--border); color: var(--text-secondary); line-height: 1.6; vertical-align: top; }
+.data-table td:first-child { color: var(--primary); font-weight: 600; font-size: 12px; white-space: nowrap; min-width: 160px; }
+.data-table tr:last-child td { border-bottom: none; }
+
+/* GRID */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 640px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+
+/* PILLARS */
+.pillar { background: var(--bg-card-2); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 24px; }
+.pillar__quote { font-family: var(--font-display); font-size: 16px; font-weight: 800; color: var(--text-primary); margin-bottom: 16px; line-height: 1.4; }
+.pillar__label { font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--primary); margin-bottom: 6px; }
+.pillar__text { font-size: 13px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 12px; }
+
+/* HOOKS */
+.hooks-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 640px) { .hooks-grid { grid-template-columns: 1fr; } }
+.hook-card { background: var(--bg-card-2); border: 1px solid var(--border); border-radius: var(--r-md); padding: 16px; font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+.hook-card--pos { border-left: 2px solid #22C55E; }
+.hook-card--neg { border-left: 2px solid #EF4444; }
+.hook-num { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); margin-bottom: 6px; display: block; }
+
+/* UVP CARDS */
+.uvp-stack { display: flex; flex-direction: column; gap: 12px; }
+.uvp-card { background: var(--bg-card-2); border: 1px solid var(--border-bright); border-radius: var(--r-lg); padding: 20px 24px; }
+.uvp-card__label { font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--primary); margin-bottom: 10px; }
+.uvp-card__text { font-size: 15px; color: var(--text-primary); line-height: 1.7; }
+
+/* STORY STEPS */
+.story-steps { display: flex; flex-direction: column; gap: 0; }
+.story-step { display: flex; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--border); }
+.story-step:last-child { border-bottom: none; }
+.story-step__num { font-family: var(--font-mono); font-size: 11px; color: var(--primary); min-width: 32px; padding-top: 2px; }
+.story-step__title { font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; letter-spacing: 0.02em; }
+.story-step__body { font-size: 14px; color: var(--text-secondary); line-height: 1.75; }
+
+/* TAGLINES */
+.tagline-list { display: flex; flex-direction: column; gap: 10px; }
+.tagline-item { background: var(--bg-card-2); border: 1px solid var(--border); border-radius: var(--r-md); padding: 16px 20px; display: flex; align-items: center; gap: 12px; font-size: 15px; color: var(--text-primary); }
+.tagline-item.recommended { border-color: rgba(232,82,26,0.4); background: rgba(232,82,26,0.06); }
+.tagline-num { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); min-width: 24px; }
+.tagline-badge { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--primary); background: rgba(232,82,26,0.12); padding: 3px 10px; border-radius: var(--r-pill); white-space: nowrap; }
+
+/* DO/DON'T */
+.do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 600px) { .do-dont { grid-template-columns: 1fr; } }
+.do-list, .dont-list { background: var(--bg-card-2); border-radius: var(--r-lg); padding: 20px; }
+.do-list { border-left: 3px solid #22C55E; }
+.dont-list { border-left: 3px solid #EF4444; }
+.do-list__title, .dont-list__title { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 14px; }
+.do-list__title { color: #22C55E; }
+.dont-list__title { color: #EF4444; }
+.do-list li, .dont-list li { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 10px; margin-left: 14px; }
+
+/* VILLAIN CARD */
+.villain-card { background: rgba(239,68,68,0.05); border: 1px solid rgba(239,68,68,0.2); border-radius: var(--r-xl); padding: 32px; margin-bottom: 24px; }
+.villain-card .section-label { color: #EF4444; }
+.villain-text { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--text-primary); line-height: 1.5; }
+
+/* OUTCOME CARD */
+.outcome-card { background: rgba(34,197,94,0.05); border: 1px solid rgba(34,197,94,0.2); border-radius: var(--r-xl); padding: 32px; margin-bottom: 24px; }
+
+/* POSITIONING STATEMENT */
+.positioning-card { background: rgba(232,82,26,0.06); border: 2px solid rgba(232,82,26,0.3); border-radius: var(--r-xl); padding: 40px; margin-bottom: 24px; text-align: center; }
+.positioning-card .positioning-text { font-family: var(--font-display); font-size: clamp(18px, 2.5vw, 24px); font-weight: 800; line-height: 1.5; color: var(--text-primary); }
+.positioning-card .positioning-text em { color: var(--primary); font-style: normal; }
+
+/* OFFER CARDS */
+.offer-card { background: var(--bg-card-2); border: 1px solid var(--border-bright); border-radius: var(--r-lg); padding: 24px; margin-bottom: 16px; }
+.offer-card__name { font-weight: 700; font-size: 16px; color: var(--text-primary); margin-bottom: 4px; }
+.offer-card__price { font-family: var(--font-mono); font-size: 13px; color: var(--primary); margin-bottom: 16px; }
+.offer-card__detail { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
+.offer-flow { background: var(--bg-card-3); border-radius: var(--r-lg); padding: 20px 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font-size: 13px; color: var(--text-secondary); margin-top: 8px; }
+.offer-flow__step { color: var(--text-primary); font-weight: 600; }
+.offer-flow__arrow { color: var(--primary); }
+
+/* PROOF CARDS */
+.proof-card { background: var(--bg-card-2); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 24px; margin-bottom: 16px; }
+.proof-card__label { font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--primary); margin-bottom: 12px; }
+.proof-before-after { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+@media (max-width: 520px) { .proof-before-after { grid-template-columns: 1fr; } }
+.proof-col { background: var(--bg-card-3); border-radius: var(--r-md); padding: 14px; }
+.proof-col__title { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
+.proof-col--before .proof-col__title { color: #EF4444; }
+.proof-col--after .proof-col__title { color: #22C55E; }
+.proof-col__text { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+/* PRESENCE GRID */
+.presence-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px,1fr)); gap: 12px; }
+.presence-item { background: var(--bg-card-2); border: 1px solid var(--border); border-radius: var(--r-md); padding: 14px; text-align: center; font-size: 12px; color: var(--text-secondary); }
+.presence-item a { color: var(--primary); text-decoration: none; font-size: 11px; }
+
+/* VOICE CHIPS */
+.voice-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.chip { font-size: 12px; font-weight: 600; color: var(--text-secondary); background: var(--bg-card-3); border: 1px solid var(--border-bright); padding: 5px 14px; border-radius: var(--r-pill); }
+.chip--use { border-color: rgba(232,82,26,0.3); color: var(--primary); background: rgba(232,82,26,0.06); }
+.chip--avoid { border-color: rgba(239,68,68,0.25); color: rgba(239,68,68,0.7); background: rgba(239,68,68,0.04); }
+
+/* FOOTER */
+footer { text-align: center; padding: 40px 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--text-muted); letter-spacing: 0.12em; text-transform: uppercase; }
+footer span { color: var(--primary); }
+
+/* DIVIDER */
+.divider { height: 1px; background: var(--border); margin: 32px 0; }
+
+/* QUOTE BLOCK */
+.quote-block { border-left: 3px solid var(--primary); padding: 16px 20px; margin: 16px 0; font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--text-primary); line-height: 1.5; background: rgba(232,82,26,0.04); border-radius: 0 var(--r-md) var(--r-md) 0; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover__dot"></div>
+  <div class="cover__brand">Business Authority Foundation · Purely Personal · by Daniel Paul</div>
+  <h1 class="cover__name">Anthony Tse</h1>
+  <p class="cover__biz">Institute for Greatness</p>
+  <p class="cover__subtitle">Complete Brand Strategy · June 2026</p>
+  <div class="cover__pills">
+    <span class="cover__pill">ICP</span>
+    <span class="cover__pill">Messaging House</span>
+    <span class="cover__pill">Rule of 1</span>
+    <span class="cover__pill">Brand Positioning</span>
+    <span class="cover__pill">Business Inbox</span>
+  </div>
+  <div class="cover__scroll">↓ Scroll to begin</div>
+</section>
+
+<!-- TABS NAV -->
+<nav class="tabs-nav">
+  <div class="tabs-nav__inner">
+    <button class="tab-btn active" data-panel="icp">ICP</button>
+    <button class="tab-btn" data-panel="messaging">Messaging House</button>
+    <button class="tab-btn" data-panel="rule1">Rule of 1</button>
+    <button class="tab-btn" data-panel="positioning">Brand Positioning</button>
+    <button class="tab-btn" data-panel="inbox">Business Inbox</button>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- TAB 1: ICP -->
+<!-- ══════════════════════════════════════════════ -->
+<section id="icp" class="tab-panel active">
+
+  <div class="card card--accent">
+    <div class="section-label">Ideal Customer Profile</div>
+    <div class="section-title">Who Anthony Does His Best Work With</div>
+    <div class="section-body">Senior professionals, executives, and career changers who are high-performing but unfulfilled — succeeding by every external measure, quietly wondering if they're building the right thing.</div>
+  </div>
+
+  <div class="card">
+    <div class="section-label">Section 1 — Business Snapshot</div>
+    <table class="data-table">
+      <tr><td>Name</td><td>Anthony Tse</td></tr>
+      <tr><td>Role / Title</td><td>Executive Coach, Career Coach, Business Coach, Professional Speaker</td></tr>
+      <tr><td>Industry / Niche</td><td>Executive coaching, leadership development, Entrepreneurship Through Acquisition (ETA)</td></tr>
+      <tr><td>Who They Serve</td><td>Senior professionals, executives, career changers, SME business owners at inflection points</td></tr>
+      <tr><td>Core Offer</td><td>10-session 1:1 coaching program + ETA online masterclass + corporate training</td></tr>
+      <tr><td>Mission</td><td>To help ambitious professionals lead better, pivot boldly, and acquire the freedom and ownership they deserve</td></tr>
+      <tr><td>Primary Outcome</td><td>Clients shift how they define leadership, presence, and freedom — and act from that new definition</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="section-label">Section 2 — Ideal Client Profile</div>
+    <table class="data-table">
+      <tr><td>Who They Are</td><td>Senior professionals, C-suite executives, founders, and career changers who are capable, stuck, and not convinced a certified coach with no real-world scars can get them unstuck</td></tr>
+      <tr><td>Business Stage</td><td>Scaling (SME owners at inflection point) or mid-to-senior corporate (VP / Director level and above)</td></tr>
+      <tr><td>Decision Maker Type</td><td>Individual — self-motivated, self-funded, not waiting for HR to send them</td></tr>
+      <tr><td>Geography</td><td>Singapore (primary); Asia-Pacific; North America via online</td></tr>
+      <tr><td>Budget Range</td><td>SGD 6,000 (coaching); SGD/USD 488–888 (masterclass); SGD 3,000–5,000 (speaking)</td></tr>
+      <tr><td>Where They Hang Out</td><td>LinkedIn (primary); referral networks; training and coaching company ecosystems</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="section-label">Section 3 — Core Problems</div>
+    <div class="grid-2" style="margin-bottom:20px">
+      <div class="pillar">
+        <div class="pillar__label">The Career Changer</div>
+        <div class="pillar__text">Stuck in a job that pays well but doesn't fulfill them. Conditioned to think linearly — put in time, get promoted — but unable to see other paths to the career or life they actually want.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar__label">The Executive</div>
+        <div class="pillar__text">Good at doing things but struggles with the <em>why</em> — for themselves and their teams. Conflates leadership presence with face time, talking with communicating, showing up with showing impact.</div>
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pillar__label">The Business Buyer</div>
+      <div class="pillar__text">Wants freedom through ownership but is stuck in a false binary: quit the job now and grind, or stay trapped. Hasn't seen a third path — using a salary to compound business acquisitions toward freedom faster.</div>
+    </div>
+    <div class="divider"></div>
+    <div class="section-label">Why They Haven't Solved It Yet</div>
+    <div class="section-body">They've tried to figure it out alone — or hired a certified coach who worked from a playbook with no real-world scars. What's missing is a mentor-coach: someone who has failed publicly, rebuilt repeatedly, and can say <em>"I've been exactly where you are"</em> — and mean it.</div>
+  </div>
+
+  <div class="card">
+    <div class="section-label">Section 4 — What They Want Instead</div>
+    <div class="grid-3">
+      <div class="pillar">
+        <div class="pillar__label">Tangible Outcome</div>
+        <div class="pillar__text">A concrete plan — whether a leadership approach that actually works, a business acquisition in motion, or a career pivot with a roadmap not just a vision.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar__label">Emotional Outcome</div>
+        <div class="pillar__text">To feel genuinely capable — not just validated. To feel that mistakes are part of the journey, not evidence they're behind.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar__label">Identity Outcome</div>
+        <div class="pillar__text">To see themselves as a leader, owner, or builder without needing a title, a timeline, or someone else's permission.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-label">Section 5 — What Frustrates Them About Other Options</div>
+    <table class="data-table">
+      <thead><tr><th>Frustration</th><th>Why It Matters</th></tr></thead>
+      <tr><td>Coaches with no real-world experience</td><td>The advice feels textbook-clean but life-untested — clients can feel it immediately</td></tr>
+      <tr><td>Generic leadership frameworks</td><td>High-performers need specificity; broad models feel built for someone else</td></tr>
+      <tr><td>Motivational content without actionable systems</td><td>They're not lacking inspiration — they're lacking a clear, practical next step</td></tr>
+      <tr><td>Coaches who haven't failed, pivoted, or built anything</td><td>Credibility gap: they can't be coached through something by someone who hasn't been through it</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="section-label">Section 6 — Behavioral & Decision Insights</div>
+    <table class="data-table">
+      <tr><td>Buying Triggers</td><td>A moment of clarity that the current path leads nowhere different; a peer who already worked with Anthony; a LinkedIn post that makes them say "that's me"</td></tr>
+      <tr><td>Emotional Drivers</td><td>Desire for freedom and ownership; fear of waking up at 60 still unfulfilled; ambition to build something real</td></tr>
+      <tr><td>Common Objections</td><td>"Is coaching worth SGD 6,000?" — resolved when they see Anthony's credibility is earned, not certified</td></tr>
+      <tr><td>Decision Speed</td><td>Moderate — they think before committing, but once convinced they move decisively</td></tr>
+      <tr><td>Trust Factors</td><td>Real-world proof (failures + successes), LinkedIn testimonials, the "been there done that" credential no certificate can replicate</td></tr>
+    </table>
+  </div>
+
+  <div class="card card--accent">
+    <div class="section-label">Section 7 — ICP Persona Summary</div>
+    <div class="section-body">Anthony's ideal client is a high-performing professional in their 35–55 range — senior enough to have achieved what they were told to chase, honest enough to admit it hasn't brought what they expected. They're not failing. They're excelling by external measures and quietly frustrated by it. They want a coach who has walked the actual road, not studied the map. They are open to being challenged, allergic to being patronized, and willing to move when they believe the path is real. They don't need inspiration. They need someone who can help them see the next move clearly and hold them accountable to actually making it.</div>
+  </div>
+
+  <div class="card">
+    <div class="section-label">Section 8 — Content Direction from ICP</div>
+    <table class="data-table">
+      <tr><td>Topics That Resonate</td><td>Redefining leadership, freedom through ownership, ETA as a path for professionals, the false binaries in career and business decisions, pivot stories from real people</td></tr>
+      <tr><td>Tone That Connects</td><td>Direct, peer-level, grounded in real experience — not preachy, not polished-sales. Conversational authority: the tone of someone who has earned the right to say it</td></tr>
+      <tr><td>Proof They Need</td><td>LinkedIn testimonials from recognizable roles (DHL, Cathay Pacific); specific transformation stories; Anthony's own pivot narrative in concrete terms</td></tr>
+      <tr><td>What to Avoid</td><td>"Unlock your potential" / "Transform your mindset" / anything that sounds like it came from a certification manual. No jargon. No inspiration without evidence.</td></tr>
+    </table>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- TAB 2: MESSAGING HOUSE -->
+<!-- ══════════════════════════════════════════════ -->
+<section id="messaging" class="tab-panel">
+
+  <div class="card card--accent">
+    <div class="section-label">The Foundation</div>
+    <div class="section-title">The Central Tension</div>
+    <div class="section-body" style="margin-bottom:20px">Most senior professionals are good at doing things. They've optimized for execution, promotions, and external markers of success — and somewhere along the way they stopped questioning whether any of it is pointing somewhere they want to go. They know something is off. They just don't have language for it, a path through it, or a person who has been there.</div>
+    <div class="section-label">The Unique Messaging Angle</div>
+    <div class="section-body">Anthony is not a certified coach with a playbook. He is a mentor-coach who has lived the thing — laid off in a financial crisis, started a hedge fund, acquired and scaled businesses, pivoted industries repeatedly as an introvert who became a public speaker. He can say "I've been exactly where you are" and prove it. That message no competitor can make.</div>
+  </div>
+
+  <div class="card">
+    <div class="section-label">Unique Value Proposition</div>
+    <div class="uvp-stack">
+      <div class="uvp-card">
+        <div class="uvp-card__label">Short · 10–15 words</div>
+        <div class="uvp-card__text">A mentor-coach who has actually been there — and built the map back.</div>
+      </div>
+      <div class="uvp-card">
+        <div class="uvp-card__label">Medium · 25–35 words</div>
+        <div class="uvp-card__text">Anthony Tse coaches executives, career changers, and business buyers through the pivots most coaches have only studied. Because he has failed, rebuilt, and exited — he can take you somewhere textbook advice never could.</div>
+      </div>
+      <div class="uvp-card">
+        <div class="uvp-card__label">Long · 50–75 words</div>
+        <div class="uvp-card__text">Most coaches are trained. Anthony Tse has been tested. He's been laid off, started and closed a hedge fund, acquired and scaled businesses to 50+ staff, and pivoted from introvert to TEDx speaker. He coaches executives who are great at doing things but lost the why, career changers stuck in a false binary, and professionals learning to buy businesses and build real freedom. His coaching doesn't come from a certification. It comes from a life.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-label">Messaging Pillars</div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div class="pillar">
+        <div class="pillar__quote">"Being a great leader is not about showing face — it's about knowing when your presence actually matters."</div>
+        <div class="pillar__label">Why it matters</div>
+        <div class="pillar__text">Executives waste enormous energy on face time and performative presence — and their teams notice, and resent it.</div>
+        <div class="pillar__label">Proof point</div>
+        <div class="pillar__text">The client who freed up hours by redefining "presence" — and whose staff felt <em>more</em> connected as a result.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar__quote">"You don't have to quit your job to build freedom — you can use your salary to buy your way there faster."</div>
+        <div class="pillar__label">Why it matters</div>
+        <div class="pillar__text">Career changers are stuck in a false binary: grind as an entrepreneur or stay trapped in corporate.</div>
+        <div class="pillar__label">Proof point</div>
+        <div class="pillar__text">The client who stayed in his job, bought businesses run by hired operators, and compounded his way to freedom faster than quitting would have allowed.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar__quote">"Experience without certificates beats certificates without experience — every time."</div>
+        <div class="pillar__label">Why it matters</div>
+        <div class="pillar__text">The coaching market is flooded with certified coaches who have never failed, never built anything, and never had to bet on themselves.</div>
+        <div class="pillar__label">In their words</div>
+        <div class="pillar__text"><em>"They've tried other coaches but other coaches don't have practical real-life experience that the coachees can look up to or relate to."</em></div>
+      </div>
+      <div class="pillar">
+        <div class="pillar__quote">"The question isn't what you do — it's what you're actually worth your time doing."</div>
+        <div class="pillar__label">Why it matters</div>
+        <div class="pillar__text">Executives and business owners consistently misallocate their time because they haven't asked what their time is actually worth.</div>
+        <div class="pillar__label">In their words</div>
+        <div class="pillar__text"><em>"What is the value of your time?"</em></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-label">Emotional Landscape</div>
+    <div class="grid-2">
+      <div>
+        <div class="pillar__label" style="margin-bottom:12px">What Drives Them to Act</div>
+        <div class="story-step" style="padding:12px 0"><div class="story-step__num">ID</div><div><div class="story-step__title" style="margin-bottom:4px">Identity</div><div class="story-step__body">"I want to be seen as someone who built something real, not just climbed a ladder."</div></div></div>
+        <div class="story-step" style="padding:12px 0"><div class="story-step__num">WIN</div><div><div class="story-step__title" style="margin-bottom:4px">Achievement</div><div class="story-step__body">"I want to finally feel like I'm moving toward something I actually chose."</div></div></div>
+        <div class="story-step" style="padding:12px 0"><div class="story-step__num">OUT</div><div><div class="story-step__title" style="margin-bottom:4px">Relief</div><div class="story-step__body">"I want to stop having to pretend the title and salary are enough."</div></div></div>
+        <div class="story-step" style="padding:12px 0;border-bottom:none"><div class="story-step__num">FEEL</div><div><div class="story-step__title" style="margin-bottom:4px">Connection</div><div class="story-step__body">"I want to feel genuinely capable — not just competent at what I was told to be good at."</div></div></div>
+      </div>
+      <div>
+        <div class="pillar__label" style="margin-bottom:12px">What Blocks Them</div>
+        <div class="story-step" style="padding:12px 0"><div class="story-step__num">F</div><div><div class="story-step__title" style="margin-bottom:4px">Fear Barrier</div><div class="story-step__body">They've built their identity around a job they don't love — and leaving it means facing that.</div></div></div>
+        <div class="story-step" style="padding:12px 0"><div class="story-step__num">R</div><div><div class="story-step__title" style="margin-bottom:4px">Resource Barrier</div><div class="story-step__body">They don't yet believe coaching delivers something a book or peer conversation can't.</div></div></div>
+        <div class="story-step" style="padding:12px 0"><div class="story-step__num">B</div><div><div class="story-step__title" style="margin-bottom:4px">Belief Barrier</div><div class="story-step__body">"I should be able to figure this out on my own." The self-sufficiency that made them successful is what keeps them stuck.</div></div></div>
+        <div class="story-step" style="padding:12px 0;border-bottom:none"><div class="story-step__num">T</div><div><div class="story-step__title" style="margin-bottom:4px">Timing Barrier</div><div class="story-step__body">"Now isn't the right time" often means: I'm not ready to see what I'd have to change.</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-label">Brand Voice Guidelines</div>
+    <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:20px">
+      <div class="pillar"><div class="pillar__quote">Direct</div><div class="pillar__text">Get to the point, skip the preamble, lead with the observation. <strong>Do:</strong> "The real problem isn't your leadership style — it's that you haven't defined what leadership means to you." <strong>Don't:</strong> "Have you ever considered exploring your relationship with leadership?"</div></div>
+      <div class="pillar"><div class="pillar__quote">Grounded in real experience</div><div class="pillar__text">Every claim has an "I've been through this" anchor. <strong>Do:</strong> "I was laid off in 2008. That's where this started." <strong>Don't:</strong> "Research shows that..."</div></div>
+      <div class="pillar"><div class="pillar__quote">Practical and action-oriented</div><div class="pillar__text">End every insight with a usable frame or question. <strong>Do:</strong> "Ask yourself: what is the value of your time in the job vs. the business?" <strong>Don't:</strong> "It's important to reflect on your priorities."</div></div>
+      <div class="pillar"><div class="pillar__quote">Warm but unsparing</div><div class="pillar__text">Challenge because you respect them. <strong>Do:</strong> "You keep saying you want freedom, but every decision you're making is optimizing for security. Which one is actually true?" <strong>Don't:</strong> "That's a really interesting perspective."</div></div>
+    </div>
+    <div class="section-label">Words to Use</div>
+    <div class="voice-chips" style="margin-bottom:20px">
+      <span class="chip chip--use">practical</span><span class="chip chip--use">real-life</span><span class="chip chip--use">pivot</span><span class="chip chip--use">freedom</span><span class="chip chip--use">ownership</span><span class="chip chip--use">walk many paths</span><span class="chip chip--use">been there done that</span><span class="chip chip--use">compound</span><span class="chip chip--use">reframe</span><span class="chip chip--use">accountability</span><span class="chip chip--use">mentor-coach</span><span class="chip chip--use">inflection point</span><span class="chip chip--use">simplify</span><span class="chip chip--use">action-oriented</span>
+    </div>
+    <div class="section-label">Words to Avoid</div>
+    <div class="voice-chips">
+      <span class="chip chip--avoid">unlock your potential</span><span class="chip chip--avoid">mindset transformation</span><span class="chip chip--avoid">holistic approach</span><span class="chip chip--avoid">paradigm shift</span><span class="chip chip--avoid">synergy</span><span class="chip chip--avoid">empower</span><span class="chip chip--avoid">thought leader</span><span class="chip chip--avoid">leverage (as verb)</span><span class="chip chip--avoid">curate</span>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- TAB 3: RULE OF 1 -->
+<!-- ══════════════════════════════════════════════ -->
+<section id="rule1" class="tab-panel">
+
+  <div class="card card--accent">
+    <div class="section-label">The One Focus</div>
+    <div class="grid-2">
+      <div><div class="pillar__label">One Avatar</div><div class="section-body">The Unfulfilled High-Performer — a senior professional who has ticked every box and is quietly wondering if they ticked the wrong ones</div></div>
+      <div><div class="pillar__label">One Outcome</div><div class="section-body">Move from high-performing but unfulfilled to high-performing and actually building the life and business they chose</div></div>
+      <div><div class="pillar__label">One Problem</div><div class="section-body">They have been programmed to think linearly — put in time, get promoted, repeat — and nobody has shown them a different map</div></div>
+      <div><div class="pillar__label">One Solution</div><div class="section-body">Expose false definitions → Rebuild with frameworks from someone who has walked multiple paths → Execute with accountability until the plan is real</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-label">One Avatar — The Unfulfilled High-Performer</div>
+    <div class="section-body" style="margin-bottom:20px">It's 9pm on a Tuesday. They're still at their laptop — not because there's a deadline, but because going home means having to think. They've been promoted twice in four years. Their LinkedIn looks great. The salary is real. And somewhere between the last performance review and this moment, they've started asking a question they don't have a safe answer for: <em>Is this it?</em></div>
+    <div class="section-label">Turning Point Trigger</div>
+    <div class="section-body" style="margin-bottom:20px">A peer announces they've bought a business or made a major career shift. Or they get passed over for a role they didn't even want. Or they sit in a leadership meeting and realize they're performing a role designed for someone else's definition of success.</div>
+    <div class="section-label">Internal Monologue</div>
+    <div class="quote-block">"I should be able to figure this out on my own. I've figured out harder things. But I've been sitting with this for two years and nothing's changed. Maybe I'm afraid of what I'd have to give up. I want freedom — but I don't know what that actually looks like for me. And I'm not sure any coach has actually been through what I'm going through."</div>
+  </div>
+
+  <div class="villain-card">
+    <div class="section-label">One Problem — The Villain</div>
+    <div class="grid-3" style="margin-bottom:20px">
+      <div class="pillar"><div class="pillar__label">External</div><div class="pillar__text">Trapped in a linear career path built by convention, not design — lacking both the map and the model to see a different route.</div></div>
+      <div class="pillar"><div class="pillar__label">Internal</div><div class="pillar__text">Feel fraudulent — successful at something that doesn't feel like theirs, afraid to say it, convinced they should have figured this out by now.</div></div>
+      <div class="pillar"><div class="pillar__label">Philosophical</div><div class="pillar__text">High-performing professionals shouldn't have to sacrifice fulfillment just to maintain the appearance of success.</div></div>
+    </div>
+    <div class="villain-text">"The real problem in the Unfulfilled High-Performer's story is linear conditioning — the unexamined belief that career success means climbing one ladder — which shows up as unfulfillment disguised as stability, makes them feel trapped in an identity they didn't choose, and represents the unfair truth that success on paper rarely comes with instructions for what to do when it's not enough."</div>
+  </div>
+
+  <div class="card">
+    <div class="section-label">One Solution — 3-Step Plan</div>
+    <div class="story-steps">
+      <div class="story-step">
+        <div class="story-step__num">01</div>
+        <div><div class="story-step__title">The Honest Audit</div><div class="story-step__body">Anthony starts by establishing what coaching is and what it isn't — and making a clear distinction between when he functions as a coach and when as a mentor. He asks: what do you want to be coached on, and what does winning actually look like? This step cracks the surface definition to find the real one underneath. Most clients have never been asked to define their own win before.</div></div>
+      </div>
+      <div class="story-step">
+        <div class="story-step__num">02</div>
+        <div><div class="story-step__title">The Reframe and the Road</div><div class="story-step__body">Using a structured devil's advocate approach built from years of investment analysis, Anthony challenges every established thinking the client arrived with — definitions of leadership, presence, freedom, and success. He brings real-world analogies, anecdotes from his own pivots, and assignments that make the reframe practical.</div></div>
+      </div>
+      <div class="story-step">
+        <div class="story-step__num">03</div>
+        <div><div class="story-step__title">The Accountable Execution</div><div class="story-step__body">Every few sessions, Anthony calibrates with the client — seeking feedback, adjusting, holding the line. The client walks out of the program with something real: a new operating definition, a business in motion, a leadership approach that is actually working. Not theory. Evidence.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="outcome-card">
+    <div class="section-label">One Outcome</div>
+    <div class="grid-3" style="margin-bottom:20px">
+      <div class="pillar"><div class="pillar__label">Tangible</div><div class="pillar__text">A concrete plan in action — whether a business acquired, a leadership shift visibly working, or a career pivot with a real roadmap</div></div>
+      <div class="pillar"><div class="pillar__label">Emotional</div><div class="pillar__text">The quiet confidence of someone who finally understands what they're building and why — and knows the next move</div></div>
+      <div class="pillar"><div class="pillar__label">Identity</div><div class="pillar__text">From "successful executor of someone else's plan" to "conscious architect of my own"</div></div>
+    </div>
+    <div class="quote-block">"After working with Anthony Tse, the Unfulfilled High-Performer will have a concrete plan in motion for the life or business they actually chose, feel the quiet confidence of someone who knows their next move, and see themselves as the conscious architect of their own path — not just the best player in someone else's game."</div>
+  </div>
+
+  <div class="card">
+    <div class="section-label">14 Hooks</div>
+    <div class="pillar__label" style="margin-bottom:12px; color:#22C55E">Positive Hooks — Paint the Win</div>
+    <div class="hooks-grid" style="margin-bottom:20px">
+      <div class="hook-card hook-card--pos"><span class="hook-num">P01</span>The executive who freed up 12 hours a week by redefining one word: presence.</div>
+      <div class="hook-card hook-card--pos"><span class="hook-num">P02</span>You don't have to quit your job to build freedom. You might just be using it wrong.</div>
+      <div class="hook-card hook-card--pos"><span class="hook-num">P03</span>What if "I've figured out harder things" is exactly why you're still stuck?</div>
+      <div class="hook-card hook-card--pos"><span class="hook-num">P04</span>The business you could own is already out there. You just need a system to find it.</div>
+      <div class="hook-card hook-card--pos"><span class="hook-num">P05</span>Freedom doesn't come from quitting. It comes from compounding the right decisions.</div>
+      <div class="hook-card hook-card--pos"><span class="hook-num">P06</span>Every client who has worked with me has had one moment where they said: "I didn't know it could be that simple."</div>
+      <div class="hook-card hook-card--pos"><span class="hook-num">P07</span>Three years from now, the only thing that will have changed is your definition of success — and what you're building toward it.</div>
+    </div>
+    <div class="pillar__label" style="margin-bottom:12px; color:#EF4444">Negative Hooks — Call Out the Pain</div>
+    <div class="hooks-grid">
+      <div class="hook-card hook-card--neg"><span class="hook-num">N01</span>You've been successful for years. So why does the next step feel this unclear?</div>
+      <div class="hook-card hook-card--neg"><span class="hook-num">N02</span>Most coaches were trained. They were never tested. There's a difference.</div>
+      <div class="hook-card hook-card--neg"><span class="hook-num">N03</span>Being a leader does not mean being present all the time. It means knowing when your presence actually matters.</div>
+      <div class="hook-card hook-card--neg"><span class="hook-num">N04</span>The longer you stay stuck in this definition of success, the longer you're building the wrong thing.</div>
+      <div class="hook-card hook-card--neg"><span class="hook-num">N05</span>You keep saying you want freedom. But every decision you're making is optimizing for security.</div>
+      <div class="hook-card hook-card--neg"><span class="hook-num">N06</span>The coaching industry is full of people who got a certificate and called themselves experts. That's not a credential. That's a weekend.</div>
+      <div class="hook-card hook-card--neg"><span class="hook-num">N07</span>You haven't failed to figure this out because you're not smart enough. You've failed because you're doing it alone — and with the wrong map.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-label">7-Part Brand Story</div>
+    <div class="story-steps">
+      <div class="story-step"><div class="story-step__num">1</div><div><div class="story-step__title">A Character</div><div class="story-step__body">There's a VP at a regional firm who has been there nine years. Good at the job. Respected by the team. Compensated well. And somewhere in the last two years, she stopped being sure she's building toward anything she actually chose. She attends leadership meetings and performs the role perfectly. She goes home exhausted in a way that isn't about the workload. She wants something different — but she doesn't know what "different" looks like.</div></div></div>
+      <div class="story-step"><div class="story-step__num">2</div><div><div class="story-step__title">Has a Problem</div><div class="story-step__body">The problem isn't her ambition. She has plenty of that. The problem is that nobody ever told her there was more than one map — and she's been optimizing for the wrong destination. She tried a certified coach two years ago. The advice was clean, but it wasn't earned. And she could feel it. So she's back to figuring it out alone. And she's still stuck.</div></div></div>
+      <div class="story-step"><div class="story-step__num">3</div><div><div class="story-step__title">Meets a Guide</div><div class="story-step__body">Anthony Tse knows this feeling from the inside. Laid off in 2008, started a hedge fund from scratch, acquired and scaled businesses to 50 staff with tenfold revenue growth, pivoted from finance to education, from introvert to TEDx speaker. His testimonials — written by executives at DHL, Cathay Pacific — say the same thing: he's been there, he makes it practical, and somehow after a session it feels simpler than it did before.</div></div></div>
+      <div class="story-step"><div class="story-step__num">4</div><div><div class="story-step__title">Who Gives Them a Plan</div><div class="story-step__body">Working with Anthony begins with clarity — what does winning actually look like, and what's in the way? From there, he uses structured challenge of every definition the client arrived with. He gives assignments that make the reframe actionable. Every few sessions, he calibrates. The client walks out with something real.</div></div></div>
+      <div class="story-step"><div class="story-step__num">5</div><div><div class="story-step__title">And Calls Them to Action</div><div class="story-step__body"><strong>Direct CTA:</strong> Book a free discovery call at ifgreatness.com<br><strong>Transitional CTA:</strong> Follow Anthony on LinkedIn and read the testimonials first — let other clients convince you before he does.</div></div></div>
+      <div class="story-step"><div class="story-step__num">6</div><div><div class="story-step__title">That Helps Them Avoid Failure</div><div class="story-step__body">Here is the cost of waiting: three more years on the same path, performing the same role, optimizing for the same definition of success that already isn't enough. The people who wait for the right time don't usually find it — they find themselves at 55 with more evidence that it's too late. The ones who move — even imperfectly — find out the map is shorter than they thought.</div></div></div>
+      <div class="story-step"><div class="story-step__num">7</div><div><div class="story-step__title">And Ends in Success</div><div class="story-step__body">The client who bought a business and kept his job — who stayed in his role, hired an operator to run the acquisition, and used his salary to compound toward freedom faster than any full-time grind would have allowed. He didn't need a dramatic leap. He needed a reframe. A different question: what is the value of your time here, versus there? Once that question was clear, the answer was obvious.</div></div></div>
+    </div>
+  </div>
+
+  <div class="card card--accent">
+    <div class="section-label">Why / Who / How</div>
+    <div class="story-steps">
+      <div class="story-step"><div class="story-step__num">WHY</div><div class="story-step__body">"We exist because too many high-performers are succeeding at the wrong thing — and nobody around them has lived the alternative well enough to show them a real path out."</div></div>
+      <div class="story-step"><div class="story-step__num">WHO</div><div class="story-step__body">Senior professionals, executives, and career changers who are capable, stuck, and not convinced that a certified coach with a clean process and no real-world failures is going to get them unstuck.</div></div>
+      <div class="story-step" style="border-bottom:none"><div class="story-step__num">HOW</div><div class="story-step__body">"Unlike coaches who were trained to coach, Anthony Tse coaches from what he has actually built, failed at, and rebuilt — using a structured devil's advocate approach that challenges the definitions his clients arrived with and replaces them with ones that are practical, specific, and theirs."</div></div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- TAB 4: BRAND POSITIONING -->
+<!-- ══════════════════════════════════════════════ -->
+<section id="positioning" class="tab-panel">
+
+  <div class="positioning-card">
+    <div class="section-label" style="text-align:center;margin-bottom:20px">Core Positioning Territory</div>
+    <div class="positioning-text">"Anthony Tse is the <em>mentor-coach</em><br>for senior professionals who are succeeding at the wrong thing<br>by bringing the lived credibility of a multi-industry entrepreneur<br>into every coaching conversation."</div>
+  </div>
+
+  <div class="card">
+    <div class="section-label">Category Definition</div>
+    <div class="grid-2">
+      <div>
+        <div class="pillar__label" style="color:#EF4444;margin-bottom:10px">You Are NOT</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:8px">
+          <li style="font-size:14px;color:var(--text-secondary)">✕ &nbsp;A certified life coach with a methodology and a weekend credential</li>
+          <li style="font-size:14px;color:var(--text-secondary)">✕ &nbsp;A motivational speaker who inspires without a system</li>
+          <li style="font-size:14px;color:var(--text-secondary)">✕ &nbsp;A business consultant who delivers a deck and leaves</li>
+        </ul>
+      </div>
+      <div>
+        <div class="pillar__label" style="color:#22C55E;margin-bottom:10px">You Operate As</div>
+        <div class="section-body">The mentor-coach for senior professionals at inflection points — someone who has walked the actual paths his clients want to walk, and guides from the inside of that experience.</div>
+        <div style="margin-top:12px;font-size:13px;color:var(--text-muted)">Shifts the category from: <span style="color:var(--text-secondary)">"executive coaching"</span> → <span style="color:var(--primary)">"battle-tested mentorship that coaches"</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-label">Strategic Anchors</div>
+    <div class="grid-2">
+      <div class="pillar">
+        <div class="pillar__label">Frame of Reference</div>
+        <div class="pillar__text">Mentor-coaching for professionals at inflection points</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar__label">Point of Parity (Table Stakes)</div>
+        <div class="pillar__text">Structured sessions, clear goals, accountability, professional delivery, genuine outcomes</div>
+      </div>
+      <div class="pillar" style="grid-column:span 2">
+        <div class="pillar__label">Point of Difference (What Only Anthony Can Claim)</div>
+        <div class="pillar__text">Laid off in 2008 → built a hedge fund → acquired and scaled businesses to 50+ staff with tenfold revenue growth → exited → pivoted from finance to education → introvert → TEDx speaker. This specific combination of financial career, entrepreneurial track record, and coaching practice cannot be replicated by any competitor in his category.</div>
+      </div>
+      <div class="pillar" style="grid-column:span 2;border-color:rgba(239,68,68,0.2)">
+        <div class="pillar__label" style="color:#EF4444">Strategic Sacrifice — Who Anthony Does NOT Serve</div>
+        <div class="pillar__text">Clients who want validation without challenge. Early-career professionals seeking general career advice. Organizations wanting large-scale HR programs without senior-practitioner credibility. Clients unwilling to be challenged and get out of their comfort zone.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-label">Formal Positioning Statement</div>
+    <div class="quote-block" style="font-family:var(--font-body);font-size:15px;line-height:1.8">
+      For <strong>senior professionals, executives, and career changers</strong><br>
+      who are <strong>high-performing but unfulfilled — or looking to buy a business and build real freedom</strong>,<br>
+      <strong>Anthony Tse</strong> is the <strong>mentor-coach</strong><br>
+      that delivers the practical clarity of someone who has actually been there,<br>
+      unlike <strong>certified coaches with process but no real-world scars</strong>,<br>
+      because <strong>he has been laid off, built a hedge fund, acquired and scaled businesses, pivoted industries, and exited — and now builds that map with his clients, one accountable session at a time.</strong>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-label">Brand Architecture</div>
+    <div class="grid-3" style="margin-bottom:20px">
+      <div class="pillar"><div class="pillar__label">Brand Promise</div><div class="pillar__text">"Anthony Tse promises clients will leave with a concrete plan, a challenged definition, and the quiet confidence of someone who finally knows what they're building."</div></div>
+      <div class="pillar"><div class="pillar__label">Brand Essence</div><div class="pillar__text">Earned authority. Practical clarity. Real paths.</div></div>
+      <div class="pillar"><div class="pillar__label">Brand Archetype</div><div class="pillar__text">The Mentor (primary) — with a strong secondary of The Maverick. He shows you there is more than one map. And he challenges conventional thinking head-on, not softened for palatability.</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-label">Tagline Options</div>
+    <div class="tagline-list">
+      <div class="tagline-item recommended"><span class="tagline-num">01</span><span style="flex:1">The Mentor-Coach Who Has Actually Been There.</span><span class="tagline-badge">Recommended</span></div>
+      <div class="tagline-item"><span class="tagline-num">02</span>Institute for Greatness — Where Experience Coaches.</div>
+      <div class="tagline-item"><span class="tagline-num">03</span>Not a Playbook. A Map Built From the Road.</div>
+      <div class="tagline-item"><span class="tagline-num">04</span>Coaching From the Inside of Failure, Pivot, and Freedom.</div>
+      <div class="tagline-item"><span class="tagline-num">05</span>From Unfulfilled to Unstoppable — With Someone Who Walked That Path.</div>
+      <div class="tagline-item"><span class="tagline-num">06</span>Build the Next Chapter With Someone Who Has Already Written Several.</div>
+      <div class="tagline-item"><span class="tagline-num">07</span>You Don't Need Inspiration. You Need a Proven Road.</div>
+    </div>
+    <div style="margin-top:16px;font-size:13px;color:var(--text-secondary);padding:14px;background:var(--bg-card-2);border-radius:var(--r-md)"><strong style="color:var(--primary)">Why Option 1:</strong> It owns the category, names the differentiation, and directly addresses the frustration his ideal client has with every other coaching option — in eight words. It cannot be said by anyone without the biography to back it.</div>
+  </div>
+
+  <div class="card">
+    <div class="section-label">Strategic Do's and Don'ts</div>
+    <div class="do-dont">
+      <div class="do-list">
+        <div class="do-list__title">Do</div>
+        <ul>
+          <li>Lead with biography — anchor every credibility claim in a specific event, not a title</li>
+          <li>Separate "coach" from "mentor" explicitly — this distinction is a competitive moat</li>
+          <li>Use testimonials that name specific transformations and real companies (DHL, Cathay Pacific)</li>
+          <li>Name the enemy: certified coaches with no real-world scars; motivational content without systems</li>
+          <li>Build the ETA pillar with the same earned-authority framing — Anthony bought the businesses he now teaches others to buy</li>
+        </ul>
+      </div>
+      <div class="dont-list">
+        <div class="dont-list__title">Don't</div>
+        <ul>
+          <li>Lead with certificates, awards, or credentials — they dilute the POD</li>
+          <li>Serve clients who aren't willing to be challenged — one bad fit erodes the positioning</li>
+          <li>Use generic coaching language: "unlock potential," "transform your mindset," "holistic approach"</li>
+          <li>Compete with large L&D providers on volume or program breadth</li>
+          <li>Make content about Anthony — it should always center on what changes for the client</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="villain-card">
+    <div class="section-label">The Strategic Enemy</div>
+    <div class="villain-text">"Anthony Tse's true opponent is linear conditioning — not bad intentions or lazy thinking, but the unexamined belief that there is only one map for a successful career or business — which shows up as high-performers succeeding at the wrong thing and calling it stability."</div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- TAB 5: BUSINESS INBOX -->
+<!-- ══════════════════════════════════════════════ -->
+<section id="inbox" class="tab-panel">
+
+  <div class="card">
+    <div class="section-label">Section 1 — Business Foundation</div>
+    <table class="data-table">
+      <tr><td>Business / Brand</td><td>Institute for Greatness (IFG)</td></tr>
+      <tr><td>What They Do</td><td>Singapore-based coaching, masterclass, and corporate training business. Anthony works with senior professionals, executives, and career changers through 1:1 coaching, an online ETA masterclass on buying businesses, corporate training, and keynote speaking.</td></tr>
+      <tr><td>Stage</td><td>Growing — established client base, first online masterclass live, building toward 1-to-many model</td></tr>
+      <tr><td>Markets</td><td>Singapore (primary); Asia-Pacific; North America (online)</td></tr>
+      <tr><td>Revenue Streams</td><td>1:1 coaching · ETA online masterclass · corporate training · keynote speaking</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="section-label">Section 2 — Offer Inventory</div>
+    <div class="offer-card">
+      <div class="offer-card__name">1:1 Coaching Program</div>
+      <div class="offer-card__price">SGD 6,000 · 10 sessions × 1hr · within 6 months · Active</div>
+      <div class="offer-card__detail">Structured individual coaching and mentorship. Session 1 defines the win and establishes the mentor-coach distinction. Assignments between sessions. Calibration check-ins every few sessions. Anthony explicitly names when he is coaching vs. mentoring.</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-card__name">ETA Online Masterclass — Entrepreneurship Through Acquisition</div>
+      <div class="offer-card__price">Standard: SGD/USD 488 · VIP: SGD/USD 888 (includes 4hrs group office hours) · Active</div>
+      <div class="offer-card__detail">Online, self-paced. Covers full acquisition lifecycle: sourcing, deal structuring, financing, due diligence, negotiation, operations, scaling, and exit. VIP includes live group office hours with Anthony. Scaling via recordings and playbacks.</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-card__name">Corporate Training</div>
+      <div class="offer-card__price">Variable (market rate being established) · Half-day or full-day · Groups up to 40 · Sessions flexible to client needs · Active</div>
+      <div class="offer-card__detail">Delivered to mid-level and senior professionals in groups of up to 40. Half-day or full-day format. Number of sessions flexible depending on client needs. Topics: becoming a strategic partner (vs. salesperson), communicating to build connection, public speaking.</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-card__name">Keynote Speaking</div>
+      <div class="offer-card__price">SGD 3,000–5,000 per engagement (target rate) · Active — building market rate</div>
+      <div class="offer-card__detail">Professional keynote on leadership, career reinvention, ETA, and executive performance. Draws on Anthony's multi-industry pivot story and practical frameworks.</div>
+    </div>
+    <div class="offer-flow">
+      <span class="offer-flow__step">ETA Masterclass</span><span class="offer-flow__arrow">→</span>
+      <span class="offer-flow__step">1:1 Coaching</span><span class="offer-flow__arrow">→</span>
+      <span class="offer-flow__step">Corporate Training / Speaking</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-label">Section 4 — Proof & Credibility</div>
+    <div class="proof-card">
+      <div class="proof-card__label">Story 1 — The Leadership Reframe</div>
+      <div class="proof-before-after">
+        <div class="proof-col proof-col--before"><div class="proof-col__title">Before</div><div class="proof-col__text">Executive was overwhelmed with back-to-back staff meetings — believed "being present" meant constant face time.</div></div>
+        <div class="proof-col proof-col--after"><div class="proof-col__title">After</div><div class="proof-col__text">Freed up significant time. Staff felt more connected and autonomous. Work-life balance improved. Feedback improved.</div></div>
+      </div>
+      <div class="proof-col__text" style="font-size:13px;color:var(--text-secondary)"><strong>What changed:</strong> Anthony challenged the client's definition of presence — reframed it as knowing <em>when</em> your presence matters, not how often.</div>
+    </div>
+    <div class="proof-card">
+      <div class="proof-card__label">Story 2 — The Business Buyer Who Stayed in His Job</div>
+      <div class="proof-before-after">
+        <div class="proof-col proof-col--before"><div class="proof-col__title">Before</div><div class="proof-col__text">Wanted to quit his job to feel free. Psychologically stuck for months on the question of when to quit.</div></div>
+        <div class="proof-col proof-col--after"><div class="proof-col__title">After</div><div class="proof-col__text">Stayed in his job. Hired outside operators to run acquired business. Building toward freedom faster through compounding.</div></div>
+      </div>
+      <div class="proof-col__text" style="font-size:13px;color:var(--text-secondary)"><strong>Timeline:</strong> Six months. <strong>Key reframe:</strong> A business owner doesn't have to be an operator. Use your salary to compound acquisitions toward freedom faster than a full quit would allow.</div>
+    </div>
+    <div class="divider"></div>
+    <div class="section-label">Authority Indicators</div>
+    <div class="grid-2">
+      <div class="pillar"><div class="pillar__label">Career Track</div><div class="pillar__text">Investment banking → private equity → hedge fund management → business acquisition/operations (preschool group, 50+ staff, tenfold+ revenue growth, exit) → coaching and speaking practice</div></div>
+      <div class="pillar"><div class="pillar__label">Media & Recognition</div><div class="pillar__text">TEDx speaker · Featured in Business Insider, Enterprise Review · Author of "Breaking the Glass Ceiling: An Insider Memoir"</div></div>
+      <div class="pillar"><div class="pillar__label">Notable Clients</div><div class="pillar__text">DHL (Business Development Director), Cathay Pacific (Head of Line Operations, Training Captain), and senior leaders across Singapore and Asia-Pacific</div></div>
+      <div class="pillar"><div class="pillar__label">Proof Vehicle</div><div class="pillar__text">LinkedIn testimonials (primary) — written by clients, publicly visible, specific to transformation</div></div>
+    </div>
+  </div>
+
+
+  <div class="card">
+    <div class="section-label">Section 5 — Business History</div>
+    <table class="data-table">
+      <tr><td>How It Started</td><td>Anthony was laid off at the bottom of the 2008 financial crisis. Instead of treating it as a setback, he used it to start his first business — a hedge fund. Each subsequent pivot built on the last: finance → business acquisition (preschool group, 50+ staff, tenfold revenue growth, exit) → coaching and speaking practice → Institute for Greatness as a formalized entity.</td></tr>
+      <tr><td>First Offer</td><td>1:1 online coaching program — 10 sessions × 1hr within 6 months. Slight customization available depending on client needs. This structure remains the core coaching product today.</td></tr>
+      <tr><td>Key Pivots</td><td>2008 layoff → hedge fund → business acquisition and operations (preschool group) → exit → coaching and speaking → IFG</td></tr>
+      <tr><td>Where It Is Now</td><td>Established Singapore-based coaching practice. ETA masterclass live and scaling. Corporate training active. Speaking engagements building. Strategic focus: 1-to-many online model with multiple masterclass pillars.</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="section-label">Section 6 — Visual Brand Identity</div>
+    <div style="background:rgba(232,82,26,0.06);border:1px solid rgba(232,82,26,0.2);border-radius:var(--r-md);padding:16px;margin-bottom:16px;font-size:13px;color:var(--text-secondary)">✓ Colors extracted from uploaded brand logos. Fonts matched from wordmark.</div>
+    <table class="data-table">
+      <tr><td>Website</td><td><a href="https://www.ifgreatness.com" target="_blank" style="color:var(--primary)">ifgreatness.com</a></td></tr>
+      <tr><td>Brand Colors</td><td>Primary: #E8521A (IFG Orange) · Secondary/Border: #1A1A1A (Black)</td></tr>
+      <tr><td>Typography</td><td>Display serif: Playfair Display · Wordmark / Headings: Oswald Bold · Body: Poppins</td></tr>
+      <tr><td>Visual Vibe</td><td>Professional · Premium</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="section-label">Section 7 — Online Presence</div>
+    <div class="presence-grid">
+      <div class="presence-item">Website<br><a href="https://www.ifgreatness.com" target="_blank">ifgreatness.com</a></div>
+      <div class="presence-item">LinkedIn Personal<br><a href="https://www.linkedin.com/in/anthony-tse-153269/" target="_blank">anthony-tse</a></div>
+      <div class="presence-item">LinkedIn Company<br><a href="https://www.linkedin.com/company/institute-for-greatness" target="_blank">IFG</a></div>
+      <div class="presence-item">Instagram<br><a href="https://www.instagram.com/instituteforgreatness/" target="_blank">@ifgreatness</a></div>
+      <div class="presence-item">TikTok<br><a href="https://www.tiktok.com/@instituteforgreatness" target="_blank">@ifgreatness</a></div>
+      <div class="presence-item">YouTube<br><a href="https://www.youtube.com/@Institute_IFG/playlists" target="_blank">Institute IFG</a></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-label">Section 8 — Revenue & Goals</div>
+    <table class="data-table">
+      <tr><td>1:1 Coaching</td><td>SGD 6,000 per client</td></tr>
+      <tr><td>ETA Masterclass</td><td>SGD/USD 488 (standard) — SGD/USD 888 (VIP)</td></tr>
+      <tr><td>Corporate Training</td><td>Variable — establishing market rate</td></tr>
+      <tr><td>Speaking</td><td>SGD 3,000–5,000 per engagement (target)</td></tr>
+      <tr><td>Monthly Target</td><td>SGD 15,000/month</td></tr>
+      <tr><td>Clients Needed / Month</td><td>2–3 coaching clients (SGD 6,000 each) · or blend: 1 coaching client + 1–2 corporate training days + masterclass sales · Speaking engagements accelerate the number significantly</td></tr>
+      <tr><td>6-Month Priority</td><td>Build IFG as a multi-pillar institute; scale ETA masterclass via recordings; launch Wealth & Value Transfer masterclass (targeting affluent families)</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="section-label">Section 9 — Communication Guidelines</div>
+    <div class="grid-3" style="margin-bottom:20px">
+      <div class="pillar"><div class="pillar__label">LinkedIn Posts</div><div class="pillar__text">Direct, grounded, anecdote-led. Lead with a real observation or story. No motivational fluff. Short sentences. No inspiration without evidence.</div></div>
+      <div class="pillar"><div class="pillar__label">Sales Conversations</div><div class="pillar__text">Peer-level, warm, unsparing. Let the biography do the heavy lifting. Lead with understanding their situation, then demonstrate you've been there.</div></div>
+      <div class="pillar"><div class="pillar__label">Client Onboarding</div><div class="pillar__text">Clarify coaching vs. mentoring roles upfront. Define the win together. Establish accountability structure in session 1.</div></div>
+    </div>
+    <div class="section-label">Hard Limits</div>
+    <div class="section-body">Do not position as a pure life coach or motivational speaker. Do not claim to be "just a coach" — the mentor-coach distinction is structural. Do not genericize the biography — specific events (2008 layoff, hedge fund, preschool acquisition, TEDx) are the credibility, not general phrases like "diverse experience."</div>
+  </div>
+
+  <div class="card">
+    <div class="section-label">Section 10 — LinkedIn & Content Priorities</div>
+    <table class="data-table">
+      <tr><td>LinkedIn Goal</td><td>Primary lead generation; build authority as the mentor-coach for senior professionals and business buyers</td></tr>
+      <tr><td>Content Themes</td><td>Leadership redefinitions (presence, communication, the why) · ETA and business acquisition as a path to freedom · Career pivot stories · The broken coaching industry · False binaries in career and business decisions</td></tr>
+      <tr><td>Formats</td><td>Long-form posts, carousels (frameworks + masterclass), recorded content (scaling 1-to-many)</td></tr>
+      <tr><td>Upcoming Launches</td><td>ETA Masterclass scaling via recorded playbacks · Wealth and Value Transfer Masterclass (affluent families) in development · IFG multi-pillar institute buildout</td></tr>
+    </table>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>Purely Personal · <span>by Daniel Paul</span></div>
+  <div style="margin-top:6px">Business Authority Foundation · Anthony Tse · June 2026</div>
+</footer>
+
+<script>
+  const tabs = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.tab-panel');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.panel).classList.add('active');
+      window.scrollTo({ top: document.querySelector('.tabs-nav').offsetTop - 1, behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>

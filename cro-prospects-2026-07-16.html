@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRO Weekly Prospect Pack · Institute for Greatness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#F05A28; --primary-light:#F59473;
+    --black:#003444; --ink:#003444; --white:#FFFFFF; --off-white:#F8F7F5;
+    --gray:#E4E3E0; --gray-text:#5b5b62; --gray-light:#F2F1EE;
+    --good:#16A34A; --warn:#D97706; --bad:#DC2626;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.04),0 8px 28px rgba(0,0,0,.06);
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 78%, #000) 0%, var(--primary) 48%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:radial-gradient(80% 60% at 96% -12%, color-mix(in srgb,var(--primary) 14%, transparent), transparent 60%), radial-gradient(60% 50% at 0% 6%, color-mix(in srgb,var(--primary-light) 10%, transparent), transparent 55%), var(--off-white);background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:900px;margin:0 auto;padding:34px 22px 70px;}
+
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px color-mix(in srgb,var(--primary) 30%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.82;font-weight:600;}
+  .ohead h1{font-size:clamp(22px,4vw,30px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.85;}
+
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-text);font-weight:700;margin:26px 0 12px;}
+  .card{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:16px 18px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .stat{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
+  .stat .l{font-size:12px;color:var(--gray-text);} .stat .n{font-size:34px;font-weight:800;letter-spacing:-.02em;margin-top:4px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;}
+  .t-grn{background:#e7f6ee;color:var(--good);} .t-amb{background:#fdf1de;color:var(--warn);} .t-blue{background:#e6f0fc;color:#1E6FE0;} .t-grey{background:var(--gray-light);color:var(--gray-text);} .t-red{background:#fdecec;color:var(--bad);}
+
+  .pcard{background:#fff;border:1px solid var(--gray);border-radius:var(--r-lg);box-shadow:var(--sh);padding:20px 22px;margin-bottom:16px;}
+  .pcard .ph{display:flex;align-items:flex-start;gap:12px;margin-bottom:10px;flex-wrap:wrap;}
+  .pcard .av{width:46px;height:46px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;}
+  .pcard .nm{font-weight:800;font-size:17px;} .pcard .rl{font-size:13px;color:var(--gray-text);margin-top:1px;}
+  .pcard .signal{font-size:13px;color:var(--gray-text);background:var(--gray-light);border-radius:10px;padding:8px 12px;margin:10px 0;}
+  .modrow{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;}
+  .modchip{font-size:11px;font-weight:600;background:var(--gray-light);color:var(--ink);padding:5px 10px;border-radius:var(--pill);}
+  .modchip b{color:var(--primary);}
+  .hook{font-style:italic;font-size:14px;color:var(--ink);border-left:3px solid var(--primary-light);padding:8px 12px;margin:10px 0;background:#fff8f5;}
+  .seq{margin-top:12px;}
+  .seq .m{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--gray-light);font-size:13.5px;}
+  .seq .m:last-child{border-bottom:none;}
+  .seq .mlabel{flex-shrink:0;width:108px;font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--primary);padding-top:1px;}
+  .seq .mtext{color:var(--ink);}
+  .flag{display:inline-block;font-size:11px;font-weight:700;background:#fdecec;color:var(--bad);padding:3px 10px;border-radius:var(--pill);margin-left:8px;}
+
+  .note{background:linear-gradient(135deg, var(--ink) 0%, color-mix(in srgb,var(--primary) 26%, var(--ink)) 100%);color:#fff;border-radius:var(--r-md);padding:18px 22px;font-size:15px;margin-top:6px;box-shadow:0 14px 36px rgba(0,0,0,.16);}
+  .note b{color:var(--primary-light);}
+
+  footer{text-align:center;padding:30px 22px 10px;color:var(--gray-text);font-size:13px;}
+  footer b{color:var(--ink);}
+
+  @media(max-width:640px){.grid3{grid-template-columns:1fr;} .seq .m{flex-direction:column;gap:2px;} .seq .mlabel{width:auto;}}
+</style>
+</head>
+<body data-theme="standard">
+  <div class="doc">
+
+    <div class="ohead"><div class="k">CRO · Weekly prospect pack</div><h1>8 matched. 2 hot.</h1><div class="d">Sourced from your ETA/search-fund ICP via Apify · DMs drafted, nothing sent</div></div>
+
+    <div class="grid3">
+      <div class="stat"><div class="l">Prospects</div><div class="n">8</div></div>
+      <div class="stat"><div class="l">Hot</div><div class="n" style="color:var(--good);-webkit-text-fill-color:var(--good)">2</div></div>
+      <div class="stat"><div class="l">DMs drafted</div><div class="n">40</div></div>
+    </div>
+
+    <div class="card"><h4 style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-text);margin-bottom:8px">Sourcing note</h4>
+    <div style="font-size:14px;color:var(--ink)">First pass over-indexed on people who already run their own search fund, independent-sponsor vehicle, or deal-advisory practice as a professional identity, competitors and category peers, not coaching clients. Reworked the list around one line: still employed or newly transitioning, no completed deal, no branded search practice built yet. That line is genuinely rare to find via LinkedIn keyword search, most people who show up for "search fund" or "independent sponsor" have already built the brand. 8 held up against it. Rather than pad to 10 with weaker matches, this week ships with 8, tell me if you'd like me to keep hunting for 2 more.</div></div>
+
+    <div class="sec">The prospects</div>
+
+    <!-- 1 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">SA</div><div><div class="nm">Santiago Arteaga</div><div class="rl">President, Ross Tree Company · Denver, USA</div></div><span class="tagi t-grn" style="margin-left:auto">hot</span></div>
+      <div class="signal">Signal: became President of Ross Tree Company in May 2026, 3 months ago, after a 6-year Director/Sr. Director product career at VF Corporation and a 7-month acquisition search via Casa Ventures. Harvard MBA, 20+ year rock climber and mountaineer. This is a live "day two" moment, corporate exec now hands-on operating a business he acquired.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>9/10</b> (role 9 · pain 8 · timing 10 · relationship 8)</span>
+        <span class="modchip">Temp <b>Hot</b></span>
+        <span class="modchip">Style <b>Analytical</b></span>
+        <span class="modchip">Opener <b>Peer Opener</b></span>
+      </div>
+      <div class="hook">"Rock climber and Harvard MBA who just swapped digital product strategy for running a tree company."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 · Connect</div><div class="mtext">Hi Santiago, congrats on Ross Tree Company. I went corporate exec to preschool group owner myself, the operating chapter is where it gets real. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 · Icebreaker</div><div class="mtext">Congrats on closing Ross Tree Company. I spent years in banking and hedge funds before buying a group of preschools I knew nothing about running. What's surprised you most these first three months as an operator versus a strategist?</div></div>
+        <div class="m"><div class="mlabel">3 · Value-add</div><div class="mtext">One thing that caught me off guard early on: the business I knew least about taught me more about leadership than 15 years in finance ever did. Curious if tree services is throwing you the same kind of curveball.</div></div>
+        <div class="m"><div class="mlabel">4 · Pivot</div><div class="mtext">Different question: does the Harvard strategist in you fight the operator in you yet, or have they made peace?</div></div>
+        <div class="m"><div class="mlabel">5 · Clean exit</div><div class="mtext">No worries if timing's not right to chat, Santiago. Rooting for Ross Tree either way. If the operator-vs-strategist tension ever gets loud, I've been exactly there, happy to compare notes anytime.</div></div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">AH</div><div><div class="nm">Antonia Heng</div><div class="rl">Expansion, Strategy & Investment Manager, Lalamove · Hong Kong</div></div><span class="tagi t-amb" style="margin-left:auto">warm</span></div>
+      <div class="signal">Signal: Oxford (First Class, Christ Church Scholar), ex-Morgan Stanley M&A, ex-Vitruvian Partners. Currently building Lalamove's German operation from zero as her day job, while running an active acquisition search for a Hong Kong B2B services business on the side since June 2025. Textbook "Business Buyer" ICP fit, using the salary while searching, not choosing between them.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>9/10</b> (role 10 · pain 10 · timing 8 · relationship 8)</span>
+        <span class="modchip">Temp <b>Warm</b></span>
+        <span class="modchip">Style <b>Analytical</b></span>
+        <span class="modchip">Opener <b>Peer Opener</b></span>
+      </div>
+      <div class="hook">"Oxford neuroscientist who launched Lalamove's German market while searching for a Hong Kong acquisition."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 · Connect</div><div class="mtext">Hi Antonia, launching Lalamove's German ops while searching for a HK acquisition on the side is not a small juggle. I went finance to preschool operator myself. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 · Icebreaker</div><div class="mtext">Building Lalamove's Germany operation from zero while running an acquisition search on the side is a genuinely rare pace. What made you decide to search now, rather than wait for the day job to settle down first?</div></div>
+        <div class="m"><div class="mlabel">3 · Value-add</div><div class="mtext">Something I tell clients doing exactly this: the search rarely gets easier once the day job calms down, it just gets replaced by a different excuse. Curious what's kept you moving on the search when Lalamove gets loud.</div></div>
+        <div class="m"><div class="mlabel">4 · Pivot</div><div class="mtext">Separate thought: your mentoring work tripling Oxbridge admission rates says a lot about how you build things from nothing. Does that same instinct show up in how you're evaluating acquisition targets?</div></div>
+        <div class="m"><div class="mlabel">5 · Clean exit</div><div class="mtext">No pressure to reply, Antonia. Genuinely impressed by the pace you're keeping. If the search ever needs a sounding board from someone who bought into an industry completely outside his lane, I'm around.</div></div>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">BL</div><div><div class="nm">Bobby Lyons</div><div class="rl">Fractional CRO & Commercial Growth Advisor · United Kingdom</div></div><span class="tagi t-amb" style="margin-left:auto">warm</span></div>
+      <div class="signal">Signal: 20+ years building revenue in regulated financial services (L&G, Aviva, Bank of Ireland). Since Jan 2025, concurrently "CEO Elect | ETA | UK SME Acquisition" at True North Search, building a multi-vertical HoldCo targeting high-margin, low-capex small businesses, and started a fresh post-acquisition consulting engagement in May 2026. Living proof of "use the salary to compound acquisitions" rather than the quit-or-stay binary.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>8/10</b> (role 9 · pain 9 · timing 8 · relationship 7)</span>
+        <span class="modchip">Temp <b>Warm</b></span>
+        <span class="modchip">Style <b>Driver</b></span>
+        <span class="modchip">Opener <b>Directness Play</b></span>
+      </div>
+      <div class="hook">"Fractional CRO building a HoldCo on the side, exactly the freedom-through-ownership path I coach."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 · Connect</div><div class="mtext">Hi Bobby, the HoldCo strategy while running fractional CRO work is a smart way to compound toward ownership. I did something similar leaving finance to buy a group of preschools. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 · Icebreaker</div><div class="mtext">Running fractional CRO work for PE-backed fintechs while building a HoldCo on the side is exactly the model I talk to clients about, using current income to compound toward ownership instead of picking one or the other. How's the HoldCo mandate coming along?</div></div>
+        <div class="m"><div class="mlabel">3 · Value-add</div><div class="mtext">Your line about problems not being complicated, just not looked at clearly, that's basically my coaching philosophy applied to career pivots instead of GTM. Finding the same clarity gap in the businesses you're evaluating?</div></div>
+        <div class="m"><div class="mlabel">4 · Pivot</div><div class="mtext">Different question: with the consulting work and the HoldCo running in parallel, what's actually costing you more, time or focus?</div></div>
+        <div class="m"><div class="mlabel">5 · Clean exit</div><div class="mtext">No worries either way, Bobby. The HoldCo model you're building is exactly what I wish more corporate professionals saw as an option before they grind it out or quit cold. Door's open if that conversation is ever useful.</div></div>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">CO</div><div><div class="nm">Constança Oliveira e Sousa</div><div class="rl">Independent Sponsor & Operating Partner, Madje Group · Lisbon, Portugal</div></div><span class="tagi t-grn" style="margin-left:auto">hot</span></div>
+      <div class="signal">Signal: spent nearly 11 years as Country Manager for EF Education First Portugal, reviving a dormant operation to 3x growth and reporting directly to the CEO, before leaving in Apr 2026, 4 months ago, to become an Independent Sponsor & Operating Partner. Also just started mentoring the next generation of women leaders (May 2026). Her Harvard MBA coursework explicitly included Entrepreneurship Through Acquisition. Six recommendations posted in the last three months, several framed as "new chapter" farewells. No completed deal yet, no advisory brand built, genuinely mid-transition.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>9/10</b> (role 9 · pain 9 · timing 10 · relationship 7)</span>
+        <span class="modchip">Temp <b>Hot</b></span>
+        <span class="modchip">Style <b>Driver / Expressive</b></span>
+        <span class="modchip">Opener <b>Peer Opener</b></span>
+      </div>
+      <div class="hook">"Left a decade running EF Portugal for Entrepreneurship Through Acquisition, the exact HBS elective."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 · Connect</div><div class="mtext">Hi Constança, leaving a decade running EF Portugal to become an Operating Partner is a real leap. I made a similar jump from finance into buying a business I knew nothing about running. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 · Icebreaker</div><div class="mtext">Ten years scaling EF Portugal to 3x growth, then straight into Independent Sponsor and Operating Partner at Madje Group, that's a fast pivot after a decade in one seat. What made this the right moment to make the jump?</div></div>
+        <div class="m"><div class="mlabel">3 · Value-add</div><div class="mtext">I noticed your HBS coursework touched Entrepreneurship Through Acquisition directly, that's rare to actually use a few years later. Is the operating side matching what the classroom made it sound like, or is it a different animal entirely?</div></div>
+        <div class="m"><div class="mlabel">4 · Pivot</div><div class="mtext">Separate question: mentoring the next generation of women leaders at Ponto Zero while also stepping into your first operating partner role, is the mentoring keeping you grounded, or one more thing competing for your time right now?</div></div>
+        <div class="m"><div class="mlabel">5 · Clean exit</div><div class="mtext">No pressure to respond, Constança. Genuinely admire the timing of this pivot, most people wait far longer than you did. If the operator chapter ever needs a sounding board from someone who made the same leap out of an unrelated career, I'm around.</div></div>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">JC</div><div><div class="nm">Jérôme Casal</div><div class="rl">Search Fund Entrepreneur, self-employed · Bougival, France</div></div><span class="tagi t-amb" style="margin-left:auto">warm</span></div>
+      <div class="signal">Signal: 20 years at Groupe Renault across France, Iran, and India (VP Renault India Programs Director, General Manager Business Development), then an interim management stint at Stellantis's French market via Groupe CAT, before starting a solo search in Sep 2024. Two years in, no deal closed yet, still actively sourcing an SME across all of France with no named firm or partners, purely self-funded.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>7/10</b> (role 8 · pain 8 · timing 6 · relationship 6)</span>
+        <span class="modchip">Temp <b>Warm</b></span>
+        <span class="modchip">Style <b>Amiable</b></span>
+        <span class="modchip">Opener <b>Peer Opener</b></span>
+      </div>
+      <div class="hook">"20 years at Renault across France, Iran, and India, now searching two years for one SME."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 · Connect</div><div class="mtext">Bonjour Jérôme, twenty years at Renault across three continents, now two years into searching for one SME to lead, that's real staying power. I made a similar jump from finance into an acquisition outside my lane. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 · Icebreaker</div><div class="mtext">Two years searching after two decades running operations at Renault in France, Iran, and India, most people quit a search that takes this long. What's kept you in it this far?</div></div>
+        <div class="m"><div class="mlabel">3 · Value-add</div><div class="mtext">Your description of wanting continuity with what the departing owner built, not just control of it, is a rarer mindset than most searchers have. Has that approach made it easier or harder to find the right founder willing to hand over?</div></div>
+        <div class="m"><div class="mlabel">4 · Pivot</div><div class="mtext">Different question: after running programs across three countries at Renault, does the scale of a single SME feel small, or is that exactly the point after that pace?</div></div>
+        <div class="m"><div class="mlabel">5 · Clean exit</div><div class="mtext">No pressure to respond, Jérôme. Respect the patience this search has taken. If two years in ever needs an outside perspective from someone who bought into something he knew nothing about, I'm around.</div></div>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">JW</div><div><div class="nm">Joe Wade</div><div class="rl">ETA Searcher, self-employed · Ashland, Ohio, USA</div></div><span class="tagi t-amb" style="margin-left:auto">warm</span></div>
+      <div class="signal">Signal: VP of Operations at OWS Acquisition Co (100+ personnel, 6,500+ wells) before a signed acquisition agreement fell through after more than a year. Took a full-time parenting break, then restarted the search in 2023, consuming books and podcasts on SMB/ETA to prepare for a second attempt. Searching $1-10M range across Ohio and neighbouring states, day job in oil and gas services to fund the search.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>7/10</b> (role 6 · pain 9 · timing 6 · relationship 5)</span>
+        <span class="modchip">Temp <b>Warm</b></span>
+        <span class="modchip">Style <b>Analytical / Amiable</b></span>
+        <span class="modchip">Opener <b>Confession</b></span>
+      </div>
+      <div class="hook">"A signed acquisition fell through after a year, so he restarted the search from zero."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 · Connect</div><div class="mtext">Hi Joe, restarting a search after a signed deal fell through takes real resolve. I've had my own version of starting over in a business I knew nothing about. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 · Icebreaker</div><div class="mtext">A signed agreement falling apart after more than a year is one of the harder things a searcher can go through. What made you decide to restart instead of walking away from the search altogether?</div></div>
+        <div class="m"><div class="mlabel">3 · Value-add</div><div class="mtext">The way you describe using the time since that failed deal to keep learning, books, podcasts, LinkedIn, is exactly the instinct that separates people who eventually close from people who don't. What's the biggest thing you'd do differently this time around?</div></div>
+        <div class="m"><div class="mlabel">4 · Pivot</div><div class="mtext">Different question: does the wells and operations background from EnerVest and OWS make the $1 to $10 million range feel familiar, or are you deliberately looking outside oil and gas this time?</div></div>
+        <div class="m"><div class="mlabel">5 · Clean exit</div><div class="mtext">No pressure to reply, Joe. Respect the restart, that's not a small thing to do quietly. If the search ever needs a voice from someone who's had his own deal not go the way he planned, I'm around.</div></div>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">TJ</div><div><div class="nm">Thibault Jolie</div><div class="rl">Independent Sponsor, self-employed · London, United Kingdom</div></div><span class="tagi t-amb" style="margin-left:auto">warm</span></div>
+      <div class="signal">Signal: Associate Director at OMERS Private Equity (Pan-European direct investments, board observer at Bionic, International Schools Partnership, and Trescal) before leaving in Jan 2025 to search independently, solo, for a lower mid-market acquisition. Eighteen months in, no deal closed, no named firm or partners, purely his own capital and time.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>7/10</b> (role 8 · pain 7 · timing 6 · relationship 6)</span>
+        <span class="modchip">Temp <b>Warm</b></span>
+        <span class="modchip">Style <b>Analytical</b></span>
+        <span class="modchip">Opener <b>Peer Opener</b></span>
+      </div>
+      <div class="hook">"Left OMERS Private Equity for an independent search, still searching eighteen months later."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 · Connect</div><div class="mtext">Hi Thibault, leaving OMERS Private Equity to go independent and search on your own is a real bet on yourself. I made a similar jump from finance into buying something outside my lane. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 · Icebreaker</div><div class="mtext">Eighteen months into an independent search after Associate Director at OMERS, that's a long stretch without the structure of an institutional deal team behind you. What's been the hardest part of searching solo compared to searching inside a fund?</div></div>
+        <div class="m"><div class="mlabel">3 · Value-add</div><div class="mtext">Board observer seats at Bionic, International Schools Partnership, and Trescal is real operating exposure most searchers don't have going in. Is that experience changing what you're actually looking for now versus when you started the search?</div></div>
+        <div class="m"><div class="mlabel">4 · Pivot</div><div class="mtext">Different question: lower mid-market on your own capital and time, does that feel more or less risky than the deals you worked at OMERS?</div></div>
+        <div class="m"><div class="mlabel">5 · Clean exit</div><div class="mtext">No pressure to respond, Thibault. Respect the solo search, that's a genuinely harder road than doing it inside a fund. If eighteen months in ever needs an outside voice, I've made my own version of that leap, happy to talk.</div></div>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">AC</div><div><div class="nm">Andrew Campbell</div><div class="rl">Consulting, Business Ownership & Exploring Future Opportunities · Fairfield County, USA</div></div><span class="tagi t-amb" style="margin-left:auto">warm</span></div>
+      <div class="signal">Signal: four-time global CIO (US LBM, Terex, Xerox Technology, GE Security), GE-trained, led teams up to 3,500 people with opx/capex budgets over $500M. Since 2025, self-employed doing CIO advisory work for PE portfolio companies while explicitly naming "Business Ownership" as part of what he's exploring. No acquisition made, no dealmaker brand, still weighing the decision.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>8/10</b> (role 9 · pain 8 · timing 7 · relationship 6)</span>
+        <span class="modchip">Temp <b>Warm</b></span>
+        <span class="modchip">Style <b>Driver</b></span>
+        <span class="modchip">Opener <b>Peer Opener</b></span>
+      </div>
+      <div class="hook">"Four-time Fortune-caliber CIO now consulting while quietly exploring buying a business."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 · Connect</div><div class="mtext">Hi Andrew, four CIO roles at US LBM, Terex, Xerox, and GE Security, and now consulting while exploring business ownership, that's a real inflection point. I made a similar jump from finance into buying something outside my lane. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 · Icebreaker</div><div class="mtext">Leading turnarounds at four different companies as CIO, and now doing advisory work while exploring business ownership on the side, what's actually pulling you toward owning something outright instead of advising from the outside?</div></div>
+        <div class="m"><div class="mlabel">3 · Value-add</div><div class="mtext">The PE portfolio company work you're doing now, due diligence and value-creation planning for five PortCos, puts you closer to the buyer's seat than most CIOs ever get. Is that shaping what kind of business you'd want to own yourself?</div></div>
+        <div class="m"><div class="mlabel">4 · Pivot</div><div class="mtext">Different question: after running $500M budgets and 3,500-person teams, does a smaller, owner-operated business feel like a step down in scale, or exactly the appeal?</div></div>
+        <div class="m"><div class="mlabel">5 · Clean exit</div><div class="mtext">No pressure to respond, Andrew. Respect the exploring, most people at your level either stay put or leap without looking. If the ownership question ever needs a second opinion, I've made that leap myself, happy to compare notes.</div></div>
+      </div>
+    </div>
+
+    <div class="sec">Pipeline review</div>
+    <div class="card"><div style="font-size:14px;color:var(--gray-text)">No existing pipeline document found in your Business Brain folder. Skipped per the skill's rule, nothing to triage yet. Once you're tracking active conversations, point me to the doc and I'll run a Priority 1/2/3 pass on it each week.</div></div>
+
+    <div class="note">Open your highest-signal prospect first: <b>Constança Oliveira e Sousa</b>, 4 months out from a decade-long corporate role, the hottest timing in the pack and a genuine client, not a peer. Close second: <b>Antonia Heng</b>, still employed and searching on the side, the clearest "Business Buyer" fit. Third: <b>Santiago Arteaga</b>, three months into operating the one business he bought. Every DM here is a draft. You send, after you read it.</div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>Built by Daniel Paul · Purely Personal</b></footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    window.addEventListener('load',function(){
+      if(!window.gsap)return; gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.ohead',{y:26,opacity:0,scale:.98,duration:.7,ease:'power3.out'});
+      gsap.from('.ohead h1',{y:14,opacity:0,duration:.7,delay:.12,ease:'power3.out'});
+      gsap.from('.card,.stat,.pcard,.note',{y:20,opacity:0,duration:.5,stagger:.05,ease:'power2.out',scrollTrigger:{trigger:'.doc',start:'top 85%'}});
+      gsap.utils.toArray('.count').forEach(function(el){
+        var to=+el.dataset.to,o={v:0};
+        gsap.to(o,{v:to,duration:1.4,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 92%'},onUpdate:function(){el.textContent=Math.round(o.v).toLocaleString();}});
+      });
+    });
+  </script>
+</body>
+</html>
