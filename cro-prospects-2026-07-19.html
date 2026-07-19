@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRO Weekly Prospect Pack · Institute for Greatness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#F05A28; --primary-light:#F59473;
+    --bg:#0A0A0A; --card:#141414; --card2:#171717; --ink:#F5F3F0; --ink-dim:#B9B6B2;
+    --gray:#262422; --gray-text:#9A9691; --gray-light:#1D1B19;
+    --good:#3DD68C; --warn:#F0B429; --bad:#F0554A;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.4),0 12px 32px rgba(0,0,0,.5);
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 78%, #000) 0%, var(--primary) 48%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:radial-gradient(80% 60% at 96% -12%, color-mix(in srgb,var(--primary) 16%, transparent), transparent 60%), radial-gradient(60% 50% at 0% 6%, color-mix(in srgb,var(--primary-light) 10%, transparent), transparent 55%), var(--bg);background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:900px;margin:0 auto;padding:34px 22px 70px;}
+
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px color-mix(in srgb,var(--primary) 40%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;font-weight:600;}
+  .ohead h1{font-size:clamp(22px,4vw,30px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.88;}
+
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-text);font-weight:700;margin:26px 0 12px;}
+  .card{background:var(--card);border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:16px 18px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .stat{background:var(--card);border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
+  .stat .l{font-size:12px;color:var(--gray-text);} .stat .n{font-size:34px;font-weight:800;letter-spacing:-.02em;margin-top:4px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;}
+  .t-grn{background:rgba(61,214,140,.14);color:var(--good);} .t-amb{background:rgba(240,180,41,.14);color:var(--warn);} .t-blue{background:rgba(94,158,255,.14);color:#8FB8FF;} .t-grey{background:var(--gray-light);color:var(--gray-text);} .t-red{background:rgba(240,85,74,.14);color:var(--bad);}
+
+  .pcard{background:var(--card);border:1px solid var(--gray);border-radius:var(--r-lg);box-shadow:var(--sh);padding:20px 22px;margin-bottom:16px;}
+  .pcard .ph{display:flex;align-items:flex-start;gap:12px;margin-bottom:10px;flex-wrap:wrap;}
+  .pcard .av{width:46px;height:46px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;}
+  .pcard .nm{font-weight:800;font-size:17px;} .pcard .rl{font-size:13px;color:var(--gray-text);margin-top:1px;}
+  .pcard .signal{font-size:13px;color:var(--ink-dim);background:var(--gray-light);border-radius:10px;padding:8px 12px;margin:10px 0;}
+  .modrow{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;}
+  .modchip{font-size:11px;font-weight:600;background:var(--gray-light);color:var(--ink);padding:5px 10px;border-radius:var(--pill);}
+  .modchip b{color:var(--primary-light);}
+  .hook{font-style:italic;font-size:14px;color:var(--ink);border-left:3px solid var(--primary-light);padding:8px 12px;margin:10px 0;background:rgba(240,90,40,.08);}
+  .seq{margin-top:12px;}
+  .seq .m{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--gray-light);font-size:13.5px;}
+  .seq .m:last-child{border-bottom:none;}
+  .seq .mlabel{flex-shrink:0;width:108px;font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--primary-light);padding-top:1px;}
+  .seq .mtext{color:var(--ink-dim);}
+
+  .note{background:linear-gradient(135deg, #1b1b1b 0%, color-mix(in srgb,var(--primary) 22%, #1b1b1b) 100%);color:#fff;border-radius:var(--r-md);padding:18px 22px;font-size:15px;margin-top:6px;box-shadow:0 14px 36px rgba(0,0,0,.5);}
+  .note b{color:var(--primary-light);}
+
+  .pri{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+  .pri .pnum{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;flex-shrink:0;color:#fff;}
+  .pri.p1 .pnum{background:var(--bad);} .pri.p2 .pnum{background:var(--warn);color:#1b1400;} .pri.p3 .pnum{background:var(--gray-text);color:#0A0A0A;}
+
+  footer{text-align:center;padding:30px 22px 10px;color:var(--gray-text);font-size:13px;}
+  footer b{color:var(--ink);}
+
+  @media(max-width:640px){.grid3{grid-template-columns:1fr;} .seq .m{flex-direction:column;gap:2px;} .seq .mlabel{width:auto;}}
+</style>
+</head>
+<body data-theme="dark">
+  <div class="doc">
+
+    <div class="ohead"><div class="k">CRO · Weekly prospect pack</div><h1>2 new. 0 hot.</h1><div class="d">Sourced from your ETA ICP via Apify · DMs drafted, nothing sent</div></div>
+
+    <div class="grid3">
+      <div class="stat"><div class="l">New prospects</div><div class="n">2</div></div>
+      <div class="stat"><div class="l">Hot</div><div class="n" style="color:var(--good);-webkit-text-fill-color:var(--good)">0</div></div>
+      <div class="stat"><div class="l">DMs drafted</div><div class="n">10</div></div>
+    </div>
+
+    <div class="card"><h4 style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-text);margin-bottom:8px">Sourcing note — the dataset is running dry</h4>
+    <div style="font-size:14px;color:var(--ink-dim)">This is the third straight week on the same "Entrepreneurship Through Acquisition" search, and the connector's pool is showing real fatigue. Of 10 raw results: 3 were repeats already in your funnel (David Neff and Debanjan Sengupta from last Saturday's pack, Antonia Heng from the pack before that), and 5 were the wrong side of the table entirely, not searchers but the people who sell to or teach searchers, a coaching-community co-founder (Will Maunder-Taylor), a search-fund managing partner who also lectures at Aalto (Gautam Basu), a junior analyst inside a fund that finances ETA deals (Geoff Otto), a professor who already owns several businesses (Reid Tileston), and a search-fund founder who lectures at Erasmus (Alexander Schuil). That left 2 genuinely new, qualified individual searchers. Shipping at 2 rather than padding with repeats or competitors, per the standing rule. Worth widening the keyword or adding a second region next week, three consecutive runs on one query is the ceiling before this stops being useful.</div></div>
+
+    <div class="sec">The prospects</div>
+
+    <!-- 1 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">PG</div><div><div class="nm">Paul-Arnaud Gros</div><div class="rl">Entrepreneurship Through Acquisition, self-employed · Brussels, Belgium</div></div><span class="tagi t-amb" style="margin-left:auto">warm</span></div>
+      <div class="signal">Signal: 11 years at PwC Belgium, Associate Auditor through Senior Manager, M&A Strategy & Operations, including a stint guest lecturing at Solvay Lifelong Learning. Left PwC in December 2025 and started a solo acquisition search in January 2026, only about seven months in. London Business School M&A executive education, Master's in Business Engineering from Solvay. The freshest transition in this batch, closest to the "just made the leap" moment.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>8/10</b> (role 9 · pain 8 · timing 9 · relationship 5)</span>
+        <span class="modchip">Temp <b>Warm</b></span>
+        <span class="modchip">Style <b>Analytical</b></span>
+        <span class="modchip">Opener <b>Peer Opener</b></span>
+      </div>
+      <div class="hook">"Left PwC's M&A practice after 11 years for a solo acquisition search months ago."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 · Connect</div><div class="mtext">Hi Paul-Arnaud, 11 years inside PwC's M&A practice, then stepping out in December to search solo, that's a real jump. I made a similar leap from finance into buying a business outside my lane. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 · Icebreaker</div><div class="mtext">Left PwC's M&A practice after 11 years for a solo acquisition search, that's a clean break most people talk about and never make. Seven months in, what's surprised you most, doing the search versus advising on one from the PwC side?</div></div>
+        <div class="m"><div class="mlabel">3 · Value-add</div><div class="mtext">Guest lecturing at Solvay while you were still inside PwC says you already had a teaching instinct before the search started. Curious, has that instinct changed how you're approaching due diligence conversations with owners, more classroom rigor or more gut feel?</div></div>
+        <div class="m"><div class="mlabel">4 · Pivot</div><div class="mtext">Different question: after 11 years advising on other people's M&A, does running your own search feel like finally applying the playbook, or writing an entirely new one?</div></div>
+        <div class="m"><div class="mlabel">5 · Clean exit</div><div class="mtext">No pressure to respond, Paul-Arnaud. Respect the timing, leaving right when the market's uncertain takes a different kind of nerve. If the search ever needs an outside voice from someone who bought into an industry he knew nothing about, happy to talk.</div></div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">TB</div><div><div class="nm">Tim Balfe</div><div class="rl">Entrepreneurship Through Acquisition & Business Development, JRW Enterprises · Denver, USA</div></div><span class="tagi t-grey" style="margin-left:auto">cold</span></div>
+      <div class="signal">Signal: Kellogg MBA, Cornell BS in Agricultural Economics. Bain & Company early career, then M&A partner in Mexico City, then international roles at Monsanto, then two decades (2000-2020) as EVP/Managing Director of business development, operations, and finance across several companies. Describes an active acquisition search since 2021, over five years running, spanning modular real estate, franchise due diligence, solar, and agtech. Lists a direct phone number and email in his headline, an unusually open contact signal. Reads more like a broad fractional-consulting practice than a single laser-focused search, worth a lower fit score and cooler temperature than the searcher label alone suggests.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>6/10</b> (role 6 · pain 8 · timing 5 · relationship 4)</span>
+        <span class="modchip">Temp <b>Cold</b></span>
+        <span class="modchip">Style <b>Driver</b></span>
+        <span class="modchip">Opener <b>Pattern Interrupt</b></span>
+      </div>
+      <div class="hook">"Bain, Monsanto, then two decades running ops, five years hunting an acquisition."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 · Connect</div><div class="mtext">Hi Tim, Bain, Monsanto, two decades running ops, now five years into a search to buy something outright, that's a career built for this move. I made a similar jump from finance into buying a business outside my lane. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 · Icebreaker</div><div class="mtext">Five years searching to buy a business is long enough that most people either give up or stop telling people the timeline. What's kept you in it this long, the deal you haven't found yet, or the terms you won't compromise on?</div></div>
+        <div class="m"><div class="mlabel">3 · Value-add</div><div class="mtext">You've got your phone number right on your profile for anyone chasing a deal, that's a rare amount of directness this deep into a search. Has putting yourself that reachable actually changed the quality of who reaches out?</div></div>
+        <div class="m"><div class="mlabel">4 · Pivot</div><div class="mtext">Different angle: after Bain and Monsanto and twenty years running other people's operations, is the hold-up on finding the right business, or on finally trusting your own judgment enough to close one?</div></div>
+        <div class="m"><div class="mlabel">5 · Clean exit</div><div class="mtext">No pressure to respond, Tim. Respect the persistence, five years is a longer runway than most people have the patience for. If it ever helps to talk to someone who bought into an industry he knew nothing about and made it work, I'm around.</div></div>
+      </div>
+    </div>
+
+    <div class="sec">Pipeline review</div>
+    <div class="card"><div style="font-size:14px;color:var(--ink-dim)">Searched the Notion workspace five different ways this week (active deals, pipeline, CRM, prospects, sales tracker, "deal") and there's still no pipeline or deals database on file, just the same standalone pages as before. This section keeps getting skipped for the same reason: no Priority 1/2/3 triage or next-action DMs to generate until a deals list exists somewhere Notion can query. Whenever you're ready to set one up (active conversations, clients to check on, your most worried-about deal), I'll build it and this stops being a repeat note.</div></div>
+
+    <div class="note">Open <b>Paul-Arnaud Gros</b> first, he's seven months into a search that mirrors your own leap most closely, corporate finance career, then the jump, no safety net yet. Tim Balfe is a longer, cooler play, five years unclosed is real pain but also real skepticism to work through, the Pattern Interrupt opener is doing the heavy lifting there. Every DM here is a draft. You send, after you read it.</div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>Built by Daniel Paul · Purely Personal</b></footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    window.addEventListener('load',function(){
+      if(!window.gsap)return; gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.ohead',{y:26,opacity:0,scale:.98,duration:.7,ease:'power3.out'});
+      gsap.from('.ohead h1',{y:14,opacity:0,duration:.7,delay:.12,ease:'power3.out'});
+      gsap.from('.card,.stat,.pcard,.note',{y:20,opacity:0,duration:.5,stagger:.05,ease:'power2.out',scrollTrigger:{trigger:'.doc',start:'top 85%'}});
+    });
+  </script>
+</body>
+</html>
