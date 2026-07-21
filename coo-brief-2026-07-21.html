@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief · Purely Personal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#E90D41; --primary-light:#F5577D;
+    --bg:#0A0A0A; --card:#151515; --card-border:#242424;
+    --ink:#F2F0EC; --ink-soft:#A8A6A0; --ink-faint:#6E6C67;
+    --good:#22C55E; --warn:#F59E0B; --bad:#EF4444;
+    --r-md:14px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.3),0 12px 32px rgba(0,0,0,.35);
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 78%, #000) 0%, var(--primary) 48%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Rethink Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:840px;margin:0 auto;padding:34px 22px 70px;}
+
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px color-mix(in srgb,var(--primary) 35%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;font-weight:600;}
+  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.85;}
+
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;margin:26px 0 12px;}
+  .card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px;}
+  .row{display:flex;align-items:center;gap:10px;padding:9px 0;font-size:15px;border-bottom:1px solid var(--card-border);}
+  .row:last-child{border-bottom:none;}
+  .row .when{color:var(--ink-soft);font-size:13px;width:96px;flex-shrink:0;}
+  .row .txt{flex:1;}
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;flex-shrink:0;}
+  .t-red{background:rgba(239,68,68,.14);color:var(--bad);}
+  .t-amb{background:rgba(245,158,11,.14);color:var(--warn);}
+  .t-grn{background:rgba(34,197,94,.14);color:var(--good);}
+  .t-grey{background:rgba(255,255,255,.06);color:var(--ink-soft);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .stat{background:var(--card);border:1px solid var(--card-border);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
+  .stat .l{font-size:12px;color:var(--ink-soft);}
+  .stat .n{font-size:30px;font-weight:800;letter-spacing:-.02em;margin-top:4px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .stat .delta{font-size:13px;font-weight:600;margin-top:4px;color:var(--ink-soft);}
+  .empty{color:var(--ink-soft);font-size:14px;padding:6px 0;}
+  footer{text-align:center;padding:30px 22px 10px;color:var(--ink-faint);font-size:13px;}
+  footer b{color:var(--ink-soft);}
+
+  @media(max-width:640px){.grid2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+  <div class="doc">
+
+    <div class="ohead"><div class="k">COO · Morning brief</div><h1>Good morning, Anthony</h1><div class="d">Tuesday, 21 July 2026 · ran while you slept</div></div>
+
+    <div class="sec">Today's Schedule</div>
+    <div class="card">
+      <div class="row"><span class="when">All day</span><span class="txt">IFG SIM card renewal window opens — 120-day reminder</span><span class="tagi t-amb">renew</span></div>
+      <div class="row"><span class="when">11:00 PM</span><span class="txt">Nike Golf Camp (through 3:00 AM) — no link attached</span><span class="tagi t-grn">on track</span></div>
+    </div>
+    <div class="card"><div class="empty">No other meetings on the calendar today — the daytime is open.</div></div>
+
+    <div class="sec">Inbox Priorities</div>
+    <div class="card">
+      <div class="row"><span class="txt">Trisha Richardson, Style &amp; Modern Etiquette — LinkedIn connection invitation still waiting on you</span><span class="tagi t-amb">reply</span></div>
+      <div class="row"><span class="txt">Post Exit Founders newsletter — Chapter X returns, new Forums, Miami in February</span><span class="tagi t-grey">fyi</span></div>
+      <div class="row"><span class="txt">LinkedIn — Part 2 of the 4-part "stand out in a tough job market" workshop series</span><span class="tagi t-grey">fyi</span></div>
+      <div class="row"><span class="txt">Job alert — Head of Portfolio Management (Venture Capital) at ZPEED Recruitment</span><span class="tagi t-grey">fyi</span></div>
+      <div class="row"><span class="txt">Job alert — Talent Development Specialist at MKS Inc.</span><span class="tagi t-grey">fyi</span></div>
+    </div>
+    <div class="card"><div class="empty">Nothing flagged urgent, deadline, or response-needed in the last 24 hours — inbox was quiet.</div></div>
+
+    <div class="grid2">
+      <div class="sec" style="grid-column:1/-1;margin-bottom:0">Tasks</div>
+    </div>
+    <div class="card"><div class="empty">No linked task tracker with due dates — the Notion "Weekly To-do List" page is still the blank starter template. Nothing due or overdue to report.</div></div>
+
+    <div class="sec">Content Slot</div>
+    <div class="card">
+      <div class="row"><span class="when">Story post</span><span class="txt">The Pivot / Career Changer — David → Janet → Kelvin arc, nurturing intent, closes on "Which one are you right now?"</span><span class="tagi t-grn">ready</span></div>
+    </div>
+
+    <div class="sec">Key Metric</div>
+    <div class="stat">
+      <div class="l">Content calendar cadence</div>
+      <div class="n">5 / 5 days</div>
+      <div class="delta">Every weekday this week (Mon–Fri, Jul 20–24) has a scheduled post — today's slot is written and ready.</div>
+    </div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>Built by Daniel Paul · Purely Personal</b></footer>
+  </div>
+</body>
+</html>
