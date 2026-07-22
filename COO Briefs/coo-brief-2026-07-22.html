@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Brief · Wednesday, July 22, 2026</title>
+<style>
+  :root {
+    --primary: #F05A28;
+    --secondary: #003444;
+    --bg: #0A0A0A;
+    --card: #161616;
+    --card-border: #2A2A2A;
+    --text: #F2F2F0;
+    --text-dim: #A3A3A0;
+    --text-faint: #6E6E6B;
+    --green: #3DD68C;
+    --amber: #F0B429;
+    --red: #F0473C;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+    padding: 32px 20px 60px;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 20px;
+    margin-bottom: 28px;
+  }
+  header .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 11px;
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  header .date-badge {
+    text-align: right;
+    color: var(--text-dim);
+    font-size: 13px;
+  }
+  header .date-badge strong {
+    display: block;
+    color: var(--text);
+    font-size: 15px;
+  }
+
+  section { margin-bottom: 32px; }
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-dim);
+    margin-bottom: 14px;
+  }
+  .section-title .bar {
+    width: 4px;
+    height: 16px;
+    background: var(--primary);
+    border-radius: 2px;
+    display: inline-block;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 18px 20px;
+  }
+  .card + .card { margin-top: 10px; }
+
+  .empty-state {
+    color: var(--text-dim);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* Status dot */
+  .status {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: inline-block;
+  }
+  .status.green { background: var(--green); box-shadow: 0 0 8px rgba(61,214,140,0.5); }
+  .status.amber { background: var(--amber); box-shadow: 0 0 8px rgba(240,180,41,0.5); }
+  .status.red   { background: var(--red);   box-shadow: 0 0 8px rgba(240,71,60,0.5); }
+
+  /* Schedule */
+  .event-row {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .event-time {
+    min-width: 92px;
+    font-variant-numeric: tabular-nums;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 13px;
+    padding-top: 2px;
+  }
+  .event-body { flex: 1; }
+  .event-title { font-weight: 600; font-size: 15px; }
+  .event-meta { color: var(--text-dim); font-size: 13px; margin-top: 2px; }
+  .event-link {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--primary);
+    text-decoration: none;
+    border: 1px solid var(--primary);
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+  .event-link:hover { background: var(--primary); color: #0A0A0A; }
+
+  /* Inbox */
+  .mail-row { display: flex; gap: 12px; align-items: flex-start; }
+  .mail-body { flex: 1; }
+  .mail-subject { font-weight: 600; font-size: 14.5px; }
+  .mail-meta { color: var(--text-dim); font-size: 12.5px; margin-top: 2px; }
+  .mail-note { color: var(--text-faint); font-size: 13px; margin-top: 6px; }
+  .tag {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 2px 7px;
+    border-radius: 999px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .tag.amber { background: rgba(240,180,41,0.15); color: var(--amber); }
+  .tag.green { background: rgba(61,214,140,0.15); color: var(--green); }
+  .tag.red { background: rgba(240,71,60,0.15); color: var(--red); }
+
+  /* Tasks */
+  .task-row { display: flex; gap: 12px; align-items: flex-start; }
+  .task-row + .task-row { margin-top: 12px; }
+
+  /* Content slot */
+  .content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .content-field { font-size: 12px; }
+  .content-field .label {
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-faint);
+    font-size: 10.5px;
+    margin-bottom: 4px;
+  }
+  .content-field .value { color: var(--text); font-size: 13.5px; font-weight: 600; }
+  .content-block {
+    background: rgba(255,255,255,0.03);
+    border-left: 3px solid var(--primary);
+    border-radius: 6px;
+    padding: 12px 14px;
+    font-size: 13.5px;
+    color: var(--text-dim);
+    margin-top: 6px;
+  }
+  .content-block strong { color: var(--text); }
+
+  /* Metric */
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 14px;
+  }
+  .metric-tile {
+    background: rgba(255,255,255,0.03);
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+  }
+  .metric-tile .num {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+  }
+  .metric-tile .cap {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-faint);
+    margin-top: 4px;
+  }
+
+  footer {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--card-border);
+    color: var(--text-faint);
+    font-size: 12px;
+    text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    header { flex-direction: column; align-items: flex-start; }
+    header .date-badge { text-align: left; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div>
+      <div class="eyebrow">Institute for Greatness · COO Brief</div>
+      <h1>Good morning, Anthony</h1>
+    </div>
+    <div class="date-badge">
+      <strong>Wednesday, July 22, 2026</strong>
+      Generated 05:52 UTC
+    </div>
+  </header>
+
+  <!-- TODAY'S SCHEDULE -->
+  <section>
+    <div class="section-title"><span class="bar"></span>Today's Schedule</div>
+    <div class="card">
+      <div class="empty-state">
+        <span class="status green"></span>
+        Clear day — no events on any connected calendar (personal, Anthonyt727 &amp; IFG, or Research and IFG) for July 22.
+      </div>
+    </div>
+    <div class="card" style="margin-top:10px; opacity:0.85;">
+      <div class="event-row">
+        <div class="event-time">Tomorrow<br>~2:00 AM SGT</div>
+        <div class="event-body">
+          <div class="event-title">Anthony Tse &lt;&gt; Nia White</div>
+          <div class="event-meta">Zoom call with Nia White (Altscenture) — 2:00–2:50 PM ET Thu Jul 23 / overnight for you in Singapore</div>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:10px; opacity:0.85;">
+      <div class="event-row">
+        <div class="event-time">Tomorrow<br>12:00 PM</div>
+        <div class="event-body">
+          <div class="event-title">Hupo session: Anthony Tse &lt;&gt; Dean Jones</div>
+          <div class="event-meta">Confirmed, 1 hour</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INBOX PRIORITIES -->
+  <section>
+    <div class="section-title"><span class="bar"></span>Inbox Priorities</div>
+
+    <div class="card">
+      <div class="mail-row">
+        <span class="status amber" style="margin-top:4px;"></span>
+        <div class="mail-body">
+          <div class="mail-subject">Set up Zoom recording before tomorrow's Nia White call <span class="tag amber">Action</span></div>
+          <div class="mail-meta">read.ai · 22 Jul, 5:18 PM SGT</div>
+          <div class="mail-note">Connect Zoom to read.ai before the 2:00 AM SGT call tomorrow so it auto-records/transcribes.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="mail-row">
+        <span class="status amber" style="margin-top:4px;"></span>
+        <div class="mail-body">
+          <div class="mail-subject">"I want to connect" — LinkedIn invite from William <span class="tag amber">Awaiting reply</span></div>
+          <div class="mail-meta">invitations@linkedin.com · 22 Jul, 11:17 PM SGT</div>
+          <div class="mail-note">Connection request explicitly flagged as "waiting for your response."</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="mail-row">
+        <span class="status amber" style="margin-top:4px;"></span>
+        <div class="mail-body">
+          <div class="mail-subject">Last Call — Female Entrepreneurs connection call <span class="tag amber">RSVP</span></div>
+          <div class="mail-meta">She's Got a Business · 22 Jul, 1:33 PM SGT</div>
+          <div class="mail-note">Event is tomorrow — decide in/out today if it's of interest.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="mail-row">
+        <span class="status green" style="margin-top:4px;"></span>
+        <div class="mail-body">
+          <div class="mail-subject">Registration confirmed — CSE CP course, 20 Aug <span class="tag green">FYI</span></div>
+          <div class="mail-meta">GlueUp · 22 Jul, 5:52 AM SGT</div>
+          <div class="mail-note">Pre-session steps for CCEU certificate. No action until closer to the date.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="mail-row">
+        <span class="status green" style="margin-top:4px;"></span>
+        <div class="mail-body">
+          <div class="mail-subject">Intro sent: Adeline &lt;&gt; YiChen (M&amp;A broker) <span class="tag green">Sent</span></div>
+          <div class="mail-meta">You → Adeline, YiChen · 22 Jul, 11:20 AM SGT</div>
+          <div class="mail-note">Outbound intro already made — just tracking, no reply needed from you.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="border-style:dashed; opacity:0.8;">
+      <div class="empty-state" style="font-size:13px;">
+        <span class="status green"></span>
+        No emails in the last 24h were flagged "urgent," "deadline," or "response needed" — inbox is quiet.
+      </div>
+    </div>
+  </section>
+
+  <!-- TASKS -->
+  <section>
+    <div class="section-title"><span class="bar"></span>Tasks</div>
+    <div class="card">
+      <div class="task-row">
+        <span class="status amber" style="margin-top:4px;"></span>
+        <div>
+          <div class="event-title">Monthly Media Posts Due — Berenise</div>
+          <div class="event-meta">Due tomorrow, Jul 23 (recurring calendar reminder)</div>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:10px;">
+      <div class="empty-state">
+        <span class="status amber"></span>
+        No live task/project database found in Notion — only unused starter templates ("Weekly To-do List," "Project Planner") remain from setup. Worth building a real tracker if you want this section populated daily.
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENT SLOT -->
+  <section>
+    <div class="section-title"><span class="bar"></span>Content Slot — Today</div>
+    <div class="card">
+      <div class="content-grid">
+        <div class="content-field"><div class="label">Pillar</div><div class="value">Freedom Through Ownership (ETA)</div></div>
+        <div class="content-field"><div class="label">Format</div><div class="value">Soft-sell post</div></div>
+        <div class="content-field"><div class="label">Intent</div><div class="value">Soft Selling</div></div>
+        <div class="content-field"><div class="label">Status</div><div class="value" style="color:var(--amber);">Drafted, not yet logged as published</div></div>
+      </div>
+      <div class="content-block">
+        <strong>Topic:</strong> The false binary between quitting to grind as an entrepreneur and staying trapped in a corporate job — the third path of compounding acquisitions on a salary.
+      </div>
+      <div class="content-block">
+        <strong>Hook direction:</strong> "Quit and grind, or stay and stagnate. That's not the only choice" — or the "Who says a numbers guy cannot…" challenge formula.
+      </div>
+      <div class="content-block">
+        <strong>CTA:</strong> DM-driving — "DM me PIVOT and I'll send you the acquisition math I used to buy my way to freedom without quitting first."
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY METRIC -->
+  <section>
+    <div class="section-title"><span class="bar"></span>Key Metric</div>
+    <div class="card">
+      <div class="metric-grid">
+        <div class="metric-tile">
+          <div class="num" style="color:var(--red);">$0</div>
+          <div class="cap">Attributed revenue (7d)</div>
+        </div>
+        <div class="metric-tile">
+          <div class="num">0</div>
+          <div class="cap">Calls (7d)</div>
+        </div>
+        <div class="metric-tile">
+          <div class="num">0</div>
+          <div class="cap">DMs (7d)</div>
+        </div>
+        <div class="metric-tile">
+          <div class="num">0</div>
+          <div class="cap">Posts logged (7d)</div>
+        </div>
+      </div>
+      <div class="mail-note" style="margin-top:14px;">
+        <span class="status red" style="margin-right:6px;"></span>
+        No posts have been tracked for attribution in the last 7 days despite an active content calendar — check whether publishing or logging has stalled.
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Institute for Greatness · Automated COO Brief · Data pulled from Google Calendar, Gmail, Notion, and Purely Personal
+  </footer>
+
+</div>
+</body>
+</html>
