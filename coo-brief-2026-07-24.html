@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief · 24 July 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#E8294C; --primary-light:#F1728A;
+    --bg:#0A0A0A; --panel:#131315; --panel-2:#1A1A1D;
+    --ink:#F5F4F3; --ink-dim:#B9B7BE; --border:#242226;
+    --good:#22C55E; --warn:#F5A524; --bad:#F04438;
+    --good-bg:rgba(34,197,94,.14); --warn-bg:rgba(245,165,36,.14); --bad-bg:rgba(240,68,56,.14);
+    --r-md:14px; --r-lg:20px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.3),0 12px 32px rgba(0,0,0,.45);
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 78%, #000) 0%, var(--primary) 55%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:
+    radial-gradient(70% 50% at 92% -10%, color-mix(in srgb,var(--primary) 20%, transparent), transparent 60%),
+    radial-gradient(55% 45% at 4% 0%, color-mix(in srgb,var(--primary) 10%, transparent), transparent 55%),
+    var(--bg);
+    background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:840px;margin:0 auto;padding:34px 20px 70px;}
+
+  .ohead{border-radius:var(--r-lg);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 18px 46px color-mix(in srgb,var(--primary) 38%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.10);top:-130px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;font-weight:600;}
+  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.9;}
+
+  .sec{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-dim);font-weight:700;margin:26px 0 12px;}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:12px;}
+  .row{display:flex;align-items:flex-start;gap:10px;padding:10px 0;font-size:15px;border-bottom:1px solid var(--border);}
+  .row:last-child{border-bottom:none;}
+  .row .when{color:var(--ink-dim);font-size:13px;width:150px;flex-shrink:0;}
+  .row .body{flex:1;}
+  .row .body a{color:var(--primary-light);text-decoration:none;}
+  .row .sub{display:block;color:var(--ink-dim);font-size:13px;margin-top:2px;}
+  .tagi{font-size:11px;font-weight:700;padding:3px 10px;border-radius:var(--pill);white-space:nowrap;flex-shrink:0;}
+  .t-grn{background:var(--good-bg);color:var(--good);}
+  .t-amb{background:var(--warn-bg);color:var(--warn);}
+  .t-red{background:var(--bad-bg);color:var(--bad);}
+  .t-grey{background:rgba(255,255,255,.06);color:var(--ink-dim);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .stat{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
+  .stat .l{font-size:12px;color:var(--ink-dim);}
+  .stat .n{font-size:30px;font-weight:800;letter-spacing:-.02em;margin-top:4px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .stat .delta{font-size:13px;font-weight:600;margin-top:4px;color:var(--ink-dim);}
+  .empty{color:var(--ink-dim);font-size:14px;padding:6px 0;}
+  .note{background:linear-gradient(135deg, #000 0%, color-mix(in srgb,var(--primary) 30%, #000) 100%);color:#fff;border-radius:var(--r-md);padding:18px 22px;font-size:15px;margin-top:6px;box-shadow:0 14px 36px rgba(0,0,0,.4);border:1px solid color-mix(in srgb,var(--primary) 40%, var(--border));}
+  .note b{color:var(--primary-light);}
+
+  footer{text-align:center;padding:30px 22px 10px;color:var(--ink-dim);font-size:13px;}
+  footer b{color:var(--ink);}
+
+  @media(max-width:640px){.grid2{grid-template-columns:1fr;}.row .when{width:110px;}}
+</style>
+</head>
+<body>
+  <div class="doc">
+
+    <div class="ohead"><div class="k">COO · Morning brief</div><h1>Good morning, Anthony</h1><div class="d">Friday, 24 July 2026 · ran while you slept</div></div>
+
+    <div class="card"><h4>Today, in one line</h4><div style="font-size:16px;">One call locked in with Nia White at 2:00 PM ET, no urgent emails waiting, and Friday's content slot has direction but no draft yet.</div></div>
+
+    <div class="sec">Today's Schedule</div>
+    <div class="card">
+      <div class="row">
+        <span class="when">2:00–2:30 PM ET<span class="sub">11:00–11:30 AM PT</span></span>
+        <span class="body">Anthony Tse &lt;&gt; Nia White (Altscenture)<span class="sub"><a href="https://us02web.zoom.us/j/6813019092?pwd=bFR1MXdJL09vZ0lMUE9mRmpzS0VyQT09" target="_blank" rel="noopener">Zoom · ID 681 301 9092</a> · Fernando Manzo optional</span></span>
+        <span class="tagi t-grn">on track</span>
+      </div>
+    </div>
+
+    <div class="sec">Inbox Priorities</div>
+    <div class="card">
+      <div class="row">
+        <span class="body">No emails in the last 24 hours matched "urgent," "deadline," or "response needed."</span>
+        <span class="tagi t-grn">clear</span>
+      </div>
+      <div class="row">
+        <span class="body">HMRC — Making Tax Digital for Income Tax<span class="sub">Rule change starts 6 Apr 2026 if you have self-employment/property income. Nothing due today.</span></span>
+        <span class="tagi t-amb">awareness</span>
+      </div>
+      <div class="row">
+        <span class="body">Contrarian Thinking — "How to hire (and keep) A-players"<span class="sub">Newsletter, read-later</span></span>
+        <span class="tagi t-grey">fyi</span>
+      </div>
+      <div class="row">
+        <span class="body">Founder Friday (Startup Deal Desk) — $1.2B exit feature<span class="sub">Newsletter, read-later</span></span>
+        <span class="tagi t-grey">fyi</span>
+      </div>
+      <div class="row">
+        <span class="body">Seeking Alpha — REIT Rebound roundup<span class="sub">Promotional, no action</span></span>
+        <span class="tagi t-grey">fyi</span>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="card"><h4>Tasks</h4><div class="empty">No Notion tasks database with due dates found — only a stale, unrelated 2024 to-do template. Point me at your live tasks database to track due/overdue here.</div></div>
+      <div class="stat"><div class="l">Key Metric</div><div class="n" style="font-size:16px;background:none;-webkit-text-fill-color:var(--ink-dim);color:var(--ink-dim)">5/5 days planned</div><div class="delta">This week's content calendar is fully scheduled through Friday. Tell me the one business number you want tracked here instead — revenue, DMs, or calls booked.</div></div>
+    </div>
+
+    <div class="sec">Content Slot</div>
+    <div class="card">
+      <div class="row">
+        <span class="body"><b>Framework post · Time Value / Reallocation</b><span class="sub">"What is the value of your time?" or the Death Bed Test opener → 3-step time-audit framework, auditing where time actually goes vs. what it's worth. CTA: "Save this and run the math this weekend."</span></span>
+        <span class="tagi t-amb">direction set, not drafted</span>
+      </div>
+    </div>
+
+    <div class="note">One thing to move the needle today: <b>draft Friday's time-audit post before the 2:00 PM call</b> — the framework and hook are already locked in Notion, it just needs to be written.</div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>Anthony Business Brain</b></footer>
+  </div>
+</body>
+</html>
