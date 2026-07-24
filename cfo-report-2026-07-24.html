@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CFO Weekly Revenue · Institute for Greatness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#F05A28; --primary-light:#F59473; --primary-dim:rgba(240,90,40,.12);
+    --bg:#0A0A0A; --card:#141414; --card-2:#1B1B1B; --border:#262626; --border-bright:#333;
+    --text:#FFFFFF; --text-2:#B8B8B8; --text-3:#7A7A7A;
+    --good:#22C55E; --warn:#F59E0B; --bad:#EF4444;
+    --good-bg:rgba(34,197,94,.10); --warn-bg:rgba(245,158,11,.10); --bad-bg:rgba(239,68,68,.10);
+    --r-md:14px; --r-lg:20px; --pill:9999px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Rethink Sans',sans-serif;background:
+      radial-gradient(70% 50% at 100% -10%, rgba(240,90,40,.14), transparent 60%),
+      radial-gradient(50% 40% at 0% 0%, rgba(240,90,40,.08), transparent 55%),
+      var(--bg);background-attachment:fixed;color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  .doc{max-width:900px;margin:0 auto;padding:34px 20px 70px;}
+
+  .head{border-radius:var(--r-lg);padding:30px 32px;margin-bottom:24px;position:relative;overflow:hidden;
+    background:linear-gradient(135deg, color-mix(in srgb,var(--primary) 85%, #000) 0%, var(--primary) 55%, var(--primary-light) 100%);
+    box-shadow:0 20px 50px rgba(240,90,40,.22);}
+  .head::after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.10);top:-130px;right:-70px;}
+  .head .k{font-size:12px;letter-spacing:.16em;text-transform:uppercase;opacity:.85;font-weight:700;color:#fff;}
+  .head h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:6px 0 4px;color:#fff;}
+  .head .d{font-size:13px;opacity:.88;color:#fff;}
+
+  .sec{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);font-weight:700;margin:30px 0 12px;display:flex;align-items:center;gap:10px;}
+  .sec::after{content:"";flex:1;height:1px;background:var(--border);}
+
+  .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .metric{background:var(--card);border:1px solid var(--border);border-radius:var(--r-md);padding:18px 18px 16px;position:relative;overflow:hidden;}
+  .metric::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;}
+  .metric.good::before{background:var(--good);} .metric.warn::before{background:var(--warn);} .metric.bad::before{background:var(--bad);}
+  .metric .l{font-size:11px;color:var(--text-3);text-transform:uppercase;letter-spacing:.08em;font-weight:700;}
+  .metric .n{font-size:26px;font-weight:800;letter-spacing:-.02em;margin-top:8px;}
+  .metric .sub{font-size:12.5px;color:var(--text-2);margin-top:6px;line-height:1.5;}
+  .tag{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:var(--pill);margin-top:10px;letter-spacing:.02em;}
+  .tag.good{background:var(--good-bg);color:var(--good);} .tag.warn{background:var(--warn-bg);color:var(--warn);} .tag.bad{background:var(--bad-bg);color:var(--bad);}
+
+  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-md);padding:20px 22px;margin-bottom:16px;}
+  .card h4{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:14px;font-weight:700;}
+  .card.accent{border-left:3px solid var(--primary);}
+
+  .pipe-row{display:flex;justify-content:space-between;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--border);font-size:14.5px;}
+  .pipe-row:last-child{border-bottom:none;}
+  .pipe-row .v{color:var(--text-2);font-size:13px;}
+  .empty{color:var(--text-2);font-size:14px;padding:4px 0;line-height:1.6;}
+  .empty b{color:var(--text);}
+
+  table{width:100%;border-collapse:collapse;font-size:13.5px;}
+  th{text-align:left;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);padding:9px 10px;border-bottom:1px solid var(--border-bright);font-weight:700;}
+  td{padding:12px 10px;border-bottom:1px solid var(--border);color:var(--text-2);vertical-align:middle;}
+  tr:last-child td{border-bottom:none;}
+  td.client{color:var(--text);font-weight:600;}
+  td.amt{font-family:'JetBrains Mono',monospace;color:var(--text);text-align:right;}
+  .days-badge{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:var(--pill);background:var(--bad-bg);color:var(--bad);}
+  .status-badge{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:var(--pill);text-transform:uppercase;letter-spacing:.03em;}
+  .status-badge.draft{background:var(--warn-bg);color:var(--warn);}
+  .status-badge.overdue{background:var(--bad-bg);color:var(--bad);}
+  .table-wrap{overflow-x:auto;}
+  tfoot td{border-top:1px solid var(--border-bright);border-bottom:none;font-weight:700;color:var(--text);padding-top:14px;}
+
+  .flag{background:var(--card-2);border:1px solid var(--border);border-left:3px solid var(--bad);border-radius:var(--r-md);padding:16px 18px;margin-bottom:12px;}
+  .flag .fnum{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--bad);font-weight:700;letter-spacing:.05em;}
+  .flag .ftitle{font-size:15px;font-weight:700;margin:6px 0 6px;color:var(--text);}
+  .flag .fnext{font-size:13.5px;color:var(--text-2);line-height:1.6;}
+  .flag .fnext b{color:var(--primary-light);}
+
+  .quotebox{background:var(--card-2);border:1px dashed var(--border-bright);border-radius:var(--r-md);padding:18px 20px;font-size:15px;color:var(--text);line-height:1.6;position:relative;}
+  .quotebox .cl{position:absolute;top:12px;right:14px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);font-weight:700;}
+  .quotebox .meta{font-size:12px;color:var(--text-3);margin-top:10px;}
+
+  .note{background:linear-gradient(135deg,#171717 0%, color-mix(in srgb,var(--primary) 18%, #171717) 100%);border:1px solid var(--border);color:#fff;border-radius:var(--r-md);padding:18px 22px;font-size:14.5px;margin-top:6px;}
+  .note b{color:var(--primary-light);}
+
+  footer{text-align:center;padding:34px 22px 10px;color:var(--text-3);font-size:12.5px;}
+  footer b{color:var(--text-2);}
+
+  @media(max-width:760px){.grid4{grid-template-columns:1fr 1fr;}}
+  @media(max-width:480px){.grid4{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+  <div class="doc">
+
+    <div class="head">
+      <div class="k">CFO · Weekly Revenue Report</div>
+      <h1>Institute for Greatness</h1>
+      <div class="d">Friday, 24 July 2026 · week of Jul 17–24 · compiled from Zoho Books, Gmail, Notion</div>
+    </div>
+
+    <div class="sec">This Week At A Glance</div>
+    <div class="grid4">
+      <div class="metric bad">
+        <div class="l">Revenue Received</div>
+        <div class="n">SGD 0</div>
+        <div class="sub">vs SGD 0 last week</div>
+        <div class="tag warn">FLAT — ZERO BOTH WEEKS</div>
+      </div>
+      <div class="metric bad">
+        <div class="l">Total Outstanding</div>
+        <div class="n">SGD 10,325</div>
+        <div class="sub">across 6 open invoices</div>
+        <div class="tag bad">ALL 7+ DAYS OVERDUE</div>
+      </div>
+      <div class="metric bad">
+        <div class="l">Overdue Invoices</div>
+        <div class="n">6</div>
+        <div class="sub">29 – 119 days past due</div>
+        <div class="tag bad">NEEDS ACTION</div>
+      </div>
+      <div class="metric bad">
+        <div class="l">Monthly Run Rate</div>
+        <div class="n">SGD 0</div>
+        <div class="sub">vs SGD 15,000 target</div>
+        <div class="tag bad">0% OF GOAL</div>
+      </div>
+    </div>
+
+    <div class="sec">Pipeline Health</div>
+    <div class="card accent">
+      <h4>Active Deals</h4>
+      <div class="empty">No pipeline or deals database found in Notion. Total value, active deal count, and stalled-deal checks can't be computed until a deals tracker exists — <b>this is a data gap, not a zero pipeline</b>. Recommend standing up a simple Notion database (client, stage, value, last-touch date) so next week's report can actually score this.</div>
+    </div>
+
+    <div class="sec">Unpaid Invoices</div>
+    <div class="card">
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Client</th><th>Invoice</th><th>Due Date</th><th>Days Overdue</th><th>Status in Zoho</th><th style="text-align:right">Balance</th></tr></thead>
+        <tbody>
+          <tr><td class="client">Momenta</td><td>INV-000010</td><td>11 Jun 2026</td><td><span class="days-badge">43 days</span></td><td><span class="status-badge draft">Draft · never sent</span></td><td class="amt">SGD 3,000.00</td></tr>
+          <tr><td class="client">Momenta</td><td>INV-000009</td><td>22 Apr 2026</td><td><span class="days-badge">93 days</span></td><td><span class="status-badge draft">Draft · never sent</span></td><td class="amt">SGD 2,350.00</td></tr>
+          <tr><td class="client">Hupo (Ami Labs)</td><td>INV-000006</td><td>25 May 2026</td><td><span class="days-badge">60 days</span></td><td><span class="status-badge draft">Draft · never sent</span></td><td class="amt">SGD 1,925.00</td></tr>
+          <tr><td class="client">Momenta</td><td>INV-000011</td><td>20 Jun 2026</td><td><span class="days-badge">34 days</span></td><td><span class="status-badge draft">Draft · never sent</span></td><td class="amt">SGD 1,500.00</td></tr>
+          <tr><td class="client">Hupo (Ami Labs)</td><td>INV-000007</td><td>25 Jun 2026</td><td><span class="days-badge">29 days</span></td><td><span class="status-badge draft">Draft · never sent</span></td><td class="amt">SGD 1,450.00</td></tr>
+          <tr><td class="client">Hupo (Ami Labs)</td><td>INV-000004</td><td>27 Mar 2026</td><td><span class="days-badge">119 days</span></td><td><span class="status-badge overdue">Sent · overdue</span></td><td class="amt">SGD 100.00</td></tr>
+        </tbody>
+        <tfoot><tr><td colspan="5">Total outstanding</td><td class="amt">SGD 10,325.00</td></tr></tfoot>
+      </table>
+      </div>
+    </div>
+
+    <div class="sec">Attention Flags</div>
+
+    <div class="flag">
+      <div class="fnum">FLAG 01</div>
+      <div class="ftitle">SGD 10,225 sits in Zoho as drafts that were never actually emailed to the client</div>
+      <div class="fnext">Next step: <b>Confirm with Momenta and Hupo whether these were invoiced through another channel.</b> If not, send all 5 draft invoices from Zoho today — the "days overdue" clock only starts meaning anything once the client has actually received them.</div>
+    </div>
+
+    <div class="flag">
+      <div class="fnum">FLAG 02</div>
+      <div class="ftitle">Zero revenue and zero expenses logged in Zoho since 29 June — three-plus weeks with no bookkeeping activity</div>
+      <div class="fnext">Next step: <b>Run the IFG bookkeeping refresh</b> to log any invoices, receipts, or payments from July before trusting this report's "SGD 0" run rate — this is very likely a books lag, not an actual dead month. Stripe is also not yet connected here, so any card revenue is currently invisible to this report.</div>
+    </div>
+
+    <div class="flag">
+      <div class="fnum">FLAG 03</div>
+      <div class="ftitle">Only 1 of 6 open invoices (Hupo, INV-000004) has ever actually been sent — and it's 119 days overdue</div>
+      <div class="fnext">Next step: <b>Send the copy-ready follow-up below to Hupo now</b> — SGD 100 is small, but a 119-day-old sent invoice with zero reminders is the one collections gap that's unambiguously yours to chase.</div>
+    </div>
+
+    <div class="sec">Copy-Ready Follow-Up</div>
+    <div class="quotebox">
+      <span class="cl">Hupo · INV-000004</span>
+      Hi team, invoice INV-000004 for SGD 100 is now 119 days past due, please confirm when payment will be processed.
+      <div class="meta">For the 5 draft invoices (Momenta ×3, Hupo ×2, SGD 10,225 total): send them from Zoho first, they can't be chased as overdue until the client has actually seen them.</div>
+    </div>
+
+    <div class="note">Bottom line: the numbers above are what Zoho Books currently shows, and they say <b>SGD 0 collected in three weeks against a SGD 15,000/month target</b>. Before treating that as reality, close Flag 02 first — get July's actual activity logged — then re-run this report for a true read.</div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>Institute for Greatness</b></footer>
+  </div>
+</body>
+</html>
