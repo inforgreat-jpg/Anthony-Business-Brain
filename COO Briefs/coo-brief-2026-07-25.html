@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>COO Morning Brief — July 25, 2026</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  :root {
+    --primary: #F05A28;
+    --secondary: #003444;
+    --bg: #0A0A0A;
+    --card: #151515;
+    --card-border: #262626;
+    --text: #F2F2F0;
+    --text-dim: #9A9A96;
+    --green: #3DD68C;
+    --amber: #F0B429;
+    --red: #F0453A;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+    padding: 40px 24px 80px;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; }
+  header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 20px;
+    margin-bottom: 32px;
+  }
+  header .eyebrow {
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  header h1 { margin: 4px 0 0; font-size: 26px; font-weight: 800; }
+  header .date { color: var(--text-dim); font-size: 14px; }
+  .section-title {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    margin: 40px 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--card-border);
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+  }
+  .card-row { display: flex; gap: 14px; align-items: flex-start; }
+  .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    margin-top: 5px; flex-shrink: 0;
+  }
+  .dot.green { background: var(--green); box-shadow: 0 0 8px var(--green); }
+  .dot.amber { background: var(--amber); box-shadow: 0 0 8px var(--amber); }
+  .dot.red { background: var(--red); box-shadow: 0 0 8px var(--red); }
+  .card-title { font-weight: 700; font-size: 15px; }
+  .card-meta { color: var(--text-dim); font-size: 13px; margin-top: 3px; }
+  .card-body { font-size: 13.5px; color: #cfcfcb; margin-top: 6px; line-height: 1.5; }
+  a.link { color: var(--primary); text-decoration: none; font-weight: 600; }
+  a.link:hover { text-decoration: underline; }
+  .badge {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .badge.green { background: rgba(61,214,140,0.12); color: var(--green); }
+  .badge.amber { background: rgba(240,180,41,0.14); color: var(--amber); }
+  .badge.red { background: rgba(240,69,58,0.14); color: var(--red); }
+  .empty {
+    color: var(--text-dim);
+    font-size: 13.5px;
+    font-style: italic;
+    padding: 4px 2px;
+  }
+  .metric-card {
+    background: linear-gradient(135deg, var(--card) 0%, #1a1210 100%);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 24px 26px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .metric-value { font-size: 34px; font-weight: 800; color: var(--primary); }
+  .metric-label { color: var(--text-dim); font-size: 13px; margin-top: 2px; }
+  .metric-side { text-align: right; }
+  footer {
+    margin-top: 50px;
+    color: var(--text-dim);
+    font-size: 12px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div>
+      <div class="eyebrow">COO Morning Brief</div>
+      <h1>Anthony Tse</h1>
+    </div>
+    <div class="date">Saturday, July 25, 2026</div>
+  </header>
+
+  <div class="section-title">Today's Schedule</div>
+  <div class="card">
+    <div class="card-row">
+      <span class="dot green"></span>
+      <div style="flex:1;">
+        <div class="card-title" style="display:flex; align-items:center;">
+          Anthony Tse &lt;&gt; Nia White
+          <span class="badge green">Confirmed</span>
+        </div>
+        <div class="card-meta">2:00 – 2:30 AM SGT · organized by Nia White (Altscenture) · Fernando Manzo optional</div>
+        <div class="card-body">
+          Rescheduled call — originally booked as Fri, Jul 24, 2:00–2:30 PM ET.
+          <a class="link" href="https://us02web.zoom.us/j/6813019092?pwd=bFR1MXdJL09vZ0lMUE9mRmpzS0VyQT09" target="_blank" rel="noopener">Join Zoom (ID 681 301 9092)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="empty">Only one event on the calendar today — a very light day. Note the early-AM SGT slot; confirm it hasn't already passed by the time you read this.</div>
+
+  <div class="section-title">Inbox Priorities <span style="font-weight:400; text-transform:none; letter-spacing:normal;">(top 5, last 24h)</span></div>
+
+  <div class="card">
+    <div class="card-row">
+      <span class="dot amber"></span>
+      <div style="flex:1;">
+        <div class="card-title" style="display:flex; align-items:center;">
+          FINAL CALL — Ring of Reciprocity Dinner II
+          <span class="badge amber">RSVP deadline</span>
+        </div>
+        <div class="card-meta">Wharton Club UK · 9:01 AM</div>
+        <div class="card-body">Last-chance RSVP notice — respond today if you want in.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-row">
+      <span class="dot amber"></span>
+      <div style="flex:1;">
+        <div class="card-title" style="display:flex; align-items:center;">
+          New message from Devyn
+          <span class="badge amber">Response needed</span>
+        </div>
+        <div class="card-meta">Preply · 6:50 PM</div>
+        <div class="card-body">Waiting on a reply from you.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-row">
+      <span class="dot green"></span>
+      <div style="flex:1;">
+        <div class="card-title">HSBC Credit Card Transaction Notification</div>
+        <div class="card-meta">HSBC · 6:49 AM</div>
+        <div class="card-body">Informational — no action needed unless the transaction looks unfamiliar.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-row">
+      <span class="dot green"></span>
+      <div style="flex:1;">
+        <div class="card-title">What Moved Markets This Week</div>
+        <div class="card-meta">Seeking Alpha · 12:56 PM</div>
+        <div class="card-body">FYI newsletter — weekly markets recap.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-row">
+      <span class="dot green"></span>
+      <div style="flex:1;">
+        <div class="card-title">Top Healthcare Stocks Beyond The Market Rotation</div>
+        <div class="card-meta">Seeking Alpha · 7:55 PM</div>
+        <div class="card-body">FYI newsletter — no action needed.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="empty">4 other emails in the window (property listing, loan offer, book club invite, Caproasia newsletter) were low-priority marketing/FYI and left off this list.</div>
+
+  <div class="section-title">Tasks</div>
+  <div class="card">
+    <div class="card-row">
+      <span class="dot amber"></span>
+      <div style="flex:1;">
+        <div class="card-title">No active task tracker found in Notion</div>
+        <div class="card-body">Searched the workspace for a due-date/overdue task database — none exists yet. The only task-shaped page is a stale "Weekly To-do List" template from March 2024 (unrelated to current work). Worth setting up a real Tasks database if you want this section populated going forward.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">Content Slot</div>
+  <div class="card">
+    <div class="card-row">
+      <span class="dot amber"></span>
+      <div style="flex:1;">
+        <div class="card-title">No slot scheduled for today</div>
+        <div class="card-meta">Content Calendar — Week of 2026-07-20</div>
+        <div class="card-body">This week's calendar only plans Mon–Fri. Most recent slot was <strong>Friday, Jul 24</strong> — "Time Value / Reallocation" (Framework post, Educating): auditing where your time actually goes vs. what it's worth.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">Key Metric</div>
+  <div class="metric-card">
+    <div>
+      <div class="metric-value">$0</div>
+      <div class="metric-label">Attributed revenue, last 7 days</div>
+    </div>
+    <div class="metric-side">
+      <div class="metric-value" style="font-size:22px;">0 posts</div>
+      <div class="metric-label">Attribution tracking not active yet — call track_post_published to start logging</div>
+    </div>
+  </div>
+
+  <footer>Generated automatically · Institute for Greatness brand palette (#F05A28 / #003444)</footer>
+
+</div>
+</body>
+</html>
