@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief · Sunday, July 26 2026</title>
+<style>
+  :root{
+    --primary:#F05A28;
+    --bg:#0A0A0A; --card:#151513; --card-border:#262622;
+    --ink:#F5F4F1; --ink-soft:#A8A7A0; --ink-faint:#6E6D67;
+    --green:#3DDC84; --green-bg:rgba(61,220,132,.12);
+    --amber:#F5A623; --amber-bg:rgba(245,166,35,.12);
+    --red:#F0473C; --red-bg:rgba(240,71,60,.12);
+    --r:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .doc{max-width:760px;margin:0 auto;padding:36px 20px 64px;}
+
+  .head{
+    border-radius:var(--r); padding:26px 26px; margin-bottom:24px;
+    background:linear-gradient(135deg, color-mix(in srgb, var(--primary) 22%, #000) 0%, #0A0A0A 75%);
+    border:1px solid var(--card-border);
+    position:relative; overflow:hidden;
+  }
+  .head::after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;
+    background:radial-gradient(circle, color-mix(in srgb, var(--primary) 35%, transparent) 0%, transparent 70%);
+    top:-140px; right:-80px; pointer-events:none;}
+  .head .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--primary);font-weight:700;}
+  .head h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.01em;margin:8px 0 4px;color:var(--ink);}
+  .head .d{font-size:13px;color:var(--ink-soft);}
+
+  .sec{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;margin:28px 2px 12px;}
+  .sec:first-of-type{margin-top:0;}
+
+  .card{
+    background:var(--card); border:1px solid var(--card-border); border-radius:var(--r);
+    padding:16px 18px; margin-bottom:10px;
+  }
+  .item{display:flex;align-items:flex-start;gap:12px;padding:11px 0;border-bottom:1px solid var(--card-border);}
+  .item:last-child{border-bottom:none;}
+  .dot{width:9px;height:9px;border-radius:50%;margin-top:6px;flex-shrink:0;}
+  .dot.green{background:var(--green);box-shadow:0 0 0 3px var(--green-bg);}
+  .dot.amber{background:var(--amber);box-shadow:0 0 0 3px var(--amber-bg);}
+  .dot.red{background:var(--red);box-shadow:0 0 0 3px var(--red-bg);}
+  .body-txt{flex:1;min-width:0;}
+  .title-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .title{font-size:14.5px;font-weight:600;color:var(--ink);}
+  .title a{color:var(--ink);text-decoration:none;border-bottom:1px solid color-mix(in srgb, var(--primary) 60%, transparent);}
+  .meta{font-size:12.5px;color:var(--ink-soft);margin-top:2px;}
+  .tag{font-size:10.5px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;padding:2px 8px;border-radius:99px;flex-shrink:0;margin-left:auto;}
+  .tag.green{background:var(--green-bg);color:var(--green);}
+  .tag.amber{background:var(--amber-bg);color:var(--amber);}
+  .tag.red{background:var(--red-bg);color:var(--red);}
+  .empty{color:var(--ink-faint);font-size:13.5px;padding:4px 0;}
+
+  .metric{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+  .mstat{min-width:110px;}
+  .mstat .l{font-size:11px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.06em;}
+  .mstat .n{font-size:28px;font-weight:700;letter-spacing:-.02em;color:var(--ink);margin-top:2px;}
+
+  footer{text-align:center;padding:26px 20px 8px;color:var(--ink-faint);font-size:12px;}
+</style>
+</head>
+<body>
+  <div class="doc">
+
+    <div class="head">
+      <div class="k">COO · Morning Brief</div>
+      <h1>Good morning, Anthony</h1>
+      <div class="d">Sunday, July 26 2026</div>
+    </div>
+
+    <div class="sec">Today's Schedule</div>
+    <div class="card">
+      <div class="item">
+        <div class="dot green"></div>
+        <div class="body-txt">
+          <div class="title-row">
+            <span class="title"><a href="https://api.hupo.co/event/join/6a4f1179b88048d0fe0390bf?coach=1&ref=event-update-email-link">Hupo session: Anthony Tse &lt;&gt; Koh Li Yip</a></span>
+            <span class="tag green">on track</span>
+          </div>
+          <div class="meta">9:00 – 10:00 PM PT · confirmed, join link ready</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="dot amber"></div>
+        <div class="body-txt">
+          <div class="title-row">
+            <span class="title"><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZWNlOGVhNDgtM2JmNy00YTM3LWFlM2MtZDFjODljMDMzY2Ey%40thread.v2/0?context=%7b%22Tid%22%3a%22ab8254ff-5e7a-489b-9b72-ab97cb37f6b7%22%2c%22Oid%22%3a%22491a9a07-8a20-447c-a67f-a481d376fefe%22%7d">Amy Cheung and Institute for Greatness</a></span>
+            <span class="tag amber">attention</span>
+          </div>
+          <div class="meta">10:30 – 11:00 PM PT · booked via Calendly, but Amy's response status shows declined — worth a quick check that she's still coming</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">Inbox Priorities</div>
+    <div class="card">
+      <div class="item">
+        <div class="dot green"></div>
+        <div class="body-txt">
+          <div class="title-row">
+            <span class="title">Nothing marked urgent, deadline, or response-needed</span>
+            <span class="tag green">clear</span>
+          </div>
+          <div class="meta">3 emails landed in the last 24 hours — all newsletters/receipts, none need a reply</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="dot green"></div>
+        <div class="body-txt">
+          <div class="title-row"><span class="title">The Runway Ventures — "unpaid CPF" newsletter</span><span class="tag green">fyi</span></div>
+          <div class="meta">Startup case-study newsletter (Autobahn Rent A Car collapse) — not an account or compliance matter, despite the subject line</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="dot green"></div>
+        <div class="body-txt">
+          <div class="title-row"><span class="title">Seeking Alpha market note</span><span class="tag green">fyi</span></div>
+          <div class="meta">"Second Largest Negative Signal Of 2026" — market commentary, informational only</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="dot green"></div>
+        <div class="body-txt">
+          <div class="title-row"><span class="title">Square receipt — Coldstone Lomita</span><span class="tag green">fyi</span></div>
+          <div class="meta">$20.34 on Jul 25 — routine receipt</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">Tasks</div>
+    <div class="card">
+      <div class="empty">No task tracker found in the connected Notion workspace — nothing due or overdue to show. Connect a Tasks database to light this section up.</div>
+    </div>
+
+    <div class="sec">Content Slot</div>
+    <div class="card">
+      <div class="item">
+        <div class="dot amber"></div>
+        <div class="body-txt">
+          <div class="title-row">
+            <span class="title">No content scheduled for today</span>
+            <span class="tag amber">gap</span>
+          </div>
+          <div class="meta">The Content Calendar runs weekdays only — last post was Friday, Jul 24. Next up: Monday, Jul 27, "The Thing Nobody Says Out Loud" (Presence Over Performance pillar)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">Key Metric</div>
+    <div class="card">
+      <div class="metric">
+        <div class="mstat"><div class="l">Revenue · 7d</div><div class="n">$0</div></div>
+        <div class="mstat"><div class="l">Calls booked</div><div class="n">0</div></div>
+        <div class="mstat"><div class="l">DMs</div><div class="n">0</div></div>
+        <div class="mstat"><div class="l">Lifetime</div><div class="n">$0</div></div>
+        <span class="tag amber">attention</span>
+      </div>
+      <div class="meta" style="margin-top:10px;">No attributed revenue, calls, or DMs in the last 7 or 30 days — worth a look if that doesn't match what actually happened.</div>
+    </div>
+
+    <footer>The brain thinks. The team works. You approve. · Purely Personal</footer>
+  </div>
+</body>
+</html>
