@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief · 27 Jul 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#F05A28; --primary-light:#F59473;
+    --bg:#0A0A0A; --card:#151515; --card-border:#242424;
+    --ink:#F5F3F0; --ink-dim:#A8A6A2; --ink-faint:#6b6a67;
+    --good:#22C55E; --warn:#F59E0B; --bad:#EF4444;
+    --r-md:14px; --r-lg:20px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.4),0 12px 32px rgba(0,0,0,.5);
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 82%, #000) 0%, var(--primary) 50%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Rethink Sans',sans-serif;background:radial-gradient(70% 50% at 92% -10%, color-mix(in srgb,var(--primary) 16%, transparent), transparent 60%), var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:840px;margin:0 auto;padding:34px 22px 70px;}
+
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px color-mix(in srgb,var(--primary) 35%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;font-weight:600;}
+  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.85;}
+
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);font-weight:700;margin:26px 0 12px;}
+  .sec:first-of-type{margin-top:0;}
+  .card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:12px;}
+  .lead{font-size:16px;}
+  .row{display:flex;align-items:flex-start;gap:10px;padding:10px 0;font-size:15px;border-bottom:1px solid var(--card-border);}
+  .row:last-child{border-bottom:none;}
+  .row .when{color:var(--ink-dim);font-size:13px;width:104px;flex-shrink:0;padding-top:1px;}
+  .row .body{flex:1;}
+  .row .body a{color:var(--primary-light);text-decoration:none;}
+  .row .sub{color:var(--ink-faint);font-size:13px;margin-top:2px;}
+  .tagi{font-size:11px;font-weight:700;padding:3px 10px;border-radius:var(--pill);white-space:nowrap;flex-shrink:0;margin-top:1px;}
+  .t-grn{background:rgba(34,197,94,.14);color:var(--good);}
+  .t-amb{background:rgba(245,158,11,.14);color:var(--warn);}
+  .t-red{background:rgba(239,68,68,.14);color:var(--bad);}
+  .t-grey{background:rgba(168,166,162,.12);color:var(--ink-dim);}
+  .stat{background:var(--card);border:1px solid var(--card-border);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
+  .stat .l{font-size:12px;color:var(--ink-dim);} .stat .n{font-size:30px;font-weight:800;letter-spacing:-.02em;margin-top:4px;color:var(--ink-faint);}
+  .stat .delta{font-size:13px;font-weight:600;margin-top:4px;color:var(--ink-faint);}
+  .note{background:linear-gradient(135deg, #000 0%, color-mix(in srgb,var(--primary) 30%, #000) 100%);color:#fff;border-radius:var(--r-md);padding:18px 22px;font-size:15px;margin-top:6px;box-shadow:0 14px 36px rgba(0,0,0,.4);border:1px solid color-mix(in srgb,var(--primary) 40%, transparent);}
+  .note b{color:var(--primary-light);}
+  .empty{color:var(--ink-faint);font-size:14px;padding:6px 0;}
+
+  footer{text-align:center;padding:30px 22px 10px;color:var(--ink-faint);font-size:13px;}
+  footer b{color:var(--ink-dim);}
+</style>
+</head>
+<body>
+  <div class="doc">
+
+    <div class="ohead"><div class="k">COO · Morning brief</div><h1>Good morning, Anthony</h1><div class="d">Monday, 27 July 2026 · ran while you slept · times in SGT</div></div>
+
+    <div class="card"><h4>Today, in one line</h4><div class="lead">Two sessions on the calendar, one of them with an invitee who's already declined, inbox is quiet, and today's content slot still needs a hook before it's postable.</div></div>
+
+    <div class="sec">Today's Schedule</div>
+    <div class="card">
+      <div class="row">
+        <span class="when">12:00 – 1:00 PM</span>
+        <div class="body">Hupo session: Anthony Tse &lt;&gt; Koh Li Yip<div class="sub"><a href="https://api.hupo.co/event/join/6a4f1179b88048d0fe0390bf?coach=1&ref=event-update-email-link">Join link</a></div></div>
+        <span class="tagi t-grn">on track</span>
+      </div>
+      <div class="row">
+        <span class="when">1:30 – 2:00 PM</span>
+        <div class="body">Amy Cheung &lt;&gt; Institute for Greatness (discovery session)<div class="sub">acheung@marex.com has declined the invite · session is on MS Teams once confirmed</div></div>
+        <span class="tagi t-amb">attention</span>
+      </div>
+    </div>
+
+    <div class="sec">Inbox Priorities</div>
+    <div class="card">
+      <div class="empty">Nothing flagged urgent, deadline, or response-needed in the last 24 hours. Inbox was mostly Preply lesson notifications and market newsletters — no business threads needed a reply.</div>
+    </div>
+
+    <div class="sec">Tasks</div>
+    <div class="card"><div class="empty">No connected Notion tasks database found (only a stale 2024 to-do template page). Point me at your live tasks database and I'll surface what's due or overdue here.</div></div>
+
+    <div class="sec">Content Slot</div>
+    <div class="card">
+      <h4>Monday, Jul 27 · Framework post · Pillar: Presence Over Performance</h4>
+      <div class="lead">The difference between being busy and being present, a 3-part audit for leaders who measure their day in meetings attended instead of decisions moved.</div>
+      <div class="row" style="border-bottom:none;padding-top:14px;">
+        <div class="body sub">Opening direction locked (&quot;The Thing Nobody Says Out Loud&quot;), but Hook and CTA fields are still blank in the calendar entry.</div>
+        <span class="tagi t-amb">needs finishing</span>
+      </div>
+    </div>
+
+    <div class="sec">Key Metric</div>
+    <div class="stat"><div class="l">Key Metric</div><div class="n" style="font-size:16px;">Not set yet</div><div class="delta">Tell me the one number you want tracked here — revenue, DMs sent, or calls booked — and I'll pull it in every morning.</div></div>
+
+    <div class="note">One thing to move the needle today: <b>confirm Amy Cheung's 1:30 PM slot is still happening</b> since her invite shows declined, and lock the hook + CTA on today's "Presence Over Performance" post before it's ready to publish.</div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>Built by Daniel Paul · Purely Personal</b></footer>
+  </div>
+</body>
+</html>
