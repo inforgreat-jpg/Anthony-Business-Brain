@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief · Jul 28, 2026</title>
+<style>
+  :root{
+    --primary:#F05A28; --primary-soft:rgba(240,90,40,.14);
+    --bg:#0A0A0A; --card:#141414; --card-border:rgba(255,255,255,.08);
+    --ink:#F2F1EE; --ink-soft:#9A9A96; --ink-faint:#5F5F5C;
+    --green:#22C55E; --green-bg:rgba(34,197,94,.12);
+    --amber:#F5A623; --amber-bg:rgba(245,166,35,.13);
+    --red:#EF4444; --red-bg:rgba(239,68,68,.13);
+    --grey-bg:rgba(255,255,255,.05);
+    --radius:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    line-height:1.55; -webkit-font-smoothing:antialiased;
+    padding:36px 18px 60px;
+  }
+  .doc{max-width:760px;margin:0 auto;}
+
+  .head{margin-bottom:30px;}
+  .head .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);font-weight:700;}
+  .head h1{font-size:clamp(24px,4vw,32px);font-weight:700;letter-spacing:-.01em;margin:6px 0 4px;}
+  .head .d{font-size:14px;color:var(--ink-soft);}
+
+  .sec{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;margin:30px 0 12px;display:flex;align-items:center;gap:10px;}
+  .sec::after{content:"";flex:1;height:1px;background:var(--card-border);}
+
+  .card{
+    background:var(--card); border:1px solid var(--card-border);
+    border-radius:var(--radius); padding:16px 18px; margin-bottom:10px;
+    border-left:3px solid var(--primary);
+  }
+  .card:last-child{margin-bottom:0;}
+
+  .row-title{display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:4px;}
+  .row-title .t{font-size:15px; font-weight:600; color:var(--ink);}
+  .row-title .time{font-size:13px; color:var(--ink-soft); font-weight:600; white-space:nowrap;}
+  .sub{font-size:13.5px; color:var(--ink-soft);}
+  .sub a{color:var(--primary); text-decoration:none;}
+  .sub a:hover{text-decoration:underline;}
+
+  .badge{
+    display:inline-block; font-size:10.5px; font-weight:700; letter-spacing:.03em;
+    text-transform:uppercase; padding:3px 9px; border-radius:999px; margin-left:8px; white-space:nowrap;
+  }
+  .b-green{background:var(--green-bg); color:var(--green);}
+  .b-amber{background:var(--amber-bg); color:var(--amber);}
+  .b-red{background:var(--red-bg); color:var(--red);}
+  .b-grey{background:var(--grey-bg); color:var(--ink-faint);}
+
+  .empty{color:var(--ink-faint); font-size:14px; font-style:normal;}
+
+  .num{
+    display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;
+  }
+  .num .n{font-size:32px; font-weight:800; letter-spacing:-.02em; color:var(--ink);}
+  .num .n small{font-size:16px; font-weight:700; color:var(--ink-soft); margin-right:2px;}
+  .num .l{font-size:13px; color:var(--ink-soft);}
+
+  footer{text-align:center; padding:34px 0 6px; color:var(--ink-faint); font-size:12.5px;}
+  footer b{color:var(--ink-soft);}
+
+  @media(max-width:480px){
+    .row-title{flex-direction:column; align-items:flex-start; gap:2px;}
+  }
+</style>
+</head>
+<body>
+  <div class="doc">
+
+    <div class="head">
+      <div class="k">COO · Morning Brief</div>
+      <h1>Tuesday, July 28, 2026</h1>
+      <div class="d">Institute for Greatness · ran while you slept</div>
+    </div>
+
+    <div class="sec">Today's Schedule</div>
+    <div class="card">
+      <div class="row-title">
+        <div class="t">GloCoach Coach Town Hall — July 1</div>
+        <div class="time">1:00 – 2:00 AM</div>
+      </div>
+      <div class="sub">Organizer Laura Song (GloCoach) · <a href="https://teams.microsoft.com/meet/42208942946850?p=Es41wwMPsLoLRRkAOX" target="_blank" rel="noopener">Join on Teams</a><span class="badge b-amber">Tentative</span></div>
+    </div>
+    <div class="card">
+      <div class="row-title">
+        <div class="t">GloCoach Coach Town Hall — July 2</div>
+        <div class="time">7:00 – 8:00 PM</div>
+      </div>
+      <div class="sub">Organizer Laura Song (GloCoach) · <a href="https://teams.microsoft.com/meet/43433426757254?p=s09TsWXingRnKeQyVR" target="_blank" rel="noopener">Join on Teams</a><span class="badge b-green">Accepted</span></div>
+    </div>
+
+    <div class="sec">Inbox Priorities</div>
+    <div class="card">
+      <div class="row-title">
+        <div class="t">HSBC Expat — eligibility changes on your Premier account</div>
+      </div>
+      <div class="sub">"Action required to retain your HSBC Expat Premier account" — unread, marked important. No other emails in the last 24h matched urgent / deadline / response-needed.<span class="badge b-amber">Attention needed</span></div>
+    </div>
+
+    <div class="sec">Tasks</div>
+    <div class="card" style="border-left-color:var(--ink-faint);">
+      <div class="empty">No active task tracker found in Notion — only a stale, unused "Weekly To-do List" template page from 2024. Connect a live Notion Tasks database to populate this section.</div>
+    </div>
+
+    <div class="sec">Content Slot</div>
+    <div class="card">
+      <div class="row-title">
+        <div class="t">Story post — The Pivot / Career Changer</div>
+      </div>
+      <div class="sub">Anthony's layoff story: the hedge fund shutting down, feeling liberated instead of devastated, then 49 investor rejections before the 50th said yes — landing on the Nos-and-Yes analogy. Nurturing intent, reflective CTA, no hard ask.<span class="badge b-green">On track</span></div>
+    </div>
+
+    <div class="sec">Key Metric</div>
+    <div class="card">
+      <div class="num">
+        <div class="n"><small>SGD</small>100</div>
+        <div class="l">outstanding on 1 overdue invoice (SGD 2,200 total) · Zoho Books, Institute for Greatness</div>
+      </div>
+      <div class="sub" style="margin-top:8px;">No invoices dated yet in July.<span class="badge b-red">Overdue</span></div>
+    </div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>Institute for Greatness</b></footer>
+  </div>
+</body>
+</html>
