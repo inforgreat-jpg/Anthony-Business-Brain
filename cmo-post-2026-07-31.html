@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CMO Daily Post · Institute for Greatness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#E8294C; --primary-light:#F27C93;
+    --black:#0A0A0A; --ink:#1A1A1A; --white:#FFFFFF; --off-white:#F8F7F5;
+    --gray:#E4E3E0; --gray-text:#5b5b62; --gray-light:#F2F1EE;
+    --good:#16A34A; --warn:#D97706; --bad:#DC2626;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.04),0 8px 28px rgba(0,0,0,.06);
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 78%, #000) 0%, var(--primary) 48%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:radial-gradient(80% 60% at 96% -12%, color-mix(in srgb,var(--primary) 14%, transparent), transparent 60%), radial-gradient(60% 50% at 0% 6%, color-mix(in srgb,var(--primary-light) 10%, transparent), transparent 55%), var(--off-white);background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:840px;margin:0 auto;padding:34px 22px 70px;}
+
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px color-mix(in srgb,var(--primary) 30%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.82;font-weight:600;}
+  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.85;}
+
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-text);font-weight:700;margin:24px 0 12px;}
+  .card{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-text);margin-bottom:12px;}
+  .row{display:flex;align-items:flex-start;gap:10px;padding:8px 0;font-size:15px;border-bottom:1px solid var(--gray-light);}
+  .row:last-child{border-bottom:none;}
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;flex-shrink:0;}
+  .t-grn{background:#e7f6ee;color:var(--good);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+
+  .reason{background:var(--gray-light);border-radius:10px;padding:12px 14px;font-size:13px;color:var(--gray-text);margin-top:10px;}
+  .reason b{color:var(--ink);}
+
+  .lipost{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:20px;}
+  .lihead{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+  .av{width:46px;height:46px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;}
+  .lihead .nm{font-weight:700;font-size:15px;} .lihead .mt{font-size:12px;color:var(--gray-text);}
+  .lipost .post{font-size:15px;line-height:1.6;white-space:pre-line;}
+  .lipost .post .hook{background:color-mix(in srgb,var(--primary) 14%, transparent);border-radius:6px;padding:1px 4px;font-weight:700;}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+  .chip{font-size:12px;font-weight:600;background:var(--gray-light);color:var(--gray-text);padding:5px 11px;border-radius:var(--pill);}
+  .score{display:inline-flex;align-items:center;gap:8px;background:#e7f6ee;color:var(--good);font-weight:700;font-size:13px;padding:6px 13px;border-radius:var(--pill);}
+
+  .calslot{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+  .calslot span{font-size:12px;font-weight:600;color:var(--primary);background:color-mix(in srgb,var(--primary) 10%, transparent);padding:5px 11px;border-radius:var(--pill);}
+
+  footer{text-align:center;padding:30px 22px 10px;color:var(--gray-text);font-size:13px;}
+  footer b{color:var(--ink);}
+
+  @media(max-width:640px){.grid2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body data-theme="standard">
+  <div class="doc">
+
+    <div class="ohead"><div class="k">CMO · Daily post</div><h1>Today's post, in your voice</h1><div class="d">Friday, Jul 31 · Pillar: Time Value / Reallocation · scored and scrubbed</div></div>
+
+    <div class="card">
+      <h4>Today's calendar slot (Notion)</h4>
+      <div class="calslot">
+        <span>Pillar: Time Value / Reallocation</span>
+        <span>Format: Framework post</span>
+        <span>Intent: Educating</span>
+      </div>
+      <div class="reason" style="margin-top:12px">Topic: What your calendar actually reveals about what you value, a 3-step opportunity-cost framework for one more year in the job vs. the business.</div>
+    </div>
+
+    <div class="lipost">
+      <div class="lihead"><div class="av">AT</div><div><div class="nm">Anthony Tse · 1st</div><div class="mt">Master of Pivoting · Executive Coach · TEDx Speaker · now</div></div></div>
+      <div class="post"><span class="hook">I ran the actual numbers on staying in my last job for one more year. Not the salary. The real cost.</span> It came out close to six figures once I counted everything I would have built instead.
+
+Most people never do that math. They just renew the excuse. "One more year until it's safer." I said the same thing at 29, sitting in a hedge fund seat that looked good from the outside and felt like a stalemate from the inside.
+
+Here is the three step calculation I now walk every client through before they renew that excuse again.
+
+One. Name the actual trade off. Not "I'm staying for stability." Write down what the year costs: the equity you're not building, the business you're not starting, the acquisition someone else is closing while you wait.
+
+Two. Price the alternative. What could that same year compound into if you put it toward the business instead of the job? Not a guess. A real number.
+
+Three. Decide with the number in front of you, not the fear behind you. Fear does not do math. It just repeats itself in different words every January.
+
+I left that seat at 30 and took a real pay cut to build something of my own. That one decision made me financially free years before most of my peers, because I ran the number instead of running the excuse.
+
+Your calendar already shows you what you're choosing every single week. Most people just never read it that way.
+
+Save this and run your own three steps this weekend. Then look at what your calendar actually says about what you value.</div>
+      <div class="chips"><span class="chip">1,490 chars</span><span class="chip">Hook: Result Lead</span><span class="chip">Framework: Numbered Framework (3-step)</span><span class="chip">No em dashes</span></div>
+    </div>
+
+    <div class="grid2">
+      <div class="card"><h4>5 hooks generated</h4>
+        <div class="row">I ran the actual numbers on staying in my last job for one more year. Not the salary. The real cost.<span class="tagi t-grn">chosen</span></div>
+        <div class="row">I told myself I'd stay one more year until it felt safer. That excuse cost me two years, not one.</div>
+        <div class="row">Your calendar is not a time management problem. It is a values statement you never signed but live by anyway.</div>
+        <div class="row">I did a three step calculation with a client last week that made him go quiet for a full minute.</div>
+        <div class="row">Open your calendar right now. What is on it is not your schedule. It is your confession.</div>
+        <div class="reason"><b>Why this one:</b> it opens with a first-person admission and a real number in the first line, so it passes the Voice and Specificity tests immediately instead of asking the reader to wait for the payoff.</div>
+      </div>
+      <div class="card"><h4>Publish check</h4>
+        <div class="row">Stops the scroll<span class="tagi t-grn">✓</span></div>
+        <div class="row">Matches Voice DNA<span class="tagi t-grn">✓</span></div>
+        <div class="row">Speaks to a named avatar (Stuck Executive)<span class="tagi t-grn">✓</span></div>
+        <div class="row">Real biographical detail (age 30, hedge fund pivot)<span class="tagi t-grn">✓</span></div>
+        <div class="row">Zero banned words<span class="tagi t-grn">✓</span></div>
+        <div class="row">Zero em dashes<span class="tagi t-grn">✓</span></div>
+        <div class="row">Character count in range (1,300–1,500)<span class="tagi t-grn">✓</span></div>
+      </div>
+    </div>
+
+    <div class="sec">Invisibility Diagnostic</div>
+    <div class="card">
+      <div class="row">Voice — first-person admission, real rhythm, not a certified-coach cadence<span class="tagi t-grn">1/1</span></div>
+      <div class="row">POV — "run the number instead of running the excuse," a clear stance on fear vs. math<span class="tagi t-grn">1/1</span></div>
+      <div class="row">Specificity — age 29/30, hedge fund seat, the pay cut, the six-figure estimate<span class="tagi t-grn">1/1</span></div>
+      <div class="row">Asking — save-bait CTA with a concrete weekend action<span class="tagi t-grn">1/1</span></div>
+    </div>
+    <div style="text-align:center;margin-top:8px"><span class="score">Invisibility Diagnostic: 4 / 4</span></div>
+
+    <div class="sec">Pinned comments</div>
+    <div class="card">
+      <h4>Extend</h4>
+      <div class="row">One thing I didn't fit into the post: step two is where most people cheat. They price the alternative using someone else's number, a friend's business, a LinkedIn post about someone's exit. Price it with your own honest number, even if it's smaller and messier than you'd like.</div>
+      <h4 style="margin-top:14px">Humanise</h4>
+      <div class="row">I still remember running this exact calculation in 2014, thirty years old, no salary coming in, thinking I'd made the worst decision of my life. Six years later that decision was the one that made me financially free before most of my peers were still negotiating raises.</div>
+      <h4 style="margin-top:14px">CTA Amplifier</h4>
+      <div class="row">If you run the numbers this weekend and the gap is bigger than you expected, that's usually the moment worth a real conversation, not another year of thinking about it. That's exactly the kind of decision I work through with clients in the 1:1 program.</div>
+    </div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>Built by Daniel Paul · Purely Personal</b></footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    window.addEventListener('load',function(){
+      if(!window.gsap)return; gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.ohead',{y:26,opacity:0,scale:.98,duration:.7,ease:'power3.out'});
+      gsap.from('.ohead h1',{y:14,opacity:0,duration:.7,delay:.12,ease:'power3.out'});
+      gsap.from('.card,.lipost',{y:20,opacity:0,duration:.55,stagger:.07,ease:'power2.out',scrollTrigger:{trigger:'.doc',start:'top 85%'}});
+    });
+  </script>
+</body>
+</html>
