@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief · 31 Jul 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#F05A28; --primary-light:#F59473;
+    --ink:#003444;
+    --bg:#0A0A0A; --card:#151513; --card-border:#26251F;
+    --white:#FFFFFF; --text:#EDEDEA; --text-dim:#9A9A92; --text-faint:#68675F;
+    --good:#3DD68C; --good-bg:rgba(61,214,140,.12);
+    --warn:#F5A623; --warn-bg:rgba(245,166,35,.12);
+    --bad:#F0523E; --bad-bg:rgba(240,82,62,.13);
+    --r-md:14px; --pill:9999px;
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 70%, #000) 0%, var(--primary) 55%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Rethink Sans',sans-serif;background:
+      radial-gradient(70% 50% at 100% -10%, color-mix(in srgb,var(--primary) 16%, transparent), transparent 60%),
+      radial-gradient(50% 40% at 0% 0%, color-mix(in srgb,var(--primary) 8%, transparent), transparent 55%),
+      var(--bg);
+    color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:840px;margin:0 auto;padding:34px 20px 60px;}
+
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:24px;color:#fff;background:var(--grad);box-shadow:0 18px 46px color-mix(in srgb,var(--primary) 34%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;font-weight:600;}
+  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.88;}
+
+  .sec{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);font-weight:700;margin:26px 0 12px;display:flex;align-items:center;gap:8px;}
+  .sec::before{content:"";width:14px;height:2px;background:var(--primary);display:inline-block;border-radius:2px;}
+
+  .card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--r-md);padding:18px 20px;margin-bottom:14px;border-left:3px solid var(--primary);}
+  .row{display:flex;align-items:flex-start;gap:12px;padding:11px 0;border-bottom:1px solid var(--card-border);}
+  .row:last-child{border-bottom:none;padding-bottom:0;}
+  .row:first-child{padding-top:0;}
+  .row .when{color:var(--text-dim);font-size:12.5px;width:96px;flex-shrink:0;padding-top:2px;font-weight:600;}
+  .row .body{flex:1;min-width:0;}
+  .row .title{font-size:14.5px;color:var(--white);font-weight:600;}
+  .row .sub{font-size:13px;color:var(--text-dim);margin-top:2px;}
+  .row a{color:var(--primary-light);text-decoration:none;}
+  .row a:hover{text-decoration:underline;}
+  .tag{font-size:10.5px;font-weight:700;padding:3px 10px;border-radius:var(--pill);white-space:nowrap;text-transform:uppercase;letter-spacing:.03em;flex-shrink:0;}
+  .t-green{background:var(--good-bg);color:var(--good);}
+  .t-amber{background:var(--warn-bg);color:var(--warn);}
+  .t-red{background:var(--bad-bg);color:var(--bad);}
+
+  .empty{color:var(--text-dim);font-size:14px;padding:2px 0;}
+
+  .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .stat{background:var(--card);border:1px solid var(--card-border);border-radius:var(--r-md);padding:16px 18px;}
+  .stat .l{font-size:11.5px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.06em;}
+  .stat .n{font-size:26px;font-weight:800;letter-spacing:-.02em;margin-top:6px;color:var(--white);}
+  .stat .n.dim{color:var(--text-faint);font-size:16px;font-weight:700;}
+
+  .content-topic{font-size:15px;color:var(--white);line-height:1.55;margin-top:2px;}
+  .pillmeta{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
+  .pillmeta span{font-size:11px;font-weight:700;padding:4px 11px;border-radius:var(--pill);background:rgba(240,90,40,.14);color:var(--primary-light);}
+
+  footer{text-align:center;padding:34px 22px 6px;color:var(--text-faint);font-size:12.5px;}
+
+  @media(max-width:600px){.stat-grid{grid-template-columns:1fr;} .row{flex-wrap:wrap;} .row .when{width:auto;}}
+</style>
+</head>
+<body>
+  <div class="doc">
+
+    <div class="ohead">
+      <div class="k">COO · Morning Brief</div>
+      <h1>Good morning, Anthony</h1>
+      <div class="d">Friday, 31 July 2026 · Singapore time · ran while you slept</div>
+    </div>
+
+    <div class="sec">Today's Schedule</div>
+    <div class="card">
+      <div class="row">
+        <span class="when">1:00 – 2:00 PM</span>
+        <div class="body">
+          <div class="title">Tony Pringle Coaching 8 / IFG</div>
+          <div class="sub">Microsoft Teams · <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_YmEwZjQ5YmEtMDYwNC00YTE2LTgxYzYtNzNjMWYzNTAzYmYz%40thread.v2/0" target="_blank" rel="noopener">Join meeting</a> · Passcode v8Uf9XV9</div>
+        </div>
+        <span class="tag t-green">on track</span>
+      </div>
+    </div>
+
+    <div class="sec">Inbox Priorities</div>
+    <div class="card">
+      <div class="row">
+        <span class="when">DBS Bank</span>
+        <div class="body">
+          <div class="title">Scam-awareness notice targeting businesses</div>
+          <div class="sub">"Think it's IT support? It could be a scam" — no action required, worth a skim for your own vigilance.</div>
+        </div>
+        <span class="tag t-amber">review</span>
+      </div>
+      <div class="row">
+        <span class="when">UOB</span>
+        <div class="body">
+          <div class="title">PayNow transfer confirmed — SGD 4,501.95 to Wise</div>
+          <div class="sub">Completed 31 Jul, 2:16 PM SGT. No action needed.</div>
+        </div>
+        <span class="tag t-green">done</span>
+      </div>
+      <div class="row">
+        <span class="when">Citi</span>
+        <div class="body">
+          <div class="title">Zelle payment sent — $2,500 to Linda Soo</div>
+          <div class="sub">Confirmed. No action needed.</div>
+        </div>
+        <span class="tag t-green">done</span>
+      </div>
+      <div class="row">
+        <span class="when">HSBC</span>
+        <div class="body">
+          <div class="title">eStatement / eAdvice ready</div>
+          <div class="sub">Routine monthly notification. No action needed.</div>
+        </div>
+        <span class="tag t-green">done</span>
+      </div>
+      <div class="row">
+        <span class="when">Newsletter</span>
+        <div class="body">
+          <div class="title">Contrarian Thinking — Amazon's decision framework</div>
+          <div class="sub">FYI read, no reply expected.</div>
+        </div>
+        <span class="tag t-green">fyi</span>
+      </div>
+    </div>
+    <div class="empty" style="margin:-4px 0 4px 4px;">Note: the connected Gmail is your personal inbox (xiemisc@gmail.com), not an IFG business address — nothing from the last 24h carried "urgent," "deadline," or "response needed" language tied to business work.</div>
+
+    <div class="sec">Tasks</div>
+    <div class="card">
+      <div class="empty">No active task tracker found in Notion — the only to-do page on record is a stale 2024 template, unrelated to current work. Nothing to report as due or overdue until a real tracker is connected.</div>
+    </div>
+
+    <div class="sec">Content Slot</div>
+    <div class="card">
+      <div class="content-topic">What your calendar actually reveals about what you value — a 3-step opportunity-cost framework for one more year in the job vs. the business.</div>
+      <div class="pillmeta">
+        <span>Educating</span>
+        <span>Framework post</span>
+        <span>Time Value / Reallocation</span>
+      </div>
+    </div>
+
+    <div class="sec">Key Metric</div>
+    <div class="stat-grid">
+      <div class="stat">
+        <div class="l">Revenue, last 7 days</div>
+        <div class="n dim">Not tracked</div>
+      </div>
+      <div class="stat">
+        <div class="l">Posts logged, last 7 days</div>
+        <div class="n dim">0</div>
+      </div>
+    </div>
+    <div class="empty" style="margin:8px 0 0 4px;">Attribution system shows $0 lifetime revenue and 0 logged posts — nothing has been run through <code>track_post_published</code> yet, so this metric is empty rather than zero-performing.</div>
+
+    <footer>Institute for Greatness · COO Brief generated automatically</footer>
+  </div>
+</body>
+</html>
