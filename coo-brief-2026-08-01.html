@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Brief — August 1, 2026</title>
+<style>
+  :root {
+    --primary: #F05A28;
+    --secondary: #003444;
+    --bg: #0A0A0A;
+    --card-bg: #151515;
+    --card-border: #262626;
+    --text-main: #F2F2F2;
+    --text-muted: #9A9A9A;
+    --green: #3DDC84;
+    --amber: #F0B429;
+    --red: #F0453A;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 40px 24px 64px;
+    background: var(--bg);
+    color: var(--text-main);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 36px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--card-border);
+  }
+  header .label {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 12px;
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  header h1 { margin: 0; font-size: 28px; font-weight: 700; }
+  header .date { color: var(--text-muted); font-size: 14px; }
+
+  .grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+  @media (min-width: 720px) {
+    .grid { grid-template-columns: 1fr 1fr; }
+    .span-2 { grid-column: 1 / -1; }
+  }
+
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 22px 24px;
+  }
+  .card h2 {
+    margin: 0 0 16px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .empty-state {
+    color: var(--text-muted);
+    font-size: 14px;
+    padding: 10px 0;
+  }
+
+  /* Schedule */
+  .schedule-item {
+    display: flex;
+    gap: 14px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--card-border);
+  }
+  .schedule-item:last-child { border-bottom: none; }
+  .schedule-time { min-width: 74px; font-size: 13px; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+  .schedule-name { font-size: 14px; }
+  .schedule-name a { color: var(--primary); text-decoration: none; }
+
+  /* Inbox */
+  .inbox-item { padding: 10px 0; border-bottom: 1px solid var(--card-border); }
+  .inbox-item:last-child { border-bottom: none; }
+  .inbox-subject { font-size: 14px; font-weight: 600; margin-bottom: 3px; }
+  .inbox-meta { font-size: 12px; color: var(--text-muted); }
+
+  /* Tasks */
+  .task-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; }
+  .status-dot { width: 9px; height: 9px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
+  .dot-green { background: var(--green); }
+  .dot-amber { background: var(--amber); }
+  .dot-red { background: var(--red); }
+
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 3px 9px;
+    border-radius: 999px;
+  }
+  .badge-green { background: rgba(61,220,132,0.12); color: var(--green); }
+  .badge-amber { background: rgba(240,180,41,0.12); color: var(--amber); }
+  .badge-red { background: rgba(240,69,58,0.12); color: var(--red); }
+
+  /* Content slot */
+  .pillar-tag {
+    display: inline-block;
+    font-size: 11px;
+    color: var(--secondary);
+    background: #cfe6ec;
+    padding: 2px 9px;
+    border-radius: 999px;
+    font-weight: 700;
+  }
+
+  /* Key metric */
+  .metric-value { font-size: 40px; font-weight: 800; letter-spacing: -0.02em; }
+  .metric-sub { color: var(--text-muted); font-size: 13px; margin-top: 4px; }
+
+  footer {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div>
+      <div class="label">COO Morning Brief</div>
+      <h1>Institute for Greatness</h1>
+    </div>
+    <div class="date">Saturday, August 1, 2026</div>
+  </header>
+
+  <div class="grid">
+
+    <div class="card span-2">
+      <h2>Today's Schedule</h2>
+      <div class="empty-state">No meetings on the calendar today across all connected calendars (personal, Research &amp; IFG, Anthonyt727 &amp; IFG). Open day — good window for deep work or catching up on the ISCA agreement thread.</div>
+    </div>
+
+    <div class="card">
+      <h2>Inbox Priorities</h2>
+      <div class="empty-state">No emails flagged "urgent," "deadline," or "response needed" in the last 24 hours. Inbox traffic was personal/financial noise (bank alerts, Preply lesson reminders, receipts) — nothing business-critical for IFG.</div>
+    </div>
+
+    <div class="card">
+      <h2>Tasks</h2>
+      <div class="empty-state">No active task-tracking database found in Notion — only a stale "Weekly To-do List" template from 2024. Consider standing up a real Tasks database so this section can surface due/overdue items automatically.</div>
+    </div>
+
+    <div class="card">
+      <h2>Content Slot</h2>
+      <span class="pillar-tag">Weekday cadence</span>
+      <div class="empty-state" style="padding-top:10px;">No content scheduled today — the Content Calendar (Week of Jul 27) runs Monday–Friday only. Next slot: <strong style="color:var(--text-main)">Monday, Aug 3</strong>.</div>
+    </div>
+
+    <div class="card">
+      <h2>Key Metric <span class="badge badge-red" style="margin-left:auto;">Overdue AR</span></h2>
+      <div class="metric-value" style="color:var(--red);">SGD 100</div>
+      <div class="metric-sub">1 overdue invoice — Ami Labs Pte Ltd (Hupo), 127 days overdue (due Mar 27, 2026). Small balance, but aging — worth a nudge or write-off decision.</div>
+    </div>
+
+  </div>
+
+  <footer>Generated automatically · Institute for Greatness · Anthony Tse</footer>
+
+</div>
+</body>
+</html>
