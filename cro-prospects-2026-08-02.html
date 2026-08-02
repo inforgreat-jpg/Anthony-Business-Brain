@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRO Weekly Prospect Pack · Institute for Greatness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#F05A28; --primary-light:#F59473;
+    --bg:#0A0A0A; --surface:#151513; --surface2:#1D1C19; --border:#2A2925;
+    --ink:#F5F3EF; --ink-dim:#B9B6AE; --ink-faint:#84817A;
+    --good:#3FBE71; --warn:#E3A23A; --bad:#EF5A5A;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.3),0 12px 32px rgba(0,0,0,.45);
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 78%, #000) 0%, var(--primary) 48%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:radial-gradient(80% 60% at 96% -12%, color-mix(in srgb,var(--primary) 16%, transparent), transparent 60%), radial-gradient(60% 50% at 0% 6%, color-mix(in srgb,var(--primary-light) 10%, transparent), transparent 55%), var(--bg);background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:900px;margin:0 auto;padding:34px 22px 70px;}
+
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px color-mix(in srgb,var(--primary) 35%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;font-weight:600;}
+  .ohead h1{font-size:clamp(22px,4vw,30px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.88;}
+
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;margin:26px 0 12px;}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);box-shadow:var(--sh);padding:16px 18px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
+  .stat .l{font-size:12px;color:var(--ink-faint);} .stat .n{font-size:34px;font-weight:800;letter-spacing:-.02em;margin-top:4px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;}
+  .t-grn{background:rgba(63,190,113,.14);color:var(--good);} .t-amb{background:rgba(227,162,58,.16);color:var(--warn);} .t-blue{background:rgba(93,163,255,.14);color:#8FBBFF;} .t-grey{background:var(--surface2);color:var(--ink-faint);} .t-red{background:rgba(239,90,90,.15);color:var(--bad);}
+
+  .pcard{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--sh);padding:20px 22px;margin-bottom:16px;}
+  .pcard .ph{display:flex;align-items:flex-start;gap:12px;margin-bottom:10px;flex-wrap:wrap;}
+  .pcard .av{width:46px;height:46px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;}
+  .pcard .nm{font-weight:800;font-size:17px;} .pcard .nm a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--border);} .pcard .nm a:hover{color:var(--primary-light);border-color:var(--primary-light);}
+  .pcard .rl{font-size:13px;color:var(--ink-dim);margin-top:1px;}
+  .pcard .signal{font-size:13px;color:var(--ink-dim);background:var(--surface2);border-radius:10px;padding:8px 12px;margin:10px 0;}
+  .modrow{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;}
+  .modchip{font-size:11px;font-weight:600;background:var(--surface2);color:var(--ink);padding:5px 10px;border-radius:var(--pill);border:1px solid var(--border);}
+  .modchip b{color:var(--primary-light);}
+  .hook{font-style:italic;font-size:14px;color:var(--ink);border-left:3px solid var(--primary-light);padding:8px 12px;margin:10px 0;background:color-mix(in srgb, var(--primary) 8%, var(--surface2));}
+  .seq{margin-top:12px;}
+  .seq .m{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);font-size:13.5px;}
+  .seq .m:last-child{border-bottom:none;}
+  .seq .mlabel{flex-shrink:0;width:118px;font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--primary-light);padding-top:1px;}
+  .seq .mtext{color:var(--ink);}
+
+  .note{background:linear-gradient(135deg, var(--surface2) 0%, color-mix(in srgb,var(--primary) 22%, var(--surface2)) 100%);color:var(--ink);border:1px solid var(--border);border-radius:var(--r-md);padding:18px 22px;font-size:15px;margin-top:6px;box-shadow:var(--sh);}
+  .note b{color:var(--primary-light);}
+
+  .blocker{background:rgba(239,90,90,.08);border:1px solid rgba(239,90,90,.35);border-radius:var(--r-md);padding:16px 20px;font-size:14px;color:var(--ink-dim);margin-bottom:14px;}
+  .blocker b{color:var(--bad);}
+
+  footer{text-align:center;padding:30px 22px 10px;color:var(--ink-faint);font-size:13px;}
+  footer b{color:var(--ink-dim);}
+
+  @media(max-width:640px){.grid3{grid-template-columns:1fr;} .seq .m{flex-direction:column;gap:2px;} .seq .mlabel{width:auto;}}
+</style>
+</head>
+<body data-theme="standard">
+  <div class="doc">
+
+    <div class="ohead"><div class="k">CRO · Weekly prospect pack</div><h1>1 matched. Sourcing ran dry.</h1><div class="d">Sourced from your ICP via Apify · DMs drafted, nothing sent</div></div>
+
+    <div class="grid3">
+      <div class="stat"><div class="l">Prospects</div><div class="n">1</div></div>
+      <div class="stat"><div class="l">Hot</div><div class="n" style="color:var(--good);-webkit-text-fill-color:var(--good)">0</div></div>
+      <div class="stat"><div class="l">DMs drafted</div><div class="n">5</div></div>
+    </div>
+
+    <div class="blocker"><b>Heads up:</b> this week's Apify search came back nearly empty. Five separate keyword passes across the ETA/searcher space ("Entrepreneurship Through Acquisition searcher", "self-funded search fund acquisition entrepreneur", "searching to acquire a business ETA" in Singapore, "searcher acquire small business operator", "self funded searcher buying a business" in the US) returned exactly one usable profile total — the rest came back empty or as LinkedIn's generic "people also viewed" sidebar (VAs, occupational therapists, recruiters — not ICP matches). This reads like the connector's underlying dataset is either rate-limited or has run through its cache of ETA-adjacent profiles for now. Worth checking the Apify connection/credits directly rather than assuming the ICP itself is the problem — last week's run still returned 3 real matches on similar terms.</div>
+
+    <div class="card"><h4 style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px">Sourcing note</h4>
+    <div style="font-size:14px;color:var(--ink-dim)">Shipping 1 real prospect rather than padding with the sidebar noise. She's a fit worth a second look, but she's a looser match to your usual pattern (senior corporate exec pivoting into ETA) than recent weeks — she's a lifelong small-business builder, not a corporate escapee. Flagging the fit honestly below rather than overselling it.</div></div>
+
+    <div class="sec">The prospects</div>
+
+    <!-- 1 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">GV</div><div><div class="nm"><a href="https://www.linkedin.com/in/virtual" target="_blank" rel="noopener">Giovanna V.</a></div><div class="rl">Self-Funded Searcher · Entrepreneurship Through Acquisition, ME.org · Seattle, WA, United States</div></div><span class="tagi t-grey" style="margin-left:auto">cold</span></div>
+      <div class="signal">Signal: built and ran a profitable home remodeling company from scratch starting in '04, then spent 8+ years in SEO/online marketing (VP Biz Dev at SEO Book, President at InteractiveMedia, grew that to $60K/mo in 6 months). Left InteractiveMedia in Jul 2025 to launch a full-time, self-funded ETA search, now about 13 months in. Explicitly targeting pharmacy compounding/distribution because her grandfather owned over 50 pharmacies from the 1950s-80s. No recent posts or mutual connections surfaced by the search — this is a cold, first-touch profile, not a warm one.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>6/10</b> (role 6 · pain 7 · timing 8 · relationship 3)</span>
+        <span class="modchip">Temp <b>Cold</b></span>
+        <span class="modchip">Style <b>Driver</b></span>
+        <span class="modchip">Opener <b>Peer Opener</b></span>
+      </div>
+      <div class="hook">"Her grandfather owned 50 pharmacies, now she's searching to buy one of her own."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">M1 · Connect</div><div class="mtext">Hi Giovanna, your grandfather owning 50 pharmacies and now you searching to buy into compounding pharmacy yourself, that's a real full-circle move. I made my own jump from finance into buying businesses outside my lane. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">M2 · Icebreaker</div><div class="mtext">Going from a home remodeling company built from scratch, to SEO, to now searching full time for a pharmacy compounding business, your grandfather's old industry, that's a specific thread to follow back. What made compounding pharmacy the one that stuck?</div></div>
+        <div class="m"><div class="mlabel">M3 · Value bridge</div><div class="mtext">Most first-time searchers underestimate how much a seller cares about continuity, not just the check, worth remembering in an industry where family legacies run this deep. Has that come up yet with any of the operators you've talked to?</div></div>
+        <div class="m"><div class="mlabel">M4 · Pivot</div><div class="mtext">Different question, Giovanna. After 20-plus years building your own companies from zero, does searching to acquire someone else's feel like a bigger leap, or a smaller one?</div></div>
+        <div class="m"><div class="mlabel">M5 · Clean exit</div><div class="mtext">Wishing you well with the search, Giovanna. Bought into an industry I knew nothing about myself once, happy to compare notes anytime it's useful.</div></div>
+      </div>
+    </div>
+
+    <div class="sec">Pipeline review</div>
+    <div class="card"><div style="font-size:14px;color:var(--ink-dim)">Checked Notion across two separate searches (general "active deals pipeline prospects clients" and specifically "deal tracker CRM sales pipeline stage") — no pipeline or deals document exists in the workspace. This is the same gap flagged on Jul 18: no Priority 1/2/3 triage or next-action DMs to generate this week, because there's nothing to triage against. If you want this section to stop being skipped, the fastest path is a simple Notion database (deal name, stage, last contact, next action) that this workflow can query directly — happy to build it the moment you say go.</div></div>
+
+    <div class="note">Open with <b>Giovanna V.</b>, treat this one as a genuine test of a new sub-vertical (pharmacy compounding ETA) rather than a slam-dunk fit, she's a real prospect but a different shape than your usual corporate-pivot pattern. The bigger story this week is the sourcing shortfall, worth a direct look at the Apify connection before next week's run so you're not back down to 1 again. Every DM here is a draft. You send, after you read it.</div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>Built by Daniel Paul · Purely Personal</b></footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    window.addEventListener('load',function(){
+      if(!window.gsap)return; gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.ohead',{y:26,opacity:0,scale:.98,duration:.7,ease:'power3.out'});
+      gsap.from('.ohead h1',{y:14,opacity:0,duration:.7,delay:.12,ease:'power3.out'});
+      gsap.from('.card,.stat,.pcard,.note,.blocker',{y:20,opacity:0,duration:.5,stagger:.05,ease:'power2.out',scrollTrigger:{trigger:'.doc',start:'top 85%'}});
+    });
+  </script>
+</body>
+</html>
