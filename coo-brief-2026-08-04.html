@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief · 4 August 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#F05A28; --primary-light:#F59473;
+    --ink-deep:#003444;
+    --bg:#0A0A0A; --card:#141414; --card-2:#101010;
+    --border:#242424; --border-soft:#1c1c1c;
+    --text:#F3F1EC; --text-dim:#A8A6A0; --text-faint:#6E6C67;
+    --good:#22C55E; --good-bg:rgba(34,197,94,.12);
+    --warn:#F0A83A; --warn-bg:rgba(240,168,58,.12);
+    --bad:#EF4444; --bad-bg:rgba(239,68,68,.12);
+    --r-md:14px; --r-lg:20px; --pill:9999px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Rethink Sans',-apple-system,'Segoe UI',sans-serif;background:
+      radial-gradient(70% 45% at 90% -8%, color-mix(in srgb,var(--primary) 16%, transparent), transparent 60%),
+      radial-gradient(55% 40% at 4% 0%, color-mix(in srgb,var(--ink-deep) 30%, transparent), transparent 55%),
+      var(--bg);
+    color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:840px;margin:0 auto;padding:36px 20px 64px;}
+
+  .ohead{border-radius:var(--r-lg);padding:26px 28px;margin-bottom:24px;color:#fff;
+    background:linear-gradient(135deg, color-mix(in srgb,var(--primary) 80%, #000) 0%, var(--primary) 55%, var(--primary-light) 100%);
+    box-shadow:0 20px 50px color-mix(in srgb,var(--primary) 22%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.08);top:-130px;right:-70px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;font-weight:700;}
+  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:6px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.85;}
+
+  .sec{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint);font-weight:700;margin:26px 2px 12px;display:flex;align-items:center;gap:10px;}
+  .sec .n{color:var(--text-dim);font-weight:600;text-transform:none;letter-spacing:0;font-size:12px;}
+
+  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-md);padding:18px 20px;margin-bottom:12px;border-left:4px solid var(--primary);}
+  .card.plain{border-left:1px solid var(--border);}
+  .row{display:flex;align-items:flex-start;gap:12px;padding:11px 0;border-bottom:1px solid var(--border-soft);}
+  .row:last-child{border-bottom:none;}
+  .row .when{color:var(--text-dim);font-size:13px;width:78px;flex-shrink:0;padding-top:1px;font-variant-numeric:tabular-nums;}
+  .row .body{flex:1;font-size:14.5px;color:var(--text);}
+  .row .body .sub{color:var(--text-dim);font-size:13px;margin-top:2px;}
+  .row .body a{color:var(--primary-light);text-decoration:none;}
+
+  .pill{font-size:11px;font-weight:700;padding:3px 10px;border-radius:var(--pill);white-space:nowrap;flex-shrink:0;letter-spacing:.02em;}
+  .p-green{background:var(--good-bg);color:var(--good);}
+  .p-amber{background:var(--warn-bg);color:var(--warn);}
+  .p-red{background:var(--bad-bg);color:var(--bad);}
+  .p-grey{background:rgba(255,255,255,.06);color:var(--text-dim);}
+
+  .empty{color:var(--text-dim);font-size:14px;padding:4px 0;}
+
+  .grid2{display:grid;grid-template-columns:1.3fr 1fr;gap:14px;}
+  .stat{background:var(--card);border:1px solid var(--border);border-radius:var(--r-md);padding:20px 22px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--primary),var(--primary-light));}
+  .stat .l{font-size:12px;color:var(--text-dim);letter-spacing:.04em;text-transform:uppercase;}
+  .stat .n{font-size:32px;font-weight:800;letter-spacing:-.02em;margin-top:6px;color:var(--text);}
+  .stat .note-line{font-size:13px;color:var(--text-dim);margin-top:8px;line-height:1.55;}
+
+  .content-card .topline{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px;}
+  .content-card .tag{font-size:11px;font-weight:700;padding:3px 10px;border-radius:var(--pill);background:rgba(240,90,40,.14);color:var(--primary-light);}
+  .content-card .hook{font-size:15.5px;color:var(--text);font-style:italic;margin:10px 0 12px;line-height:1.55;}
+  .content-card .meta{font-size:13px;color:var(--text-dim);}
+  .content-card .meta b{color:var(--text);font-weight:600;}
+
+  footer{text-align:center;padding:34px 20px 10px;color:var(--text-faint);font-size:12.5px;}
+
+  @media(max-width:640px){.grid2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+  <div class="doc">
+
+    <div class="ohead">
+      <div class="k">COO · Morning Brief</div>
+      <h1>Good morning, Anthony</h1>
+      <div class="d">Tuesday, 4 August 2026</div>
+    </div>
+
+    <div class="sec">Today's Schedule <span class="p-green pill">clear</span></div>
+    <div class="card plain">
+      <div class="empty">Nothing on the calendar today. The whole day is open.</div>
+    </div>
+
+    <div class="sec">Inbox Priorities <span class="n">1 of 7 threads from the last 24h needs you</span></div>
+    <div class="card plain">
+      <div class="row">
+        <span class="pill p-amber">reply</span>
+        <div class="body">
+          <b>Sonja Lee (UPenn)</b> is planning a fall trip to Singapore (Sep 15–16) and Taiwan (Sep 17–19) and asked to meet up.
+          <div class="sub">Forwarded email, received 10:15 PM · no reply sent yet</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="pill p-grey">fyi</span>
+        <div class="body">
+          No emails in the last 24 hours were flagged urgent, deadline, or explicitly asking for a response — the rest were newsletters, receipts, and account notices (Caproasia, HSBC, Seeking Alpha, Preply, Startup Deal Desk, BOC).
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">Tasks</div>
+    <div class="card plain">
+      <div class="empty">No active task tracker found in Notion. The only task database connected (Project Planner) holds two unrelated placeholder items from the default template, dated April and June 2024 — nothing current or business-related to surface here.</div>
+    </div>
+
+    <div class="sec">Content Slot <span class="p-amber pill">scheduled, not yet published</span></div>
+    <div class="card content-card">
+      <div class="topline">
+        <div><b>Tuesday, Aug 4</b> · Story post</div>
+        <div class="tag">The Pivot / Career Changer</div>
+      </div>
+      <div class="hook">"You've been successful for years. And yet, something still doesn't feel right."</div>
+      <div class="meta">
+        <b>Topic:</b> The David/Janet/Kelvin arc — started as David (redundant, panicking, one income source), became Janet (corporate job + side acquisitions), then Kelvin ($500K/year portfolio, exit founder). Anyone can choose which one they are.<br><br>
+        <b>CTA direction:</b> Reflective close — which one are you right now: David, Janet, or Kelvin?<br>
+        <b>Intent:</b> Nurturing
+      </div>
+    </div>
+
+    <div class="sec">Key Metric</div>
+    <div class="grid2">
+      <div class="stat">
+        <div class="l">Lifetime attributed revenue</div>
+        <div class="n">$0</div>
+        <div class="note-line">No revenue has been attributed to content yet. Nothing to compare against this week either — 0 posts published in the last 7 days.</div>
+      </div>
+      <div class="stat">
+        <div class="l">Posts published, last 7 days</div>
+        <div class="n" style="color:var(--bad)">0</div>
+        <div class="note-line">Today's post is drafted in the content calendar but hasn't gone out yet.</div>
+      </div>
+    </div>
+
+    <footer>Institute for Greatness · built by Purely Personal</footer>
+  </div>
+</body>
+</html>
