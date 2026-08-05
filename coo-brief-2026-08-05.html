@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief · 5 Aug 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#F05A28; --primary-light:#F59473;
+    --bg:#0A0A0A; --card:#141414; --card-border:#242424;
+    --ink:#F4F1EC; --ink-dim:#9C9691;
+    --good:#3FBF7F; --good-bg:rgba(63,191,127,.12);
+    --warn:#E8A23D; --warn-bg:rgba(232,162,61,.12);
+    --bad:#E85D5D; --bad-bg:rgba(232,93,93,.12);
+    --grey-bg:rgba(255,255,255,.06);
+    --r-md:14px; --r-lg:20px; --pill:9999px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Rethink Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:820px;margin:0 auto;padding:34px 20px 70px;}
+
+  .ohead{border-radius:var(--r-lg);padding:28px 30px;margin-bottom:22px;color:#fff;
+    background:linear-gradient(135deg, color-mix(in srgb,var(--primary) 80%, #000) 0%, var(--primary) 55%, var(--primary-light) 100%);
+    box-shadow:0 18px 44px color-mix(in srgb,var(--primary) 28%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.08);top:-130px;right:-70px;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;font-weight:700;}
+  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:6px 0 4px;}
+  .ohead .d{font-size:13px;opacity:.88;}
+
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);font-weight:700;margin:26px 0 12px;display:flex;align-items:center;gap:8px;}
+
+  .card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--r-md);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:12px;}
+
+  .row{display:flex;align-items:flex-start;gap:12px;padding:10px 0;font-size:14.5px;border-bottom:1px solid rgba(255,255,255,.06);}
+  .row:last-child{border-bottom:none;}
+  .row .when{color:var(--ink-dim);font-size:12.5px;width:78px;flex-shrink:0;padding-top:1px;}
+  .row .body{flex:1;}
+  .row .sub{display:block;color:var(--ink-dim);font-size:12.5px;margin-top:2px;}
+
+  .tag{font-size:10.5px;font-weight:700;padding:3px 10px;border-radius:var(--pill);white-space:nowrap;flex-shrink:0;letter-spacing:.02em;}
+  .t-green{background:var(--good-bg);color:var(--good);}
+  .t-amber{background:var(--warn-bg);color:var(--warn);}
+  .t-red{background:var(--bad-bg);color:var(--bad);}
+  .t-grey{background:var(--grey-bg);color:var(--ink-dim);}
+
+  .empty{color:var(--ink-dim);font-size:14px;padding:4px 0;}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .stat{background:var(--card);border:1px solid var(--card-border);border-radius:var(--r-md);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--primary),var(--primary-light));}
+  .stat .l{font-size:12px;color:var(--ink-dim);}
+  .stat .n{font-size:22px;font-weight:800;letter-spacing:-.01em;margin-top:6px;color:var(--ink);}
+  .stat .delta{font-size:12.5px;margin-top:4px;color:var(--ink-dim);}
+
+  .content-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--r-md);padding:20px 22px;border-left:4px solid var(--primary);}
+  .content-card .pill-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
+  .content-card .hook{font-size:16px;font-weight:600;color:var(--ink);margin-bottom:8px;line-height:1.5;}
+  .content-card .topic{font-size:13.5px;color:var(--ink-dim);margin-bottom:12px;}
+  .content-card .cta{font-size:13px;color:var(--primary-light);background:rgba(240,90,40,.1);border-radius:10px;padding:10px 14px;}
+
+  footer{text-align:center;padding:34px 20px 10px;color:var(--ink-dim);font-size:12.5px;}
+  footer b{color:var(--ink);}
+
+  @media(max-width:640px){.grid2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+  <div class="doc">
+
+    <div class="ohead">
+      <div class="k">COO · Morning Brief</div>
+      <h1>Good morning, Anthony</h1>
+      <div class="d">Wednesday, 5 August 2026 · ran while you slept</div>
+    </div>
+
+    <div class="card">
+      <h4>Today, in one line</h4>
+      <div style="font-size:16px;">Calendar's clear, nothing in the inbox is on fire, and Wednesday's soft-sell post is loaded and ready to go out.</div>
+    </div>
+
+    <div class="sec">Today's Schedule</div>
+    <div class="card">
+      <div class="empty">No events on the calendar today. <span class="tag t-green" style="margin-left:6px;">clear day</span></div>
+    </div>
+
+    <div class="sec">Inbox Priorities <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--ink-dim);">(top 5 of 41 in the last 24–48h · none matched "urgent" / "deadline" / "response needed")</span></div>
+    <div class="card">
+      <div class="row">
+        <span class="body"><b>Sonja Lee</b> (Penn) — planning a Sept 15–19 Singapore/Taiwan trip, asked to meet<span class="sub">You already replied same day with a contact and said you're finalizing travel dates.</span></span>
+        <span class="tag t-green">replied</span>
+      </div>
+      <div class="row">
+        <span class="body"><b>Taiwan Immigration (niasys@immigration.gov.tw)</b> — 3 duplicate email-verification codes for an entry-permit application<span class="sub">Each code expired after 30 minutes. If the entry-permit application is still open, you'll need to restart verification.</span></span>
+        <span class="tag t-amber">needs action</span>
+      </div>
+      <div class="row">
+        <span class="body"><b>HSBC</b> — notice of changes to Integrated Account Terms & Conditions<span class="sub">Routine account notice, no action required.</span></span>
+        <span class="tag t-grey">fyi</span>
+      </div>
+      <div class="row">
+        <span class="body"><b>Cushman & Wakefield</b> — Ho Chi Minh City data centre market update, H1 2026<span class="sub">Investment research digest, worth a skim.</span></span>
+        <span class="tag t-grey">fyi</span>
+      </div>
+      <div class="row">
+        <span class="body"><b>SR Global</b> — two follow-up emails on speaking/sales presentations ("going quiet is the mistake")<span class="sub">Vendor marketing sequence, no response needed.</span></span>
+        <span class="tag t-grey">fyi</span>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <h4>Tasks · Notion</h4>
+        <div class="empty">No live task database found — only a stale, unfilled "Weekly To-do List" template from 2024. <span class="tag t-amber" style="display:inline-block;margin-top:6px;">not tracked</span></div>
+      </div>
+      <div class="stat">
+        <div class="l">Key Metric</div>
+        <div class="n" style="font-size:15px;color:var(--ink-dim);">Not connected</div>
+        <div class="delta">Purely Personal revenue/attribution tools need your pp_ token to pull a real number here.</div>
+      </div>
+    </div>
+
+    <div class="sec">Content Slot · Today</div>
+    <div class="content-card">
+      <div class="pill-row">
+        <span class="tag t-amber">Soft-sell post</span>
+        <span class="tag t-grey">Freedom Through Ownership (ETA)</span>
+        <span class="tag t-green">scheduled</span>
+      </div>
+      <div class="hook">"You don't have to quit your job to build freedom. You might just be using it wrong."</div>
+      <div class="topic">The value-of-time math — compounding a salary into acquisitions instead of quitting to grind, using the "value of your time in the job vs. the business" reframe.</div>
+      <div class="cta">CTA: DM me the word FREEDOM and I'll send you the acquisition math.</div>
+    </div>
+
+    <footer>Brand color source: <b>brand-positioning-anthony-tse.md</b> (#F05A28, Institute for Greatness orange) · Built for Anthony Tse</footer>
+  </div>
+</body>
+</html>
