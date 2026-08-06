@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief · 6 August 2026</title>
+<style>
+  :root{
+    --primary:#F05A28;
+    --primary-light:#F59473;
+    --bg:#0A0A0A;
+    --card:#151513;
+    --card-border:#262420;
+    --ink:#F5F3EF;
+    --ink-soft:#A8A49C;
+    --ink-faint:#6E6A62;
+    --good:#22C55E;
+    --warn:#F5A623;
+    --bad:#EF4444;
+    --good-bg:rgba(34,197,94,.12);
+    --warn-bg:rgba(245,166,35,.13);
+    --bad-bg:rgba(239,68,68,.13);
+    --r:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    background:
+      radial-gradient(70% 50% at 90% -10%, color-mix(in srgb,var(--primary) 16%, transparent), transparent 60%),
+      radial-gradient(50% 40% at 5% 0%, color-mix(in srgb,var(--primary) 8%, transparent), transparent 55%),
+      var(--bg);
+    background-attachment:fixed;
+    color:var(--ink);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .doc{max-width:860px;margin:0 auto;padding:36px 20px 70px;}
+
+  .head{
+    border-radius:var(--r);
+    padding:28px 30px;
+    margin-bottom:24px;
+    background:linear-gradient(135deg, color-mix(in srgb,var(--primary) 88%, #000) 0%, var(--primary) 55%, var(--primary-light) 100%);
+    color:#fff;
+    box-shadow:0 18px 46px color-mix(in srgb,var(--primary) 32%, transparent);
+    position:relative;
+    overflow:hidden;
+  }
+  .head::after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.10);top:-130px;right:-70px;}
+  .head .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.85;font-weight:700;}
+  .head h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:6px 0 4px;}
+  .head .d{font-size:13px;opacity:.85;}
+
+  .sec{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;margin:26px 0 12px;}
+  .sec:first-of-type{margin-top:0;}
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:var(--r);
+    padding:18px 20px;
+    margin-bottom:12px;
+    border-left:3px solid var(--primary);
+  }
+  .card h4{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px;font-weight:700;}
+
+  .row{display:flex;align-items:flex-start;gap:12px;padding:9px 0;font-size:14.5px;border-bottom:1px solid var(--card-border);}
+  .row:last-child{border-bottom:none;}
+  .row .when{color:var(--ink-soft);font-size:12.5px;width:64px;flex-shrink:0;padding-top:1px;}
+  .row .txt{flex:1;color:var(--ink);}
+  .row .txt b{color:#fff;}
+  .row .txt .meta{display:block;color:var(--ink-soft);font-size:12.5px;margin-top:2px;}
+
+  .pill{font-size:10.5px;font-weight:700;padding:3px 10px;border-radius:999px;white-space:nowrap;text-transform:uppercase;letter-spacing:.03em;flex-shrink:0;}
+  .p-green{background:var(--good-bg);color:var(--good);}
+  .p-amber{background:var(--warn-bg);color:var(--warn);}
+  .p-red{background:var(--bad-bg);color:var(--bad);}
+  .p-grey{background:rgba(255,255,255,.06);color:var(--ink-faint);}
+
+  .empty{color:var(--ink-soft);font-size:14px;padding:4px 0;}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .stat{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:var(--r);
+    padding:18px 20px;
+    position:relative;
+    overflow:hidden;
+  }
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--primary),var(--primary-light));}
+  .stat .l{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;}
+  .stat .n{font-size:15px;font-weight:700;margin-top:8px;color:var(--ink-soft);}
+  .stat .note{font-size:12.5px;color:var(--ink-faint);margin-top:6px;}
+
+  .content-card{border-left-color:var(--primary);}
+  .content-card .topic{font-size:15px;color:var(--ink);margin-top:8px;}
+  .content-card .hook{font-size:13px;color:var(--ink-soft);margin-top:10px;font-style:italic;border-left:2px solid var(--card-border);padding-left:10px;}
+  .content-card .tags{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;}
+  .tag{font-size:10.5px;font-weight:600;padding:3px 9px;border-radius:999px;background:rgba(255,255,255,.06);color:var(--ink-soft);}
+
+  footer{text-align:center;padding:34px 20px 10px;color:var(--ink-faint);font-size:12.5px;}
+  footer b{color:var(--ink-soft);}
+
+  @media(max-width:640px){.grid2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+  <div class="doc">
+
+    <div class="head">
+      <div class="k">COO · Morning brief</div>
+      <h1>Good morning, Anthony</h1>
+      <div class="d">Thursday, 6 August 2026 · ran while you slept</div>
+    </div>
+
+    <div class="sec">Today's Schedule</div>
+    <div class="card">
+      <h4>Calendar <span class="pill p-green" style="float:right;">clear</span></h4>
+      <div class="empty">No events on your calendar today. The day is open.</div>
+    </div>
+
+    <div class="sec">Inbox Priorities</div>
+    <div class="card">
+      <h4>Last 24 hours · 5 threads</h4>
+      <div class="row">
+        <span class="txt"><b>Devyn, via Preply</b> sent a new message and is waiting on a reply.<span class="meta">"Read your message and reply" · trans.preply.com</span></span>
+        <span class="pill p-amber">response needed</span>
+      </div>
+      <div class="row">
+        <span class="txt"><b>OpenTable</b> confirmed your reservation at Crystal Palace.<span class="meta">Reservation confirmation</span></span>
+        <span class="pill p-green">on track</span>
+      </div>
+      <div class="row">
+        <span class="txt"><b>Preply</b> auto-confirmed a lesson booking.<span class="meta">No action needed</span></span>
+        <span class="pill p-grey">fyi</span>
+      </div>
+      <div class="row">
+        <span class="txt"><b>Seeking Alpha</b> newsletter: back-to-school stock picks.<span class="meta">Promotional</span></span>
+        <span class="pill p-grey">fyi</span>
+      </div>
+      <div class="row">
+        <span class="txt"><b>Google Workspace</b> promo for Gemini AI features.<span class="meta">Promotional</span></span>
+        <span class="pill p-grey">fyi</span>
+      </div>
+    </div>
+
+    <div class="sec">Tasks</div>
+    <div class="card">
+      <h4>Due today &amp; overdue <span class="pill p-grey" style="float:right;">not connected</span></h4>
+      <div class="empty">No task database found in Notion. Connect or point me to your tasks database to track due dates here.</div>
+    </div>
+
+    <div class="sec">Content Slot</div>
+    <div class="card content-card">
+      <h4>Thursday, Aug 6 · Contrarian/Engagement post <span class="pill p-green" style="float:right;">on track</span></h4>
+      <div class="topic">Most coaches were trained. They were never tested — what that difference actually looks like inside a session when things get uncomfortable.</div>
+      <div class="hook">Hook: "Most coaches were trained. They were never tested. There's a difference."</div>
+      <div class="tags">
+        <span class="tag">Pillar: Lived Experience vs. Certification</span>
+        <span class="tag">Intent: Engagement</span>
+      </div>
+    </div>
+
+    <div class="sec">Key Metric</div>
+    <div class="stat">
+      <div class="l">Key Metric <span class="pill p-amber" style="float:right;">not tracked</span></div>
+      <div class="n">Not set yet</div>
+      <div class="note">Tell me the one number you want tracked here — revenue, DMs sent, or calls booked — and I'll surface it every morning.</div>
+    </div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>Institute for Greatness</b></footer>
+  </div>
+</body>
+</html>
