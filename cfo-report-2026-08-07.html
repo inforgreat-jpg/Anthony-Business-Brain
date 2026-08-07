@@ -1,0 +1,281 @@
+<title>CFO Weekly Revenue Report — Aug 7, 2026</title>
+<style>
+  :root{
+    --primary:#F05A28;
+    --secondary:#003444;
+    --bg:#0A0A0A;
+    --panel:#151515;
+    --panel-border:#262626;
+    --ink:#F2F0ED;
+    --ink-dim:#A8A29B;
+    --green:#3FBF7F;
+    --amber:#E8A93B;
+    --red:#E5484D;
+  }
+  *{box-sizing:border-box;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    margin:0;
+    padding:0;
+  }
+  .wrap{max-width:960px;margin:0 auto;padding:40px 24px 80px;}
+  header{margin-bottom:32px;}
+  .eyebrow{
+    color:var(--primary);
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    margin-bottom:8px;
+  }
+  h1{font-size:28px;margin:0 0 6px;font-weight:700;}
+  .sub{color:var(--ink-dim);font-size:14px;}
+
+  .cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    margin:28px 0;
+  }
+  @media (max-width:760px){ .cards{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:460px){ .cards{grid-template-columns:1fr;} }
+
+  .card{
+    background:var(--panel);
+    border:1px solid var(--panel-border);
+    border-left:4px solid var(--ink-dim);
+    border-radius:10px;
+    padding:16px;
+  }
+  .card.green{border-left-color:var(--green);}
+  .card.amber{border-left-color:var(--amber);}
+  .card.red{border-left-color:var(--red);}
+  .card-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-dim);margin-bottom:8px;}
+  .card-value{font-size:22px;font-weight:700;margin-bottom:4px;}
+  .card-note{font-size:12.5px;color:var(--ink-dim);line-height:1.4;}
+  .pill{
+    display:inline-block;
+    font-size:10.5px;
+    font-weight:700;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    padding:2px 8px;
+    border-radius:999px;
+    margin-bottom:8px;
+  }
+  .pill.green{background:rgba(63,191,127,.15);color:var(--green);}
+  .pill.amber{background:rgba(232,169,59,.15);color:var(--amber);}
+  .pill.red{background:rgba(229,72,77,.15);color:var(--red);}
+
+  section{margin:36px 0;}
+  h2{
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    color:var(--primary);
+    margin:0 0 14px;
+    padding-bottom:10px;
+    border-bottom:1px solid var(--panel-border);
+  }
+
+  .panel{
+    background:var(--panel);
+    border:1px solid var(--panel-border);
+    border-radius:10px;
+    padding:20px;
+  }
+
+  table{width:100%;border-collapse:collapse;font-size:13.5px;}
+  th{
+    text-align:left;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    color:var(--ink-dim);
+    padding:0 10px 10px;
+    border-bottom:1px solid var(--panel-border);
+  }
+  td{padding:11px 10px;border-bottom:1px solid var(--panel-border);vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  .num{text-align:right;font-variant-numeric:tabular-nums;}
+  .status-tag{
+    display:inline-block;
+    font-size:10.5px;
+    font-weight:700;
+    letter-spacing:.03em;
+    text-transform:uppercase;
+    padding:2px 7px;
+    border-radius:5px;
+  }
+  .status-tag.overdue{background:rgba(229,72,77,.15);color:var(--red);}
+  .status-tag.draft{background:rgba(232,169,59,.15);color:var(--amber);}
+
+  .flags{display:flex;flex-direction:column;gap:12px;}
+  .flag{
+    background:var(--panel);
+    border:1px solid var(--panel-border);
+    border-left:4px solid var(--red);
+    border-radius:10px;
+    padding:14px 16px;
+  }
+  .flag-title{font-weight:700;font-size:14px;margin-bottom:4px;}
+  .flag-next{font-size:13px;color:var(--ink-dim);}
+  .flag-next b{color:var(--ink);font-weight:600;}
+
+  .msg-box{
+    background:var(--panel);
+    border:1px solid var(--panel-border);
+    border-left:4px solid var(--primary);
+    border-radius:10px;
+    padding:18px;
+  }
+  .msg-text{font-size:14.5px;line-height:1.5;margin-bottom:14px;}
+  .copy-btn{
+    background:var(--primary);
+    color:#fff;
+    border:none;
+    border-radius:7px;
+    padding:8px 16px;
+    font-size:13px;
+    font-weight:600;
+    cursor:pointer;
+  }
+  .copy-btn:active{opacity:.8;}
+  .copy-btn.copied{background:var(--green);}
+
+  .gap-note{
+    font-size:12.5px;
+    color:var(--ink-dim);
+    background:rgba(232,169,59,.08);
+    border:1px solid rgba(232,169,59,.25);
+    border-radius:8px;
+    padding:10px 14px;
+    margin-top:14px;
+  }
+  footer{margin-top:48px;color:var(--ink-dim);font-size:12px;text-align:center;}
+</style>
+
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Institute for Greatness · CFO Weekly Revenue Report</div>
+    <h1>Week of Aug 3 – Aug 7, 2026</h1>
+    <div class="sub">Generated Aug 7, 2026 · Sources: Zoho Books (invoices, payments) · Notion (searched, no financial data found) · Gmail (searched, no IFG invoicing activity found)</div>
+  </header>
+
+  <div class="cards">
+    <div class="card red">
+      <div class="pill red">Down</div>
+      <div class="card-label">Weekly Revenue</div>
+      <div class="card-value">SGD 0.00</div>
+      <div class="card-note">SGD 0 last week too. Most recent payment on record was May 23, 2026 — 76 days ago.</div>
+    </div>
+    <div class="card amber">
+      <div class="pill amber">Data gap</div>
+      <div class="card-label">Pipeline Health</div>
+      <div class="card-value">Not trackable</div>
+      <div class="card-note">No CRM/pipeline database found in Notion or connected sources. See Pipeline card below.</div>
+    </div>
+    <div class="card red">
+      <div class="pill red">Attention</div>
+      <div class="card-label">Unpaid Invoices</div>
+      <div class="card-value">SGD 10,325.00</div>
+      <div class="card-note">6 open invoices, 2 customers. 1 formally overdue, 5 sitting in draft (never sent).</div>
+    </div>
+    <div class="card red">
+      <div class="pill red">No target set</div>
+      <div class="card-label">Monthly Run Rate</div>
+      <div class="card-value">~SGD 3,570 / mo*</div>
+      <div class="card-note">*Trailing average, Jan–May 2026 only. No target found in brand positioning docs. SGD 0 recorded for Jun/Jul/Aug.</div>
+    </div>
+  </div>
+
+  <section>
+    <h2>Pipeline Health</h2>
+    <div class="panel">
+      <p style="margin:0 0 10px;font-size:14px;">No deals, pipeline, or CRM tracker exists in the connected Notion workspace (only a personal 2024 budget template was found) or any other connected source. Active-client status below is inferred from Zoho Books billing history instead of a real pipeline.</p>
+      <table>
+        <tr><th>Client</th><th>Engagement</th><th class="num">Value on file</th><th>Last billing activity</th></tr>
+        <tr><td>Hupo (Ami Labs Pte Ltd)</td><td>Monthly coaching retainer</td><td class="num">SGD 3,375 unbilled/open</td><td>Jun 25, 2026 (draft, unsent)</td></tr>
+        <tr><td>Momenta</td><td>Corporate training (BOS)</td><td class="num">SGD 6,850 unbilled/open</td><td>Jun 20, 2026 (draft, unsent)</td></tr>
+      </table>
+      <div class="gap-note">Flagged as stalled: no invoice, payment, or new engagement recorded for either client in 45+ days. Without a pipeline tracker this can't be distinguished from "quiet week" vs. "at risk" — recommend logging active deals in Notion so this check can run properly next week.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Unpaid Invoices</h2>
+    <div class="panel">
+      <table>
+        <tr>
+          <th>Invoice</th><th>Customer</th><th>Date</th><th class="num">Balance (SGD)</th><th>Status</th>
+        </tr>
+        <tr>
+          <td>INV-000004</td><td>Hupo (Ami Labs)</td><td>Mar 27, 2026</td><td class="num">100.00</td>
+          <td><span class="status-tag overdue">Overdue 133d</span></td>
+        </tr>
+        <tr>
+          <td>INV-000006</td><td>Hupo (Ami Labs)</td><td>May 25, 2026</td><td class="num">1,925.00</td>
+          <td><span class="status-tag draft">Draft, unsent</span></td>
+        </tr>
+        <tr>
+          <td>INV-000007</td><td>Hupo (Ami Labs)</td><td>Jun 25, 2026</td><td class="num">1,450.00</td>
+          <td><span class="status-tag draft">Draft, unsent</span></td>
+        </tr>
+        <tr>
+          <td>INV-000009</td><td>Momenta</td><td>Apr 22, 2026</td><td class="num">2,350.00</td>
+          <td><span class="status-tag draft">Draft, unsent</span></td>
+        </tr>
+        <tr>
+          <td>INV-000010</td><td>Momenta</td><td>Jun 11, 2026</td><td class="num">3,000.00</td>
+          <td><span class="status-tag draft">Draft, unsent</span></td>
+        </tr>
+        <tr>
+          <td>INV-000011</td><td>Momenta</td><td>Jun 20, 2026</td><td class="num">1,500.00</td>
+          <td><span class="status-tag draft">Draft, unsent</span></td>
+        </tr>
+        <tr>
+          <td colspan="3" style="font-weight:700;">Total outstanding</td>
+          <td class="num" style="font-weight:700;">10,325.00</td><td></td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Attention Flags</h2>
+    <div class="flags">
+      <div class="flag">
+        <div class="flag-title">1. SGD 10,225 of completed work is sitting in unsent draft invoices</div>
+        <div class="flag-next">Next step: <b>Review and issue INV-000006, 007, 009, 010, 011 to Hupo and Momenta this week</b> — this is cash owed for work already delivered that hasn't even been billed yet.</div>
+      </div>
+      <div class="flag">
+        <div class="flag-title">2. Zero revenue collected in 76 days (last payment May 23, 2026)</div>
+        <div class="flag-next">Next step: <b>Confirm whether this reflects real business inactivity or a bookkeeping gap</b> — sync Zoho Books against Stripe/bank records for Jun–Aug before assuming revenue actually stopped.</div>
+      </div>
+      <div class="flag">
+        <div class="flag-title">3. INV-000004 (Hupo/Ami Labs) has been overdue 133 days on a SGD 100 balance</div>
+        <div class="flag-next">Next step: <b>Send the follow-up message below</b> to close out this balance.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Copy-Ready Follow-Up Message</h2>
+    <div class="msg-box">
+      <div class="msg-text" id="followup-text">Hi team, quick nudge that invoice INV-000004 for Mar 2026 still has a SGD 100 balance outstanding, could you confirm when payment can be completed.</div>
+      <button class="copy-btn" onclick="
+        navigator.clipboard.writeText(document.getElementById('followup-text').innerText).then(()=>{
+          this.innerText='Copied';
+          this.classList.add('copied');
+          setTimeout(()=>{this.innerText='Copy message';this.classList.remove('copied');},1800);
+        });
+      ">Copy message</button>
+    </div>
+  </section>
+
+  <footer>Institute for Greatness — internal CFO report, generated automatically. Not for external distribution.</footer>
+
+</div>
