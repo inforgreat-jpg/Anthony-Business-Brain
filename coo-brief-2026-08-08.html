@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief · 08 Aug 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#F05A28; --primary-light:#F59473;
+    --ink:#003444;
+    --bg:#0A0A0A; --card:#141414; --card-border:#242424;
+    --text:#EDEDED; --text-dim:#9A9A9A; --text-faint:#6B6B6B;
+    --good:#2FBE6B; --good-bg:rgba(47,190,107,.12);
+    --warn:#F0A93A; --warn-bg:rgba(240,169,58,.12);
+    --bad:#E5484D; --bad-bg:rgba(229,72,77,.12);
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 78%, #000) 0%, var(--primary) 55%, var(--primary-light) 100%);
+    --r-md:14px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.4), 0 10px 30px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Rethink Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:840px;margin:0 auto;padding:34px 22px 70px;}
+
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:24px;color:#fff;background:var(--grad);box-shadow:0 18px 46px rgba(240,90,40,.28);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;font-weight:700;}
+  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:6px 0 4px;}
+  .ohead .d{font-size:13px;opacity:.88;}
+
+  .sec{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);font-weight:700;margin:26px 0 12px;display:flex;align-items:center;gap:8px;}
+  .sec .cap{font-size:11px;color:var(--text-faint);text-transform:none;letter-spacing:0;font-weight:500;}
+
+  .card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--r-md);box-shadow:var(--sh);padding:16px 20px;margin-bottom:12px;border-left:4px solid var(--primary);}
+  .card.amber{border-left-color:var(--warn);}
+  .card.red{border-left-color:var(--bad);}
+
+  .row{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #1e1e1e;}
+  .row:last-child{border-bottom:none;}
+  .row .when{color:var(--text-dim);font-size:13px;width:96px;flex-shrink:0;padding-top:1px;}
+  .row .body{flex:1;font-size:15px;}
+  .row .body .t{font-weight:600;}
+  .row .body .sub{font-size:13px;color:var(--text-dim);margin-top:2px;}
+  .row .body .sub a{color:var(--primary-light);text-decoration:none;}
+
+  .tag{font-size:11px;font-weight:700;padding:3px 10px;border-radius:var(--pill);white-space:nowrap;flex-shrink:0;margin-left:auto;}
+  .t-grn{background:var(--good-bg);color:var(--good);}
+  .t-amb{background:var(--warn-bg);color:var(--warn);}
+  .t-red{background:var(--bad-bg);color:var(--bad);}
+  .t-grey{background:#1e1e1e;color:var(--text-dim);}
+
+  .empty{color:var(--text-dim);font-size:14px;padding:4px 0;}
+  .empty b{color:var(--text);}
+
+  .stat{background:var(--card);border:1px solid var(--card-border);border-radius:var(--r-md);box-shadow:var(--sh);padding:20px 22px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
+  .stat .l{font-size:12px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.08em;}
+  .stat .n{font-size:30px;font-weight:800;letter-spacing:-.02em;margin-top:6px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .stat .delta{font-size:13px;color:var(--text-dim);margin-top:4px;}
+
+  footer{text-align:center;padding:34px 22px 10px;color:var(--text-faint);font-size:12px;}
+  footer b{color:var(--text-dim);}
+</style>
+</head>
+<body>
+  <div class="doc">
+
+    <div class="ohead">
+      <div class="k">COO · Morning brief</div>
+      <h1>Good morning, Anthony</h1>
+      <div class="d">Saturday, 8 August 2026 · Institute for Greatness</div>
+    </div>
+
+    <div class="sec">Today's Schedule</div>
+    <div class="card">
+      <div class="row">
+        <span class="when">11:30 AM</span>
+        <div class="body">
+          <div class="t">Coaching session — Ryan Shah × Institute for Greatness</div>
+          <div class="sub">45-min discovery slot (30 min booked) · <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZWNlOGVhNDgtM2JmNy00YTM3LWFlM2MtZDFjODljMDMzY2Ey%40thread.v2/0" target="_blank">MS Teams link</a></div>
+        </div>
+        <span class="tag t-amb">RSVP pending</span>
+      </div>
+      <div class="row">
+        <span class="when">9:00 PM</span>
+        <div class="body">
+          <div class="t">ETA Masterclass — VIP Office Hours</div>
+          <div class="sub">1 hr · <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_YmEwZjQ5YmEtMDYwNC00YTE2LTgxYzYtNzNjMWYzNTAzYmYz%40thread.v2/0" target="_blank">MS Teams link</a> · come prepared with module questions</div>
+        </div>
+        <span class="tag t-grn">confirmed</span>
+      </div>
+    </div>
+
+    <div class="sec">Inbox Priorities <span class="cap">last 24h · flagged for urgent / deadline / response needed</span></div>
+    <div class="card">
+      <div class="empty">No emails matched <b>urgent</b>, <b>deadline</b>, or <b>response needed</b> in the last 24 hours. 3 inbox threads came in overnight — all informational, nothing requires action.</div>
+      <div class="row" style="margin-top:6px;">
+        <div class="body"><div class="t">Citi — account statement ready</div><div class="sub">Card ending 0892, statement through Aug 5</div></div>
+        <span class="tag t-grey">fyi</span>
+      </div>
+      <div class="row">
+        <div class="body"><div class="t">Preply — upcoming Spanish lesson reminder</div></div>
+        <span class="tag t-grey">fyi</span>
+      </div>
+      <div class="row">
+        <div class="body"><div class="t">Nextdoor — Rancho Palos Verdes neighborhood digest</div></div>
+        <span class="tag t-grey">fyi</span>
+      </div>
+    </div>
+
+    <div class="sec">Tasks <span class="cap">due today or overdue</span></div>
+    <div class="card amber">
+      <div class="empty">No live task tracker found in Notion — search turned up only a stale 2024 to-do template with no current items. Connect a Tasks database with a Due Date property to populate this section.</div>
+    </div>
+
+    <div class="sec">Content Slot <span class="cap">today's entry</span></div>
+    <div class="card">
+      <div class="empty">Nothing scheduled — Content Calendar (Week of Aug 3) runs Mon–Fri only, no weekend slot. Last published: <b>Fri, Aug 7 — "The Death Bed Test."</b> Next slot: Monday.</div>
+    </div>
+
+    <div class="sec">Key Metric</div>
+    <div class="stat">
+      <div class="l">Weekday content cadence</div>
+      <div class="n">5 / 5</div>
+      <div class="delta">Every weekday slot for the week of Aug 3 is fully built out (hook, CTA, pillar) — Mon through Fri published on schedule.</div>
+    </div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>Institute for Greatness</b></footer>
+  </div>
+</body>
+</html>
