@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRO Weekly Prospect Pack · Institute for Greatness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#F05A28; --primary-light:#F59473;
+    --navy:#003444;
+    --bg:#0A0A0A; --panel:#141210; --panel2:#1A1714; --border:#2A2521;
+    --ink:#F5F0EB; --ink-dim:#B9B0A6; --ink-faint:#83786D;
+    --good:#3CCB7F; --warn:#F0B429; --bad:#F0553D; --cool:#6FA8DC;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.4),0 14px 40px rgba(0,0,0,.5);
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 78%, #000) 0%, var(--primary) 48%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:radial-gradient(80% 50% at 96% -10%, color-mix(in srgb,var(--primary) 16%, transparent), transparent 60%), radial-gradient(55% 45% at 0% 4%, color-mix(in srgb,var(--navy) 55%, transparent), transparent 55%), var(--bg);background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:900px;margin:0 auto;padding:34px 22px 70px;}
+
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 46px color-mix(in srgb,var(--primary) 40%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;font-weight:600;}
+  .ohead h1{font-size:clamp(22px,4vw,30px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.88;}
+
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;margin:26px 0 12px;}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-md);box-shadow:var(--sh);padding:16px 18px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .stat{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
+  .stat .l{font-size:12px;color:var(--ink-dim);} .stat .n{font-size:34px;font-weight:800;letter-spacing:-.02em;margin-top:4px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;}
+  .t-grn{background:rgba(60,203,127,.14);color:var(--good);} .t-amb{background:rgba(240,90,40,.16);color:var(--primary-light);} .t-blue{background:rgba(111,168,220,.14);color:var(--cool);} .t-grey{background:rgba(255,255,255,.06);color:var(--ink-dim);} .t-red{background:rgba(240,85,61,.14);color:var(--bad);}
+
+  .pcard{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--sh);padding:20px 22px;margin-bottom:16px;}
+  .pcard .ph{display:flex;align-items:flex-start;gap:12px;margin-bottom:10px;flex-wrap:wrap;}
+  .pcard .av{width:46px;height:46px;border-radius:50%;background:var(--grad);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;}
+  .pcard .nm{font-weight:800;font-size:17px;color:var(--ink);} .pcard .rl{font-size:13px;color:var(--ink-dim);margin-top:1px;}
+  .pcard .signal{font-size:13px;color:var(--ink-dim);background:var(--panel2);border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin:10px 0;}
+  .modrow{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;}
+  .modchip{font-size:11px;font-weight:600;background:var(--panel2);border:1px solid var(--border);color:var(--ink);padding:5px 10px;border-radius:var(--pill);}
+  .modchip b{color:var(--primary-light);}
+  .hook{font-style:italic;font-size:14px;color:var(--ink);border-left:3px solid var(--primary);padding:8px 12px;margin:10px 0;background:rgba(240,90,40,.07);}
+  .seq{margin-top:12px;}
+  .seq .m{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);font-size:13.5px;}
+  .seq .m:last-child{border-bottom:none;}
+  .seq .mlabel{flex-shrink:0;width:108px;font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--primary-light);padding-top:1px;}
+  .seq .mtext{color:var(--ink);}
+
+  .note{background:linear-gradient(135deg, var(--navy) 0%, color-mix(in srgb,var(--primary) 30%, var(--navy)) 100%);color:#fff;border-radius:var(--r-md);padding:18px 22px;font-size:15px;margin-top:6px;box-shadow:0 14px 36px rgba(0,0,0,.4);}
+  .note b{color:var(--primary-light);}
+
+  footer{text-align:center;padding:30px 22px 10px;color:var(--ink-faint);font-size:13px;}
+  footer b{color:var(--ink-dim);}
+
+  @media(max-width:640px){.grid3{grid-template-columns:1fr;} .seq .m{flex-direction:column;gap:2px;} .seq .mlabel{width:auto;}}
+</style>
+</head>
+<body data-theme="standard">
+  <div class="doc">
+
+    <div class="ohead"><div class="k">CRO · Weekly prospect pack</div><h1>4 matched. 0 hot.</h1><div class="d">Sourced from your ETA ICP via Apify · DMs drafted, nothing sent</div></div>
+
+    <div class="grid3">
+      <div class="stat"><div class="l">Prospects</div><div class="n">4</div></div>
+      <div class="stat"><div class="l">Warm</div><div class="n" style="color:var(--good);-webkit-text-fill-color:var(--good)">3</div></div>
+      <div class="stat"><div class="l">DMs drafted</div><div class="n">20</div></div>
+    </div>
+
+    <div class="card"><h4 style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px">Sourcing note</h4>
+    <div style="font-size:14px;color:var(--ink-dim)">Seven keyword variations went into this week's search: "Entrepreneurship Through Acquisition," "self-funded search fund acquisition entrepreneur," "searching to acquire a business CEO," "independent sponsor acquisition entrepreneur executive," "acquisition entrepreneur former executive buying a company," "CEO through acquisition searcher business owner inflection point," and "searching to buy a small business owner operator." The first pulled 10 raw profiles, and 7 of those failed the disqualifier list: two BDC Capital fund staff deploying someone else's capital rather than personally searching, two academics who lecture on ETA rather than practice it, one ETA-community founder who is a direct competitor, one current undergraduate with no real career history, and one repeat from a prior week (Debanjan Sengupta). The remaining six searches surfaced exactly one further qualified match. Shipping at 4 rather than padding to 10 with weak fits, same call as two weeks ago.</div></div>
+
+    <div class="sec">The prospects</div>
+
+    <!-- 1 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">JS</div><div><div class="nm">JB Stockslager</div><div class="rl">Former CEO, Alliance Services · Operating Partner, Mosaic ETA · Dallas, USA</div></div><span class="tagi t-amb" style="margin-left:auto">warm</span></div>
+      <div class="signal">Signal: 5.75 years as a Kearney management consultant, then Operating Executive at Alpine Investors while serving as CEO of Alliance Services (a 350-person home and community care company) for two and a half years, full P&amp;L responsibility. Left that CEO seat in October 2024, picked up Operating Partner at Mosaic ETA the same month (mentoring other searchers and evaluating deals), then launched his own self-funded search, Slingshot Stone, in February 2025, targeting a lower middle-market service business. Nineteen months into that search with no close yet. Kellogg MBA. Strongest fit in the batch, closest mirror of the finance-to-operator arc Anthony made himself, and a North America geography his ICP explicitly includes.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>8/10</b> (role 9 · pain 7 · timing 8 · relationship 5)</span>
+        <span class="modchip">Temp <b>Warm</b></span>
+        <span class="modchip">Style <b>Driver / Analytical</b></span>
+        <span class="modchip">Opener <b>Peer Opener</b></span>
+      </div>
+      <div class="hook">"Ran a 350-person care company for Alpine, now nineteen months into his own search."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 · Connect</div><div class="mtext">Hi JB, nineteen months running your own search after leading a 350-person care company for Alpine, that is real staying power. I made a similar jump from finance into buying something I knew nothing about. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 · Icebreaker</div><div class="mtext">You wrapped the CEO seat at Alliance Services in October, picked up Operating Partner at Mosaic the same month, then launched your own search a few months after that. Evaluating other searchers' deals while running your own hunt, does watching their playbooks up close change how you run yours?</div></div>
+        <div class="m"><div class="mlabel">3 · Value-add</div><div class="mtext">One thing that helped me when I bought into an industry I knew nothing about, preschools, was treating the operating team as the real experts and staying a student for the first year instead of acting like I already knew the business. Nineteen months in, is sourcing still the hard part for you, or has it shifted to diligence?</div></div>
+        <div class="m"><div class="mlabel">4 · Pivot</div><div class="mtext">Different question, JB. Does the Kellogg network actually open doors in the lower middle market, or is that mostly noise once you're in a room with an actual seller?</div></div>
+        <div class="m"><div class="mlabel">5 · Clean exit</div><div class="mtext">No pressure to reply, JB. Respect the staying power, nineteen months of hunting after a full CEO stint is not a small thing. If it's ever useful to compare notes with someone who bought into an industry blind and made it work, I'm around.</div></div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">PG</div><div><div class="nm">Paul-Arnaud Gros</div><div class="rl">Entrepreneurship Through Acquisition, self-employed · Brussels, Belgium</div></div><span class="tagi t-amb" style="margin-left:auto">warm</span></div>
+      <div class="signal">Signal: 11 years at PwC Belgium's M&amp;A practice, rising to Senior Manager, M&amp;A Strategy &amp; Operations, working restructurings, carve-outs, and complex transactions. Left in January 2026, eight months ago, to search full time for a Belgian SME with what he calls a "long-term transmission perspective," explicitly framed around preserving a seller's know-how, local roots, and team rather than a quick exit. London Business School M&amp;A executive education; guest lecturer at Solvay Brussels School on business plans. Geography sits outside Anthony's core Singapore/APAC and North America footprint, worth noting, but the seniority and search stage are a strong match.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>7/10</b> (role 8 · pain 8 · timing 7 · relationship 5)</span>
+        <span class="modchip">Temp <b>Warm</b></span>
+        <span class="modchip">Style <b>Analytical / Amiable</b></span>
+        <span class="modchip">Opener <b>Peer Opener</b></span>
+      </div>
+      <div class="hook">"Left eleven years of PwC M&amp;A this year to buy and preserve a Belgian family business."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 · Connect</div><div class="mtext">Hi Paul-Arnaud, leaving eleven years of PwC M&amp;A this year to search for a Belgian SME to preserve, not flip, is a real bet on yourself. I made a similar jump from finance into buying something outside my lane. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 · Icebreaker</div><div class="mtext">Eleven years inside PwC on restructurings and carve-outs, then eight months ago you set out on your own search built around transmission instead of a quick exit. What made preserving a seller's legacy the actual goal, instead of optimizing for the best deal you could find?</div></div>
+        <div class="m"><div class="mlabel">3 · Value-add</div><div class="mtext">When I bought into preschools, the sellers cared more about their staff keeping their jobs than the number on the table, and reading that correctly early got me further than any spreadsheet did. Eight months in, are Belgian owners responding to the transmission story, or is that still a hard sell in the room?</div></div>
+        <div class="m"><div class="mlabel">4 · Pivot</div><div class="mtext">Different one, Paul-Arnaud. After eleven years underwriting other people's deals at PwC, does being the one writing the check yourself change how carefully you read a set of financials?</div></div>
+        <div class="m"><div class="mlabel">5 · Clean exit</div><div class="mtext">No pressure to respond, Paul-Arnaud. Respect the move, walking away from a senior PwC seat to search full time takes real conviction. If it's ever useful to talk to someone who bought into an industry he knew nothing about and made it work, I'm around.</div></div>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">GA</div><div><div class="nm">Gilles Aszmann</div><div class="rl">Director, Land Installation, Nexans · Entrepreneurship Through Acquisition (parallel) · Paris, France</div></div><span class="tagi t-amb" style="margin-left:auto">warm</span></div>
+      <div class="signal">Signal: 30-year industrial career across Alstom (Director-level roles spanning supply chain, environmental control, and EPC project delivery, including postings in India and Switzerland) and CNIM (Managing Director, full P&amp;L on an energy-transition business unit), now Director, Land Installation at Nexans since October 2024. In parallel, has run a self-employed "Entrepreneurship through Acquisition / Investor" search since July 2021, more than five years, sourcing targets and negotiating funding while holding a full-time role. HEC Paris Executive MBA in Entrepreneurship &amp; Innovation, Babson entrepreneurship program, and a board seat on Club HEC Repreneurs, an HEC alumni club for business buyers, since 2021. No stated close yet. This is Anthony's own "compound while employed" model lived out for half a decade without a resolution, the most emotionally loaded profile in the batch.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>6/10</b> (role 7 · pain 6 · timing 5 · relationship 5)</span>
+        <span class="modchip">Temp <b>Warm</b></span>
+        <span class="modchip">Style <b>Driver / Analytical</b></span>
+        <span class="modchip">Opener <b>Directness Play</b></span>
+      </div>
+      <div class="hook">"Five years running a full Director career and a quiet acquisition search side by side."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 · Connect</div><div class="mtext">Hi Gilles, running a full Director role at Nexans while quietly searching to acquire a business since 2021, that is a long game few people have the patience for. I built my own acquisitions the same way, working a job while buying on the side. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 · Icebreaker</div><div class="mtext">Five years of sourcing, diligence, and funding conversations on the side of a full-time Director career, with an HEC EMBA in entrepreneurship underneath it. What's kept the search alive this long without either closing a deal or letting it drop?</div></div>
+        <div class="m"><div class="mlabel">3 · Value-add</div><div class="mtext">I ran a preschool group in Singapore for six years while still building out my other roles, and the only reason it worked was compounding small decisions slowly instead of waiting for one big leap. Five years in, is the search still mostly about finding the right target, or has the harder part become finding the time?</div></div>
+        <div class="m"><div class="mlabel">4 · Pivot</div><div class="mtext">Different question, Gilles. Does the Club HEC Repreneurs network actually surface real targets, or is it mostly moral support for a long search?</div></div>
+        <div class="m"><div class="mlabel">5 · Clean exit</div><div class="mtext">No pressure to reply, Gilles. Respect the patience, holding a full-time Director role and a live search at once for five years is not easy to sustain. If a fresh set of eyes on the search ever helps, I've compounded my own acquisitions the same way, happy to talk.</div></div>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">AS</div><div><div class="nm">Alexander Steinkuhl</div><div class="rl">Managing Director, Schütte &amp; Co. · President, German Chamber of Commerce HK · Hong Kong</div></div><span class="tagi t-blue" style="margin-left:auto">cool</span></div>
+      <div class="signal">Signal: built KW-Commerce's Hong Kong office from zero to eighty employees over two years before it was acquired by SellerX in 2021, then ran VP Asia at SellerX overseeing Hong Kong and mainland China operations through late 2024. Founded Mount Davis in December 2024 to buy, operate, and grow businesses in Hong Kong and Southern China under the ETA model, and has since completed his own acquisition. Now uses his network to connect other searchers to targets, fellow searchers, and investors, alongside serving as President of the German Chamber of Commerce Hong Kong (400+ members) and First Deputy Chair of the German Business School HK. Only Hong Kong-based profile in the batch, direct APAC match, but he has already closed his search and is now on the operating and mentoring side rather than actively hunting, which lowers urgency even as it raises his value as a well-connected referral point into other active searchers.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>6/10</b> (role 7 · pain 4 · timing 4 · relationship 6)</span>
+        <span class="modchip">Temp <b>Cool</b></span>
+        <span class="modchip">Style <b>Expressive / Driver</b></span>
+        <span class="modchip">Opener <b>Authority Flip</b></span>
+      </div>
+      <div class="hook">"Built two eCommerce operations from scratch in Hong Kong, closed his own acquisition, now mentors searchers."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 · Connect</div><div class="mtext">Hi Alexander, building KW-Commerce's Hong Kong office from zero to eighty people, then buying and running your own business through the ETA model, that is a rare finish. I made a similar jump from finance into operating something I knew nothing about. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 · Icebreaker</div><div class="mtext">Zero to eighty people at KW-Commerce, then VP Asia through the SellerX acquisition, then your own search that closed into Mount Davis, and now you're helping other searchers find their own deals. What made you want to stay this close to other people's searches after finishing your own?</div></div>
+        <div class="m"><div class="mlabel">3 · Value-add</div><div class="mtext">Scaling my own group of businesses in Singapore taught me that operators who'd already done it once were far more useful to talk to than any advisor who hadn't. You've clearly become that person for other searchers in Hong Kong, does the Chamber presidency feed that network, or are they mostly separate worlds?</div></div>
+        <div class="m"><div class="mlabel">4 · Pivot</div><div class="mtext">Different question, Alexander. Now that you're on the other side of a completed search, running and mentoring instead of hunting, does Mount Davis feel like the destination or just the first stop?</div></div>
+        <div class="m"><div class="mlabel">5 · Clean exit</div><div class="mtext">No pressure to respond, Alexander. Respect what you've built, from scaling KW-Commerce's Hong Kong office to closing your own acquisition and now backing other searchers. If it's ever useful to compare notes on scaling something you built from the ground up, I'm around.</div></div>
+      </div>
+    </div>
+
+    <div class="sec">Pipeline triage</div>
+    <div class="card"><div style="font-size:14px;color:var(--ink-dim)">No deals or CRM tracker exists in Notion, this was flagged again in this morning's COO Brief (2026-08-09): the only task database found, "Project Planner," holds legacy items unrelated to Institute for Greatness (publish a book, home renovation, a charity event). With no active-deals source to read from, Priority 1/2/3 triage and the Priority-1 next-action DMs cannot be generated this week, same gap as August 8th and both prior CRO reports. Once a deals tracker exists, whether a simple Notion database with stage, next action, and last-touch date, or something heavier, this section starts producing real output instead of skipping.</div></div>
+
+    <div class="note">Open <b>JB Stockslager</b> first, the closest mirror of your own path this week: consulting into a PE-backed operating career, then a CEO seat, now nineteen months into his own search with no close yet, and North America sits squarely in your ICP's stated reach. <b>Paul-Arnaud Gros</b> is the strongest second pick on search stage despite sitting outside your core geography. <b>Gilles Aszmann</b> carries the most emotionally loaded signal in the batch, five years unresolved, worth a direct, patient opener. <b>Alexander Steinkuhl</b> has already closed his own search, so treat him less as a buyer and more as a well-connected Hong Kong node worth knowing. Every DM here is a draft. You send, after you read it.</div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>Institute for Greatness</b></footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    window.addEventListener('load',function(){
+      if(!window.gsap)return; gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.ohead',{y:26,opacity:0,scale:.98,duration:.7,ease:'power3.out'});
+      gsap.from('.ohead h1',{y:14,opacity:0,duration:.7,delay:.12,ease:'power3.out'});
+      gsap.from('.card,.stat,.pcard,.note',{y:20,opacity:0,duration:.5,stagger:.05,ease:'power2.out',scrollTrigger:{trigger:'.doc',start:'top 85%'}});
+    });
+  </script>
+</body>
+</html>
