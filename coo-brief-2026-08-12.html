@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>COO Brief — Wednesday, August 12, 2026</title>
+<style>
+  :root{
+    --primary:#F05A28;
+    --bg:#0A0A0A;
+    --card:#151513;
+    --card-border:#242420;
+    --ink:#F2F1EC;
+    --ink-soft:#A7A69C;
+    --ink-faint:#6E6D64;
+    --green:#3FB27F;
+    --amber:#E8A93B;
+    --red:#E0503A;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    padding:40px 20px 80px;
+  }
+  .wrap{max-width:760px;margin:0 auto;}
+  header{margin-bottom:32px;}
+  .eyebrow{
+    color:var(--primary);
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    margin:0 0 8px;
+  }
+  h1{
+    margin:0 0 6px;
+    font-size:30px;
+    font-weight:700;
+    letter-spacing:-0.01em;
+  }
+  .subtitle{
+    color:var(--ink-soft);
+    font-size:15px;
+    margin:0;
+    line-height:1.5;
+  }
+  section{margin-top:34px;}
+  .section-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin:0 0 14px;
+  }
+  .section-title::before{
+    content:"";
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:var(--primary);
+    flex:none;
+  }
+  .card{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:12px;
+    padding:18px 20px;
+    margin-bottom:12px;
+  }
+  .card:last-child{margin-bottom:0;}
+  .card-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:12px;
+    margin-bottom:6px;
+  }
+  .card-title{
+    font-size:15px;
+    font-weight:600;
+    color:var(--ink);
+    line-height:1.4;
+  }
+  .card-title a{color:inherit;text-decoration:underline;text-decoration-color:var(--ink-faint);}
+  .card-body{
+    font-size:14px;
+    color:var(--ink-soft);
+    line-height:1.55;
+  }
+  .status{
+    flex:none;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    padding:4px 10px;
+    border-radius:100px;
+    white-space:nowrap;
+  }
+  .status::before{content:"";width:6px;height:6px;border-radius:50%;}
+  .status.green{color:var(--green);background:rgba(63,178,127,.12);}
+  .status.green::before{background:var(--green);}
+  .status.amber{color:var(--amber);background:rgba(232,169,59,.12);}
+  .status.amber::before{background:var(--amber);}
+  .status.red{color:var(--red);background:rgba(224,80,58,.12);}
+  .status.red::before{background:var(--red);}
+  .empty{
+    color:var(--ink-faint);
+    font-size:14px;
+    font-style:italic;
+  }
+  .metric-value{
+    font-size:34px;
+    font-weight:700;
+    color:var(--primary);
+    line-height:1;
+    margin-bottom:8px;
+  }
+  footer{
+    margin-top:48px;
+    padding-top:20px;
+    border-top:1px solid var(--card-border);
+    color:var(--ink-faint);
+    font-size:12px;
+    text-align:center;
+  }
+  @media (max-width:480px){
+    .card-top{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="eyebrow">COO Morning Brief</p>
+    <h1>Wednesday, August 12, 2026</h1>
+    <p class="subtitle">1 timed meeting today · 4 inbox threads in the last 24 hours · 0 business tasks tracked · 1 content slot scheduled.</p>
+  </header>
+
+  <section>
+    <p class="section-title">Today's Schedule</p>
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title">Annie / Anthony — MS Teams</div>
+        <span class="status green">On track</span>
+      </div>
+      <div class="card-body">2:45 PM – 3:15 PM (Asia/Taipei · Singapore time) with annie@floreocapital.com. Join link is in the calendar invite (Microsoft Teams).</div>
+    </div>
+  </section>
+
+  <section>
+    <p class="section-title">Inbox Priorities</p>
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title">UOB PayNow transfer — SGD 6,417.95 to WISE ASIA-PACIFIC</div>
+        <span class="status amber">Attention</span>
+      </div>
+      <div class="card-body">Two UOB alerts on account ending 3108: a PayNow transfer of SGD 6,417.95 was made and confirmed successful. No "urgent"/"deadline" language, but the amount is large — worth a quick confirm that this was you before letting it sit.</div>
+    </div>
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title">Citi Zelle payment confirmation — $251.00 to Linda Soo</div>
+        <span class="status green">On track</span>
+      </div>
+      <div class="card-body">Payment confirmation from Citi on account ending 3836. Informational only, nothing pending.</div>
+    </div>
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title">Substack Weekly Stack digest</div>
+        <span class="status green">On track</span>
+      </div>
+      <div class="card-body">Routine reading digest, including "Apple Is the King of AI and Nobody Knows It." No action needed.</div>
+    </div>
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title">Penn Alumni — Red & Blue Online Newsletter</div>
+        <span class="status green">On track</span>
+      </div>
+      <div class="card-body">Homecoming Weekend and Penn Spectrum Weekend announcements. Informational, no deadline stated.</div>
+    </div>
+    <div class="card-body" style="margin-top:4px;color:var(--ink-faint);font-size:13px;">None of the last 24 hours' emails actually contained "urgent," "deadline," or "response needed" language.</div>
+  </section>
+
+  <section>
+    <p class="section-title">Tasks</p>
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title">No Institute for Greatness task tracker in Notion</div>
+        <span class="status amber">Attention</span>
+      </div>
+      <div class="card-body">The only task database found, "Project Planner," holds legacy personal items unrelated to the business, both overdue: "Publish my first book" (not started, overdue since 2024-06-30) and "Home renovation" (in progress, overdue since 2024-04-26). Flagged again — worth setting up a real IFG task tracker.</div>
+    </div>
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title">Publish my first book</div>
+        <span class="status red">Overdue</span>
+      </div>
+      <div class="card-body">Not started. Due 2024-06-30, in Project Planner.</div>
+    </div>
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title">Home renovation</div>
+        <span class="status red">Overdue</span>
+      </div>
+      <div class="card-body">In progress. Due 2024-04-26, in Project Planner.</div>
+    </div>
+  </section>
+
+  <section>
+    <p class="section-title">Content Slot</p>
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title">Wednesday — Soft-sell post · Freedom Through Ownership (ETA)</div>
+        <span class="status green">On track</span>
+      </div>
+      <div class="card-body">"You don't have to quit your job to build freedom" — using a salary to compound toward business ownership, the third path beyond grind-or-stay-trapped. Hook: the Contradiction formula, "You've been successful for years. And yet, something still doesn't feel right." CTA: DM keyword "ETA" for masterclass details, soft pitch, no hard link.</div>
+    </div>
+  </section>
+
+  <section>
+    <p class="section-title">Key Metric</p>
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title">No metric currently tracked</div>
+        <span class="status amber">Attention</span>
+      </div>
+      <div class="card-body">Nothing in the business brain is being tracked daily or weekly. Recommend picking one — ETA Masterclass sign-ups, new coaching clients booked, or LinkedIn content saves.</div>
+    </div>
+  </section>
+
+  <footer>Generated from Google Calendar, Gmail, and Notion · Institute for Greatness</footer>
+</div>
+</body>
+</html>
