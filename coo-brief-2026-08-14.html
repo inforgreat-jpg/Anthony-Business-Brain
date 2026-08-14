@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief · 2026-08-14</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#F05A28; --primary-light:#F59473;
+    --bg:#0A0A0A; --panel:#131313; --panel-2:#1A1A1A; --border:#262626;
+    --ink:#F5F3F1; --ink-dim:#B8B5B1; --ink-faint:#7A7773;
+    --good:#2FBE6B; --good-bg:rgba(47,190,107,.12);
+    --warn:#F0A83C; --warn-bg:rgba(240,168,60,.12);
+    --bad:#F0463C; --bad-bg:rgba(240,70,60,.12);
+    --r-md:14px; --r-lg:20px; --pill:9999px;
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 80%, #000) 0%, var(--primary) 55%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Rethink Sans',sans-serif;background:radial-gradient(70% 50% at 100% -10%, color-mix(in srgb,var(--primary) 16%, transparent), transparent 60%), var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:840px;margin:0 auto;padding:34px 22px 70px;}
+
+  .ohead{border-radius:var(--r-lg);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 18px 44px color-mix(in srgb,var(--primary) 35%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;font-weight:600;}
+  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.88;}
+
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;margin:26px 0 12px;}
+  .sec:first-of-type{margin-top:0;}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-md);box-shadow:0 1px 2px rgba(0,0,0,.3);padding:18px 20px;margin-bottom:12px;border-left:4px solid var(--primary);}
+  .lead{font-size:16px;color:var(--ink);}
+  .row{display:flex;align-items:flex-start;gap:10px;padding:11px 0;font-size:15px;border-bottom:1px solid var(--border);}
+  .row:last-child{border-bottom:none;padding-bottom:2px;}
+  .row:first-child{padding-top:2px;}
+  .row .when{color:var(--ink-dim);font-size:13px;width:80px;flex-shrink:0;padding-top:1px;}
+  .row .txt{flex:1;color:var(--ink);}
+  .row .txt .sub{display:block;color:var(--ink-faint);font-size:13px;margin-top:2px;}
+  .row .txt a{color:var(--primary-light);text-decoration:none;}
+  .tag{font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 9px;border-radius:var(--pill);flex-shrink:0;white-space:nowrap;margin-top:1px;}
+  .t-grn{background:var(--good-bg);color:var(--good);}
+  .t-amb{background:var(--warn-bg);color:var(--warn);}
+  .t-red{background:var(--bad-bg);color:var(--bad);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .stat{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-md);box-shadow:0 1px 2px rgba(0,0,0,.3);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
+  .stat .l{font-size:12px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.06em;}
+  .stat .n{font-size:15px;font-weight:700;margin-top:8px;color:var(--warn);}
+  .stat .delta{font-size:13px;color:var(--ink-dim);margin-top:4px;}
+  .note{background:linear-gradient(135deg, #000 0%, color-mix(in srgb,var(--primary) 30%, #1a0d06) 100%);color:#fff;border-radius:var(--r-md);padding:18px 22px;font-size:15px;margin-top:8px;border:1px solid color-mix(in srgb,var(--primary) 40%, var(--border));}
+  .note b{color:var(--primary-light);}
+  .empty{color:var(--ink-faint);font-size:14px;padding:4px 0;}
+
+  footer{text-align:center;padding:30px 22px 10px;color:var(--ink-faint);font-size:13px;}
+  footer b{color:var(--ink-dim);}
+
+  @media(max-width:640px){.grid2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+  <div class="doc">
+
+    <div class="ohead"><div class="k">COO · Morning brief</div><h1>Good morning, Anthony</h1><div class="d">Friday, 14 August 2026</div></div>
+
+    <div class="card"><div class="lead">A fresh HSBC intro (Aik-Ping Ng) just landed on today's calendar — but your Spanish lesson got rescheduled onto the same 9:00 AM slot as your Hupo coaching call, and a stale declined booking is still sitting at 10:30.</div></div>
+
+    <div class="sec">Today's Schedule</div>
+    <div class="card">
+      <div class="row"><span class="when">9:00 AM</span><span class="txt">Hupo session: Anthony Tse &lt;&gt; Lincoln Lee<span class="sub">Coaching call · join link in the calendar invite</span></span><span class="tag t-red">conflict</span></div>
+      <div class="row"><span class="when">10:30 AM</span><span class="txt">Appointment with Anthony Tse — 60 Min, "test test"<span class="sub">Both you and the attendee have declined — looks stale</span></span><span class="tag t-amb">remove?</span></div>
+      <div class="row"><span class="when">11:00 AM</span><span class="txt">Anthony &amp; Aik-Ping Ng (HSBC Private Banking)<span class="sub">Via MS Teams · booked this morning, new since yesterday</span></span><span class="tag t-grn">on track</span></div>
+      <div class="row"><span class="when">9:30 PM</span><span class="txt">Appointment with Jeremy Ruch — 30 Min<span class="sub">Via MS Teams · invite tagged America/New_York, worth a glance</span></span><span class="tag t-grn">on track</span></div>
+    </div>
+
+    <div class="sec">Inbox Priorities</div>
+    <div class="card">
+      <div class="row"><span class="txt">Preply: your Spanish lesson with Nailyn Carolina was rescheduled to today, 9:00 AM — the same slot as the Hupo/Lincoln Lee call<span class="sub">Not on Google Calendar · pick one and move the other</span></span><span class="tag t-red">conflict</span></div>
+      <div class="row"><span class="txt">HMRC: "Making Tax Digital for Income Tax" — mandatory from 6 Apr 2026 for self-employment/property income<span class="sub">Informational now, but worth diarizing ahead of the deadline</span></span><span class="tag t-amb">deadline</span></div>
+      <div class="row"><span class="txt">Nailyn Carolina (Preply tutor): 2 new messages<span class="sub">No deadline stated — reply when convenient</span></span><span class="tag t-grn">fyi</span></div>
+      <div class="row"><span class="txt">Citi: Zelle payment of $2,500.00 sent to Linda Soo<span class="sub">Confirmation only, already processed</span></span><span class="tag t-grn">fyi</span></div>
+      <div class="row"><span class="txt">Contrarian Thinking newsletter: "3 decisions that lead to a $300M valuation"<span class="sub">Reading material, no action needed</span></span><span class="tag t-grn">fyi</span></div>
+    </div>
+
+    <div class="grid2">
+      <div class="card"><h4 style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:12px;">Tasks</h4>
+        <div class="row"><span class="txt">"Publish my first book" — Not started<span class="sub">Project Planner · due 2024-06-30 · legacy personal item</span></span><span class="tag t-red">overdue</span></div>
+        <div class="row"><span class="txt">"Home renovation" — In progress<span class="sub">Project Planner · due 2024-04-26 · legacy personal item</span></span><span class="tag t-red">overdue</span></div>
+        <div class="row"><span class="txt">No dedicated Institute for Greatness task tracker exists in Notion<span class="sub">Flagged repeatedly — worth setting one up</span></span><span class="tag t-amb">attention</span></div>
+      </div>
+      <div class="stat"><div class="l">Key Metric</div><div class="n">Not tracked yet</div><div class="delta">Flagged repeatedly. Pick one number to track daily or weekly — e.g. ETA Masterclass sign-ups, new coaching clients booked, or LinkedIn content saves.</div></div>
+    </div>
+
+    <div class="sec">Content Slot</div>
+    <div class="card">
+      <div class="row"><span class="txt">Friday's slot — Content Calendar, Week of 2026-08-10<span class="sub">Framework post · Time Value / Reallocation pillar · Educating intent<br>Topic: the real question isn't what you do, it's what your time is actually worth — a simple filter for auditing where your hours go.<br>Hook: the Death Bed Test — "Lying on my death bed, I would regret how I was spending my time."<br>CTA: save/share prompt, plus DM keyword "AUDIT" for the time-value worksheet.</span></span><span class="tag t-grn">on track</span></div>
+    </div>
+
+    <div class="note">One thing to move the needle today: <b>resolve the 9:00 AM double-booking</b> — your Hupo call with Lincoln Lee and your rescheduled Spanish lesson are both sitting in the same slot. Nothing has been moved on your behalf.</div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>Built by Daniel Paul · Purely Personal</b></footer>
+  </div>
+</body>
+</html>
