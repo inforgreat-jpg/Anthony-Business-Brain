@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRO Weekly Prospect Pack · Institute for Greatness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#F05A28; --primary-light:#F59473;
+    --bg:#0A0A0A; --surface:#151312; --surface-2:#1C1917; --border:#2A2622;
+    --ink:#F5F1EC; --dim:#A8A196; --dimmer:#726B60;
+    --good:#34D399; --warn:#FBBF24; --cold:#7DA6C9; --bad:#F87171;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.4),0 12px 32px rgba(0,0,0,.5);
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 78%, #000) 0%, var(--primary) 48%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:
+    radial-gradient(70% 50% at 92% -10%, color-mix(in srgb,var(--primary) 16%, transparent), transparent 60%),
+    radial-gradient(55% 45% at 4% 0%, color-mix(in srgb,var(--primary-light) 8%, transparent), transparent 55%),
+    var(--bg);
+    background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:900px;margin:0 auto;padding:34px 22px 70px;}
+
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 20px 50px color-mix(in srgb,var(--primary) 40%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;font-weight:600;}
+  .ohead h1{font-size:clamp(22px,4vw,30px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.88;}
+
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);font-weight:700;margin:26px 0 12px;}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);box-shadow:var(--sh);padding:16px 18px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
+  .stat .l{font-size:12px;color:var(--dim);} .stat .n{font-size:34px;font-weight:800;letter-spacing:-.02em;margin-top:4px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;}
+  .t-hot{background:color-mix(in srgb,var(--bad) 18%, transparent);color:#FCA5A5;}
+  .t-warm{background:color-mix(in srgb,var(--warn) 18%, transparent);color:var(--warn);}
+  .t-cold{background:color-mix(in srgb,var(--cold) 18%, transparent);color:var(--cold);}
+  .t-grey{background:var(--surface-2);color:var(--dim);}
+
+  .pcard{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--sh);padding:20px 22px;margin-bottom:16px;}
+  .pcard .ph{display:flex;align-items:flex-start;gap:12px;margin-bottom:10px;flex-wrap:wrap;}
+  .pcard .av{width:46px;height:46px;border-radius:50%;background:var(--grad);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;}
+  .pcard .nm{font-weight:800;font-size:17px;} .pcard .nm a{color:var(--ink);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--primary) 50%, transparent);}
+  .pcard .rl{font-size:13px;color:var(--dim);margin-top:1px;}
+  .pcard .signal{font-size:13px;color:var(--dim);background:var(--surface-2);border-radius:10px;padding:8px 12px;margin:10px 0;border:1px solid var(--border);}
+  .modrow{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;}
+  .modchip{font-size:11px;font-weight:600;background:var(--surface-2);color:var(--ink);padding:5px 10px;border-radius:var(--pill);border:1px solid var(--border);}
+  .modchip b{color:var(--primary-light);}
+  .hook{font-style:italic;font-size:14px;color:var(--ink);border-left:3px solid var(--primary);padding:8px 12px;margin:10px 0;background:color-mix(in srgb,var(--primary) 8%, var(--surface-2));}
+  .seq{margin-top:12px;}
+  .seq .m{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);font-size:13.5px;}
+  .seq .m:last-child{border-bottom:none;}
+  .seq .mlabel{flex-shrink:0;width:120px;font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--primary-light);padding-top:1px;}
+  .seq .mtext{color:var(--ink);}
+
+  .note{background:linear-gradient(135deg, var(--surface-2) 0%, color-mix(in srgb,var(--primary) 16%, var(--surface-2)) 100%);color:var(--ink);border:1px solid var(--border);border-radius:var(--r-md);padding:18px 22px;font-size:14.5px;margin-top:6px;box-shadow:var(--sh);}
+  .note b{color:var(--primary-light);}
+
+  .priocard{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;}
+  .priocard .ph{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+  .prio-pill{font-size:11px;font-weight:800;padding:3px 10px;border-radius:var(--pill);letter-spacing:.03em;}
+  .p1{background:color-mix(in srgb,var(--bad) 20%, transparent);color:#FCA5A5;}
+  .p2{background:color-mix(in srgb,var(--warn) 20%, transparent);color:var(--warn);}
+  .p3{background:var(--surface-2);color:var(--dim);}
+
+  .blocker{background:var(--surface);border:1px dashed color-mix(in srgb,var(--bad) 50%, var(--border));border-radius:var(--r-lg);padding:20px 22px;margin-bottom:14px;}
+  .blocker .bh{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#FCA5A5;font-weight:800;margin-bottom:8px;}
+  .blocker p{font-size:14px;color:var(--dim);margin-top:8px;}
+  .blocker p b{color:var(--ink);}
+
+  footer{text-align:center;padding:30px 22px 10px;color:var(--dimmer);font-size:13px;}
+  footer b{color:var(--dim);}
+
+  @media(max-width:640px){.grid3{grid-template-columns:1fr;} .seq .m{flex-direction:column;gap:2px;} .seq .mlabel{width:auto;}}
+</style>
+</head>
+<body data-theme="dark">
+  <div class="doc">
+
+    <div class="ohead"><div class="k">CRO · Weekly prospect pack</div><h1>7 matched. 3 hot.</h1><div class="d">Sourced from your ETA ICP via Apify · DMs drafted, nothing sent · Sunday, August 16, 2026</div></div>
+
+    <div class="grid3">
+      <div class="stat"><div class="l">Prospects</div><div class="n">7</div></div>
+      <div class="stat"><div class="l">Hot</div><div class="n">3</div></div>
+      <div class="stat"><div class="l">DMs drafted</div><div class="n">35</div></div>
+    </div>
+
+    <div class="card"><h4 style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin-bottom:8px">Sourcing note</h4>
+    <div style="font-size:14px;color:var(--ink)">Multi-clause searches ("entrepreneurship through acquisition self-funded search fund searcher", "acquisition entrepreneur searching to buy business") returned zero results this week, the underlying Apify actor only surfaces matches on short, literal keyword phrases. Switched to single-phrase passes: "executive coach" (returned only certified/ICF coaches, all disqualified as competitors, zero usable), "self-funded search entrepreneur", "acquisition entrepreneur", and "search fund CEO" (these three returned real ETA searchers). Of 16 raw candidates surfaced across those three searches, 8 were excluded as search-fund investors or fund managers backing other people's deals rather than searching themselves, and 1 was excluded as already several years into a successful acquired business, past the "quietly unfulfilled" inflection point this pack targets. That left 7 genuinely qualified, well-documented prospects. Shipping at 7 rather than padding to 10 with thin LinkedIn "People Also Viewed" entries that had no bio, no location, and no signal to personalize against, per your standing rule.</div></div>
+
+    <div class="sec">The prospects</div>
+
+    <!-- 1 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">JS</div><div><div class="nm"><a href="https://www.linkedin.com/in/jb-stockslager-9a47a665" target="_blank" rel="noopener">JB Stockslager</a></div><div class="rl">Self-Funded Searcher, Slingshot Stone · Operating Partner, Mosaic ETA · Dallas, Texas</div></div><span class="tagi t-warm" style="margin-left:auto">warm</span></div>
+      <div class="signal">Signal: Kellogg MBA. Former CEO of Alliance Services, a 350-person Alpine Investors-backed care organization (Apr 2022–Oct 2024). Since Feb 2025, running his own self-funded search at Slingshot Stone for a lower middle-market service business, eighteen months in with no deal closed. Concurrently an Operating Partner at Mosaic ETA since Oct 2024, mentoring other acquisition entrepreneurs while running his own search in parallel. Prior Kearney management consultant, active nonprofit board member.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>8/10</b> (role 9 · pain 7 · timing 8 · relationship 5)</span>
+        <span class="modchip">Temp <b>Warm</b></span>
+        <span class="modchip">Style <b>Analytical / Amiable</b></span>
+        <span class="modchip">Opener <b>Peer Opener</b></span>
+      </div>
+      <div class="hook">"Coaching other searchers full time while eighteen months into his own unclosed search."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 · Connect</div><div class="mtext">JB, mentoring other searchers full time while your own deal at Slingshot Stone is still eighteen months from closing takes a specific kind of patience. I went from a hedge fund to buying preschools I knew nothing about. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 · Icebreaker</div><div class="mtext">Coaching other searchers full time at Mosaic while your own search at Slingshot Stone is eighteen months in and still unclosed, that is a strange kind of double duty. Do you find it easier to spot the red flags in your own deals after seeing so many other people's?</div></div>
+        <div class="m"><div class="mlabel">3 · Value Bridge</div><div class="mtext">Something I noticed in service-business searches like yours: the operators who win are usually the ones patient enough to walk away from three good deals to get one great one. Curious, has anything come close to closing yet, or still early diligence stage?</div></div>
+        <div class="m"><div class="mlabel">4 · Pivot</div><div class="mtext">Different question. After running a 350 person company as CEO, does searching for the next one feel smaller in scale, or exactly the pace you wanted?</div></div>
+        <div class="m"><div class="mlabel">5 · Clean Exit</div><div class="mtext">No pressure to respond, JB. Respect the patience it takes to mentor other searchers while your own search is still open. If the process ever needs an outside perspective from someone who bought into something he knew nothing about, I am around.</div></div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">DC</div><div><div class="nm"><a href="https://www.linkedin.com/in/diego-canales-" target="_blank" rel="noopener">Diego Canales Delgado</a></div><div class="rl">Co-CEO, Letro (via Targos Capital search fund) · Madrid, Spain</div></div><span class="tagi t-hot" style="margin-left:auto">hot</span></div>
+      <div class="signal">Signal: London Business School MBA. PE roles at LetterOne and Patron Capital, then co-founded search fund Targos Capital in Jun 2024. LinkedIn About section states verbatim: "Today, I'm actively searching for a business to acquire and grow with care, conviction, and a long-term perspective." Evaluated roughly 100 transactions before closing one, became Co-CEO of the acquired business, Letro, in Mar 2026, six months into running it. Fresh first-time-CEO transition, textbook Avatar 2 fit.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>8/10</b> (role 9 · pain 8 · timing 9 · relationship 5)</span>
+        <span class="modchip">Temp <b>Hot</b></span>
+        <span class="modchip">Style <b>Analytical / Driver</b></span>
+        <span class="modchip">Opener <b>Pattern Interrupt</b></span>
+      </div>
+      <div class="hook">"Evaluated a hundred deals, closed one, and became Co-CEO six months ago."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 · Connect</div><div class="mtext">Diego, evaluating close to a hundred deals before pulling the trigger, then becoming Co-CEO of the one you closed six months ago, that is a real string of discipline. I made a similar jump from finance into running something I had never operated before. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 · Icebreaker</div><div class="mtext">Evaluated a hundred deals, closed one, and became Co-CEO six months ago, most people do not talk about what the first few months of actually running it feel like compared to the deal itself. What has surprised you most since you moved from evaluating businesses to being inside one?</div></div>
+        <div class="m"><div class="mlabel">3 · Value Bridge</div><div class="mtext">One thing I have noticed with new owner-operators, the first real test is not the acquisition, it is the first hard call you make that the previous owner never had to make. Has a moment like that shown up yet for you at Letro?</div></div>
+        <div class="m"><div class="mlabel">4 · Pivot</div><div class="mtext">Different question. A hundred deals evaluated is a lot of no before the one yes. Does the search itself feel like a distant memory now, or does part of you still miss the hunt?</div></div>
+        <div class="m"><div class="mlabel">5 · Clean Exit</div><div class="mtext">No pressure to reply, Diego. Respect the process it took to get here, a hundred deals is a real filter. If the first year of ownership ever needs an outside voice, I bought and scaled something I knew nothing about too, happy to talk.</div></div>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">CH</div><div><div class="nm"><a href="https://www.linkedin.com/in/coryhalbardier" target="_blank" rel="noopener">Cory Halbardier</a></div><div class="rl">CEO, J&G Lawn and Garden · Wharton MBA · Danville, California</div></div><span class="tagi t-hot" style="margin-left:auto">hot</span></div>
+      <div class="signal">Signal: Wharton MBA. Career corporate sales and ops executive with $600M+ in career sales across SunEdison, Martifer Solar, and Flex. Became CEO of J&G Lawn and Garden, a local landscape maintenance and outdoor construction business, four months ago (May 2026). Self-labels "Business Builder" and "Acquisition Entrepreneur" on LinkedIn. Very fresh transition from corporate sales into hands-on small business ownership.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>8/10</b> (role 9 · pain 8 · timing 9 · relationship 5)</span>
+        <span class="modchip">Temp <b>Hot</b></span>
+        <span class="modchip">Style <b>Driver / Expressive</b></span>
+        <span class="modchip">Opener <b>Directness Play</b></span>
+      </div>
+      <div class="hook">"Went from $600M in corporate sales to running a landscaping company four months ago."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 · Connect</div><div class="mtext">Cory, going from six hundred million in corporate sales to CEO of a landscaping company four months ago is a real leap. I made a similar jump from finance into a business outside my lane. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 · Icebreaker</div><div class="mtext">Six hundred million in career sales at SunEdison and Flex, then CEO of J&G Lawn and Garden four months in, that is a big change in what a normal Tuesday looks like. What has been the hardest part of the shift from selling for someone else to owning the outcome yourself?</div></div>
+        <div class="m"><div class="mlabel">3 · Value Bridge</div><div class="mtext">Something I have seen with sales leaders who move into ownership, the instinct to hit a number stays, but the scoreboard changes completely. Has that adjustment been smoother or harder than you expected four months in?</div></div>
+        <div class="m"><div class="mlabel">4 · Pivot</div><div class="mtext">Different one. Wharton teaches plenty about deals and finance. Did any of it actually prepare you for running crews and routes day to day?</div></div>
+        <div class="m"><div class="mlabel">5 · Clean Exit</div><div class="mtext">No pressure to respond, Cory. Respect the jump, four months in is still the hard part. If the transition from corporate sales to owner ever needs an outside perspective, I have made my own version of that leap, around if useful.</div></div>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">AG</div><div><div class="nm"><a href="https://www.linkedin.com/in/aitorgrandes" target="_blank" rel="noopener">Aitor Grandes Gajate</a></div><div class="rl">CEO, Scrum Capital (search fund) · IESE · Madrid, Spain</div></div><span class="tagi t-warm" style="margin-left:auto">warm</span></div>
+      <div class="signal">Signal: 20+ year serial entrepreneur, founded and exited both 24symbols and Dendary (sold to MIO Group). IESE Programa Dirección General, 2018. Started Scrum Capital in Jun 2025, a search fund backed by Bennu Capital to acquire a single high-potential Spanish SME with €5-40M revenue and €2-5M EBITDA, targeting succession situations. Over a year into the search with no close yet, a real reversal after two prior exits from building.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>7/10</b> (role 8 · pain 7 · timing 7 · relationship 4)</span>
+        <span class="modchip">Temp <b>Warm</b></span>
+        <span class="modchip">Style <b>Expressive</b></span>
+        <span class="modchip">Opener <b>Peer Opener</b></span>
+      </div>
+      <div class="hook">"Exited two companies, then spent the last year hunting for one to buy instead."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 · Connect</div><div class="mtext">Aitor, exiting two companies and then spending the last year hunting for one to buy instead is an interesting reversal. I made a similar jump from finance into buying something outside my lane. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 · Icebreaker</div><div class="mtext">Building and exiting 24symbols and Dendary, then spending over a year now searching to buy instead of build, that is a real change in posture. What made buying feel like the right next move after two exits from building?</div></div>
+        <div class="m"><div class="mlabel">3 · Value Bridge</div><div class="mtext">Something I have noticed with repeat founders who move into acquisition, the discipline of walking away is harder for builders than for first time searchers, you already know what a good business feels like from the inside. Has that made you more selective, or more impatient?</div></div>
+        <div class="m"><div class="mlabel">4 · Pivot</div><div class="mtext">Different question. After building two companies from nothing, does hunting for someone else's business to buy feel like a step back, or the smarter version of the same game?</div></div>
+        <div class="m"><div class="mlabel">5 · Clean Exit</div><div class="mtext">No pressure to reply, Aitor. Respect the patience, over a year in is a real test. If the search ever needs a perspective from someone who has bought into something he knew nothing about, I am around.</div></div>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">MM</div><div><div class="nm"><a href="https://www.linkedin.com/in/mtimet" target="_blank" rel="noopener">Mohamed Mtimet</a></div><div class="rl">Search Fund CEO and Founder, Jadore Capital · HEC Paris · Paris, France</div></div><span class="tagi t-warm" style="margin-left:auto">warm</span></div>
+      <div class="signal">Signal: HEC Paris MBA (2014-2015). Seven-plus years in enterprise sales across LinkedIn, Cisco, HCL, and Safran before founding his own search fund, Jadore Capital, in Nov 2025, ten months into the search now. Long, stable corporate sales run before a genuine pivot into acquisition entrepreneurship, and the irony of leaving LinkedIn itself to build something of his own is a natural conversational hook.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>7/10</b> (role 8 · pain 8 · timing 8 · relationship 4)</span>
+        <span class="modchip">Temp <b>Warm</b></span>
+        <span class="modchip">Style <b>Expressive</b></span>
+        <span class="modchip">Opener <b>Pattern Interrupt</b></span>
+      </div>
+      <div class="hook">"Left enterprise sales at LinkedIn to found his own search fund ten months ago."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 · Connect</div><div class="mtext">Mohamed, leaving enterprise sales at LinkedIn itself to found your own search fund ten months ago is a real bet on yourself. I made a similar jump from finance into buying a business outside my lane. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 · Icebreaker</div><div class="mtext">Selling enterprise deals at LinkedIn, then Cisco, HCL, and Safran before that, and now ten months into founding your own search fund, that is a long run in corporate sales before a very different kind of hunt. What made this the moment to finally search instead of sell for someone else?</div></div>
+        <div class="m"><div class="mlabel">3 · Value Bridge</div><div class="mtext">Something I have seen with sales leaders who move into search, the instincts that close deals are not the same instincts that source them, sourcing rewards patience over closing speed. Has that been the harder adjustment ten months in?</div></div>
+        <div class="m"><div class="mlabel">4 · Pivot</div><div class="mtext">Different one. HEC teaches plenty about strategy. Did any of it prepare you for the part of a search that is mostly rejection before the one yes?</div></div>
+        <div class="m"><div class="mlabel">5 · Clean Exit</div><div class="mtext">No pressure to respond, Mohamed. Respect the bet, leaving a role like LinkedIn to search solo is not small. If ten months in ever needs an outside voice, I made my own leap from finance into something I knew nothing about, happy to talk.</div></div>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">YE</div><div><div class="nm"><a href="https://www.linkedin.com/in/youssef-el-allame" target="_blank" rel="noopener">Youssef El Allame</a></div><div class="rl">Acquisition Entrepreneur · Columbia MSc · New York City</div></div><span class="tagi t-hot" style="margin-left:auto">hot</span></div>
+      <div class="signal">Signal: Columbia MSc, $20B+ in prior transaction experience as an investment banker. About section, quoted verbatim: "Banking made the decision for me... Now I'm an Acquisition Entrepreneur (and an escaped Investment Banker). I share the messy lessons I'm learning while buying a business... unfiltered journey from career plateau to entrepreneur to freedom." Currently doing contract AI-model-training work at Mercor while searching, and publicly documenting the search rather than waiting for a deal to announce it. The public vulnerability is the strongest relationship signal in this batch.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>8/10</b> (role 8 · pain 9 · timing 8 · relationship 6)</span>
+        <span class="modchip">Temp <b>Hot</b></span>
+        <span class="modchip">Style <b>Expressive</b></span>
+        <span class="modchip">Opener <b>Authority Flip</b></span>
+      </div>
+      <div class="hook">"Escaped investment banking, now posting the messy unfiltered truth of buying a business."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 · Connect</div><div class="mtext">Youssef, going public with the messy unfiltered version of buying a business instead of the polished version is rare. I made a similar jump from finance into something outside my lane. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 · Icebreaker</div><div class="mtext">Escaping investment banking and now posting the actual unfiltered lessons of buying a business instead of the highlight reel, that takes a different kind of honesty than most searchers show. What made you decide to share the messy parts publicly instead of waiting until there was a deal to announce?</div></div>
+        <div class="m"><div class="mlabel">3 · Value Bridge</div><div class="mtext">Something I have found true of my own pivots, the version people are most drawn to is never the polished one, it is the one where you admit what you do not know yet. Has being that open changed the kind of people reaching out to you?</div></div>
+        <div class="m"><div class="mlabel">4 · Pivot</div><div class="mtext">Different question. Twenty billion in deals as a banker is a lot of other people's money. Does searching with your own now feel lighter, or heavier?</div></div>
+        <div class="m"><div class="mlabel">5 · Clean Exit</div><div class="mtext">No pressure to reply, Youssef. Respect the honesty, most people would not post the messy version. If the search ever needs an outside voice, I left a hedge fund for something I knew nothing about too, around if useful.</div></div>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">TW</div><div><div class="nm"><a href="https://www.linkedin.com/in/tobias-wiest" target="_blank" rel="noopener">Tobias Wiest</a></div><div class="rl">CEO, dedicom · Search Fund, Wiest Mittelstandspartner · Munich, Germany</div></div><span class="tagi t-cold" style="margin-left:auto">cold</span></div>
+      <div class="signal">Signal: Duke Fuqua MBA exchange. Prior Chief Business Officer / VP Finance at Usercentrics and PE analyst at Reimann Investors. CEO of dedicom since Apr 2024, running concurrently as "Geschäftsführer (Search Fund)" at Wiest Mittelstandspartner since Dec 2023. Weakest pain signal of the batch, he reads as an accomplished dual-hat operator rather than someone visibly stuck, but the two-roles-at-once structure is a genuine, distinctive angle worth testing.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>5/10</b> (role 7 · pain 5 · timing 5 · relationship 4)</span>
+        <span class="modchip">Temp <b>Cold</b></span>
+        <span class="modchip">Style <b>Analytical</b></span>
+        <span class="modchip">Opener <b>Directness Play</b></span>
+      </div>
+      <div class="hook">"Running one company as CEO while quietly building a second acquisition on the side."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 · Connect</div><div class="mtext">Tobias, running dedicom as CEO while quietly building a second acquisition through Wiest Mittelstandspartner on the side is a lot to hold at once. I made a similar jump from finance into buying something outside my lane. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 · Icebreaker</div><div class="mtext">CEO of dedicom since last year, and a search fund running in parallel since the year before that, most people do not run two identities like that at once. How do you keep the search from getting pushed to the bottom of the list when the CEO role has its own fires every day?</div></div>
+        <div class="m"><div class="mlabel">3 · Value Bridge</div><div class="mtext">Something I have seen with operators running two things at once, the side project usually loses unless it has its own deadline, not just its own name. Does the search have a real timeline attached, or is it more opportunistic right now?</div></div>
+        <div class="m"><div class="mlabel">4 · Pivot</div><div class="mtext">Different one. Finance analyst to CBO to CEO, and now also a search fund. Does running two roles feel like leverage, or like neither one gets your full attention?</div></div>
+        <div class="m"><div class="mlabel">5 · Clean Exit</div><div class="mtext">No pressure to reply, Tobias. Respect the balance, running a company and a search at once is not simple. If either side of that ever needs an outside voice, I am around.</div></div>
+      </div>
+    </div>
+
+    <div class="sec">Pipeline triage</div>
+
+    <div class="blocker">
+      <div class="bh">Blocked — no CRM found</div>
+      <p>No deals, leads, or client tracker exists anywhere in your Notion workspace. Searched for "active deals pipeline," "CRM deals database," "pipeline," "leads tracker," and "client tracker coaching," all came back empty except the daily COO Briefs, which have flagged this exact gap for <b>nine consecutive days running</b> (Aug 8 through today). The only database in the workspace, "Project Planner," holds two overdue legacy personal items unrelated to Institute for Greatness ("Publish my first book," "Home renovation").</p>
+      <p><b>Cannot generate Priority 1/2/3 triage or /outreach-closer next-action messages without deal data to triage.</b> Recommend setting up a real deals tracker in Notion this week (stage, next action, last touch, value), even a simple table, so next week's CRO pack can actually run the pipeline half of this workflow.</p>
+    </div>
+
+    <div class="note">
+      <b>Quality gate, confirmed on all 35 messages:</b> one question mark maximum per message · zero pitch of the 1:1 program or ETA Masterclass anywhere before M5 · zero em dashes anywhere in this pack · every Human Hook is 10 to 14 words and specific to one person only, nothing generic or reusable across prospects.
+    </div>
+
+  </div>
+  <footer>Institute for Greatness · CRO Weekly Prospect Pack · Generated <b>2026-08-16</b> · Nothing in this document has been sent</footer>
+</body>
+</html>
