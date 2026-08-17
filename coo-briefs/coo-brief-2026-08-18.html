@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief — 2026-08-18</title>
+<style>
+  :root {
+    --primary: #E90D41;
+    --primary-deep: #C70A38;
+    --bg: #0A0A0A;
+    --card: #141414;
+    --card-border: #242424;
+    --ink: #F5F5F3;
+    --ink-soft: #A3A29C;
+    --ink-faint: #6B6A63;
+    --green: #34D399;
+    --green-bg: rgba(52,211,153,0.12);
+    --amber: #F5B942;
+    --amber-bg: rgba(245,185,66,0.12);
+    --red: #F0475B;
+    --red-bg: rgba(240,71,91,0.14);
+    --divider: #232322;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 64px;
+  }
+
+  header {
+    margin-bottom: 32px;
+  }
+
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary);
+    margin: 0 0 10px;
+  }
+
+  h1 {
+    font-size: 28px;
+    line-height: 1.25;
+    margin: 0 0 8px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .subline {
+    color: var(--ink-soft);
+    font-size: 15px;
+    margin: 0;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 22px 22px 6px;
+    margin-bottom: 18px;
+  }
+
+  .card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    color: var(--ink-soft);
+    margin: 0 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .card h2::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--primary);
+  }
+
+  .item {
+    padding: 0 0 16px;
+    border-bottom: 1px solid var(--divider);
+    margin-bottom: 16px;
+  }
+
+  .item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 20px;
+  }
+
+  .item-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+
+  .item-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .item-meta {
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .item-detail {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    margin-top: 4px;
+  }
+
+  .item-detail a {
+    color: var(--primary);
+    text-decoration: none;
+  }
+
+  .item-detail a:hover { text-decoration: underline; }
+
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 3px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .status::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+
+  .status.green { color: var(--green); background: var(--green-bg); }
+  .status.green::before { background: var(--green); }
+  .status.amber { color: var(--amber); background: var(--amber-bg); }
+  .status.amber::before { background: var(--amber); }
+  .status.red { color: var(--red); background: var(--red-bg); }
+  .status.red::before { background: var(--red); }
+
+  .note {
+    font-size: 13px;
+    color: var(--ink-faint);
+    padding: 2px 0 18px;
+    line-height: 1.5;
+  }
+
+  .metric-value {
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0 0 4px;
+  }
+
+  .metric-sub {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    padding-bottom: 20px;
+  }
+
+  footer {
+    text-align: center;
+    color: var(--ink-faint);
+    font-size: 12px;
+    margin-top: 28px;
+  }
+
+  @media (max-width: 480px) {
+    .item-top { flex-direction: column; align-items: flex-start; gap: 4px; }
+    h1 { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <p class="eyebrow">COO Morning Brief</p>
+    <h1>Tuesday, August 18, 2026</h1>
+    <p class="subline">Good morning, Anthony. Here's the shape of the day.</p>
+  </header>
+
+  <section class="card">
+    <h2>Today's Schedule</h2>
+
+    <div class="item">
+      <div class="item-top">
+        <span class="item-title">Appointment — Miguel Oliveira</span>
+        <span class="item-meta">8:30 – 9:00 AM</span>
+      </div>
+      <div class="item-detail"><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZWNlOGVhNDgtM2JmNy00YTM3LWFlM2MtZDFjODljMDMzY2Ey%40thread.v2/0" target="_blank" rel="noopener">Join Microsoft Teams</a></div>
+      <span class="status green">On track</span>
+    </div>
+
+    <div class="item">
+      <div class="item-top">
+        <span class="item-title">Appointment — Irene</span>
+        <span class="item-meta">9:30 – 10:00 AM</span>
+      </div>
+      <div class="item-detail"><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZWNlOGVhNDgtM2JmNy00YTM3LWFlM2MtZDFjODljMDMzY2Ey%40thread.v2/0" target="_blank" rel="noopener">Join Microsoft Teams</a></div>
+      <span class="status green">On track</span>
+    </div>
+
+    <div class="item">
+      <div class="item-top">
+        <span class="item-title">Hupo session — Kenny Yu</span>
+        <span class="item-meta">10:00 – 11:00 AM</span>
+      </div>
+      <div class="item-detail"><a href="https://api.hupo.co/event/join/6a764f9ff8f3daec370c9b63?coach=1&ref=google-coach-cal" target="_blank" rel="noopener">Join Hupo session</a></div>
+      <span class="status green">On track</span>
+    </div>
+
+    <div class="item">
+      <div class="item-top">
+        <span class="item-title">Anthony singing</span>
+        <span class="item-meta">2:00 – 3:00 PM</span>
+      </div>
+      <div class="item-detail">Personal calendar block.</div>
+      <span class="status green">On track</span>
+    </div>
+
+    <div class="item">
+      <div class="item-top">
+        <span class="item-title">FF call Taipei</span>
+        <span class="item-meta">4:00 – 5:00 PM</span>
+      </div>
+      <div class="item-detail">FF Fraternity, no link on file.</div>
+      <span class="status green">On track</span>
+    </div>
+
+    <p class="note">Five items today, back-to-back from 8:30 to 11, then open until the singing block at 2. No overlaps.</p>
+  </section>
+
+  <section class="card">
+    <h2>Inbox Priorities</h2>
+
+    <div class="item">
+      <div class="item-top">
+        <span class="item-title">Google security alert — inforgreat@gmail.com</span>
+        <span class="item-meta">Aug 17</span>
+      </div>
+      <div class="item-detail">Hupo was granted access to the account. Consistent with today's Hupo session with Kenny Yu — worth a glance to confirm it was you.</div>
+      <span class="status green">On track</span>
+    </div>
+
+    <div class="item">
+      <div class="item-top">
+        <span class="item-title">The Runway Ventures — "150 bottles"</span>
+        <span class="item-meta">Aug 17</span>
+      </div>
+      <div class="item-detail">Business lessons newsletter. No action needed.</div>
+      <span class="status green">On track</span>
+    </div>
+
+    <div class="item">
+      <div class="item-top">
+        <span class="item-title">Seeking Alpha — Nebius revenue growth</span>
+        <span class="item-meta">Aug 17</span>
+      </div>
+      <div class="item-detail">AI stocks with short-squeeze potential digest. No action needed.</div>
+      <span class="status green">On track</span>
+    </div>
+
+    <div class="item">
+      <div class="item-top">
+        <span class="item-title">E14 investment opportunity — Edwards &amp; Plumb</span>
+        <span class="item-meta">Aug 17</span>
+      </div>
+      <div class="item-detail">Heron Wharf, Berkeley Group. Property investment pitch, unreviewed.</div>
+      <span class="status green">On track</span>
+    </div>
+
+    <div class="item">
+      <div class="item-top">
+        <span class="item-title">HSBC — Weekly Insights</span>
+        <span class="item-meta">Aug 17</span>
+      </div>
+      <div class="item-detail">China's July corporate bond issuance. No action needed.</div>
+      <span class="status green">On track</span>
+    </div>
+
+    <p class="note">20 threads in the last 24 hours. No emails were genuinely flagged urgent, deadline, or response needed.</p>
+  </section>
+
+  <section class="card">
+    <h2>Tasks</h2>
+
+    <div class="item">
+      <div class="item-top">
+        <span class="item-title">Publish my first book</span>
+        <span class="item-meta">Due Jun 30, 2024</span>
+      </div>
+      <div class="item-detail">Notion Project Planner. Not started. Legacy personal entry, unrelated to the business.</div>
+      <span class="status red">Overdue</span>
+    </div>
+
+    <div class="item">
+      <div class="item-top">
+        <span class="item-title">Home renovation</span>
+        <span class="item-meta">Due Apr 26, 2024</span>
+      </div>
+      <div class="item-detail">Notion Project Planner. In progress. Legacy personal entry, unrelated to the business.</div>
+      <span class="status red">Overdue</span>
+    </div>
+
+    <p class="note">No dedicated Institute for Greatness task tracker exists yet in Notion — flagged for the 11th day running.</p>
+  </section>
+
+  <section class="card">
+    <h2>Content Slot</h2>
+
+    <div class="item">
+      <div class="item-top">
+        <span class="item-title">No entry for today</span>
+        <span class="item-meta">Tue, Aug 18</span>
+      </div>
+      <div class="item-detail">No content calendar exists yet for the week of August 17, and today is a scheduled Monday–Friday posting day. Last calendar on file is "Content Calendar — Week of 2026-08-10," final entry Friday, August 14 (Time Value / Reallocation, framework post).</div>
+      <span class="status amber">Attention needed</span>
+    </div>
+
+    <p class="note">Worth building this week's calendar before end of day to keep the posting cadence.</p>
+  </section>
+
+  <section class="card">
+    <h2>Key Metric</h2>
+    <div class="item">
+      <p class="metric-value">Not tracked</p>
+      <p class="metric-sub">No metric is currently tracked in the business brain — flagged for the 11th day running. Consider picking one to track daily or weekly: ETA Masterclass sign-ups, new coaching clients booked, or LinkedIn engagement rate.</p>
+      <span class="status amber">Attention needed</span>
+    </div>
+  </section>
+
+  <footer>Generated automatically · Institute for Greatness</footer>
+
+</div>
+</body>
+</html>
