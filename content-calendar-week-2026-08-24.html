@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Content Calendar — Week of 2026-08-24</title>
+<style>
+  :root {
+    --brand: #F05A28;
+    --brand-dim: #b8431c;
+    --bg: #0A0A0A;
+    --panel: #141414;
+    --panel-2: #1a1a1a;
+    --border: #2a2a2a;
+    --ink: #EDEDED;
+    --ink-dim: #9a9a9a;
+    --educating: #3b82f6;
+    --nurturing: #22c55e;
+    --soft: #d97706;
+    --hard: #ef4444;
+    --engagement: #a855f7;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  body {
+    padding: 40px 24px 64px;
+  }
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+  .masthead {
+    border-left: 4px solid var(--brand);
+    padding-left: 18px;
+    margin-bottom: 8px;
+  }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 11px;
+    color: var(--brand);
+    font-weight: 700;
+    margin: 0 0 6px;
+  }
+  h1 {
+    margin: 0;
+    font-size: 28px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+  }
+  .sub {
+    color: var(--ink-dim);
+    font-size: 14px;
+    margin-top: 8px;
+  }
+
+  .flag {
+    margin: 28px 0;
+    background: linear-gradient(135deg, rgba(240,90,40,0.10), rgba(240,90,40,0.02));
+    border: 1px solid rgba(240,90,40,0.35);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+  .flag h2 {
+    margin: 0 0 8px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--brand);
+  }
+  .flag p {
+    margin: 0 0 8px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+  .flag p:last-child { margin-bottom: 0; }
+  .flag code {
+    background: rgba(255,255,255,0.06);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin: 20px 0 32px;
+  }
+  .pillar-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+  }
+  .pillar-card .dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 7px;
+  }
+  .pillar-card .name {
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .pillar-card .note {
+    font-size: 11.5px;
+    color: var(--ink-dim);
+    margin-top: 5px;
+    line-height: 1.4;
+  }
+
+  .table-scroll {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 980px;
+    background: var(--panel);
+  }
+  thead th {
+    background: var(--brand);
+    color: #0A0A0A;
+    text-align: left;
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 12px 14px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  tbody td {
+    padding: 14px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    border-top: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tbody tr:nth-child(even) { background: var(--panel-2); }
+  tbody tr:hover { background: #1f1f1f; }
+
+  td.day {
+    font-weight: 700;
+    white-space: nowrap;
+    color: var(--ink);
+  }
+  td.day .date {
+    display: block;
+    font-weight: 400;
+    color: var(--ink-dim);
+    font-size: 11.5px;
+    margin-top: 2px;
+  }
+  td.pillar {
+    color: var(--ink);
+    font-size: 12.5px;
+    min-width: 170px;
+  }
+  td.topic {
+    min-width: 260px;
+    color: var(--ink);
+  }
+  td.hook, td.cta {
+    min-width: 220px;
+    color: #cfcfcf;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+    color: #0A0A0A;
+  }
+  .badge-Educating { background: var(--educating); color: #06121f; }
+  .badge-Nurturing { background: var(--nurturing); color: #06170c; }
+  .badge-SoftSelling { background: var(--soft); color: #1f1200; }
+  .badge-HardSelling { background: var(--hard); color: #1f0505; }
+  .badge-Engagement { background: var(--engagement); color: #150822; }
+
+  .format-tag {
+    display: block;
+    margin-top: 6px;
+    font-size: 11px;
+    color: var(--ink-dim);
+  }
+
+  .legend {
+    margin-top: 22px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    font-size: 12px;
+    color: var(--ink-dim);
+  }
+  .legend .item { display: flex; align-items: center; gap: 6px; }
+  .legend .sw { width: 10px; height: 10px; border-radius: 3px; }
+
+  footer {
+    margin-top: 36px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 11.5px;
+    color: var(--ink-dim);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  @media (max-width: 640px) {
+    h1 { font-size: 22px; }
+    body { padding: 24px 14px 48px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="masthead">
+    <p class="eyebrow">Institute for Greatness · LinkedIn</p>
+    <h1>Content Calendar — Week of Monday, August 24, 2026</h1>
+    <p class="sub">5 posts · Monday–Friday · Anthony Tse voice DNA locked · Brand accent #F05A28</p>
+  </div>
+
+  <div class="flag">
+    <h2>⚠ Territory Review — Rotation Flag</h2>
+    <p><strong>No calendar was on file for the week of Aug 17, and this is the first one built for Aug 24</strong> — the prior calendar (Week of Aug 10) was the last entry, so LinkedIn has had gap days with no scheduled post since Friday, Aug 14.</p>
+    <p><strong>3 of 5 pillars had run in the identical weekday + intent slot for 4 consecutive weeks straight</strong> (Jul 20 → Aug 10) with zero variation: <code>The Pivot / Career Changer</code> on every Tuesday, <code>Freedom Through Ownership (ETA)</code> on every Wednesday, and <code>Time Value / Reallocation</code> on every Friday.</p>
+    <p>This week's plan deliberately breaks two of those three: Time Value moves from Friday → Monday, and the Tuesday story slot goes to Lived Experience vs. Certification instead of the Pivot pillar. Wednesday keeps Freedom Through Ownership (ETA) on Soft Selling — that pairing is structural (it's the direct offer, not incidental repetition), so it stays. Friday reuses the Pivot pillar's strongest asset (David → Janet → Kelvin) but reframed as a framework instead of a straight story, per the "repeat best-performing intent" rule.</p>
+  </div>
+
+  <div class="pillars">
+    <div class="pillar-card">
+      <span class="dot" style="background:#3b82f6"></span><span class="name">Presence Over Performance</span>
+      <div class="note">Leadership isn't face time — it's knowing when your presence matters.</div>
+    </div>
+    <div class="pillar-card">
+      <span class="dot" style="background:#22c55e"></span><span class="name">The Pivot / Career Changer</span>
+      <div class="note">David → Janet → Kelvin — the arc from panic to compounding freedom.</div>
+    </div>
+    <div class="pillar-card">
+      <span class="dot" style="background:#d97706"></span><span class="name">Freedom Through Ownership (ETA)</span>
+      <div class="note">Use your salary to compound toward business ownership, not just quit-or-stay.</div>
+    </div>
+    <div class="pillar-card">
+      <span class="dot" style="background:#a855f7"></span><span class="name">Lived Experience vs. Certification</span>
+      <div class="note">Tested, not trained — the case against playbook coaching with no real scars.</div>
+    </div>
+    <div class="pillar-card">
+      <span class="dot" style="background:#eab308"></span><span class="name">Time Value / Reallocation</span>
+      <div class="note">The question isn't what you do — it's what your time is actually worth.</div>
+    </div>
+  </div>
+
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>Pillar</th>
+          <th>Topic / Angle</th>
+          <th>Intent</th>
+          <th>Hook Direction</th>
+          <th>CTA Direction</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="day">Monday<span class="date">Aug 24</span></td>
+          <td class="pillar">Time Value / Reallocation</td>
+          <td class="topic">A simple framework for auditing where your hours actually go — built on the death-bed test, for the exec who's busy but not sure busy is building anything.</td>
+          <td><span class="badge badge-Educating">Educating</span><span class="format-tag">Framework post</span></td>
+          <td class="hook">The Death Bed Test formula — "Lying on my death bed, I would regret how I was spending my time" — opens into a 3-question audit: job vs. business, task vs. leverage, presence vs. absence.</td>
+          <td class="cta">Save/share prompt + DM keyword <strong>"AUDIT"</strong> for the time-value worksheet.</td>
+        </tr>
+        <tr>
+          <td class="day">Tuesday<span class="date">Aug 25</span></td>
+          <td class="pillar">Lived Experience vs. Certification</td>
+          <td class="topic">The story of the professional who tried a certified coach first — clean advice, no real scars — and why "tested, not trained" changed what she went looking for next.</td>
+          <td><span class="badge badge-Nurturing">Nurturing</span><span class="format-tag">Story post</span></td>
+          <td class="hook">The Contradiction formula — "You've been successful for years. And yet, something still doesn't feel right" — into the real account of a structured, professional coach who was still untested.</td>
+          <td class="cta">Reflective close — invite readers to DM if they've felt the "clean but untested" gap with a coach or advisor.</td>
+        </tr>
+        <tr>
+          <td class="day">Wednesday<span class="date">Aug 26</span></td>
+          <td class="pillar">Freedom Through Ownership (ETA)</td>
+          <td class="topic">The third path beyond quit-or-stay-trapped — using a salary to compound toward business ownership, told through the client who stayed in his job and hired an operator.</td>
+          <td><span class="badge badge-SoftSelling">Soft Selling</span><span class="format-tag">Soft-sell post</span></td>
+          <td class="hook">The "Who Says" Challenge formula — "Who says you have to quit your job to build freedom?" — into the false-binary reframe and the compounding math.</td>
+          <td class="cta">DM keyword <strong>"ETA"</strong> for masterclass details — soft pitch, no hard link.</td>
+        </tr>
+        <tr>
+          <td class="day">Thursday<span class="date">Aug 27</span></td>
+          <td class="pillar">Presence Over Performance</td>
+          <td class="topic">Presence isn't face time — a contrarian claim that most meetings are performance, not leadership, and staying silent is sometimes the highest-leverage move.</td>
+          <td><span class="badge badge-Engagement">Engagement</span><span class="format-tag">Contrarian/Engagement post</span></td>
+          <td class="hook">The Moment of Truth formula — "The day your business card gets taken away, who are you?" — repositioned toward leadership presence, landing on a debatable claim.</td>
+          <td class="cta">Comment-bait question: "What's one meeting you could've skipped this week and nobody would've noticed? Say it below."</td>
+        </tr>
+        <tr>
+          <td class="day">Friday<span class="date">Aug 28</span></td>
+          <td class="pillar">The Pivot / Career Changer<span class="format-tag">(repeats Monday's intent)</span></td>
+          <td class="topic">The David → Janet → Kelvin arc turned into a repeatable 3-stage framework — panic, compounding, portfolio — so readers can name their own stage.</td>
+          <td><span class="badge badge-Educating">Educating</span><span class="format-tag">Framework post</span></td>
+          <td class="hook">"I started as David. Then I became Janet. Then Kelvin." — landing on 3 named stages with the reader identifying their own.</td>
+          <td class="cta">Save/share prompt + DM keyword <strong>"STAGE"</strong> — tell me which one you are.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="legend">
+    <span class="item"><span class="sw" style="background:#3b82f6"></span>Educating</span>
+    <span class="item"><span class="sw" style="background:#22c55e"></span>Nurturing</span>
+    <span class="item"><span class="sw" style="background:#d97706"></span>Soft Selling</span>
+    <span class="item"><span class="sw" style="background:#ef4444"></span>Hard Selling</span>
+    <span class="item"><span class="sw" style="background:#a855f7"></span>Engagement</span>
+  </div>
+
+  <footer>
+    <span>Sources: brand-positioning-anthony-tse.md · icp-anthony-tse.md · voice-dna-anthony-tse.md · messaging-house-anthony-tse.md · rule-of-1-anthony-tse.md</span>
+    <span>Saved to Notion: Content Calendar — Week of 2026-08-24</span>
+  </footer>
+
+</div>
+</body>
+</html>
