@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRO Weekly Prospect Pack · Institute for Greatness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#F05A28; --primary-light:#F59473;
+    --bg:#0A0A0A; --panel:#141414; --panel2:#181818; --border:#262626;
+    --ink:#F2F1EE; --ink-soft:#C9C7C2; --gray-text:#8A8985; --gray-light:#1C1C1C;
+    --good:#3ED089; --warn:#F0A93E; --bad:#F0554A;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.35),0 12px 32px rgba(0,0,0,.45);
+    --grad:linear-gradient(135deg, #A63B15 0%, var(--primary) 48%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:radial-gradient(80% 60% at 96% -12%, rgba(240,90,40,.10), transparent 60%), radial-gradient(60% 50% at 0% 6%, rgba(245,148,115,.06), transparent 55%), var(--bg);background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:920px;margin:0 auto;padding:34px 22px 70px;}
+
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px rgba(240,90,40,.28);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;font-weight:600;}
+  .ohead h1{font-size:clamp(22px,4vw,30px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.88;}
+
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-text);font-weight:700;margin:26px 0 12px;}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-md);box-shadow:var(--sh);padding:16px 18px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-text);margin-bottom:8px;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .stat{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
+  .stat .l{font-size:12px;color:var(--gray-text);} .stat .n{font-size:34px;font-weight:800;letter-spacing:-.02em;margin-top:4px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;}
+  .t-grn{background:rgba(62,208,137,.14);color:var(--good);} .t-amb{background:rgba(240,169,62,.14);color:var(--warn);} .t-blue{background:rgba(96,150,240,.14);color:#7FA8F5;} .t-grey{background:var(--gray-light);color:var(--gray-text);} .t-red{background:rgba(240,85,74,.14);color:var(--bad);}
+
+  .pcard{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--sh);padding:20px 22px;margin-bottom:16px;}
+  .pcard .ph{display:flex;align-items:flex-start;gap:12px;margin-bottom:10px;flex-wrap:wrap;}
+  .pcard .av{width:46px;height:46px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;}
+  .pcard .nm{font-weight:800;font-size:17px;color:var(--ink);} .pcard .nm a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(240,90,40,.4);}
+  .pcard .rl{font-size:13px;color:var(--gray-text);margin-top:1px;}
+  .pcard .signal{font-size:13.5px;color:var(--ink-soft);background:var(--panel2);border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin:10px 0;}
+  .pcard .signal b{color:var(--ink);}
+  .modrow{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;}
+  .modchip{font-size:11px;font-weight:600;background:var(--gray-light);color:var(--ink);padding:5px 10px;border-radius:var(--pill);border:1px solid var(--border);}
+  .modchip b{color:var(--primary-light);}
+  .hook{font-style:italic;font-size:14px;color:var(--ink);border-left:3px solid var(--primary-light);padding:8px 12px;margin:10px 0;background:rgba(240,90,40,.08);}
+  .seq{margin-top:12px;}
+  .seq .m{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);font-size:13.5px;}
+  .seq .m:last-child{border-bottom:none;}
+  .seq .mlabel{flex-shrink:0;width:120px;font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--primary-light);padding-top:1px;}
+  .seq .mtext{color:var(--ink-soft);}
+
+  .note{background:linear-gradient(135deg, #1a1a1a 0%, rgba(240,90,40,.18) 100%);border:1px solid var(--border);color:#fff;border-radius:var(--r-md);padding:18px 22px;font-size:15px;margin-top:6px;box-shadow:var(--sh);}
+  .note b{color:var(--primary-light);}
+
+  .warnbox{background:rgba(240,169,62,.08);border:1px solid rgba(240,169,62,.35);border-radius:var(--r-md);padding:16px 18px;margin-bottom:14px;}
+  .warnbox h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--warn);margin-bottom:8px;}
+  .warnbox li{font-size:13.5px;color:var(--ink-soft);margin:4px 0 4px 18px;}
+
+  footer{text-align:center;padding:30px 22px 10px;color:var(--gray-text);font-size:13px;}
+  footer b{color:var(--ink-soft);}
+
+  @media(max-width:640px){.grid3{grid-template-columns:1fr;} .seq .m{flex-direction:column;gap:2px;} .seq .mlabel{width:auto;}}
+</style>
+</head>
+<body data-theme="dark">
+  <div class="doc">
+
+    <div class="ohead"><div class="k">CRO · Weekly prospect pack</div><h1>10 sourced. 0 hot, 0 warm.</h1><div class="d">Sourced via Apify LinkedIn search against your ICP · DMs drafted, nothing sent</div></div>
+
+    <div class="grid3">
+      <div class="stat"><div class="l">Prospects</div><div class="n">10</div></div>
+      <div class="stat"><div class="l">Avg fit score</div><div class="n">4.6<span style="font-size:16px">/10</span></div></div>
+      <div class="stat"><div class="l">DMs drafted</div><div class="n">50</div></div>
+    </div>
+
+    <div class="warnbox">
+      <h4>⚠ Data-quality flags — read before sending anything</h4>
+      <li><b>Geography filter failed.</b> Your ICP is Singapore-based and APAC first, North America second. The Apify search's <code>location="Singapore"</code> parameter returned zero results across three separate attempts (with and without "Singapore" embedded in keywords). All 10 prospects below are in the UK, Switzerland, France, Germany, UAE, US, or India, none are Singapore-based. Fit Scores are docked accordingly, not hidden.</li>
+      <li><b>No recent posts or timing signals exist in this data source.</b> The tool does not expose that field at all. Every Human Hook and DM below is built only from real title/company/tenure facts, nothing about "recent posts" or "just changed jobs" is fabricated anywhere in this pack.</li>
+      <li><b>No Notion deals/CRM database exists in your workspace</b> (confirmed by search — your Notion has Content Calendars, a Project Planner, Income tracking, and Daily Briefs, but no pipeline/deals database). The Pipeline Triage section below is empty for that reason, not skipped by oversight.</li>
+      <li>The commands named in this week's brief (<code>/cro-weekly-prospects</code>, <code>/outreach-prospector</code>, <code>/outreach-writer</code>, <code>/outreach-closer</code>) don't exist as callable skills in this environment. This pack was built by hand against the same spec using the Apify prospecting tool, your real ICP/Voice DNA/positioning docs, and manual scoring, so the deliverable format matches what was asked even though the named pipeline doesn't exist.</li>
+    </div>
+
+    <div class="card"><h4>Sourcing note</h4>
+    <div style="font-size:14px;color:var(--ink-soft)">Two Apify keyword searches ("VP/Director" and "CEO/MD/Founder", both attempted with a Singapore location filter that didn't hold) returned 20 raw profiles. 10 were dropped: a company page, a nonprofit page, a title/role mismatch (headline said VP, actual current position was "Justice of the Peace"), a direct competitor (an ICF Master Certified Coach), and several lower-signal profiles. The 10 below are the real, title-relevant individuals that remained, ranked by honest Fit Score. None scored above 6/10 this week, geography and the total absence of any inflection-point signal are the two consistent drags across the board.</div></div>
+
+    <div class="sec">The prospects — ranked by fit score</div>
+
+    <!-- 1: George Collier -->
+    <div class="pcard">
+      <div class="ph"><div class="av">GC</div><div><div class="nm"><a href="https://www.linkedin.com/in/georgecollier1" target="_blank" rel="noopener">George Collier</a></div><div class="rl">Founder &amp; Managing Director, Collier Global Transformation Partners · Berlin, Germany</div></div><span class="tagi t-red" style="margin-left:auto">cold</span></div>
+      <div class="signal"><b>Signal:</b> Founded his own firm 11 months ago (a genuine, recent, real pivot, not an invented one) and is already hosting a podcast, "The ERP Perspective." 25,875 connections, LinkedIn Creator badge. Reads as someone building visible momentum, not signaling doubt. Berlin sits outside both of your stated markets.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>6/10</b></span>
+        <span class="modchip">Temp <b>Cold</b></span>
+        <span class="modchip">Style <b>Expressive</b></span>
+        <span class="modchip">Opener <b>Peer Opener</b></span>
+      </div>
+      <div class="hook">"Eleven months into Collier Global Transformation Partners, and already hosting The ERP Perspective podcast."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">M1 · Connect</div><div class="mtext">Eleven months into founding Collier Global Transformation Partners, and already hosting The ERP Perspective. That is a lot to build at once. Would like to connect.</div></div>
+        <div class="m"><div class="mlabel">M2 · Icebreaker</div><div class="mtext">George, eleven months into your own firm and already hosting The ERP Perspective is a fast start by any measure. What made now the right moment to build something of your own rather than staying inside someone else's company?</div></div>
+        <div class="m"><div class="mlabel">M3 · Value Bridge</div><div class="mtext">Something I noticed after I built and later exited a hedge fund, and later a preschool group: the first year of your own thing is where you find out fastest whether the freedom you wanted is the freedom you actually got, or just a new set of demands wearing a founder title. Curious how the first eleven months have compared to what you expected when you started?</div></div>
+        <div class="m"><div class="mlabel">M4 · Pivot</div><div class="mtext">Building a firm and hosting a podcast in the same eleven months is two full jobs, not one. Most people do that with a team behind them, not from a standing start.</div></div>
+        <div class="m"><div class="mlabel">M5 · Clean Exit</div><div class="mtext">Wishing you well with Collier Global Transformation Partners and The ERP Perspective, George. If it's ever useful to compare notes on the first year of building something your own, I'm around.</div></div>
+      </div>
+    </div>
+
+    <!-- 2: Daniel J. Jacobs -->
+    <div class="pcard">
+      <div class="ph"><div class="av">DJ</div><div><div class="nm"><a href="https://www.linkedin.com/in/danieljacobs1" target="_blank" rel="noopener">Daniel J. Jacobs</a></div><div class="rl">Founder, Starkhorn · Interim CIO/CISO, Author, NED · London, UK</div></div><span class="tagi t-red" style="margin-left:auto">cold</span></div>
+      <div class="signal"><b>Signal:</b> Strongest role/portfolio match of all 10 — Founder (2y6m) plus interim CIO/CISO work, board seats (NED), and a published book, all at once. That breadth could mean deliberate reinvention or just a full plate; the data doesn't say which, so this is inferred, not confirmed. London is outside both your stated markets, which is the main drag on an otherwise strong fit.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>6/10</b></span>
+        <span class="modchip">Temp <b>Cold</b></span>
+        <span class="modchip">Style <b>Expressive</b></span>
+        <span class="modchip">Opener <b>Pattern Interrupt</b></span>
+      </div>
+      <div class="hook">"Founder of Starkhorn for two and a half years, also an author and NED."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">M1 · Connect</div><div class="mtext">Daniel, Founder of Starkhorn for two and a half years while also working as an author and NED is an unusual mix. I have built and exited a business myself. Would like to connect.</div></div>
+        <div class="m"><div class="mlabel">M2 · Icebreaker</div><div class="mtext">Daniel, two and a half years into Starkhorn, still doing interim CIO and CISO work, and an author and NED on top of that. That is a full plate built entirely on your own terms. Of everything on that list, which one actually pulls at you the most right now?</div></div>
+        <div class="m"><div class="mlabel">M3 · Value Bridge</div><div class="mtext">Something I noticed after I left a stable career to start over twice: a full portfolio can be genuinely energizing, or it can be a way of staying busy enough that you never have to sit with one hard question. Both look identical from the outside. When you look at Starkhorn, the NED seat, and the writing together, does it feel like it is all pointed somewhere, or more like it is just full?</div></div>
+        <div class="m"><div class="mlabel">M4 · Pivot</div><div class="mtext">Daniel, an observation rather than a question this time. Most people who build a portfolio like yours did it to buy freedom, then forget to actually use it once they have it.</div></div>
+        <div class="m"><div class="mlabel">M5 · Clean Exit</div><div class="mtext">Daniel, wishing you well with Starkhorn and the writing. If you are ever up for comparing notes on building something after leaving the corporate ladder, I would enjoy that.</div></div>
+      </div>
+    </div>
+
+    <!-- 3: Rakesh Naidu -->
+    <div class="pcard">
+      <div class="ph"><div class="av">RN</div><div><div class="nm"><a href="https://www.linkedin.com/in/rakeshnaidulondon" target="_blank" rel="noopener">Rakesh Naidu</a></div><div class="rl">Founder, Fate · Sales Director, Quant.ai · London, UK</div></div><span class="tagi t-red" style="margin-left:auto">cold</span></div>
+      <div class="signal"><b>Signal:</b> Founding Fate (3 years, featured in The Guardian, Times, BBC) while still holding a Sales Director title elsewhere — a real, observable "keeping the paycheck while building the new thing" pattern, close to the First-Time CEO avatar. Media coverage and a "Top 16" listing read as momentum, not doubt. London is outside both stated markets.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>5/10</b></span>
+        <span class="modchip">Temp <b>Cold</b></span>
+        <span class="modchip">Style <b>Driver</b></span>
+        <span class="modchip">Opener <b>Directness Play</b></span>
+      </div>
+      <div class="hook">"Founding Fate while also working as Sales Director at Quant.ai is a real juggle."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">M1 · Connect</div><div class="mtext">Noticed you're founding Fate (featured in The Guardian, Times, BBC) while still Sales Director at Quant.ai. That's a real balancing act. Would like to connect.</div></div>
+        <div class="m"><div class="mlabel">M2 · Icebreaker</div><div class="mtext">Rakesh, building Fate while holding down the Sales Director role at Quant.ai says a lot about how you use your time. Is Fate the thing you're steering toward full time, or are you keeping both plates spinning by design?</div></div>
+        <div class="m"><div class="mlabel">M3 · Value Bridge</div><div class="mtext">Something I've noticed with founders who keep the day job running: the paycheck buys runway, but it can quietly become the excuse not to test how real the new thing actually is. Every no on Fate probably tells you more than a slow yes ever will. How are you telling the difference between smart patience and just not wanting to jump yet?</div></div>
+        <div class="m"><div class="mlabel">M4 · Pivot</div><div class="mtext">Being featured in The Guardian, Times and BBC while still holding a Sales Director title is an unusual combination. Most founders either go all in or stay quiet about the side project, you did neither.</div></div>
+        <div class="m"><div class="mlabel">M5 · Clean Exit</div><div class="mtext">Wishing you well with Fate, Rakesh, dating is not an easy category to build in. If it's ever useful to compare notes on running two things at once, I'm around.</div></div>
+      </div>
+    </div>
+
+    <!-- 4: Steven Drucker -->
+    <div class="pcard">
+      <div class="ph"><div class="av">SD</div><div><div class="nm"><a href="https://www.linkedin.com/in/steven-drucker-9813814" target="_blank" rel="noopener">Steven Drucker</a></div><div class="rl">Managing Director, Director of Research, Meritage Group LP · Greenwich, CT, USA</div></div><span class="tagi t-red" style="margin-left:auto">cold</span></div>
+      <div class="signal"><b>Signal:</b> Greenwich, CT is the best geographic match of all 10 — North America is your explicit secondary market. Senior title (MD, Director of Research) fits well. But 19+ years at essentially one firm (Meritage, formerly part of Renaissance Technologies) reads as deep stability, not an inflection point, and only 208 connections suggests light LinkedIn activity, which may lower response odds regardless of fit.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>5/10</b></span>
+        <span class="modchip">Temp <b>Cold</b></span>
+        <span class="modchip">Style <b>Analytical</b></span>
+        <span class="modchip">Opener <b>Authority Flip</b></span>
+      </div>
+      <div class="hook">"Nineteen years at Meritage Group, once part of Renaissance Technologies, is a long run."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">M1 · Connect</div><div class="mtext">Nineteen years at Meritage Group, once part of Renaissance Technologies, is a long run in this industry. I ran a hedge fund myself before this chapter. Would like to connect.</div></div>
+        <div class="m"><div class="mlabel">M2 · Icebreaker</div><div class="mtext">Steven, nineteen years as Director of Research at Meritage, going back to its days inside Renaissance Technologies, is a career most people in quant finance would call rare. What's kept the work interesting for you this long, the research itself or something beyond it?</div></div>
+        <div class="m"><div class="mlabel">M3 · Value Bridge</div><div class="mtext">Running a hedge fund taught me something I didn't expect: the research or the trade can stay sharp and profitable long after you've quietly stopped asking whether it's still what you want to be doing. Competence carries people further than clarity does, and it's hard to tell the difference from inside the seat. Do you still find yourself asking that question, or has it stopped coming up?</div></div>
+        <div class="m"><div class="mlabel">M4 · Pivot</div><div class="mtext">Nineteen years inside one research seat, at a firm that used to be part of Renaissance Technologies, is an unusually long and specific run. Not many people stay that connected to one shop for that long.</div></div>
+        <div class="m"><div class="mlabel">M5 · Clean Exit</div><div class="mtext">Wishing you well, Steven. Nineteen years at Meritage is a serious track record, and if it's ever useful to compare notes between quant research and building something outside of it, I'm around.</div></div>
+      </div>
+    </div>
+
+    <!-- 5: Josip Lazarevski -->
+    <div class="pcard">
+      <div class="ph"><div class="av">JL</div><div><div class="nm"><a href="https://www.linkedin.com/in/josip-lazarevski" target="_blank" rel="noopener">Josip Lazarevski</a></div><div class="rl">Global Director of Data Science and AI, Johnson Controls · Zurich, Switzerland</div></div><span class="tagi t-red" style="margin-left:auto">cold</span></div>
+      <div class="signal"><b>Signal:</b> Senior corporate director at a large company, exactly the seniority band for the "Stuck Executive" avatar. Zurich is the weakest geography of all 10 relative to your stated markets. Headline is confidently outcome-focused ("Turning Industrial AI Into Revenue at Scale"), which could reflect someone thriving or someone quietly questioning the path, the data doesn't say which.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>5/10</b></span>
+        <span class="modchip">Temp <b>Cold</b></span>
+        <span class="modchip">Style <b>Driver</b></span>
+        <span class="modchip">Opener <b>Directness Play</b></span>
+      </div>
+      <div class="hook">"Two years eight months leading Data Science and AI at Johnson Controls."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">M1 · Connect</div><div class="mtext">Josip, two years eight months leading Data Science and AI at Johnson Controls, focused on turning industrial AI into actual revenue, not just pilots. That is a harder mandate than most titles admit. Would like to connect.</div></div>
+        <div class="m"><div class="mlabel">M2 · Icebreaker</div><div class="mtext">Josip, two years eight months leading Data Science and AI at Johnson Controls, and the mandate is turning industrial AI into revenue, not proofs of concept. Most people in that seat spend more time defending the budget than doing the actual work. Is that closer to your reality too, or has Johnson Controls actually given you room to build?</div></div>
+        <div class="m"><div class="mlabel">M3 · Value Bridge</div><div class="mtext">Josip, something I noticed running my own businesses after two corporate layoffs: a big title at a big company can carry you for years right up until the day it does not, and most people do not find out what they actually wanted until the title is gone. Not saying that is where you are. Does the Johnson Controls mandate still feel like it is building toward something that is actually yours, or mostly toward the next quarter's numbers?</div></div>
+        <div class="m"><div class="mlabel">M4 · Pivot</div><div class="mtext">Josip, just a thought, not a question. Titles like Global Senior Director sound like they answer what you are building toward, but they rarely do.</div></div>
+        <div class="m"><div class="mlabel">M5 · Clean Exit</div><div class="mtext">Josip, wishing you well with the work at Johnson Controls. If you ever want to compare notes on what comes after the corporate ladder, I am around.</div></div>
+      </div>
+    </div>
+
+    <!-- 6: Eric Sean Clay -->
+    <div class="pcard">
+      <div class="ph"><div class="av">EC</div><div><div class="nm"><a href="https://www.linkedin.com/in/ericsclay" target="_blank" rel="noopener">Eric Sean Clay</a></div><div class="rl">VP &amp; Chief Security Officer, FMOL Health · Baton Rouge, LA, USA</div></div><span class="tagi t-red" style="margin-left:auto">cold</span></div>
+      <div class="signal"><b>Signal:</b> VP/CSO fits the VP/Director+ band; North America is your explicit secondary market, the best geography match among the non-APAC prospects. Heavy stack of credentials and association leadership (MBA, MSc, CHPA, CPP, IAHSS President, ASIS Vice Chair) is a mild anti-fit, since your trust factors lean on real-world proof over certifications. Only 11 months in the current role, real data, but doesn't confirm an inflection point either way.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>5/10</b></span>
+        <span class="modchip">Temp <b>Cold</b></span>
+        <span class="modchip">Style <b>Amiable</b></span>
+        <span class="modchip">Opener <b>Peer Opener</b></span>
+      </div>
+      <div class="hook">"Eleven months as VP and CSO at FMOL Health, also IAHSS President."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">M1 · Connect</div><div class="mtext">Eric, eleven months in as VP and Chief Security Officer at FMOL Health while also serving as IAHSS President is a lot to carry at once. Respect the range. Would like to connect.</div></div>
+        <div class="m"><div class="mlabel">M2 · Icebreaker</div><div class="mtext">Eric, eleven months as VP and CSO at FMOL Health, on top of serving as IAHSS President and ASIS Vice Chair. That is a lot of hats for less than a year in the seat. Of the roles on your plate right now, which one actually feels the most like yours?</div></div>
+        <div class="m"><div class="mlabel">M3 · Value Bridge</div><div class="mtext">Eric, something I have noticed with executives who carry a long list of titles and associations: the list can be real proof of contribution, or it can quietly become the thing holding you up once the business card gets taken away. I found that out the hard way after being laid off twice. With everything on your plate right now, does the CSO seat at FMOL feel like the center of it, or one piece among many?</div></div>
+        <div class="m"><div class="mlabel">M4 · Pivot</div><div class="mtext">Eric, no question this time, just an observation. Eleven months into a new VP seat is early enough that the role is still being defined, by you or by the org, and which one wins usually says a lot.</div></div>
+        <div class="m"><div class="mlabel">M5 · Clean Exit</div><div class="mtext">Eric, wishing you well at FMOL Health and with the IAHSS work. If it's ever useful to compare notes on building a security career on your own terms, I am around.</div></div>
+      </div>
+    </div>
+
+    <!-- 7: Christopher Prazic -->
+    <div class="pcard">
+      <div class="ph"><div class="av">CP</div><div><div class="nm"><a href="https://www.linkedin.com/in/christopher-prazic-6120341" target="_blank" rel="noopener">Christopher Prazic</a></div><div class="rl">Managing Director, Equity Capital Markets, Crédit Agricole CIB · Paris, France</div></div><span class="tagi t-red" style="margin-left:auto">cold</span></div>
+      <div class="signal"><b>Signal:</b> Senior title (MD) is a plus, but 20+ years at a single firm with no visible signal of restlessness reads as stability, not a fork in the road. Paris sits entirely outside both stated markets. Low connection count (506) for a senior banker also suggests limited LinkedIn activity.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>4/10</b></span>
+        <span class="modchip">Temp <b>Cold</b></span>
+        <span class="modchip">Style <b>Analytical</b></span>
+        <span class="modchip">Opener <b>Authority Flip</b></span>
+      </div>
+      <div class="hook">"Twenty years in Equity Capital Markets at one firm, Crédit Agricole CIB, is rare."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">M1 · Connect</div><div class="mtext">Twenty years in Equity Capital Markets at Crédit Agricole CIB, all at one firm, is a rare kind of depth these days. I spent years running a hedge fund before this chapter. Would like to connect.</div></div>
+        <div class="m"><div class="mlabel">M2 · Icebreaker</div><div class="mtext">Christopher, twenty years in Equity Capital Markets, all under one roof at Crédit Agricole CIB. Most people in finance chase the next seat every three or four years. What has kept you there this long, the work itself or something else?</div></div>
+        <div class="m"><div class="mlabel">M3 · Value Bridge</div><div class="mtext">When I ran my hedge fund, I noticed something: the work stayed intellectually interesting long after the reasons I first started it had quietly changed. It's easy to keep going on competence alone and never actually check if the goal is still yours. Do you find yourself still solving for the same thing you were solving for at year five?</div></div>
+        <div class="m"><div class="mlabel">M4 · Pivot</div><div class="mtext">Twenty years in one seat in capital markets is unusual enough that it says something, either real conviction or real inertia. Hard to tell which from the outside.</div></div>
+        <div class="m"><div class="mlabel">M5 · Clean Exit</div><div class="mtext">Wishing you well, Christopher. Twenty years is a serious body of work, and if it's ever useful to swap notes between capital markets and hedge funds, I'm happy to.</div></div>
+      </div>
+    </div>
+
+    <!-- 8: Satya Raghu Ram Kunche -->
+    <div class="pcard">
+      <div class="ph"><div class="av">SK</div><div><div class="nm"><a href="https://www.linkedin.com/in/ksrr" target="_blank" rel="noopener">Satya Raghu Ram Kunche</a></div><div class="rl">Founder &amp; MD, RSBlooming Technologies · Co-Founder, InstaBee · Hyderabad, India</div></div><span class="tagi t-red" style="margin-left:auto">cold</span></div>
+      <div class="signal"><b>Signal:</b> Geography is a genuine plus (Hyderabad = APAC, your core region), but he's an established operator running two ventures at once (4y9m as MD, plus co-founding InstaBee), closer to a settled founder than someone at a fresh inflection point. Headline reads purely technical/execution (SAP B1, ERP), a weaker match for identity-level coaching than tactical business advice.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>4/10</b></span>
+        <span class="modchip">Temp <b>Cold</b></span>
+        <span class="modchip">Style <b>Driver</b></span>
+        <span class="modchip">Opener <b>Peer Opener</b></span>
+      </div>
+      <div class="hook">"Been MD of RSBlooming almost five years while co-founding InstaBee at the same time."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">M1 · Connect</div><div class="mtext">Satya, running RSBlooming as Founder and MD for almost five years while co-founding InstaBee at the same time caught my eye. Built and exited a business myself. Would like to connect.</div></div>
+        <div class="m"><div class="mlabel">M2 · Icebreaker</div><div class="mtext">Satya, been MD of RSBlooming almost five years while co-founding InstaBee at the same time. That's two companies pulling on you at once. When RSBlooming was just getting started, was InstaBee already in the picture, or did that come later?</div></div>
+        <div class="m"><div class="mlabel">M3 · Value Bridge</div><div class="mtext">Satya, something I noticed building and exiting my own business: we define ourselves by whatever is on the business card that day. The moment that card changes, you find out what you were actually building toward. Between RSBlooming and InstaBee, is one closer to where you actually want to end up, or are both still open?</div></div>
+        <div class="m"><div class="mlabel">M4 · Pivot</div><div class="mtext">Satya, a thought instead of a question this time: most people running two companies are optimizing for growth, not for whether the growth is actually theirs to want.</div></div>
+        <div class="m"><div class="mlabel">M5 · Clean Exit</div><div class="mtext">Satya, wishing you well with both RSBlooming and InstaBee. If you ever want to compare notes founder to founder, my door's open.</div></div>
+      </div>
+    </div>
+
+    <!-- 9: Avinash Varma -->
+    <div class="pcard">
+      <div class="ph"><div class="av">AV</div><div><div class="nm"><a href="https://www.linkedin.com/in/avinash-varma-samanthapudi" target="_blank" rel="noopener">Avinash Varma</a></div><div class="rl">Managing Director, Consultare America LLC · Hyderabad, India</div></div><span class="tagi t-red" style="margin-left:auto">cold</span></div>
+      <div class="signal"><b>Signal:</b> Solid seniority (MD, 5y10m) and geography (Hyderabad = APAC) are pluses, but single-venture, deeply technical (SAP B1, process manufacturing) with no visible signal of restlessness. That absence of an inflection-point signal is real and not glossed over here.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>4/10</b></span>
+        <span class="modchip">Temp <b>Cold</b></span>
+        <span class="modchip">Style <b>Analytical</b></span>
+        <span class="modchip">Opener <b>Authority Flip</b></span>
+      </div>
+      <div class="hook">"Nearly six years running Consultare America, specializing in SAP B1 for process manufacturing."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">M1 · Connect</div><div class="mtext">Avinash, nearly six years running Consultare America and still deep in SAP B1 for process manufacturing is a specific kind of focus. Respect the staying power. Would like to connect.</div></div>
+        <div class="m"><div class="mlabel">M2 · Icebreaker</div><div class="mtext">Avinash, nearly six years running Consultare America, specializing in SAP B1 for process manufacturing. That is a narrow lane to stay in for that long. What made you commit to process manufacturing specifically instead of spreading across every SAP vertical?</div></div>
+        <div class="m"><div class="mlabel">M3 · Value Bridge</div><div class="mtext">Avinash, something I tell founders who have stayed deep in one lane a long time: staying power is not proof of direction, it is proof of discipline, and the two are not always the same thing. I learned that the hard way before I built anything that actually fit what I wanted. Has SAP B1 and process manufacturing stayed the plan on purpose, or is it more that momentum kept it going?</div></div>
+        <div class="m"><div class="mlabel">M4 · Pivot</div><div class="mtext">Avinash, six years in one lane is long enough that it either still fits, or you stopped checking a while ago. That is the only thought I wanted to leave you with today.</div></div>
+        <div class="m"><div class="mlabel">M5 · Clean Exit</div><div class="mtext">Avinash, wishing you well with Consultare America and the work in process manufacturing. If it is ever useful to compare notes on staying the course versus changing it, I am around.</div></div>
+      </div>
+    </div>
+
+    <!-- 10: Dr. Salwa Arfaoui -->
+    <div class="pcard">
+      <div class="ph"><div class="av">SA</div><div><div class="nm"><a href="https://www.linkedin.com/in/dr-salwa-arfaoui-3954b012a" target="_blank" rel="noopener">Dr. Salwa Arfaoui</a></div><div class="rl">CEO Co-Founder, WomenofVision · Dubai, UAE</div></div><span class="tagi t-red" style="margin-left:auto">cold</span></div>
+      <div class="signal"><b>Signal:</b> Lowest score of the batch. She runs her own mentor-brand ("Financial Literacy Mentor," WomenofVision), a soft-competitor overlap, not a clean prospect, she coaches others rather than seeking coaching. PhD-credentialed, TEDx-speaking, established authority figure. Dubai is outside both stated markets. Flagging the overlap honestly rather than dropping her silently.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>3/10</b></span>
+        <span class="modchip">Temp <b>Cold</b></span>
+        <span class="modchip">Style <b>Expressive</b></span>
+        <span class="modchip">Opener <b>Peer Opener</b></span>
+      </div>
+      <div class="hook">"From AED 20B in property sales to founding WomenofVision as a financial freedom mentor."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">M1 · Connect</div><div class="mtext">Your run from AED 20B in property sales to founding WomenofVision as a financial literacy mentor caught my eye. Also did a TEDx talk myself. Would like to connect.</div></div>
+        <div class="m"><div class="mlabel">M2 · Icebreaker</div><div class="mtext">Salwa, the jump from AED 20B in property deals to building WomenofVision as a mentor for other women is not a small pivot. What made you decide founding your own platform mattered more than staying in property at that scale?</div></div>
+        <div class="m"><div class="mlabel">M3 · Value Bridge</div><div class="mtext">One thing mentor-coach work has taught me: our clients hand back their titles and their business card, the thing they lean on, and have to relearn what's actually theirs. I imagine watching other women peel back the property title and still find themselves is your daily read too. Curious how you help WomenofVision members separate their achievements from their sense of self?</div></div>
+        <div class="m"><div class="mlabel">M4 · Pivot</div><div class="mtext">Two professional directions rarely get much more distinct than AED 20 billion in property deals and mentoring women on financial freedom. Not a common jump to make, and even less common to make twice.</div></div>
+        <div class="m"><div class="mlabel">M5 · Clean Exit</div><div class="mtext">Wishing you continued success with WomenofVision, Salwa. If our paths cross again, I'd enjoy comparing notes on mentoring across two very different worlds.</div></div>
+      </div>
+    </div>
+
+    <div class="sec">Pipeline triage</div>
+    <div class="card"><h4>No deals database found</h4>
+    <div style="font-size:14px;color:var(--ink-soft)">Searched your Notion workspace directly for a deals, pipeline, or CRM database — none exists. Your workspace holds Content Calendars, a Project Planner, Income (Monthly) tracking, and Daily Briefs, but nothing that tracks active conversations or deal stages. Your own Daily Briefs have flagged "0 active business tasks tracked in Notion" for 16 days running as of today. Priority 1/2/3 assignment and next-action DMs can't be generated without that data. If you want this working going forward, the fastest fix is a simple Notion database with one row per active conversation (name, stage, last touch, next action) — say the word and I'll build it.</div></div>
+
+    <div class="note">Nothing here is above a 6/10 this week, and every prospect is Cold with zero prior interaction. If sending anyway, start with <b>George Collier</b> or <b>Daniel J. Jacobs</b> (both 6/10, both mid-reinvention right now), the closest signal to someone at an actual inflection point. Treat the India and US prospects as the geography-safer picks. Every DM here is a draft built only from real profile data, no invented posts or signals. You send, after you read it.</div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>Institute for Greatness · CRO Weekly</b></footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    window.addEventListener('load',function(){
+      if(!window.gsap)return; gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.ohead',{y:26,opacity:0,scale:.98,duration:.7,ease:'power3.out'});
+      gsap.from('.ohead h1',{y:14,opacity:0,duration:.7,delay:.12,ease:'power3.out'});
+      gsap.from('.card,.stat,.pcard,.note,.warnbox',{y:20,opacity:0,duration:.5,stagger:.05,ease:'power2.out',scrollTrigger:{trigger:'.doc',start:'top 85%'}});
+    });
+  </script>
+</body>
+</html>
