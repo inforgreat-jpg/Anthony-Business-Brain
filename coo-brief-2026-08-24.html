@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief · 2026-08-24</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#F05A28; --primary-light:#F59473; --secondary:#003444;
+    --bg:#0A0A0A; --panel:#141414; --panel-2:#1B1B1B; --border:#262626;
+    --ink:#F4F3F1; --ink-soft:#B7B5AE; --ink-faint:#7C7A73;
+    --good:#22C55E; --good-bg:rgba(34,197,94,.12);
+    --warn:#F5A524; --warn-bg:rgba(245,165,36,.12);
+    --bad:#EF4444; --bad-bg:rgba(239,68,68,.12);
+    --r-md:14px; --r-lg:18px; --pill:9999px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Rethink Sans',-apple-system,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:840px;margin:0 auto;padding:36px 20px 70px;}
+
+  .head{border-radius:var(--r-lg);padding:28px 28px;margin-bottom:22px;background:linear-gradient(135deg, color-mix(in srgb,var(--primary) 22%, var(--panel)) 0%, var(--panel) 62%);border:1px solid var(--border);position:relative;overflow:hidden;}
+  .head::after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:color-mix(in srgb,var(--primary) 30%, transparent);filter:blur(60px);top:-140px;right:-60px;pointer-events:none;}
+  .head .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--primary-light);font-weight:700;position:relative;}
+  .head h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:7px 0 4px;position:relative;}
+  .head .d{font-size:13px;color:var(--ink-soft);position:relative;}
+  .head .line{margin-top:14px;font-size:15px;color:var(--ink);position:relative;max-width:640px;}
+
+  .sec{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;margin:26px 2px 10px;display:flex;align-items:center;gap:8px;}
+  .sec .n{color:var(--primary-light);}
+
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-md);padding:6px 18px;margin-bottom:14px;}
+  .item{display:flex;align-items:flex-start;gap:12px;padding:14px 0;border-bottom:1px solid var(--border);}
+  .item:last-child{border-bottom:none;}
+  .item .body{flex:1;min-width:0;}
+  .item .t{font-size:15px;font-weight:600;margin-bottom:2px;}
+  .item .s{font-size:13px;color:var(--ink-soft);}
+  .item .when{font-size:12px;color:var(--ink-faint);width:76px;flex-shrink:0;padding-top:2px;}
+
+  .tag{font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:4px 10px;border-radius:var(--pill);white-space:nowrap;flex-shrink:0;margin-top:1px;}
+  .t-green{background:var(--good-bg);color:var(--good);}
+  .t-amber{background:var(--warn-bg);color:var(--warn);}
+  .t-red{background:var(--bad-bg);color:var(--bad);}
+
+  .empty{color:var(--ink-faint);font-size:14px;padding:16px 0;}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .stat{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-md);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--primary),var(--primary-light));}
+  .stat .l{font-size:12px;color:var(--ink-faint);}
+  .stat .n{font-size:20px;font-weight:800;letter-spacing:-.01em;margin-top:6px;color:var(--ink-soft);}
+  .stat .note{font-size:13px;color:var(--ink-faint);margin-top:6px;}
+
+  .content-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-md);padding:18px 20px;}
+  .content-card .pillar{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--primary-light);background:color-mix(in srgb,var(--primary) 16%, transparent);padding:4px 10px;border-radius:var(--pill);margin-bottom:10px;}
+  .content-card .hook{font-size:15px;font-weight:600;margin-bottom:8px;}
+  .content-card .meta{font-size:13px;color:var(--ink-soft);}
+  .content-card .cta{font-size:13px;color:var(--ink-faint);margin-top:10px;padding-top:10px;border-top:1px solid var(--border);}
+
+  footer{text-align:center;padding:34px 22px 10px;color:var(--ink-faint);font-size:12px;}
+  footer b{color:var(--ink-soft);}
+
+  @media(max-width:640px){.grid2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+  <div class="doc">
+
+    <div class="head">
+      <div class="k">COO · Morning brief</div>
+      <h1>Good morning, Anthony</h1>
+      <div class="d">Monday, August 24, 2026</div>
+      <div class="line">The calendar is empty, nothing in the last 24 hours needs a reply, and Monday's post is queued. The two open items are the ones that carry over: no dedicated business task tracker, and no metric being tracked day to day.</div>
+    </div>
+
+    <div class="sec"><span class="n">01</span> Today's Schedule</div>
+    <div class="card">
+      <div class="empty">No events on your primary, Research and IFG, or Anthonyt727 &amp; IFG calendars today. The day is open.</div>
+    </div>
+
+    <div class="sec"><span class="n">02</span> Inbox Priorities <span style="color:var(--ink-faint);font-weight:500;text-transform:none;letter-spacing:0;">— last 24h, top 5</span></div>
+    <div class="card">
+      <div class="item">
+        <div class="body"><div class="t">Seeking Alpha, hedging exposure in this volatile market</div><div class="s">Investment newsletter, unread. No action needed.</div></div>
+        <span class="tag t-green">fyi</span>
+      </div>
+      <div class="item">
+        <div class="body"><div class="t">The Runway Ventures, flight 3K685 confirmation</div><div class="s">Travel confirmation from Admond. No action needed unless the itinerary needs checking.</div></div>
+        <span class="tag t-green">fyi</span>
+      </div>
+      <div class="item">
+        <div class="body"><div class="t">Seeking Alpha, Wall Street Week Ahead</div><div class="s">Weekly markets recap and quiz. No action needed.</div></div>
+        <span class="tag t-green">fyi</span>
+      </div>
+      <div class="item">
+        <div class="body"><div class="t">HSBC Expat, your statement is ready to view</div><div class="s">Routine statement notice. No action needed.</div></div>
+        <span class="tag t-green">fyi</span>
+      </div>
+      <div class="item">
+        <div class="body"><div class="t">Caproasia, top headlines across Asia capital markets</div><div class="s">Industry digest newsletter. No action needed.</div></div>
+        <span class="tag t-green">fyi</span>
+      </div>
+    </div>
+    <div class="empty" style="padding:0 2px 4px;">Nothing in the last 24 hours was genuinely urgent, on a deadline, or waiting on a response.</div>
+
+    <div class="sec"><span class="n">03</span> Tasks</div>
+    <div class="card">
+      <div class="item">
+        <div class="when">2024-06-30</div>
+        <div class="body"><div class="t">Publish my first book</div><div class="s">Not started · Project Planner, legacy personal item unrelated to the business.</div></div>
+        <span class="tag t-red">overdue</span>
+      </div>
+      <div class="item">
+        <div class="when">2024-04-26</div>
+        <div class="body"><div class="t">Home renovation</div><div class="s">In progress · Project Planner, legacy personal item unrelated to the business.</div></div>
+        <span class="tag t-red">overdue</span>
+      </div>
+    </div>
+    <div class="empty" style="padding:0 2px 4px;">No dedicated business task tracker exists in Notion yet — flagged for the 17th day running.</div>
+
+    <div class="sec"><span class="n">04</span> Content Slot</div>
+    <div class="content-card">
+      <span class="pillar">Time Value / Reallocation</span>
+      <div class="hook">The Death Bed Test — opening into a 3-question time-value audit: job vs. business, task vs. leverage, presence vs. absence.</div>
+      <div class="meta">Framework post · Educating intent · scheduled for today</div>
+      <div class="cta">CTA: save/share prompt + DM keyword "AUDIT" for the time-value worksheet.</div>
+    </div>
+
+    <div class="sec"><span class="n">05</span> Key Metric</div>
+    <div class="grid2">
+      <div class="stat">
+        <div class="l">Tracked metric</div>
+        <div class="n">Not set</div>
+        <div class="note">No metric is currently tracked in the business brain — flagged for the 17th day running.</div>
+      </div>
+      <div class="stat">
+        <div class="l">Recommendation</div>
+        <div class="n" style="font-size:15px;">Pick one number</div>
+        <div class="note">E.g. ETA Masterclass sign-ups, new coaching clients booked, or LinkedIn engagement rate.</div>
+      </div>
+    </div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>Institute for Greatness</b></footer>
+  </div>
+</body>
+</html>
