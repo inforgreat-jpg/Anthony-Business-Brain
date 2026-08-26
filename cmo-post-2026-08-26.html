@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CMO Daily Post — 2026-08-26</title>
+<style>
+  :root {
+    --brand: #E8294C;
+    --brand-dark: #B81E3B;
+    --brand-tint: #FCE8EC;
+    --ink: #1A1A1E;
+    --ink-soft: #55565f;
+    --bg: #F7F5F3;
+    --card: #FFFFFF;
+    --border: #ECE7E4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    padding: 40px 20px 80px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  header.page {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  header.page .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--brand);
+  }
+  header.page h1 {
+    margin: 8px 0 4px;
+    font-size: 28px;
+    letter-spacing: -0.01em;
+  }
+  header.page .meta {
+    color: var(--ink-soft);
+    font-size: 14px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 30px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+  }
+  .card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--brand);
+    margin: 0 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card h2::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--brand);
+    display: inline-block;
+  }
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 20px;
+    font-size: 14px;
+  }
+  .calendar-grid dt {
+    font-weight: 700;
+    color: var(--ink-soft);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 2px;
+  }
+  .calendar-grid dd { margin: 0; }
+
+  .hook-block {
+    background: var(--brand-tint);
+    border-left: 4px solid var(--brand);
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--brand-dark);
+    margin-bottom: 14px;
+  }
+  .hook-reason {
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  .hook-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 14px;
+  }
+  .hook-list li {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    display: flex;
+    gap: 10px;
+  }
+  .hook-list li.selected {
+    border-color: var(--brand);
+    background: var(--brand-tint);
+  }
+  .hook-tag {
+    flex: 0 0 auto;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #fff;
+    background: var(--ink-soft);
+    border-radius: 999px;
+    padding: 3px 9px;
+    height: fit-content;
+  }
+  .hook-list li.selected .hook-tag { background: var(--brand); }
+
+  .post-body {
+    white-space: pre-wrap;
+    font-size: 16px;
+    line-height: 1.65;
+  }
+  .post-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--border);
+    font-size: 12px;
+  }
+  .pill {
+    background: var(--brand-tint);
+    color: var(--brand-dark);
+    border-radius: 999px;
+    padding: 4px 12px;
+    font-weight: 600;
+  }
+
+  .score-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .score-item {
+    text-align: center;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 8px;
+  }
+  .score-item .dim {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+  }
+  .score-item .check {
+    width: 28px;
+    height: 28px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: var(--brand);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+  }
+  .score-total {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--brand-dark);
+  }
+  .score-total span { font-size: 14px; color: var(--ink-soft); font-weight: 500; }
+
+  .comment {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+  }
+  .comment:last-child { margin-bottom: 0; }
+  .comment .label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--brand);
+    margin-bottom: 6px;
+  }
+  .comment p { margin: 0; font-size: 14.5px; line-height: 1.55; }
+
+  footer.page {
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 12px;
+    margin-top: 30px;
+  }
+  footer.page .swatch {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--brand);
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body { background: #17151a; color: #EFEDF0; }
+    .card { background: #201d24; border-color: #322d38; }
+    .calendar-grid dt { color: #A9A4AF; }
+    .post-meta-row { border-color: #322d38; }
+    .hook-list li { border-color: #322d38; }
+    .score-item { border-color: #322d38; }
+    .comment { border-color: #322d38; }
+    footer.page { color: #A9A4AF; }
+    .hook-block { background: #34131b; }
+    .pill { background: #34131b; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="page">
+    <div class="eyebrow">CMO Daily Post</div>
+    <h1>Wednesday, August 26, 2026</h1>
+    <div class="meta">Anthony Tse · Institute for Greatness</div>
+  </header>
+
+  <section class="card">
+    <h2>Today's Content Calendar Slot</h2>
+    <dl class="calendar-grid">
+      <div><dt>Pillar</dt><dd>Freedom Through Ownership (ETA)</dd></div>
+      <div><dt>Format</dt><dd>Soft-sell post</dd></div>
+      <div><dt>Intent</dt><dd>Soft Selling</dd></div>
+      <div><dt>CTA Direction</dt><dd>DM keyword "ETA" for masterclass details</dd></div>
+    </dl>
+  </section>
+
+  <section class="card">
+    <h2>5 Hooks Generated</h2>
+    <ul class="hook-list">
+      <li class="selected">
+        <span class="hook-tag">Contrarian</span>
+        <span>Who says you have to quit your job to build freedom?</span>
+      </li>
+      <li>
+        <span class="hook-tag">Result Lead</span>
+        <span>Janet never quit her job. She still bought a business, hired someone to run it, and now collects two incomes.</span>
+      </li>
+      <li>
+        <span class="hook-tag">Confession</span>
+        <span>For years I believed you had to burn the boat to build real freedom. I was wrong, and Janet proved it.</span>
+      </li>
+      <li>
+        <span class="hook-tag">Curiosity Gap</span>
+        <span>There is a version of business ownership where you never hand in your resignation letter. Most people do not know it exists.</span>
+      </li>
+      <li>
+        <span class="hook-tag">Pattern Interrupt</span>
+        <span>You do not need to quit your job. You need to stop believing freedom only comes from one door.</span>
+      </li>
+    </ul>
+    <p class="hook-reason" style="margin-top:14px;">Selected: Contrarian. It matches the calendar's specified "Who Says" Challenge formula and puts the quit-versus-stay false binary at the center, which is exactly the tension this pillar is meant to dismantle.</p>
+  </section>
+
+  <section class="card">
+    <h2>The Post</h2>
+    <div class="hook-block">Who says you have to quit your job to build freedom?</div>
+    <div class="post-body">Janet asked me the same question two years ago. Senior finance role, stable pay, decent title. And a quiet fear that walking away to "become an entrepreneur" meant trading one kind of security for none at all.
+
+So she didn't quit.
+
+She used entrepreneurship through acquisition to buy an existing accounting practice. Real clients, real revenue, already running before she signed anything. Then she did the part most people skip. She hired an operator to run the day to day, while she kept showing up to her corporate job every single morning.
+
+Two income streams. One from a paycheck she still earns. One from a business that compounds whether she is in the room or not.
+
+That is the part nobody tells you. Freedom was never quit versus stay. That is a false binary sold to you by people who need you to believe the only way out is the dramatic exit. The real path is ownership stacked quietly on top of what you already have, until the business stops needing you to survive.
+
+I share Janet's story not to sell you a fantasy. The math is simple, not easy. It took the right acquisition, real discipline, and someone she trusted enough to hand the keys to.
+
+If you want to see how the acquisition and operator model actually works, DM me the word ETA and I will send you the details on the masterclass.
+
+P.S. The path you are on right now might not be the only door. It might just be the only one you have been shown.</div>
+    <div class="post-meta-row">
+      <span class="pill">1,472 characters</span>
+      <span class="pill">Framework: BAB</span>
+      <span class="pill">Hook: The "Who Says" Challenge</span>
+      <span class="pill">Variation B — Story-Flow</span>
+      <span class="pill">0 em dashes</span>
+      <span class="pill">0 banned words</span>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Invisibility Diagnostic</h2>
+    <div class="score-grid">
+      <div class="score-item">
+        <div class="dim">Voice</div>
+        <div class="check">✓</div>
+      </div>
+      <div class="score-item">
+        <div class="dim">POV</div>
+        <div class="check">✓</div>
+      </div>
+      <div class="score-item">
+        <div class="dim">Specificity</div>
+        <div class="check">✓</div>
+      </div>
+      <div class="score-item">
+        <div class="dim">Asking</div>
+        <div class="check">✓</div>
+      </div>
+    </div>
+    <div class="score-total">4<span>/4 — cleared for delivery</span></div>
+  </section>
+
+  <section class="card">
+    <h2>3 Pinned Comments</h2>
+    <div class="comment">
+      <div class="label">Extend</div>
+      <p>The math behind Janet's move, in case you want the receipts: the practice she bought was already profitable before she touched it. She paid a multiple of existing cash flow, not a story or a pitch deck. The operator's salary came out of the business's own cash flow from month one. She never touched her personal savings to keep it running. That is the difference between buying a job and buying an asset.</p>
+    </div>
+    <div class="comment">
+      <div class="label">Humanise</div>
+      <p>I will be honest, the hardest part for Janet was not the deal. It was sitting across from someone she now depended on to run her business and admitting she did not know everything about running a company. Letting go of being the smartest person in the room is its own kind of grief. Nobody talks about that part of ownership.</p>
+    </div>
+    <div class="comment">
+      <div class="label">CTA Amplifier</div>
+      <p>If this is the first time you are hearing entrepreneurship through acquisition explained this way, that is exactly why the masterclass exists. DM me ETA now and I will send it straight to you, no funnel, no waiting list, just the details.</p>
+    </div>
+  </section>
+
+  <footer class="page">
+    <span class="swatch"></span>Brand color #E8294C used throughout (default — no positioning-anthony document found in Drive or Notion; Canva brand kit empty)
+  </footer>
+
+</div>
+</body>
+</html>
