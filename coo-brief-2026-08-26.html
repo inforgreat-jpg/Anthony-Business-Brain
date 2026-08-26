@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief · 2026-08-26</title>
+<style>
+  :root{
+    --primary:#E8294C;
+    --bg:#0A0A0A; --card:#151517; --card-border:#242426;
+    --ink:#F2F2F0; --ink-soft:#A7A7AC; --ink-faint:#6B6B70;
+    --green:#33C481; --green-bg:rgba(51,196,129,.12);
+    --amber:#F0A93E; --amber-bg:rgba(240,169,62,.12);
+    --red:#F0455A; --red-bg:rgba(240,69,90,.14);
+    --r:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:40px 20px 70px;}
+  header{margin-bottom:28px;}
+  header .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);font-weight:700;}
+  header h1{font-size:clamp(24px,4vw,30px);font-weight:700;letter-spacing:-.01em;margin:6px 0 4px;}
+  header .date{font-size:14px;color:var(--ink-soft);}
+
+  .card{
+    background:var(--card); border:1px solid var(--card-border); border-radius:var(--r);
+    padding:20px 22px; margin-bottom:16px;
+  }
+  .card h2{
+    font-size:12px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-soft); font-weight:700; margin-bottom:14px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .item{padding:12px 0; border-bottom:1px solid var(--card-border);}
+  .item:last-child{border-bottom:none; padding-bottom:0;}
+  .item:first-child{padding-top:0;}
+  .item-top{display:flex; align-items:flex-start; justify-content:space-between; gap:12px;}
+  .item-title{font-size:15px; font-weight:600; color:var(--ink);}
+  .item-sub{font-size:13.5px; color:var(--ink-soft); margin-top:4px;}
+  .item-meta{font-size:12.5px; color:var(--ink-faint); margin-top:2px;}
+
+  .badge{
+    font-size:11px; font-weight:700; padding:3px 10px; border-radius:999px;
+    white-space:nowrap; text-transform:uppercase; letter-spacing:.03em; flex-shrink:0;
+  }
+  .badge-green{background:var(--green-bg); color:var(--green);}
+  .badge-amber{background:var(--amber-bg); color:var(--amber);}
+  .badge-red{background:var(--red-bg); color:var(--red);}
+
+  .empty{color:var(--ink-faint); font-size:14px;}
+
+  .link{color:var(--primary); text-decoration:none; border-bottom:1px solid rgba(232,41,76,.35);}
+  .link:hover{border-bottom-color:var(--primary);}
+
+  .metric-row{display:flex; align-items:baseline; justify-content:space-between; gap:16px;}
+  .metric-val{font-size:15px; color:var(--ink-soft);}
+
+  footer{text-align:center; padding:26px 10px 0; color:var(--ink-faint); font-size:12.5px;}
+</style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header>
+      <div class="eyebrow">COO Morning Brief</div>
+      <h1>Good morning, Anthony</h1>
+      <div class="date">Wednesday, August 26, 2026</div>
+    </header>
+
+    <div class="card">
+      <h2>Today's Schedule <span class="badge badge-green">On track</span></h2>
+      <div class="item">
+        <div class="item-top">
+          <div>
+            <div class="item-title">Dymon x Hupo: Alignment Call with Coach Anthony</div>
+            <div class="item-sub">3:00 – 3:30 PM (Asia/Taipei) · online via Microsoft Teams</div>
+            <div class="item-meta">Organizer: Aditi (Hupo) · with Harry (Hupo, not yet responded) and Angelena Cala (Dymon Asia)</div>
+          </div>
+          <span class="badge badge-green">Confirmed</span>
+        </div>
+      </div>
+      <div class="item-meta" style="margin-top:8px;">No other events on the calendar today.</div>
+    </div>
+
+    <div class="card">
+      <h2>Inbox Priorities <span class="badge badge-green">Nothing urgent</span></h2>
+      <div class="item">
+        <div class="item-top">
+          <div>
+            <div class="item-title">Seeking Alpha — Nvidia earnings preview</div>
+            <div class="item-sub">Investment newsletter. No action needed.</div>
+          </div>
+          <span class="badge badge-green">FYI</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-top">
+          <div>
+            <div class="item-title">Business Insider — Microsoft AI cost story</div>
+            <div class="item-sub">Newsletter digest. No action needed.</div>
+          </div>
+          <span class="badge badge-green">FYI</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-top">
+          <div>
+            <div class="item-title">Capital One — travel rewards promo</div>
+            <div class="item-sub">Marketing email. No action needed.</div>
+          </div>
+          <span class="badge badge-green">FYI</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-top">
+          <div>
+            <div class="item-title">Preply — upcoming lesson reminders</div>
+            <div class="item-sub">Two automated reminders for a personal lesson booking. No action needed.</div>
+          </div>
+          <span class="badge badge-green">FYI</span>
+        </div>
+      </div>
+      <div class="item-meta" style="margin-top:8px;">6 threads scanned from the last 24 hours. None contained "urgent," "deadline," or a genuine response-needed ask.</div>
+    </div>
+
+    <div class="card">
+      <h2>Tasks <span class="badge badge-red">2 overdue</span></h2>
+      <div class="item">
+        <div class="item-top">
+          <div>
+            <div class="item-title">Publish my first book</div>
+            <div class="item-sub">Not started · deadline 2024-06-30</div>
+          </div>
+          <span class="badge badge-red">Overdue</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-top">
+          <div>
+            <div class="item-title">Home renovation</div>
+            <div class="item-sub">In progress · deadline 2024-04-26</div>
+          </div>
+          <span class="badge badge-red">Overdue</span>
+        </div>
+      </div>
+      <div class="item-meta" style="margin-top:8px;">Both are legacy personal entries in Notion's Project Planner, unrelated to the business. No dedicated business task tracker exists in Notion yet — flagged for the 19th day running since August 8.</div>
+    </div>
+
+    <div class="card">
+      <h2>Content Slot <span class="badge badge-green">Ready</span></h2>
+      <div class="item">
+        <div class="item-top">
+          <div>
+            <div class="item-title">Soft-sell post · Freedom Through Ownership (ETA)</div>
+            <div class="item-sub">Hook — the "Who Says" Challenge: "Who says you have to quit your job to build freedom?" — opens into the false-binary reframe and the compounding math, via the client who stayed in his job and hired an operator.</div>
+            <div class="item-meta">CTA: DM keyword "ETA" for masterclass details — soft pitch, no hard link.</div>
+          </div>
+          <span class="badge badge-green">On track</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Key Metric <span class="badge badge-amber">Attention</span></h2>
+      <div class="metric-row">
+        <div class="empty">No metric is currently tracked in the business brain.</div>
+        <div class="metric-val">Flagged, 19th day running</div>
+      </div>
+      <div class="item-meta" style="margin-top:8px;">Recommend picking one to track daily or weekly — e.g. ETA Masterclass sign-ups, new coaching clients booked, or LinkedIn engagement rate.</div>
+    </div>
+
+    <footer>Institute for Greatness · COO Brain</footer>
+  </div>
+</body>
+</html>
