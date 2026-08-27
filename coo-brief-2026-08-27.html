@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief · 2026-08-27</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#F05A28; --primary-light:#F59473;
+    --secondary:#003444;
+    --bg:#0A0A0A; --card:#151515; --card-border:#262626;
+    --ink:#F4F2EE; --ink-soft:#B8B5AE; --ink-faint:#77746D;
+    --good:#2FBE6B; --warn:#E8A23A; --bad:#E8294C;
+    --good-bg:rgba(47,190,107,.12); --warn-bg:rgba(232,162,58,.12); --bad-bg:rgba(232,41,76,.12);
+    --r:14px; --pill:9999px;
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 82%, #000) 0%, var(--primary) 55%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Rethink Sans',sans-serif;background:
+    radial-gradient(70% 50% at 100% -10%, color-mix(in srgb,var(--primary) 16%, transparent), transparent 60%),
+    radial-gradient(55% 45% at 0% 0%, color-mix(in srgb,var(--secondary) 30%, transparent), transparent 55%),
+    var(--bg);
+    color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:840px;margin:0 auto;padding:34px 20px 70px;}
+
+  .ohead{border-radius:var(--r);padding:26px 28px;margin-bottom:24px;color:#fff;background:var(--grad);box-shadow:0 20px 48px color-mix(in srgb,var(--primary) 32%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.10);top:-130px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;font-weight:700;}
+  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:6px 0 4px;}
+  .ohead .d{font-size:13px;opacity:.85;}
+
+  .sec{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;margin:26px 0 12px;}
+  .sec:first-of-type{margin-top:0;}
+  .card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--r);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .item{padding:10px 0;border-bottom:1px solid var(--card-border);}
+  .item:last-child{border-bottom:none;padding-bottom:0;}
+  .item:first-child{padding-top:0;}
+  .item-top{display:flex;align-items:flex-start;gap:10px;justify-content:space-between;}
+  .item-title{font-size:15px;font-weight:600;color:var(--ink);}
+  .item-when{color:var(--ink-soft);font-size:12.5px;font-weight:600;}
+  .item-sub{color:var(--ink-soft);font-size:13.5px;margin-top:4px;}
+  .badge{font-size:10.5px;font-weight:700;letter-spacing:.04em;padding:3px 10px;border-radius:var(--pill);white-space:nowrap;flex-shrink:0;text-transform:uppercase;}
+  .b-green{background:var(--good-bg);color:var(--good);}
+  .b-amber{background:var(--warn-bg);color:var(--warn);}
+  .b-red{background:var(--bad-bg);color:var(--bad);}
+  .empty{color:var(--ink-soft);font-size:14px;padding:2px 0;}
+  .flag-line{color:var(--ink-faint);font-size:12.5px;margin-top:12px;padding-top:12px;border-top:1px solid var(--card-border);}
+
+  .metric{display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .metric .n{font-size:15px;color:var(--ink-soft);}
+  .metric .rec{color:var(--ink-faint);font-size:13px;margin-top:6px;}
+
+  footer{text-align:center;padding:32px 22px 10px;color:var(--ink-faint);font-size:12.5px;}
+  footer b{color:var(--ink-soft);}
+
+  @media(max-width:640px){.item-top{flex-direction:column;align-items:flex-start;gap:4px;}}
+</style>
+</head>
+<body>
+  <div class="doc">
+
+    <div class="ohead">
+      <div class="k">COO · Morning Brief</div>
+      <h1>Good morning, Anthony</h1>
+      <div class="d">Thursday, August 27, 2026 · ran while you slept</div>
+    </div>
+
+    <div class="sec">Today's Schedule</div>
+    <div class="card">
+      <div class="item">
+        <div class="item-top"><span class="item-title">No events scheduled today</span><span class="badge b-green">On track</span></div>
+        <div class="item-sub">Your calendar is open for deep work.</div>
+      </div>
+    </div>
+
+    <div class="sec">Inbox Priorities</div>
+    <div class="card">
+      <div class="item">
+        <div class="item-top"><span class="item-title">Contrarian Thinking — "The time-cost premium"</span><span class="badge b-green">On track</span></div>
+        <div class="item-sub">Newsletter. No action needed.</div>
+      </div>
+      <div class="item">
+        <div class="item-top"><span class="item-title">Wharton Club HK — AI Workshop Series early bird</span><span class="badge b-green">On track</span></div>
+        <div class="item-sub">Community event announcement. No action needed.</div>
+      </div>
+      <div class="item">
+        <div class="item-top"><span class="item-title">Caproasia — Family Office Spotlight digest</span><span class="badge b-green">On track</span></div>
+        <div class="item-sub">Industry newsletter. No action needed.</div>
+      </div>
+      <div class="item">
+        <div class="item-top"><span class="item-title">Seeking Alpha — "Don't Sleep On Software"</span><span class="badge b-green">On track</span></div>
+        <div class="item-sub">Market newsletter. No action needed.</div>
+      </div>
+      <div class="item">
+        <div class="item-top"><span class="item-title">Cushman &amp; Wakefield — Hanoi MarketBeat Q2 2026</span><span class="badge b-green">On track</span></div>
+        <div class="item-sub">Market research digest. No action needed.</div>
+      </div>
+      <div class="flag-line">Last 24 hours, 21 threads scanned, top 5 shown. No emails were genuinely flagged urgent, deadline, or response-needed in a business context.</div>
+    </div>
+
+    <div class="sec">Tasks</div>
+    <div class="card">
+      <div class="item">
+        <div class="item-top"><span class="item-title">Publish my first book</span><span class="badge b-red">Overdue</span></div>
+        <div class="item-sub">Not started · deadline 2024-06-30 · Project Planner (legacy personal item, unrelated to the business).</div>
+      </div>
+      <div class="item">
+        <div class="item-top"><span class="item-title">Home renovation</span><span class="badge b-red">Overdue</span></div>
+        <div class="item-sub">In progress · deadline 2024-04-26 · Project Planner (legacy personal item, unrelated to the business).</div>
+      </div>
+      <div class="flag-line">No dedicated business task tracker exists in Notion yet. Flagged in every brief since August 8 — 20th day running.</div>
+    </div>
+
+    <div class="sec">Content Slot</div>
+    <div class="card">
+      <div class="item">
+        <div class="item-top"><span class="item-title">Contrarian/Engagement post — Presence Over Performance</span><span class="badge b-green">On track</span></div>
+        <div class="item-sub">Content Calendar, Week of 2026-08-24 · Intent: Engagement.<br>
+        Hook: the Moment of Truth formula — "The day your business card gets taken away, who are you?" — repositioned toward leadership presence, landing on the contrarian claim that most meetings are performance, not leadership.<br>
+        CTA: comment-bait question — "What's one meeting you could've skipped this week and nobody would've noticed? Say it below."</div>
+      </div>
+    </div>
+
+    <div class="sec">Key Metric</div>
+    <div class="card">
+      <div class="item">
+        <div class="item-top"><span class="item-title">No metric currently tracked</span><span class="badge b-amber">Attention</span></div>
+        <div class="metric">
+          <div class="rec">Flagged for the 20th day running. Recommend picking one to track daily or weekly — e.g. ETA Masterclass sign-ups, new coaching clients booked, or LinkedIn engagement rate.</div>
+        </div>
+      </div>
+    </div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>Built by Daniel Paul · Purely Personal</b></footer>
+  </div>
+</body>
+</html>
