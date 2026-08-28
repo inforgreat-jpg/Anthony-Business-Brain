@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief · Friday, August 28, 2026</title>
+<style>
+  :root{
+    --primary:#E8294C;
+    --bg:#0A0A0A; --card:#151515; --card-border:#242424;
+    --ink:#F5F5F3; --ink-soft:#A3A3A0; --ink-faint:#6B6B68;
+    --green:#22C55E; --green-bg:rgba(34,197,94,.12);
+    --amber:#F59E0B; --amber-bg:rgba(245,158,11,.12);
+    --red:#EF4444; --red-bg:rgba(239,68,68,.12);
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:40px 22px 64px;}
+
+  header{margin-bottom:30px;}
+  header .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);font-weight:700;}
+  header h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.01em;margin:8px 0 4px;}
+  header .sub{font-size:14px;color:var(--ink-soft);}
+
+  .section{margin-bottom:28px;}
+  .section-title{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;margin-bottom:12px;}
+
+  .card{
+    background:var(--card); border:1px solid var(--card-border); border-radius:var(--radius);
+    padding:16px 18px; margin-bottom:10px;
+  }
+  .card:last-child{margin-bottom:0;}
+  .card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;}
+  .card-title{font-size:15px;font-weight:600;color:var(--ink);}
+  .card-meta{font-size:13px;color:var(--ink-soft);margin-top:3px;}
+  .card-body{font-size:14px;color:var(--ink-soft);margin-top:8px;}
+
+  .status{
+    flex-shrink:0; font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+    padding:3px 9px;border-radius:999px;white-space:nowrap;
+  }
+  .status.green{background:var(--green-bg);color:var(--green);}
+  .status.amber{background:var(--amber-bg);color:var(--amber);}
+  .status.red{background:var(--red-bg);color:var(--red);}
+
+  .link{color:var(--primary);text-decoration:none;font-weight:600;}
+  .link:hover{text-decoration:underline;}
+
+  .empty{color:var(--ink-faint);font-size:14px;padding:2px 0;}
+
+  .metric-card{
+    background:linear-gradient(135deg, color-mix(in srgb, var(--primary) 22%, var(--card)) 0%, var(--card) 65%);
+    border:1px solid var(--card-border); border-radius:var(--radius); padding:20px 20px;
+  }
+  .metric-label{font-size:12px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.08em;}
+  .metric-value{font-size:20px;font-weight:700;margin-top:6px;color:var(--ink);}
+  .metric-note{font-size:13px;color:var(--ink-soft);margin-top:8px;}
+
+  footer{margin-top:36px;padding-top:20px;border-top:1px solid var(--card-border);font-size:12px;color:var(--ink-faint);text-align:center;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">COO Morning Brief</div>
+    <h1>Good morning, Anthony.</h1>
+    <div class="sub">Friday, August 28, 2026</div>
+  </header>
+
+  <div class="section">
+    <div class="section-title">Today's Schedule</div>
+    <div class="card">
+      <div class="card-top">
+        <div>
+          <div class="card-title">3:00 PM – 3:30 PM &middot; Anthony:Jowyn catch-up</div>
+          <div class="card-meta">30 min &middot; no video link listed on the event</div>
+        </div>
+        <span class="status green">On Track</span>
+      </div>
+    </div>
+    <div class="card-body" style="padding:0 2px;margin-top:8px;">One meeting today, no conflicts, plenty of open space around it.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Inbox Priorities (last 24 hours, top 5)</div>
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title">Preply &mdash; new messages from Devyn &amp; Eddwyn</div>
+        <span class="status amber">Attention</span>
+      </div>
+      <div class="card-body">Two tutors messaged, unread. Personal tutoring correspondence, not a business item.</div>
+    </div>
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title">Citibank &mdash; payment declined on debit card ending 92</div>
+        <span class="status amber">Attention</span>
+      </div>
+      <div class="card-body">A charge on your Citibank ATM/Debit card couldn't be processed. Worth a quick check, personal account.</div>
+    </div>
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title">HMRC &mdash; Making Tax Digital for Income Tax</div>
+        <span class="status green">On Track</span>
+      </div>
+      <div class="card-body">Informational notice on the phased rollout starting April 2026. No immediate action required.</div>
+    </div>
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title">Wharton Club HK &mdash; AI Workshop Series early bird</div>
+        <span class="status green">On Track</span>
+      </div>
+      <div class="card-body">Event announcement. No action needed unless you want to register early.</div>
+    </div>
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title">HSBC &mdash; deepfake scam awareness notice</div>
+        <span class="status green">On Track</span>
+      </div>
+      <div class="card-body">Security awareness email. No action needed.</div>
+    </div>
+    <div class="card-body" style="padding:0 2px;margin-top:2px;">No emails were genuinely flagged urgent, deadline, or response-needed in a business context in the last 24 hours.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Tasks</div>
+    <div class="card">
+      <div class="card-top">
+        <div>
+          <div class="card-title">Publish my first book</div>
+          <div class="card-meta">Not started &middot; deadline 2024-06-30</div>
+        </div>
+        <span class="status red">Overdue</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-top">
+        <div>
+          <div class="card-title">Home renovation</div>
+          <div class="card-meta">In progress &middot; deadline 2024-04-26</div>
+        </div>
+        <span class="status red">Overdue</span>
+      </div>
+    </div>
+    <div class="card-body" style="padding:0 2px;margin-top:8px;">Both are legacy personal entries in Notion's Project Planner, unrelated to the business. No dedicated business task tracker exists in Notion yet &mdash; flagged for the 22nd day running.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Content Slot</div>
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title">Framework post &middot; The Pivot / Career Changer &middot; Educating intent</div>
+        <span class="status green">On Track</span>
+      </div>
+      <div class="card-body">
+        Content Calendar, Week of 2026-08-24. Hook repeats Monday's best-performing Educating/Framework intent &mdash; the David&nbsp;&rarr;&nbsp;Janet&nbsp;&rarr;&nbsp;Kelvin arc reframed as a repeatable 3-stage framework (panic, compounding, portfolio) so readers can name their own stage.
+        <br><br>
+        CTA: save/share prompt plus DM keyword &ldquo;STAGE,&rdquo; asking which stage they're in.
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Key Metric</div>
+    <div class="metric-card">
+      <div class="metric-label">Not currently tracked</div>
+      <div class="metric-value">&mdash;</div>
+      <div class="metric-note">No metric is currently tracked in your business brain &mdash; flagged for the 22nd day running. Recommend picking one to track daily or weekly: ETA Masterclass sign-ups, new coaching clients booked, or LinkedIn engagement rate.</div>
+    </div>
+  </div>
+
+  <footer>Generated automatically from Google Calendar, Gmail, and Notion.</footer>
+
+</div>
+</body>
+</html>
