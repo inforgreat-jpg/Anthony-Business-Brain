@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief · 2026-08-29</title>
+<style>
+  :root{
+    --primary:#F05A28; --primary-light:#F59473;
+    --bg:#0A0A0A; --card:#141414; --card-border:#242422;
+    --ink:#F2F1EC; --ink-soft:#9C9A92; --ink-faint:#6B6962;
+    --green:#22C55E; --green-bg:rgba(34,197,94,.12);
+    --amber:#F5A524; --amber-bg:rgba(245,165,36,.12);
+    --red:#EF4444; --red-bg:rgba(239,68,68,.12);
+    --r:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.55; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:40px 20px 70px;}
+
+  header{margin-bottom:28px;}
+  header .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--primary);font-weight:700;}
+  header h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.01em;margin:8px 0 4px;color:var(--ink);}
+  header .d{font-size:13px;color:var(--ink-soft);}
+
+  .card{
+    background:var(--card); border:1px solid var(--card-border); border-radius:var(--r);
+    padding:20px 22px; margin-bottom:16px; border-left:3px solid var(--primary);
+  }
+  .card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;}
+  .card-head h2{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;}
+
+  .pill{font-size:11px;font-weight:700;letter-spacing:.03em;padding:3px 10px;border-radius:999px;white-space:nowrap;}
+  .pill-green{background:var(--green-bg);color:var(--green);}
+  .pill-amber{background:var(--amber-bg);color:var(--amber);}
+  .pill-red{background:var(--red-bg);color:var(--red);}
+
+  .item{padding:10px 0;border-bottom:1px solid var(--card-border);}
+  .item:last-child{border-bottom:none;padding-bottom:0;}
+  .item:first-child{padding-top:0;}
+  .item .row1{display:flex;align-items:baseline;gap:10px;justify-content:space-between;}
+  .item .title{font-size:14.5px;color:var(--ink);font-weight:600;}
+  .item .when{font-size:12.5px;color:var(--primary-light);font-weight:700;flex-shrink:0;}
+  .item .note{font-size:13.5px;color:var(--ink-soft);margin-top:4px;}
+  .item a{color:var(--primary-light);text-decoration:none;border-bottom:1px solid rgba(245,148,115,.35);}
+  .item a:hover{border-bottom-color:var(--primary-light);}
+
+  .empty{font-size:13.5px;color:var(--ink-soft);}
+
+  .metric-row{display:flex;align-items:baseline;gap:14px;}
+  .metric-row .n{font-size:15px;color:var(--ink-soft);font-weight:600;}
+  .metric-note{font-size:13.5px;color:var(--ink-soft);margin-top:8px;}
+
+  footer{text-align:center;padding:26px 20px 0;color:var(--ink-faint);font-size:12px;}
+</style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header>
+      <div class="k">COO · Morning Brief</div>
+      <h1>Good morning, Anthony</h1>
+      <div class="d">Saturday, August 29, 2026</div>
+    </header>
+
+    <div class="card">
+      <div class="card-head"><h2>Today's Schedule</h2><span class="pill pill-amber">Attention</span></div>
+      <div class="item">
+        <div class="row1"><span class="title">Ryan Shah and Institute for Greatness — 2/11</span><span class="when">10:30 – 11:30 AM SGT</span></div>
+        <div class="note">Confirmed on calendar, via <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZWNlOGVhNDgtM2JmNy00YTM3LWFlM2MtZDFjODljMDMzY2Ey%40thread.v2/0?context=%7b%22Tid%22%3a%22ab8254ff-5e7a-489b-9b72-ab97cb37f6b7%22%2c%22Oid%22%3a%22491a9a07-8a20-447c-a67f-a481d376fefe%22%7d" target="_blank" rel="noopener">MS Teams</a>. Both your own RSVP and shah@hsgfunds.com show as declined on the invite even though the event stays confirmed — worth a quick check that Ryan is still on for it.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h2>Inbox Priorities</h2><span class="pill pill-green">On track</span></div>
+      <div class="item">
+        <div class="row1"><span class="title">Nextdoor — Rancho Palos Verdes food thread</span></div>
+        <div class="note">12 neighbors chiming in on where to get Asian food nearby. Personal, no action needed.</div>
+      </div>
+      <div class="item">
+        <div class="row1"><span class="title">Seeking Alpha — emerging market stock picks</span></div>
+        <div class="note">Market newsletter on EM stocks outperforming the S&amp;P. No action needed.</div>
+      </div>
+      <div class="item">
+        <div class="row1"><span class="title">Business Insider — Waymo/Lyft driver story</span></div>
+        <div class="note">Newsletter read. No action needed.</div>
+      </div>
+      <div class="note" style="margin-top:2px;">No emails were genuinely flagged urgent, deadline, or response-needed in a business context in the last 24 hours.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h2>Tasks</h2><span class="pill pill-red">Overdue</span></div>
+      <div class="item">
+        <div class="row1"><span class="title">Publish my first book</span><span class="when">due 2024-06-30</span></div>
+        <div class="note">Not started. Overdue by over two years.</div>
+      </div>
+      <div class="item">
+        <div class="row1"><span class="title">Home renovation</span><span class="when">due 2024-04-26</span></div>
+        <div class="note">In progress. Overdue by over two years.</div>
+      </div>
+      <div class="note" style="margin-top:2px;">Both are legacy personal entries in Notion's Project Planner, unrelated to the business. No dedicated business task tracker exists yet.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h2>Content Slot</h2><span class="pill pill-green">On track</span></div>
+      <div class="empty">Nothing scheduled today. Your content calendar runs Monday through Friday, and Saturday isn't a posting day this week.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h2>Key Metric</h2><span class="pill pill-amber">Attention</span></div>
+      <div class="metric-row"><span class="n">Not set</span></div>
+      <div class="metric-note">No metric is currently tracked in your business brain. Pick one number to watch daily or weekly — ETA Masterclass sign-ups, new coaching clients booked, or LinkedIn engagement rate are good candidates.</div>
+    </div>
+
+    <footer>The brain thinks. The team works. You approve.</footer>
+  </div>
+</body>
+</html>
