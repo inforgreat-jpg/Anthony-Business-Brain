@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief · 2026-08-30</title>
+<style>
+  :root{
+    --primary:#F05A28;
+    --bg:#0A0A0A;
+    --card:#161616;
+    --card-border:#262626;
+    --ink:#F2F1EE;
+    --ink-soft:#A8A69F;
+    --ink-faint:#6E6C66;
+    --green:#3DD68C; --green-bg:rgba(61,214,140,.12);
+    --amber:#F0B429; --amber-bg:rgba(240,180,41,.12);
+    --red:#F0523D; --red-bg:rgba(240,82,61,.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:44px 22px 70px;}
+
+  header{margin-bottom:32px;}
+  .eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);font-weight:700;margin-bottom:8px;}
+  h1{font-size:clamp(22px,4vw,28px);font-weight:700;letter-spacing:-.01em;color:var(--ink);}
+  .date{font-size:14px;color:var(--ink-soft);margin-top:6px;}
+
+  .card{
+    background:var(--card); border:1px solid var(--card-border); border-radius:14px;
+    padding:20px 22px; margin-bottom:16px;
+  }
+  .card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;}
+  .card-title{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;}
+
+  .badge{
+    display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;
+    letter-spacing:.04em;text-transform:uppercase;padding:4px 10px;border-radius:999px;white-space:nowrap;
+  }
+  .badge::before{content:"";width:6px;height:6px;border-radius:50%;}
+  .badge.green{background:var(--green-bg);color:var(--green);} .badge.green::before{background:var(--green);}
+  .badge.amber{background:var(--amber-bg);color:var(--amber);} .badge.amber::before{background:var(--amber);}
+  .badge.red{background:var(--red-bg);color:var(--red);} .badge.red::before{background:var(--red);}
+
+  .lead{font-size:15px;color:var(--ink);}
+  .sub{font-size:13.5px;color:var(--ink-soft);margin-top:6px;}
+
+  .item{padding:10px 0;border-top:1px solid var(--card-border);}
+  .item:first-child{border-top:none;padding-top:0;}
+  .item-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;}
+  .item-title{font-size:14.5px;font-weight:600;color:var(--ink);}
+  .item-tag{font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;flex-shrink:0;}
+  .item-tag.red{color:var(--red);} .item-tag.amber{color:var(--amber);} .item-tag.green{color:var(--green);}
+  .item-meta{font-size:13px;color:var(--ink-faint);margin-top:3px;}
+
+  .empty{font-size:14px;color:var(--ink-soft);}
+
+  footer{text-align:center;padding-top:26px;font-size:12px;color:var(--ink-faint);}
+</style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header>
+      <div class="eyebrow">COO · Morning Brief</div>
+      <h1>Good morning, Anthony</h1>
+      <div class="date">Sunday, August 30, 2026</div>
+    </header>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">Today's Schedule</div>
+        <span class="badge green">On track</span>
+      </div>
+      <div class="lead">No events on your calendar today.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">Inbox Priorities</div>
+        <span class="badge green">On track</span>
+      </div>
+      <div class="lead">Nothing flagged as urgent, deadline, or response-needed in the last 24 hours.</div>
+      <div class="sub">8 threads came in — market newsletters, a Citi payment reminder, a property listing, and a personal note to yourself. None ask anything of you.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">Tasks</div>
+        <span class="badge red">Overdue</span>
+      </div>
+      <div class="item">
+        <div class="item-top">
+          <div class="item-title">Publish my first book</div>
+          <div class="item-tag red">Overdue</div>
+        </div>
+        <div class="item-meta">Not started · deadline 2024-06-30 · Project Planner</div>
+      </div>
+      <div class="item">
+        <div class="item-top">
+          <div class="item-title">Home renovation</div>
+          <div class="item-tag red">Overdue</div>
+        </div>
+        <div class="item-meta">In progress · deadline 2024-04-26 · Project Planner</div>
+      </div>
+      <div class="sub">Both are legacy personal entries unrelated to the business. No dedicated business task tracker exists in Notion yet — flagged in every brief since August 8.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">Content Slot</div>
+        <span class="badge green">On track</span>
+      </div>
+      <div class="lead">Sunday is outside the Monday–Friday posting schedule — no post due today.</div>
+      <div class="sub">Content Calendar — Week of 2026-08-31 was built today. Monday's post is queued: "5 questions to ask before you pay a coach $6K — the ones that separate a mentor from a certificate" (Framework post, Lived Experience vs. Certification pillar).</div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">Key Metric</div>
+        <span class="badge amber">Attention needed</span>
+      </div>
+      <div class="lead">No metric is currently tracked in your business brain.</div>
+      <div class="sub">Flagged since August 8. Recommend picking one to track daily or weekly — ETA Masterclass sign-ups, new coaching clients booked, or LinkedIn engagement rate.</div>
+    </div>
+
+    <footer>Institute for Greatness · generated while you slept</footer>
+  </div>
+</body>
+</html>
