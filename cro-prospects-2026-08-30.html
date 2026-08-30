@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRO Weekly Prospect Pack · Institute for Greatness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#F05A28; --primary-light:#F59473;
+    --bg:#0A0A0A; --surface:#161513; --surface2:#1E1C19; --ink:#F4F1EC; --ink-dim:#B9B4AC;
+    --gray:#2C2A26; --gray-text:#9A958C; --gray-light:#1C1A17;
+    --good:#22C55E; --warn:#F59E0B; --bad:#EF4444;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.4),0 12px 32px rgba(0,0,0,.5);
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 78%, #000) 0%, var(--primary) 48%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:radial-gradient(80% 60% at 96% -12%, color-mix(in srgb,var(--primary) 16%, transparent), transparent 60%), radial-gradient(60% 50% at 0% 6%, color-mix(in srgb,var(--primary-light) 8%, transparent), transparent 55%), var(--bg);background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:900px;margin:0 auto;padding:34px 22px 70px;}
+
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px color-mix(in srgb,var(--primary) 34%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;font-weight:600;}
+  .ohead h1{font-size:clamp(22px,4vw,30px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.88;}
+
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-text);font-weight:700;margin:26px 0 12px;}
+  .card{background:var(--surface);border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:16px 18px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-text);margin-bottom:8px;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .stat{background:var(--surface);border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
+  .stat .l{font-size:12px;color:var(--gray-text);} .stat .n{font-size:34px;font-weight:800;letter-spacing:-.02em;margin-top:4px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;}
+  .t-grn{background:rgba(34,197,94,.14);color:var(--good);} .t-amb{background:rgba(245,158,11,.14);color:var(--warn);} .t-blue{background:rgba(59,130,246,.14);color:#7CACF8;} .t-grey{background:var(--gray-light);color:var(--gray-text);} .t-red{background:rgba(239,68,68,.14);color:var(--bad);}
+
+  .pcard{background:var(--surface);border:1px solid var(--gray);border-radius:var(--r-lg);box-shadow:var(--sh);padding:20px 22px;margin-bottom:16px;}
+  .pcard .ph{display:flex;align-items:flex-start;gap:12px;margin-bottom:10px;flex-wrap:wrap;}
+  .pcard .av{width:46px;height:46px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;}
+  .pcard .nm{font-weight:800;font-size:17px;} .pcard .nm a{color:var(--ink);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--primary) 60%, transparent);}
+  .pcard .rl{font-size:13px;color:var(--gray-text);margin-top:1px;}
+  .pcard .loc{font-size:12px;color:var(--gray-text);margin-top:1px;}
+  .pcard .signal{font-size:13px;color:var(--ink-dim);background:var(--gray-light);border-radius:10px;padding:8px 12px;margin:10px 0;}
+  .modrow{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;}
+  .modchip{font-size:11px;font-weight:600;background:var(--gray-light);color:var(--ink);padding:5px 10px;border-radius:var(--pill);}
+  .modchip b{color:var(--primary-light);}
+  .hook{font-style:italic;font-size:14px;color:var(--ink);border-left:3px solid var(--primary-light);padding:8px 12px;margin:10px 0;background:color-mix(in srgb, var(--primary) 8%, var(--surface2));}
+  .seq{margin-top:12px;}
+  .seq .m{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--gray);font-size:13.5px;}
+  .seq .m:last-child{border-bottom:none;}
+  .seq .mlabel{flex-shrink:0;width:108px;font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--primary-light);padding-top:1px;}
+  .seq .mtext{color:var(--ink-dim);}
+
+  .note{background:linear-gradient(135deg, #000 0%, color-mix(in srgb,var(--primary) 30%, #000) 100%);color:#fff;border-radius:var(--r-md);padding:18px 22px;font-size:15px;margin-top:6px;box-shadow:0 14px 36px rgba(0,0,0,.4);border:1px solid color-mix(in srgb,var(--primary) 30%, transparent);}
+  .note b{color:var(--primary-light);}
+
+  .deal{background:var(--surface);border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:14px 18px;margin-bottom:12px;}
+  .deal .dh{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .deal .dn{font-weight:800;font-size:15px;}
+  .deal .dmsg{font-size:13.5px;color:var(--ink-dim);margin-top:8px;padding:10px 12px;background:var(--gray-light);border-radius:10px;}
+  .p1{background:rgba(239,68,68,.14);color:var(--bad);} .p2{background:rgba(245,158,11,.14);color:var(--warn);} .p3{background:var(--gray-light);color:var(--gray-text);}
+
+  footer{text-align:center;padding:30px 22px 10px;color:var(--gray-text);font-size:13px;}
+  footer b{color:var(--ink);}
+
+  @media(max-width:640px){.grid3{grid-template-columns:1fr;} .seq .m{flex-direction:column;gap:2px;} .seq .mlabel{width:auto;}}
+</style>
+</head>
+<body data-theme="dark">
+  <div class="doc">
+
+    <div class="ohead"><div class="k">CRO · Weekly prospect pack</div><h1>4 matched. 0 hot.</h1><div class="d">Sourced from your ETA ICP via Apify · DMs drafted, nothing sent · Aug 30, 2026</div></div>
+
+    <div class="grid3">
+      <div class="stat"><div class="l">Prospects</div><div class="n">4</div></div>
+      <div class="stat"><div class="l">Hot</div><div class="n" style="color:var(--good);-webkit-text-fill-color:var(--good)">0</div></div>
+      <div class="stat"><div class="l">DMs drafted</div><div class="n">20</div></div>
+    </div>
+
+    <div class="card"><h4>Sourcing note</h4>
+    <div style="font-size:14px;color:var(--ink-dim)">The Apify search for "Entrepreneurship Through Acquisition" surfaced the same 10 raw profiles as recent weeks, the underlying dataset for this exact phrase looks exhausted rather than refreshing. Of those 10: 4 were disqualified as competitors or off-ICP (Alexander Steinkuhl runs the connector/mentor role for other ETA searchers, Ben Ghirmai is a capital provider funding searchers rather than a searcher himself, Reid Tileston is an ETA professor, Shravani Zope is an unrelated CMU grad student with no ETA or executive signal). Of the 6 that qualified, 2, Antonia Heng and Debanjan Sengupta, are repeats already sent DM sequences in the Jul 18 pack, so they're held back here rather than re-drafted. That leaves 4 genuinely new prospects this week, all of them mid-search searchers rather than fresh, high-heat signals, hence 0 hot. Worth changing the search keyword next run, this exact phrase has stopped producing new people.</div></div>
+
+    <div class="sec">The prospects</div>
+
+    <!-- 1 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">EW</div><div><div class="nm"><a href="https://www.linkedin.com/in/erik-w-7b8bbb34" target="_blank" rel="noopener">Erik W.</a></div><div class="rl">Entrepreneurship Through Acquisition (MBI search), Independent · Munich, Germany</div></div><span class="tagi t-amb" style="margin-left:auto">warm</span></div>
+      <div class="signal">Signal: since Feb 2024 (2 yrs 7 mos) working on identifying and selecting a management buy-in opportunity in process manufacturing and SME environments. Earlier career: Global Head of Detergent Additives and Global Head of Marketing at Clariant, then an 11-month stint as Managing Director of OSSOLA GmbH. Over 2.5 years into an unaccompanied MBI search with no landed deal yet, the clearest stuck-searcher signal in this batch.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>7/10</b> (role 9 · pain 8 · timing 6 · relationship 4)</span>
+        <span class="modchip">Temp <b>Warm</b></span>
+        <span class="modchip">Style <b>Driver</b></span>
+        <span class="modchip">Opener <b>Directness Play</b></span>
+      </div>
+      <div class="hook">"Still hunting solo since Feb 2024 for a process-manufacturing SME to buy."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 · Connect</div><div class="mtext">Erik, two corporate Global Head roles at Clariant, then eleven months running OSSOLA as MD, and now two and a half years searching solo for the right MBI in process manufacturing. That's a long runway to hold conviction on your own. Would like to connect.</div></div>
+        <div class="m"><div class="mlabel">2 · Icebreaker</div><div class="mtext">Two and a half years searching solo since leaving OSSOLA, most people would have folded that into a full-time role again by now. What's kept you searching instead of taking the next MD title?</div></div>
+        <div class="m"><div class="mlabel">3 · Value-add</div><div class="mtext">Global Head of Detergent Additives to Global Head of Marketing to running your own MD role, that's three different vantage points on how a manufacturing business actually gets built and sold. Has that range made target selection faster, or pickier?</div></div>
+        <div class="m"><div class="mlabel">4 · Pivot</div><div class="mtext">Different question, Erik. After running OSSOLA as MD for eleven months, does owning your next SME feel like unfinished business, or a fresh start entirely?</div></div>
+        <div class="m"><div class="mlabel">5 · Clean exit</div><div class="mtext">No pressure to reply, Erik. Respect the patience this search has taken, most people don't stay this deliberate for two and a half years. If it ever helps to talk to someone who bought into an industry he knew nothing about, I'm around.</div></div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">SS</div><div><div class="nm"><a href="https://www.linkedin.com/in/samuel-schuh" target="_blank" rel="noopener">Samuel Schuh</a></div><div class="rl">Founder & CEO, Schuh Solutions · Syracuse, New York, USA</div></div><span class="tagi t-amb" style="margin-left:auto">warm</span></div>
+      <div class="signal">Signal: since Jan 2026 (8 months) has founded and leads a self-funded search fund identifying small-business acquisition opportunities, while still a Syracuse Whitman School senior graduating May 2026. Background in financial modeling & valuation and equity research. Lowest pain-fit in this batch, he's pre-career rather than a stuck executive, but the role fit is literal and the timing is current.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>5/10</b> (role 7 · pain 3 · timing 7 · relationship 2)</span>
+        <span class="modchip">Temp <b>Warm</b></span>
+        <span class="modchip">Style <b>Analytical</b></span>
+        <span class="modchip">Opener <b>Authority Flip</b></span>
+      </div>
+      <div class="hook">"Running a self-funded search fund from campus, months before his own graduation."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 · Connect</div><div class="mtext">Samuel, founding a self-funded search fund while still finishing your degree at Whitman is a bold way to start, most wait for a resume line first. I bought into a business outside my own lane at a similar stage of not fully knowing what I was doing. Would like to connect.</div></div>
+        <div class="m"><div class="mlabel">2 · Icebreaker</div><div class="mtext">Starting a search fund eight months out from graduation, before the first full-time title even shows up on your resume, that takes a specific kind of conviction. What made you skip the standard first job and go straight to searching?</div></div>
+        <div class="m"><div class="mlabel">3 · Value-add</div><div class="mtext">Financial modeling, valuation, and equity research give you the numbers side of a deal early, most searchers your age don't have that grounding yet. Has the technical side been the easy part so far, or is sourcing real targets the harder skill to build?</div></div>
+        <div class="m"><div class="mlabel">4 · Pivot</div><div class="mtext">Different question, Samuel. Once you graduate in May, does the search stay exactly as it is, or does having a degree behind you change how sellers take you seriously?</div></div>
+        <div class="m"><div class="mlabel">5 · Clean exit</div><div class="mtext">No pressure to respond, Samuel. Respect starting this early, most people wait until they have more to lose before they take the leap. If it ever helps to talk to someone who made a similar jump without all the answers yet, I'm around.</div></div>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">GA</div><div><div class="nm"><a href="https://www.linkedin.com/in/gilles-aszmann" target="_blank" rel="noopener">Gilles Aszmann</a></div><div class="rl">Director - Land Installation, Nexans / Entrepreneurship through Acquisition (self-employed) · Paris, France</div></div><span class="tagi t-grey" style="margin-left:auto">cold</span></div>
+      <div class="signal">Signal: has run a self-employed "Entrepreneurship through Acquisition / Investor" track since Jul 2021 (5 yrs 2 mos), sourcing targets, running due diligence, seeking M&A financing, all alongside consecutive full-time GM roles (Managing Director at CNIM, now Director - Land Installation at Nexans since Oct 2024). Five-plus years without a landed deal, run in parallel with a full-time job, reads as a stalled search rather than an active push.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>6/10</b> (role 8 · pain 8 · timing 4 · relationship 3)</span>
+        <span class="modchip">Temp <b>Cold</b></span>
+        <span class="modchip">Style <b>Driver</b></span>
+        <span class="modchip">Opener <b>Pattern Interrupt</b></span>
+      </div>
+      <div class="hook">"Five years quietly hunting for acquisitions on the side while running Nexans installations."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 · Connect</div><div class="mtext">Gilles, five years running an acquisition search on the side while carrying full-time GM roles at CNIM and now Nexans, that's a different kind of stamina than most searchers show. Would like to connect.</div></div>
+        <div class="m"><div class="mlabel">2 · Icebreaker</div><div class="mtext">Most people run a search full time or not at all. You've held full GM roles at CNIM and now Nexans while sourcing targets and running diligence in parallel for five years. What made you choose to never go all in on one or the other?</div></div>
+        <div class="m"><div class="mlabel">3 · Value-add</div><div class="mtext">Managing Director at CNIM, then Director of Land Installation at Nexans, both while still building an acquisition pipeline on the side, that's a lot of due diligence squeezed around a demanding day job. Has the financing side or the sourcing side been the harder half to run part time?</div></div>
+        <div class="m"><div class="mlabel">4 · Pivot</div><div class="mtext">Different question, Gilles. After five years searching in parallel with full-time GM roles, does closing a deal still feel like the goal, or has the search itself become the thing you actually want?</div></div>
+        <div class="m"><div class="mlabel">5 · Clean exit</div><div class="mtext">No pressure to respond, Gilles. Respect the discipline of keeping a search alive for five years without letting it take over. If it ever helps to talk to someone who bought into a business outside his own lane, happy to compare notes.</div></div>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">TB</div><div><div class="nm"><a href="https://www.linkedin.com/in/timbalfe" target="_blank" rel="noopener">Tim Balfe</a></div><div class="rl">Entrepreneurship Through Acquisition, JRW Enterprises (self-employed) · Denver, Colorado, USA</div></div><span class="tagi t-grey" style="margin-left:auto">cold</span></div>
+      <div class="signal">Signal: self-employed under JRW Enterprises since 2021 (5 yrs 8 mos), labeled Entrepreneurship Through Acquisition and Business Development, spanning insulation/ventilation franchise diligence, modular multifamily real estate, solar revenue consulting, and agtech commercialization across multiple countries, with no completed acquisition on record. Kellogg MBA and Bain & Company background, but the breadth across four sectors is a diffuse-search pattern rather than a focused push.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>5/10</b> (role 6 · pain 7 · timing 4 · relationship 2)</span>
+        <span class="modchip">Temp <b>Cold</b></span>
+        <span class="modchip">Style <b>Driver</b></span>
+        <span class="modchip">Opener <b>Pattern Interrupt</b></span>
+      </div>
+      <div class="hook">"Chasing insulation, modular housing, solar, and agtech deals all at once since 2021."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 · Connect</div><div class="mtext">Tim, five years running JRW Enterprises across insulation franchises, modular multifamily housing, solar consulting, and agtech, that's a wide net for one search. I made a similar jump from finance into buying a business outside my lane. Would like to connect.</div></div>
+        <div class="m"><div class="mlabel">2 · Icebreaker</div><div class="mtext">Kellogg MBA, time at Bain, then five years building JRW Enterprises across four genuinely different sectors, insulation, modular housing, solar, agtech. What's kept the search this wide instead of narrowing to one lane?</div></div>
+        <div class="m"><div class="mlabel">3 · Value-add</div><div class="mtext">Running due diligence across a franchise business, a real estate development, a revenue consulting practice, and an agtech deal all inside the same search is a different discipline than most single-sector searchers build. Has the range made it easier to spot a real opportunity, or harder to commit to one?</div></div>
+        <div class="m"><div class="mlabel">4 · Pivot</div><div class="mtext">Different question, Tim. After five years since JRW Enterprises started, does closing on one specific deal still feel like the finish line, or has the search itself become the business?</div></div>
+        <div class="m"><div class="mlabel">5 · Clean exit</div><div class="mtext">No pressure to respond, Tim. Respect keeping a search alive across that many sectors for five years without giving up. If it ever helps to talk to someone who bought into an industry he knew nothing about and made it work, happy to compare notes.</div></div>
+      </div>
+    </div>
+
+    <div class="sec">Pipeline triage</div>
+    <div class="card"><h4>No deals database on file</h4>
+    <div style="font-size:14px;color:var(--ink-dim)">Notion has no CRM, deals, or pipeline database to check, confirmed by a full workspace search (queries for "pipeline," "CRM," "deals," and "priority coaching client" all came back empty). Your COO briefs have flagged this exact gap for 23 straight days as of today, no revenue or client-stage metric is currently tracked anywhere in the business brain. Priority 1/2/3 triage and Priority 1 next-action DMs can't run without a source of active deals, this section stays blank until one exists. Fastest fix: a simple Notion database with columns for prospect name, stage, last contact date, and next action, even a manual one, would unblock this every week going forward.</div></div>
+
+    <div class="note">Open <b>Erik W.</b> first, the closest pain match in this batch: two and a half years searching alone after stepping out of an MD role, no fanfare, just a stalled search that needs a fresh voice. Samuel Schuh is the most current signal but the thinnest pain fit, treat him as a longer-shot second. Gilles Aszmann and Tim Balfe are both multi-year, low-heat searches, worth a message but don't expect fast replies. Every DM here is a draft. You send, after you read it.</div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>Built by Daniel Paul · Purely Personal</b></footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    window.addEventListener('load',function(){
+      if(!window.gsap)return; gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.ohead',{y:26,opacity:0,scale:.98,duration:.7,ease:'power3.out'});
+      gsap.from('.ohead h1',{y:14,opacity:0,duration:.7,delay:.12,ease:'power3.out'});
+      gsap.from('.card,.stat,.pcard,.note',{y:20,opacity:0,duration:.5,stagger:.05,ease:'power2.out',scrollTrigger:{trigger:'.doc',start:'top 85%'}});
+    });
+  </script>
+</body>
+</html>
