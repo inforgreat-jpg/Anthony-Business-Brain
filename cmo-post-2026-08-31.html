@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CMO Daily Post · Institute for Greatness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#F05A28; --primary-light:#F59473;
+    --black:#003444; --ink:#003444; --white:#FFFFFF; --off-white:#F8F7F5;
+    --gray:#E4E3E0; --gray-text:#5b5b62; --gray-light:#F2F1EE;
+    --good:#16A34A; --warn:#D97706; --bad:#DC2626;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.04),0 8px 28px rgba(0,0,0,.06);
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 78%, #000) 0%, var(--primary) 48%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:radial-gradient(80% 60% at 96% -12%, color-mix(in srgb,var(--primary) 14%, transparent), transparent 60%), radial-gradient(60% 50% at 0% 6%, color-mix(in srgb,var(--primary-light) 10%, transparent), transparent 55%), var(--off-white);background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:840px;margin:0 auto;padding:34px 22px 70px;}
+
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px color-mix(in srgb,var(--primary) 30%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.82;font-weight:600;}
+  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.85;}
+
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-text);font-weight:700;margin:24px 0 12px;}
+  .card{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-text);margin-bottom:12px;}
+  .row{display:flex;align-items:flex-start;gap:10px;padding:9px 0;font-size:14px;border-bottom:1px solid var(--gray-light);}
+  .row:last-child{border-bottom:none;}
+  .row .txt{flex:1;}
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);white-space:nowrap;flex-shrink:0;}
+  .t-grn{background:#e7f6ee;color:var(--good);}
+  .t-primary{background:color-mix(in srgb,var(--primary) 14%, white);color:var(--primary);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+
+  .lipost{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:20px;}
+  .lihead{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+  .av{width:46px;height:46px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;}
+  .lihead .nm{font-weight:700;font-size:15px;} .lihead .mt{font-size:12px;color:var(--gray-text);}
+  .lipost .post{font-size:15px;line-height:1.65;white-space:pre-line;}
+  .lipost .post .hook{background:linear-gradient(180deg, transparent 60%, color-mix(in srgb,var(--primary) 22%, transparent) 60%);font-weight:700;}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+  .chip{font-size:12px;font-weight:600;background:var(--gray-light);color:var(--gray-text);padding:5px 11px;border-radius:var(--pill);}
+  .score{display:inline-flex;align-items:center;gap:8px;background:#e7f6ee;color:var(--good);font-weight:700;font-size:13px;padding:6px 13px;border-radius:var(--pill);}
+
+  .pin{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--gray-light);}
+  .pin:last-child{border-bottom:none;}
+  .pin .lbl{flex-shrink:0;width:110px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--primary);padding-top:2px;}
+  .pin .txt{font-size:14px;color:var(--ink);}
+
+  footer{text-align:center;padding:30px 22px 10px;color:var(--gray-text);font-size:13px;}
+  footer b{color:var(--ink);}
+
+  @media(max-width:640px){.grid2{grid-template-columns:1fr;} .pin{flex-direction:column;gap:4px;} .pin .lbl{width:auto;}}
+</style>
+</head>
+<body data-theme="standard">
+  <div class="doc">
+
+    <div class="ohead"><div class="k">CMO · Daily post</div><h1>Today's post, in your voice</h1><div class="d">Monday, Aug 31 · Pillar: Lived Experience vs. Certification · scored and scrubbed</div></div>
+
+    <div class="sec">5 hooks generated</div>
+    <div class="card">
+      <div class="row"><span class="txt"><b>Result Lead</b> — "I've logged 100 hours of ICF training and 100 hours of real client hours. Only one of those numbers predicts whether I can help you."</span></div>
+      <div class="row"><span class="txt"><b>Confession</b> — "I am ICF-certified. None of it prepared me for the first client who called me panicking, mid-crisis, needing an answer I didn't have yet."</span></div>
+      <div class="row"><span class="txt"><b>Contrarian</b> — "Most coaches were trained. They were never tested."</span><span class="tagi t-grn">chosen</span></div>
+      <div class="row"><span class="txt"><b>Curiosity Gap</b> — "There are five questions I wish someone made me ask before I hired my first coach. Almost nobody asks them."</span></div>
+      <div class="row"><span class="txt"><b>Pattern Interrupt</b> — "Before you pay a coach $6,000, ask if they've ever been laid off. Then ask four more questions."</span></div>
+    </div>
+    <div class="card" style="border-left-color:var(--ink);"><h4>Why this one</h4><div class="row" style="border:none;padding:2px 0;">Matches today's calendar direction exactly, states the position as fact with no hedging, and opens a gap ("trained" vs. "tested") that only the five questions can close, which is the job a Framework-Heavy hook has to do.</div></div>
+
+    <div class="sec">The post</div>
+    <div class="lipost">
+      <div class="lihead"><div class="av">AT</div><div><div class="nm">Anthony Tse · 1st</div><div class="mt">Master of Pivoting · Executive Coach · TEDx Speaker · now</div></div></div>
+      <div class="post"><span class="hook">Most coaches were trained. They were never tested.</span>
+
+I am ICF-certified. I sat through the hours, logged the sessions, passed what needed passing. The certificate was the easy half.
+
+Before you hand someone $6,000 to coach you through a pivot, a promotion, or an exit, ask them these five questions. I wish someone had asked me these before I hired my first coach.
+
+One. Have you personally lost the job, the salary, the identity you're coaching me to protect? I was laid off twice, once after Lehman in 2009 and once from a hedge fund I started myself. Reading about job loss and living it are not the same pain.
+
+Two. Have you built something and watched part of it fail anyway? I grew a preschool group in Singapore past 50 staff and still lost one school to a culture I could never fix, no matter who I replaced.
+
+Three. Can you tell me exactly what you would have done differently, not vaguely? Vague answers usually mean vague experience.
+
+Four. Do you have a process, or do you have scars plus a process? A process alone is theory. Scars alone is chaos. Both together is a map built from the road.
+
+Five. What's the worst advice you were ever paid to give, and did you admit it was wrong? A coach who has never been wrong in public hasn't been tested in public either.
+
+I ask myself all five before I charge anyone. Save this before your next coaching call.
+
+Which of these have you never asked?
+
+P.S. The certificate got me in the room. The scars are why clients stay.</div>
+      <div class="chips"><span class="chip">1,475 chars</span><span class="chip">Hook: Contrarian</span><span class="chip">Framework: Numbered (Variation A)</span><span class="chip">No em dashes</span></div>
+    </div>
+
+    <div class="grid2">
+      <div class="card"><h4>Calendar slot used</h4>
+        <div class="row"><span class="txt">Pillar</span><span class="tagi t-primary">Lived Experience vs. Certification</span></div>
+        <div class="row"><span class="txt">Format</span><span class="tagi t-primary">Framework post</span></div>
+        <div class="row"><span class="txt">Intent</span><span class="tagi t-primary">Educating</span></div>
+        <div class="row"><span class="txt">Source</span><span class="tagi t-primary">Notion, Aug 31 slot</span></div>
+      </div>
+      <div class="card"><h4>Publish check</h4>
+        <div class="row"><span class="txt">Stops the scroll</span><span class="tagi t-grn">✓</span></div>
+        <div class="row"><span class="txt">Matches Voice DNA</span><span class="tagi t-grn">✓</span></div>
+        <div class="row"><span class="txt">Zero banned words</span><span class="tagi t-grn">✓</span></div>
+        <div class="row"><span class="txt">Specific ask</span><span class="tagi t-grn">✓</span></div>
+      </div>
+    </div>
+
+    <div class="sec">Invisibility Diagnostic</div>
+    <div class="card">
+      <div class="row"><span class="txt"><b>Voice</b> — first-person conviction, real rhythm, not a certified-coach cadence</span><span class="tagi t-grn">1/1</span></div>
+      <div class="row"><span class="txt"><b>POV</b> — a certificate alone isn't enough, scars plus process is the actual bar</span><span class="tagi t-grn">1/1</span></div>
+      <div class="row"><span class="txt"><b>Specificity</b> — Lehman 2009, own hedge fund, Singapore preschool group past 50 staff, one school lost to culture</span><span class="tagi t-grn">1/1</span></div>
+      <div class="row"><span class="txt"><b>Asking</b> — save the post, then answer the closing question</span><span class="tagi t-grn">1/1</span></div>
+    </div>
+    <div style="text-align:center;margin-top:8px;margin-bottom:8px"><span class="score">Invisibility Diagnostic: 4 / 4</span></div>
+
+    <div class="sec">3 pinned comments</div>
+    <div class="card">
+      <div class="pin"><div class="lbl">Extend</div><div class="txt">One more test I left out of the five: ask what they'd do differently if the exact same crisis hit them again next year. If the honest answer is nothing, that's not conviction. That's a story that never actually got sat with.</div></div>
+      <div class="pin"><div class="lbl">Humanise</div><div class="txt">Truth is I almost failed my own certification mock session. I kept trying to solve the client's problem instead of asking question five above. Getting certified taught me to shut up and ask it anyway.</div></div>
+      <div class="pin"><div class="lbl">CTA Amplifier</div><div class="txt">If none of your last three coaching conversations covered these five, that's worth sitting with before the next one. Happy to send the longer list I run with my own 1:1 clients, just say the word.</div></div>
+    </div>
+
+    <footer>Institute for Greatness · <a href="https://www.ifgreatness.com" style="color:var(--primary);">ifgreatness.com</a></footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    window.addEventListener('load',function(){
+      if(!window.gsap)return; gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.ohead',{y:26,opacity:0,scale:.98,duration:.7,ease:'power3.out'});
+      gsap.from('.ohead h1',{y:14,opacity:0,duration:.7,delay:.12,ease:'power3.out'});
+      gsap.from('.card,.lipost',{y:20,opacity:0,duration:.55,stagger:.07,ease:'power2.out',scrollTrigger:{trigger:'.doc',start:'top 85%'}});
+    });
+  </script>
+</body>
+</html>
