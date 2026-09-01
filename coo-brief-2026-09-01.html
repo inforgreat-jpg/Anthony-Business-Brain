@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Brief — 2026-09-01</title>
+<style>
+  :root {
+    --primary: #E90D41;
+    --primary-soft: rgba(233, 13, 65, 0.12);
+    --bg: #0A0A0A;
+    --card: #141414;
+    --card-border: #232323;
+    --text: #F2F0EE;
+    --text-soft: #9C9A97;
+    --text-faint: #6B6965;
+    --green: #34C77B;
+    --green-soft: rgba(52, 199, 123, 0.12);
+    --amber: #E8A73D;
+    --amber-soft: rgba(232, 167, 61, 0.12);
+    --red: #E24444;
+    --red-soft: rgba(226, 68, 68, 0.14);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+    padding: 40px 20px 64px;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  header {
+    margin-bottom: 32px;
+  }
+
+  .eyebrow {
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+  }
+
+  h1 {
+    font-size: 28px;
+    line-height: 1.25;
+    margin: 0 0 6px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .subdate {
+    color: var(--text-soft);
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 22px 24px 24px;
+    margin-bottom: 16px;
+  }
+
+  .card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .card-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    margin: 0;
+  }
+
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .status.green { color: var(--green); background: var(--green-soft); }
+  .status.amber { color: var(--amber); background: var(--amber-soft); }
+  .status.red   { color: var(--red);   background: var(--red-soft); }
+
+  .status::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+
+  .item {
+    display: flex;
+    gap: 12px;
+    padding: 12px 0;
+    border-top: 1px solid var(--card-border);
+  }
+  .item:first-of-type { border-top: none; padding-top: 0; }
+
+  .dot {
+    flex: 0 0 auto;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-top: 6px;
+  }
+  .dot.green { background: var(--green); }
+  .dot.amber { background: var(--amber); }
+  .dot.red   { background: var(--red); }
+
+  .item-body { flex: 1; min-width: 0; }
+
+  .item-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 3px;
+    color: var(--text);
+  }
+
+  .item-meta {
+    font-size: 13px;
+    color: var(--text-soft);
+    margin: 0 0 3px;
+    font-weight: 500;
+  }
+
+  .item-desc {
+    font-size: 13.5px;
+    color: var(--text-soft);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .item a {
+    color: var(--primary);
+    text-decoration: none;
+  }
+  .item a:hover { text-decoration: underline; }
+
+  .note {
+    font-size: 13px;
+    color: var(--text-faint);
+    margin: 14px 0 0;
+    padding-top: 12px;
+    border-top: 1px solid var(--card-border);
+    line-height: 1.6;
+  }
+
+  .metric-row {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .metric-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-faint);
+    letter-spacing: -0.01em;
+  }
+
+  .metric-label {
+    font-size: 13.5px;
+    color: var(--text-soft);
+    line-height: 1.5;
+  }
+
+  .pill {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-faint);
+    background: #1C1C1C;
+    border: 1px solid var(--card-border);
+    padding: 2px 8px;
+    border-radius: 6px;
+    margin-right: 6px;
+  }
+
+  footer {
+    text-align: center;
+    color: var(--text-faint);
+    font-size: 12px;
+    margin-top: 28px;
+  }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 23px; }
+    .card { padding: 18px 16px 20px; }
+    .metric-value { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <p class="eyebrow">COO Morning Brief</p>
+    <h1>Good morning, Anthony.</h1>
+    <p class="subdate">Tuesday, September 1, 2026 · Asia/Singapore</p>
+  </header>
+
+  <!-- Today's Schedule -->
+  <section class="card">
+    <div class="card-head">
+      <h2 class="card-title">Today's Schedule</h2>
+      <span class="status green">On track</span>
+    </div>
+
+    <div class="item">
+      <span class="dot green"></span>
+      <div class="item-body">
+        <p class="item-title">Anthony Tse's 16th Xraised Episode</p>
+        <p class="item-meta">7:30 – 8:00 AM · Video interview</p>
+        <p class="item-desc"><a href="https://us05web.zoom.us/j/82321641791?pwd=0oACCEGLb0UEDLXcHK3oonZdPb2ULB.1" target="_blank" rel="noopener">Join on Zoom</a> · Meeting ID 823 2164 1791</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <span class="dot green"></span>
+      <div class="item-body">
+        <p class="item-title">Elise Tan · Institute for Greatness</p>
+        <p class="item-meta">9:00 – 9:30 AM · Discovery session (45-min slot, via Calendly)</p>
+        <p class="item-desc"><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZWNlOGVhNDgtM2JmNy00YTM3LWFlM2MtZDFjODljMDMzY2Ey%40thread.v2/0" target="_blank" rel="noopener">Join on MS Teams</a></p>
+      </div>
+    </div>
+
+    <div class="item">
+      <span class="dot green"></span>
+      <div class="item-body">
+        <p class="item-title">Coach Bench: Series 3 — Virtual Learning</p>
+        <p class="item-meta">12:00 – 1:00 PM · ICF Singapore Chapter</p>
+        <p class="item-desc"><a href="https://us02web.zoom.us/j/83227182830?pwd=DjBeFUIk5xqRc7hPKuD9E56SSOhFHk.1" target="_blank" rel="noopener">Join on Zoom</a></p>
+      </div>
+    </div>
+
+    <div class="item">
+      <span class="dot green"></span>
+      <div class="item-body">
+        <p class="item-title">Webinar — New AML Rule and Sanctions Rule</p>
+        <p class="item-meta">4:30 – 5:30 PM · Singapore Fund Directors Association</p>
+        <p class="item-desc"><a href="https://teams.microsoft.com/meet/483004012009424?p=DdscdqNvmweRtxGDDi" target="_blank" rel="noopener">Join on MS Teams</a></p>
+      </div>
+    </div>
+
+    <p class="note">4 events, no back-to-back conflicts.</p>
+  </section>
+
+  <!-- Inbox Priorities -->
+  <section class="card">
+    <div class="card-head">
+      <h2 class="card-title">Inbox Priorities</h2>
+      <span class="status green">On track</span>
+    </div>
+
+    <div class="item">
+      <span class="dot amber"></span>
+      <div class="item-body">
+        <p class="item-title">New device login flagged on UOB</p>
+        <p class="item-desc">A new device or browser signed into UOB TMRW / Internet Banking this morning — worth a quick check it was you.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <span class="dot amber"></span>
+      <div class="item-body">
+        <p class="item-title">Unread message from Nailyn Carolina (Preply)</p>
+        <p class="item-desc">Sitting unread since early afternoon — not business-critical, but still open.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <span class="dot green"></span>
+      <div class="item-body">
+        <p class="item-title">Zelle payment confirmed — $578.30 to Lee Chang</p>
+        <p class="item-desc">Citi confirmation only, transaction completed as expected.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <span class="dot green"></span>
+      <div class="item-body">
+        <p class="item-title">SGD 40,264 transfer to UBS completed</p>
+        <p class="item-desc">Scheduled UOB fund transfer went through, no action needed.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <span class="dot green"></span>
+      <div class="item-body">
+        <p class="item-title">Rest of inbox is newsletters &amp; digests</p>
+        <p class="item-desc">Seeking Alpha, Business Insider, Wharton/Penn alumni mail — nothing awaiting a reply.</p>
+      </div>
+    </div>
+
+    <p class="note">23 threads in the last 24 hours — none flagged urgent, deadline-bound, or awaiting your reply.</p>
+  </section>
+
+  <!-- Tasks -->
+  <section class="card">
+    <div class="card-head">
+      <h2 class="card-title">Tasks</h2>
+      <span class="status red">Overdue</span>
+    </div>
+
+    <div class="item">
+      <span class="dot red"></span>
+      <div class="item-body">
+        <p class="item-title">Publish my first book</p>
+        <p class="item-meta">Not started · deadline 2024-06-30</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <span class="dot red"></span>
+      <div class="item-body">
+        <p class="item-title">Home renovation</p>
+        <p class="item-meta">In progress · deadline 2024-04-26</p>
+      </div>
+    </div>
+
+    <p class="note">Both are legacy personal entries in Notion's Project Planner, unrelated to the business. No dedicated business task tracker exists yet — flagged for the 25th day running since August 8.</p>
+  </section>
+
+  <!-- Content Slot -->
+  <section class="card">
+    <div class="card-head">
+      <h2 class="card-title">Content Slot</h2>
+      <span class="status amber">Attention needed</span>
+    </div>
+
+    <div class="item">
+      <span class="dot amber"></span>
+      <div class="item-body">
+        <p class="item-title">David's story — the night his business card got taken away</p>
+        <p class="item-meta">Story post · Pillar: The Pivot / Career Changer · Intent: Nurturing</p>
+        <p class="item-desc">"Moment of Truth" hook: context → doubt/fear → soul-searching → decision → conviction. CTA: no hard sell — invite connection ("If this is you right now, tell me where you are in the story."). Brief is set in the content calendar; the post copy itself isn't drafted yet, and today is the scheduled publish day.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Metric -->
+  <section class="card">
+    <div class="card-head">
+      <h2 class="card-title">Key Metric</h2>
+      <span class="status red">Attention needed</span>
+    </div>
+
+    <div class="metric-row">
+      <span class="metric-value">—</span>
+      <span class="metric-label">No metric is currently tracked in the business brain. Flagged for the 25th day running since August 8.</span>
+    </div>
+    <p class="note">Recommend picking one to track daily or weekly — e.g. ETA Masterclass sign-ups, new coaching clients booked, or LinkedIn engagement rate.</p>
+  </section>
+
+  <footer>Generated for Anthony Tse · Institute for Greatness</footer>
+
+</div>
+</body>
+</html>
