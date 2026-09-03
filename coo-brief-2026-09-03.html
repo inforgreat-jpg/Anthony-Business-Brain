@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief — 2026-09-03</title>
+<style>
+  :root{
+    --primary:#F05A28;
+    --primary-dim: rgba(240,90,40,0.14);
+    --bg:#0A0A0A;
+    --card:#141414;
+    --card-border:#232323;
+    --text:#F2F0EC;
+    --text-soft:#A8A6A0;
+    --text-faint:#6E6C67;
+    --green:#22C55E; --green-bg:rgba(34,197,94,0.12);
+    --amber:#F5A524; --amber-bg:rgba(245,165,36,0.12);
+    --red:#EF4444; --red-bg:rgba(239,68,68,0.12);
+    --r-lg:16px; --r-md:10px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:40px 20px 80px;}
+
+  .head{margin-bottom:32px;}
+  .head .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--primary);font-weight:700;}
+  .head h1{font-size:28px;font-weight:700;letter-spacing:-.01em;margin:8px 0 4px;color:var(--text);}
+  .head .d{font-size:14px;color:var(--text-soft);}
+
+  .sec-title{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint);font-weight:700;margin:30px 0 12px;}
+  .sec-title:first-of-type{margin-top:0;}
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:var(--r-lg);
+    padding:4px;
+    margin-bottom:0;
+  }
+  .item{
+    padding:16px 18px;
+    border-bottom:1px solid var(--card-border);
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+  }
+  .item:last-child{border-bottom:none;}
+
+  .item .time{
+    font-size:12px;
+    color:var(--text-soft);
+    font-variant-numeric:tabular-nums;
+    white-space:nowrap;
+    width:96px;
+    flex-shrink:0;
+    padding-top:2px;
+  }
+  .item .body{flex:1;min-width:0;}
+  .item .title{font-size:15px;font-weight:600;color:var(--text);margin-bottom:3px;}
+  .item .note{font-size:13.5px;color:var(--text-soft);}
+  .item .note a{color:var(--primary);text-decoration:none;}
+  .item .note a:hover{text-decoration:underline;}
+
+  .tag{
+    font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+    padding:3px 9px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:1px;
+  }
+  .tag.green{background:var(--green-bg);color:var(--green);}
+  .tag.amber{background:var(--amber-bg);color:var(--amber);}
+  .tag.red{background:var(--red-bg);color:var(--red);}
+
+  .empty{padding:18px;font-size:14px;color:var(--text-soft);}
+
+  .flag-line{
+    display:flex;align-items:center;gap:8px;
+    padding:14px 18px;
+    font-size:13px;color:var(--text-soft);
+    border-bottom:1px solid var(--card-border);
+  }
+
+  .prose-card{padding:18px 20px;}
+  .prose-card .title{font-size:15px;font-weight:600;color:var(--text);margin-bottom:8px;}
+  .prose-card .row{font-size:13.5px;color:var(--text-soft);margin-bottom:6px;}
+  .prose-card .row b{color:var(--text);font-weight:600;}
+  .prose-card .hook{
+    margin-top:10px;padding:12px 14px;background:var(--primary-dim);border-left:3px solid var(--primary);
+    border-radius:6px;font-size:14px;color:var(--text);font-style:italic;
+  }
+
+  .metric-card{padding:22px 20px;display:flex;flex-direction:column;gap:6px;}
+  .metric-card .val{font-size:15px;color:var(--text-soft);}
+  .metric-card .rec{font-size:13px;color:var(--text-faint);margin-top:4px;}
+
+  footer{text-align:center;padding:36px 20px 0;color:var(--text-faint);font-size:12px;}
+  footer b{color:var(--text-soft);}
+
+  @media(max-width:480px){
+    .item{flex-wrap:wrap;}
+    .item .time{width:100%;}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="head">
+      <div class="k">COO · Morning Brief</div>
+      <h1>Good morning, Anthony</h1>
+      <div class="d">Thursday, September 3, 2026 · Asia/Singapore</div>
+    </div>
+
+    <div class="sec-title">Today's Schedule</div>
+    <div class="card">
+      <div class="item">
+        <div class="time">10:00–11:00 AM</div>
+        <div class="body">
+          <div class="title">Hupo session: Anthony Tse &amp; Dean Jones</div>
+          <div class="note"><a href="https://api.hupo.co/event/join/6a8655326d95509fdc2b2004?coach=1&ref=g-cal" target="_blank" rel="noopener">Join link</a></div>
+        </div>
+        <span class="tag green">On track</span>
+      </div>
+      <div class="item">
+        <div class="time">1:30–2:30 PM</div>
+        <div class="body">
+          <div class="title">Appointment with Ryan Shah (60 min)</div>
+          <div class="note">Teams · Ryan's note on the booking: "let's move Saturday till thursday, though I'm worried it's a bit early." Worth a quick check the time still works for him.</div>
+        </div>
+        <span class="tag amber">Attention</span>
+      </div>
+      <div class="item">
+        <div class="time">7:30–8:00 PM</div>
+        <div class="body">
+          <div class="title">1 on 1 with Danny (Daniel Paul)</div>
+          <div class="note"><a href="https://us06web.zoom.us/j/84263404135?pwd=SOz4KR4EwdPArpXlWyTfajhycmOQvq.1" target="_blank" rel="noopener">Zoom link</a></div>
+        </div>
+        <span class="tag green">On track</span>
+      </div>
+      <div class="item">
+        <div class="time">9:30–10:30 PM</div>
+        <div class="body">
+          <div class="title">Kiran / Anthony</div>
+          <div class="note">MS Teams · join link on the calendar invite</div>
+        </div>
+        <span class="tag green">On track</span>
+      </div>
+    </div>
+
+    <div class="sec-title">Inbox Priorities (last 24 hours, max 5)</div>
+    <div class="card">
+      <div class="flag-line">Nothing marked urgent, deadline-driven, or explicitly needing a response in the last 24 hours.</div>
+      <div class="item">
+        <div class="body">
+          <div class="title">UOB — scheduled transfer completed</div>
+          <div class="note">SGD 13,000.00 to UBS AG (a/c ending 6804), 31 Aug 1:44 PM SGT, self-initiated. Worth a quick glance to confirm it was authorized.</div>
+        </div>
+        <span class="tag amber">Attention</span>
+      </div>
+      <div class="item">
+        <div class="body">
+          <div class="title">Russell Reynolds — invite-only fireside chat</div>
+          <div class="note">CEO transformation panel with Constantine Alexandrakis and Raj Subramaniam. Optional networking, no reply needed.</div>
+        </div>
+        <span class="tag green">FYI</span>
+      </div>
+      <div class="item">
+        <div class="body">
+          <div class="title">Business Insider — Zuckerberg pushed back on AI regulation</div>
+          <div class="note">Industry news, no action needed.</div>
+        </div>
+        <span class="tag green">FYI</span>
+      </div>
+      <div class="item">
+        <div class="body">
+          <div class="title">HSBC UK Premier — new account benefits</div>
+          <div class="note">Routine account marketing, no action needed.</div>
+        </div>
+        <span class="tag green">FYI</span>
+      </div>
+      <div class="item">
+        <div class="body">
+          <div class="title">Newsletters &amp; cold pitches</div>
+          <div class="note">Caproasia Family Office Spotlight, Wharton Club UK newsletter, a sales-objection-handling pitch from SR Global, Preply lesson reminders. No action needed.</div>
+        </div>
+        <span class="tag green">FYI</span>
+      </div>
+    </div>
+
+    <div class="sec-title">Tasks</div>
+    <div class="card">
+      <div class="item">
+        <div class="body">
+          <div class="title">"Publish my first book"</div>
+          <div class="note">Not started · deadline 2024-06-30 · Project Planner, legacy personal item unrelated to the business.</div>
+        </div>
+        <span class="tag red">Overdue</span>
+      </div>
+      <div class="item">
+        <div class="body">
+          <div class="title">"Home renovation"</div>
+          <div class="note">In progress · deadline 2024-04-26 · Project Planner, legacy personal item unrelated to the business.</div>
+        </div>
+        <span class="tag red">Overdue</span>
+      </div>
+      <div class="flag-line">No dedicated business task tracker exists in Notion yet — flagged for the 27th day running since August 8.</div>
+    </div>
+
+    <div class="sec-title">Content Slot</div>
+    <div class="card">
+      <div class="prose-card">
+        <div class="title">Contrarian/Engagement post — queued for today</div>
+        <div class="row"><b>Topic:</b> Face time vs. impact — why sitting in every meeting is not leadership</div>
+        <div class="row"><b>Pillar:</b> Presence Over Performance</div>
+        <div class="row"><b>Intent:</b> Engagement</div>
+        <div class="row"><b>CTA:</b> Direct question to spark comments — "What's one meeting you sat in this week that you didn't need to?"</div>
+        <div class="hook">"Being in every meeting is not leadership. It's attendance."</div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:2px;">
+      <div class="flag-line" style="border-bottom:none;">
+        <span class="tag green">On track</span>&nbsp; Thursday is a scheduled posting day, and today's post is queued.
+      </div>
+    </div>
+
+    <div class="sec-title">Key Metric</div>
+    <div class="card">
+      <div class="metric-card">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
+          <div class="title" style="font-size:15px;font-weight:600;">Not currently tracked</div>
+          <span class="tag amber">Attention</span>
+        </div>
+        <div class="val">No metric is set in the business brain. Flagged for the 27th day running since August 8.</div>
+        <div class="rec">Recommend picking one to track daily or weekly — for example ETA Masterclass sign-ups, new coaching clients booked, or LinkedIn engagement rate.</div>
+      </div>
+    </div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>Institute for Greatness</b></footer>
+  </div>
+</body>
+</html>
