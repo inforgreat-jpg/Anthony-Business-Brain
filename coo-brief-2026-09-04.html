@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief · Purely Personal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#F05A28; --primary-light:#F59473;
+    --bg:#0A0A0A; --card:#141414; --card-2:#181818; --border:#262626;
+    --ink:#F5F4F2; --ink-soft:#B8B6B1; --ink-faint:#7A7873;
+    --good:#22C55E; --good-bg:rgba(34,197,94,.12);
+    --warn:#F5A623; --warn-bg:rgba(245,166,35,.12);
+    --bad:#EF4444; --bad-bg:rgba(239,68,68,.14);
+    --r-md:14px; --r-lg:20px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35);
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 78%, #000) 0%, var(--primary) 48%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Rethink Sans',sans-serif;
+    background:
+      radial-gradient(70% 50% at 92% -10%, color-mix(in srgb,var(--primary) 16%, transparent), transparent 60%),
+      radial-gradient(55% 45% at 4% 0%, color-mix(in srgb,var(--primary) 8%, transparent), transparent 55%),
+      var(--bg);
+    background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  .doc{max-width:840px;margin:0 auto;padding:34px 22px 70px;}
+
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px color-mix(in srgb,var(--primary) 35%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.86;font-weight:600;}
+  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.88;}
+
+  .sec{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;margin:26px 0 12px;display:flex;align-items:center;gap:10px;}
+  .sec::after{content:"";flex:1;height:1px;background:var(--border);}
+
+  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:12px;}
+  .lead{font-size:16px;color:var(--ink);}
+
+  .row{display:flex;align-items:flex-start;gap:10px;padding:10px 0;font-size:14.5px;border-bottom:1px solid var(--border);color:var(--ink);}
+  .row:last-child{border-bottom:none;}
+  .row .num{color:var(--ink-faint);font-size:13px;width:16px;flex-shrink:0;padding-top:1px;}
+  .row .txt{flex:1;}
+  .row .txt .t1{font-weight:600;margin-bottom:2px;}
+  .row .txt .t2{color:var(--ink-soft);font-size:13.5px;}
+
+  .tag{font-size:10.5px;font-weight:700;letter-spacing:.04em;padding:3px 9px;border-radius:var(--pill);white-space:nowrap;flex-shrink:0;text-transform:uppercase;}
+  .t-grn{background:var(--good-bg);color:var(--good);}
+  .t-amb{background:var(--warn-bg);color:var(--warn);}
+  .t-red{background:var(--bad-bg);color:var(--bad);}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .stat{background:var(--card);border:1px solid var(--border);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
+  .stat .l{font-size:12px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.06em;}
+  .stat .n{font-size:17px;font-weight:700;margin-top:8px;color:var(--ink);}
+  .stat .delta{font-size:13px;margin-top:6px;color:var(--ink-soft);}
+
+  .empty{color:var(--ink-soft);font-size:14px;padding:6px 0;}
+
+  .banner{display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:600;padding:10px 14px;border-radius:10px;margin-bottom:12px;}
+  .b-grn{background:var(--good-bg);color:var(--good);}
+  .b-amb{background:var(--warn-bg);color:var(--warn);}
+  .b-red{background:var(--bad-bg);color:var(--bad);}
+
+  footer{text-align:center;padding:30px 22px 10px;color:var(--ink-faint);font-size:13px;}
+  footer b{color:var(--ink-soft);}
+
+  @media(max-width:640px){.grid2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body data-theme="dark">
+  <div class="doc">
+
+    <div class="ohead">
+      <div class="k">COO · Morning brief</div>
+      <h1>Good morning, Anthony</h1>
+      <div class="d">Friday, September 4, 2026 · ran while you slept</div>
+    </div>
+
+    <div class="sec">Today's Schedule</div>
+    <div class="card">
+      <div class="banner b-grn">● On track — clear day</div>
+      <div class="lead">No events on your calendar today. A clear day for deep work.</div>
+    </div>
+
+    <div class="sec">Inbox Priorities <span style="text-transform:none;letter-spacing:0;color:var(--ink-faint);font-weight:500;">(last 24 hours, max 5)</span></div>
+    <div class="card">
+      <div class="banner b-amb">● Attention — nothing urgent, one worth a glance</div>
+      <div class="row">
+        <span class="num">1</span>
+        <div class="txt">
+          <div class="t1">DBS: SGD corporate cheques cease 1 January 2027</div>
+          <div class="t2">Industry-wide notice from DBS SME banking. No deadline this week, but worth flagging for IFG/FF Fraternity payment processes before the cutover.</div>
+        </div>
+        <span class="tag t-amb">Attention</span>
+      </div>
+      <div class="row">
+        <span class="num">2</span>
+        <div class="txt">
+          <div class="t1">HSBC Composite Statement is ready</div>
+          <div class="t2">Routine e-statement notification. No action needed.</div>
+        </div>
+        <span class="tag t-grn">On track</span>
+      </div>
+      <div class="row">
+        <span class="num">3</span>
+        <div class="txt">
+          <div class="t1">BOCHK Electronic Consolidated Statement is ready</div>
+          <div class="t2">Routine e-statement notification. No action needed.</div>
+        </div>
+        <span class="tag t-grn">On track</span>
+      </div>
+      <div class="row">
+        <span class="num">4</span>
+        <div class="txt">
+          <div class="t1">Citi wants feedback on your Aug 28 customer service call</div>
+          <div class="t2">Optional survey. No response required.</div>
+        </div>
+        <span class="tag t-grn">On track</span>
+      </div>
+      <div class="row">
+        <span class="num">5</span>
+        <div class="txt">
+          <div class="t1">Newsletters &amp; marketing batch</div>
+          <div class="t2">Business Insider, Seeking Alpha, Caproasia, Cushman &amp; Wakefield, srglobal.com (x4 cold pitches), Substack, Preply lesson reminders, property listings, Nextdoor. No action needed.</div>
+        </div>
+        <span class="tag t-grn">On track</span>
+      </div>
+    </div>
+
+    <div class="sec">Tasks</div>
+    <div class="card">
+      <div class="banner b-red">● 2 overdue</div>
+      <div class="row">
+        <span class="num">1</span>
+        <div class="txt">
+          <div class="t1">"Publish my first book" — Not started</div>
+          <div class="t2">Deadline 2024-06-30 · Project Planner, legacy personal item unrelated to the business.</div>
+        </div>
+        <span class="tag t-red">Overdue</span>
+      </div>
+      <div class="row">
+        <span class="num">2</span>
+        <div class="txt">
+          <div class="t1">"Home renovation" — In progress</div>
+          <div class="t2">Deadline 2024-04-26 · Project Planner, legacy personal item unrelated to the business.</div>
+        </div>
+        <span class="tag t-red">Overdue</span>
+      </div>
+      <div class="row" style="border-top:1px solid var(--border);margin-top:4px;padding-top:14px;">
+        <div class="txt">
+          <div class="t2" style="color:var(--warn);">No dedicated business task tracker exists in Notion yet. Flagged for the 28th day running since August 8 — consider standing one up.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">Content Slot</div>
+    <div class="card">
+      <div class="banner b-grn">● On track — post queued</div>
+      <div class="lead" style="margin-bottom:8px;">Framework post · Time Value / Reallocation</div>
+      <div class="row" style="border:none;padding-top:2px;">
+        <div class="txt">
+          <div class="t2"><b style="color:var(--ink);">Topic:</b> The GPS audit — where your 168 hours actually go vs. where they should go if you're serious about the pivot or the acquisition.</div>
+        </div>
+      </div>
+      <div class="row" style="border:none;">
+        <div class="txt">
+          <div class="t2"><b style="color:var(--ink);">Hook:</b> "You can have the nicest car and drive at top speed. But if you don't know where you're going, you're just burning gas."</div>
+        </div>
+      </div>
+      <div class="row" style="border:none;">
+        <div class="txt">
+          <div class="t2"><b style="color:var(--ink);">CTA:</b> "Save this if you've been meaning to audit your week."</div>
+        </div>
+      </div>
+      <div class="row" style="border:none;padding-bottom:0;">
+        <div class="txt">
+          <div class="t2" style="color:var(--ink-faint);font-size:12.5px;">No performance data tracked yet this cycle, so Educating repeats as the safest default intent — flagged for review once tracking is live.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">Key Metric</div>
+    <div class="stat">
+      <div class="l">Tracked metric</div>
+      <div class="n" style="color:var(--warn);">Not set — 28th day running</div>
+      <div class="delta">No metric is currently tracked in your business brain. Recommend picking one to track daily or weekly, e.g. ETA Masterclass sign-ups, new coaching clients booked, or LinkedIn engagement rate.</div>
+    </div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>Built by Daniel Paul · Purely Personal</b></footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    window.addEventListener('load',function(){
+      if(!window.gsap)return; gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.ohead',{y:26,opacity:0,scale:.98,duration:.7,ease:'power3.out'});
+      gsap.from('.ohead h1',{y:14,opacity:0,duration:.7,delay:.12,ease:'power3.out'});
+      gsap.from('.card,.stat',{y:20,opacity:0,duration:.55,stagger:.07,ease:'power2.out',scrollTrigger:{trigger:'.doc',start:'top 85%'}});
+    });
+  </script>
+</body>
+</html>
