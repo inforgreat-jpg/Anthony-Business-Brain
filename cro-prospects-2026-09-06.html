@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRO Weekly Prospect Pack · Institute for Greatness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#F05A28; --primary-light:#F7885E;
+    --navy:#003444; --navy-light:#0F5870;
+    --bg:#0A0A0A; --card:#141414; --card2:#181818; --border:#262421;
+    --ink:#F5F1EA; --muted:#A6A19A; --muted2:#7A756E;
+    --good:#34D399; --warn:#FBBF24; --bad:#F87171;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.4),0 12px 32px rgba(0,0,0,.5);
+    --grad:linear-gradient(135deg, #B8391A 0%, var(--primary) 48%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:
+    radial-gradient(70% 50% at 96% -10%, rgba(240,90,40,.10), transparent 60%),
+    radial-gradient(60% 45% at 0% 8%, rgba(0,52,68,.35), transparent 55%),
+    var(--bg);
+    background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:900px;margin:0 auto;padding:34px 22px 70px;}
+
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 18px 46px rgba(240,90,40,.22);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.08);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;font-weight:600;}
+  .ohead h1{font-size:clamp(22px,4vw,30px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.88;}
+
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700;margin:26px 0 12px;}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-md);box-shadow:var(--sh);padding:16px 18px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .stat{background:var(--card);border:1px solid var(--border);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
+  .stat .l{font-size:12px;color:var(--muted);} .stat .n{font-size:34px;font-weight:800;letter-spacing:-.02em;margin-top:4px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;}
+  .t-amb{background:rgba(251,191,36,.14);color:var(--warn);} .t-grn{background:rgba(52,211,153,.14);color:var(--good);} .t-navy{background:rgba(15,88,112,.28);color:#7fd4ee;}
+
+  .pcard{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--sh);padding:20px 22px;margin-bottom:16px;}
+  .pcard .ph{display:flex;align-items:flex-start;gap:12px;margin-bottom:10px;flex-wrap:wrap;}
+  .pcard .av{width:46px;height:46px;border-radius:50%;background:var(--grad);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;}
+  .pcard .nm{font-weight:800;font-size:17px;color:#fff;} .pcard .rl{font-size:13px;color:var(--muted);margin-top:1px;}
+  .pcard .signal{font-size:13px;color:var(--muted);background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:8px 12px;margin:10px 0;}
+  .modrow{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;}
+  .modchip{font-size:11px;font-weight:600;background:var(--card2);border:1px solid var(--border);color:var(--ink);padding:5px 10px;border-radius:var(--pill);}
+  .modchip b{color:var(--primary-light);}
+  .hook{font-style:italic;font-size:14px;color:var(--ink);border-left:3px solid var(--primary);padding:8px 12px;margin:10px 0;background:rgba(240,90,40,.06);}
+  .seq{margin-top:12px;}
+  .seq .m{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);font-size:13.5px;}
+  .seq .m:last-child{border-bottom:none;}
+  .seq .mlabel{flex-shrink:0;width:112px;font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--primary-light);padding-top:1px;}
+  .seq .mtext{color:var(--ink);}
+
+  .note{background:linear-gradient(135deg, var(--navy) 0%, #061c24 100%);color:#fff;border-radius:var(--r-md);padding:18px 22px;font-size:15px;margin-top:6px;box-shadow:0 14px 36px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.06);}
+  .note b{color:var(--primary-light);}
+
+  footer{text-align:center;padding:30px 22px 10px;color:var(--muted2);font-size:13px;}
+  footer b{color:var(--muted);}
+
+  @media(max-width:640px){.grid3{grid-template-columns:1fr;} .seq .m{flex-direction:column;gap:2px;} .seq .mlabel{width:auto;}}
+</style>
+</head>
+<body data-theme="dark">
+  <div class="doc">
+
+    <div class="ohead"><div class="k">CRO · Weekly prospect pack</div><h1>3 matched. 0 hot.</h1><div class="d">Sourced from your ETA ICP via Apify · DMs drafted, nothing sent</div></div>
+
+    <div class="grid3">
+      <div class="stat"><div class="l">Prospects</div><div class="n">3</div></div>
+      <div class="stat"><div class="l">Hot</div><div class="n" style="color:var(--good);-webkit-text-fill-color:var(--good)">0</div></div>
+      <div class="stat"><div class="l">DMs drafted</div><div class="n">15</div></div>
+    </div>
+
+    <div class="card"><h4 style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px">Sourcing note</h4>
+    <div style="font-size:14px;color:var(--ink)">Ran the ETA search fresh, then six follow-up keyword variations (self-funded search fund, independent sponsor, Singapore-based ETA, buy-then-build, searcher CEO, ETA lower-middle-market) to widen the pool. Of the first 10 raw results: one was Debanjan Sengupta, already in your funnel from the July 18 pack, so skipped as a duplicate. Four were competitors under the standing rule, people who advise or coach searchers rather than search themselves: Guy Solomon (ETA lecturer and search-fund CEO coach, Reichman University), Marc Deegan (ETA program director and lecturer, McGill/Concordia), Ben Ghirmai (capital provider to acquisition entrepreneurs, BDC Capital), and Alexander Steinkuhl (completed searcher now running an ETA advisory network). One, Shravani Zope, was an AI engineer with no acquisition signal at all, a false-positive keyword match. Two more, Afnan Anjum and Samuel Schuh, were genuine ETA-adjacent profiles but too early-career, an MBA club board member and a college senior respectively, outside your budget range. The six follow-up searches surfaced exactly one new person (JB Stockslager) and then went dry, confirming this connector's pool for the niche is largely tapped this week. That left 3 new, qualified prospects. Shipping at 3 rather than padding with weaker matches, per your standing call.</div></div>
+
+    <div class="sec">The prospects</div>
+
+    <!-- 1 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">TB</div><div><div class="nm">Tim Balfe</div><div class="rl">Entrepreneurship Through Acquisition & Business Development, JRW Enterprises · Denver, USA</div></div><span class="tagi t-amb" style="margin-left:auto">warm</span></div>
+      <div class="signal">Signal: five-plus years self-employed and searching (since 2021) after a Bain & Co. consulting stint, following a twenty-year run of EVP and MD roles at Firebreak Spray Systems, Republic Financial Corp, and The Broe Group, plus international management at Monsanto. Kellogg MBA, Cornell BS. Currently diligencing across modular real estate, solar/PV energy, and agtech, a wider net than most single-industry searchers. Lists his phone and email directly in his LinkedIn headline, unusually open to being reached.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>8/10</b> (role 9 · pain 8 · timing 7 · relationship 5)</span>
+        <span class="modchip">Temp <b>Warm</b></span>
+        <span class="modchip">Style <b>Analytical / Driver</b></span>
+        <span class="modchip">Opener <b>Peer Opener</b></span>
+      </div>
+      <div class="hook">"Five years self-employed hunting an acquisition since leaving a 20-year run in EVP roles."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 · Connect</div><div class="mtext">Hi Tim, twenty years running EVP and MD roles, then five years searching solo for the right acquisition, that's real staying power. I made my own jump from finance into buying a business outside my lane. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 · Icebreaker</div><div class="mtext">Five years into a self-funded search after Bain and a run of EVP and MD roles, most people would have folded that timeline into a fund by now. What's kept this a solo search instead of raising outside capital?</div></div>
+        <div class="m"><div class="mlabel">3 · Value bridge</div><div class="mtext">Diligencing modular real estate, solar, and agtech at once is a wider net than most single-industry searchers cast. Has that range made sourcing faster, or just slower to commit?</div></div>
+        <div class="m"><div class="mlabel">4 · Pivot</div><div class="mtext">Different question, Tim. After Monsanto and two decades running other people's P&Ls, does owning the smaller thing feel like a step down in scale, or exactly the point?</div></div>
+        <div class="m"><div class="mlabel">5 · Clean exit</div><div class="mtext">No pressure to reply, Tim. Respect a five-year search, that's patience most people don't have. If it's ever useful to compare notes with someone who bought into an industry he knew nothing about, I'm around.</div></div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">GA</div><div><div class="nm">Gilles Aszmann</div><div class="rl">Director – Land Installation, Nexans · Entrepreneurship Through Acquisition (self-employed) · Paris, France</div></div><span class="tagi t-amb" style="margin-left:auto">warm</span></div>
+      <div class="signal">Signal: holding a full-time Director role at Nexans since Oct 2024 while running his own acquisition search since Jul 2021, five-plus years searching while employed. Prior BU-level and GM roles at Alstom, CNIM, and Primagaz across France, Switzerland, and India. Doing M&A and strategy consulting for start-ups and small caps on the side of the search. Near-exact mirror of the "stayed in his job, compounded acquisitions on the side" client story in Anthony's own case file.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>8/10</b> (role 9 · pain 9 · timing 8 · relationship 5)</span>
+        <span class="modchip">Temp <b>Warm</b></span>
+        <span class="modchip">Style <b>Driver / Analytical</b></span>
+        <span class="modchip">Opener <b>Peer Opener</b></span>
+      </div>
+      <div class="hook">"Running a multi-country GM career while quietly sourcing his own acquisition for five years."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 · Connect</div><div class="mtext">Hi Gilles, running Director roles across France, Switzerland, and India while sourcing your own acquisition on the side for five years takes real discipline. I've coached a client through exactly that, kept his job, built the business quietly. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 · Icebreaker</div><div class="mtext">Five years sourcing while still carrying a full Director role at Nexans, most people treat that as two full-time jobs and quit one of them. What made staying in the day job the right call instead of going all in on the search?</div></div>
+        <div class="m"><div class="mlabel">3 · Value bridge</div><div class="mtext">The M&A and strategy consulting you're doing for start-ups and small caps on the side is effectively free diligence reps most searchers never get. Has that consulting flow ever turned into an actual deal lead?</div></div>
+        <div class="m"><div class="mlabel">4 · Pivot</div><div class="mtext">Different one, Gilles. After Alstom, CNIM, and now Nexans, does owning one business outright feel smaller than running a division, or is that exactly the appeal?</div></div>
+        <div class="m"><div class="mlabel">5 · Clean exit</div><div class="mtext">No pressure to respond, Gilles. Respect the patience it takes to keep both plates spinning this long. If comparing notes with someone who bought into a business outside his own lane is ever useful, happy to talk.</div></div>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">JS</div><div><div class="nm">JB Stockslager</div><div class="rl">Former CEO, Alliance Services · Acquisition Entrepreneur, Slingshot Stone · Dallas, USA</div></div><span class="tagi t-amb" style="margin-left:auto">warm</span></div>
+      <div class="signal">Signal: led Alliance Services, a 350-person Alpine Investors platform company, as CEO through Oct 2024, then launched his own self-funded search (Slingshot Stone) in Feb 2025 while concurrently serving as an Operating Partner at Mosaic ETA, mentoring other acquisition entrepreneurs since Oct 2024. Kellogg MBA, five-plus years at Kearney advising Fortune 500 executives before operating. Also founded a giving community that directed over $105K to nonprofits and sits on a disability-services nonprofit board, a genuinely community-minded operator alongside the deal-making.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>8/10</b> (role 9 · pain 7 · timing 8 · relationship 5)</span>
+        <span class="modchip">Temp <b>Warm</b></span>
+        <span class="modchip">Style <b>Driver / Amiable</b></span>
+        <span class="modchip">Opener <b>Authority Flip</b></span>
+      </div>
+      <div class="hook">"Led a 350-person PE-backed company, now hunting his own deal while mentoring other searchers too."</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 · Connect</div><div class="mtext">Hi JB, running a 350-person company under Alpine's platform, then choosing to search solo for your own acquisition instead of staying inside PE, that's a real bet on yourself. I made a similar leap from finance into buying a business outside my lane. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 · Icebreaker</div><div class="mtext">Leading Alliance Services under Alpine's model, then a year later mentoring other searchers at Mosaic while running your own search through Slingshot Stone, that's an unusual amount of acquisition experience stacked in a short window. Does mentoring other searchers change what you look for in your own deal, or do you keep the two completely separate?</div></div>
+        <div class="m"><div class="mlabel">3 · Value bridge</div><div class="mtext">Coaching other acquisition entrepreneurs at Mosaic while diligencing your own lower-middle-market target means you're seeing more failed searches up close than most first-time buyers ever do. Has that view made you more patient about your own search, or more decisive?</div></div>
+        <div class="m"><div class="mlabel">4 · Pivot</div><div class="mtext">Different question, JB. After running a 350-person operation for Alpine, does the deal you're chasing now feel like a step down in scale, or the actual point?</div></div>
+        <div class="m"><div class="mlabel">5 · Clean exit</div><div class="mtext">No pressure to reply, JB. Respect running your own search while helping other searchers get theirs done too, that's not a small lift. If a perspective from someone who bought into an industry he knew nothing about is ever useful, I'm around.</div></div>
+      </div>
+    </div>
+
+    <div class="sec">Pipeline triage</div>
+    <div class="card"><div style="font-size:14px;color:var(--muted)">Checked Notion for an active-deals or pipeline tracker, none exists. Your own COO brief has flagged this same gap for the 30th day running since August 8. Without a tracker, there's nothing to assign Priority 1/2/3 against, so this section and the Priority 1 closer DMs are skipped again this week. Set up even a single Notion database with deal stage and next action, and this section starts producing real triage and closer messages automatically from next week.</div></div>
+
+    <div class="note">Open <b>Gilles Aszmann</b> first, he is the closest live match to your own coaching case file: senior corporate role, quietly building an acquisition on the side without quitting. Tim Balfe and JB Stockslager are both strong second picks, one has been searching five years and is likely feeling the friction, the other just stepped out of a CEO seat and is unusually well positioned to see his own search clearly. Every DM here is a draft. You send, after you read it.</div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>Built by Daniel Paul · Purely Personal</b></footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    window.addEventListener('load',function(){
+      if(!window.gsap)return; gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.ohead',{y:26,opacity:0,scale:.98,duration:.7,ease:'power3.out'});
+      gsap.from('.ohead h1',{y:14,opacity:0,duration:.7,delay:.12,ease:'power3.out'});
+      gsap.from('.card,.stat,.pcard,.note',{y:20,opacity:0,duration:.5,stagger:.05,ease:'power2.out',scrollTrigger:{trigger:'.doc',start:'top 85%'}});
+    });
+  </script>
+</body>
+</html>
