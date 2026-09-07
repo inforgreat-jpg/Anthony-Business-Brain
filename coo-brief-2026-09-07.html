@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Brief — September 7, 2026</title>
+<style>
+  :root {
+    --primary: #F05A28;
+    --bg: #0A0A0A;
+    --card: #151515;
+    --card-border: #262626;
+    --text: #F2F2F0;
+    --text-soft: #A3A3A0;
+    --text-faint: #6B6B68;
+    --green: #22C55E;
+    --amber: #F5A524;
+    --red: #EF4444;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    padding: 40px 20px 60px;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  header { margin-bottom: 32px; }
+  .eyebrow {
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 12px;
+    font-weight: 700;
+    margin: 0 0 8px;
+  }
+  h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .subdate {
+    color: var(--text-soft);
+    font-size: 14px;
+    margin-top: 6px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 22px 24px;
+    margin-bottom: 18px;
+  }
+  .card h2 {
+    margin: 0 0 14px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-soft);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card h2::before {
+    content: "";
+    width: 3px;
+    height: 14px;
+    background: var(--primary);
+    border-radius: 2px;
+    display: inline-block;
+  }
+  .item {
+    padding: 12px 0;
+    border-top: 1px solid var(--card-border);
+  }
+  .item:first-of-type { border-top: none; padding-top: 0; }
+  .item-head {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .status {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .status.green { color: var(--green); background: rgba(34,197,94,0.12); }
+  .status.amber { color: var(--amber); background: rgba(245,165,36,0.12); }
+  .status.red   { color: var(--red);   background: rgba(239,68,68,0.12); }
+  .item-title { font-weight: 600; font-size: 15px; }
+  .item-meta { color: var(--text-faint); font-size: 13px; margin-top: 2px; }
+  .item-note { color: var(--text-soft); font-size: 14px; margin-top: 6px; line-height: 1.5; }
+  .flag-line {
+    font-size: 13px;
+    color: var(--text-soft);
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--card-border);
+  }
+  .flag-line .status { margin-right: 8px; }
+  a { color: var(--primary); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .empty { color: var(--text-soft); font-size: 14px; }
+  .metric-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--primary);
+  }
+  footer {
+    text-align: center;
+    color: var(--text-faint);
+    font-size: 12px;
+    margin-top: 28px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="eyebrow">COO Morning Brief</p>
+    <h1>Good morning, Anthony.</h1>
+    <p class="subdate">Monday, September 7, 2026</p>
+  </header>
+
+  <div class="card">
+    <h2>Today's Schedule</h2>
+    <div class="flag-line"><span class="status green">On Track</span>Two events today. Research and IFG, Anthonyt727 &amp; IFG, and inforgreat@gmail.com show nothing scheduled.</div>
+    <div class="item">
+      <div class="item-head">
+        <span class="status green">On Track</span>
+        <span class="item-title">Jason lunch</span>
+      </div>
+      <div class="item-meta">12:00 PM – 1:00 PM</div>
+    </div>
+    <div class="item">
+      <div class="item-head">
+        <span class="status amber">Attention</span>
+        <span class="item-title">Anthony singing class</span>
+      </div>
+      <div class="item-meta">4:00 PM – 5:00 PM · Recurring</div>
+      <div class="item-note">Your RSVP is still marked "needs action."</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Inbox Priorities <span style="text-transform:none;font-weight:400;">(last 24 hours, max 5)</span></h2>
+    <div class="flag-line"><span class="status green">On Track</span>Nothing marked urgent, deadline-driven, or needing a response in the last 24 hours.</div>
+    <div class="item">
+      <div class="item-head">
+        <span class="status green">On Track</span>
+        <span class="item-title">Business Insider newsletter</span>
+      </div>
+      <div class="item-note">"Lessons from laid-off Big Tech workers." No action needed.</div>
+    </div>
+    <div class="item">
+      <div class="item-head">
+        <span class="status green">On Track</span>
+        <span class="item-title">HSBC Weekly Insights</span>
+      </div>
+      <div class="item-note">Takeaways from Fed Chair Warsh's Jackson Hole speech. No action needed.</div>
+    </div>
+    <div class="item">
+      <div class="item-head">
+        <span class="status green">On Track</span>
+        <span class="item-title">Cushman &amp; Wakefield — Vietnam MarketBeat Q2 2026</span>
+      </div>
+      <div class="item-note">Industrial market insights newsletter. No action needed.</div>
+    </div>
+    <div class="item">
+      <div class="item-head">
+        <span class="status green">On Track</span>
+        <span class="item-title">HSBC Premier Lifestyle activation</span>
+      </div>
+      <div class="item-note">Promotional service announcement. No action needed unless you want to activate.</div>
+    </div>
+    <div class="item">
+      <div class="item-head">
+        <span class="status green">On Track</span>
+        <span class="item-title">Seeking Alpha — Tax Loss Harvesting</span>
+      </div>
+      <div class="item-note">Premium content promo. No action needed.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Tasks</h2>
+    <div class="flag-line"><span class="status amber">Attention</span>No dedicated business task tracker exists in Notion yet. Flagged for the 32nd day running since August 8.</div>
+    <div class="item">
+      <div class="item-head">
+        <span class="status red">Overdue</span>
+        <span class="item-title">Publish my first book</span>
+      </div>
+      <div class="item-meta">Not started · Deadline 2024-06-30 · Project Planner (legacy personal item, unrelated to the business)</div>
+    </div>
+    <div class="item">
+      <div class="item-head">
+        <span class="status red">Overdue</span>
+        <span class="item-title">Home renovation</span>
+      </div>
+      <div class="item-meta">In progress · Deadline 2024-04-26 · Project Planner (legacy personal item, unrelated to the business)</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Content Slot</h2>
+    <div class="item">
+      <div class="item-head">
+        <span class="status green">On Track</span>
+        <span class="item-title">The Presence Audit</span>
+      </div>
+      <div class="item-meta">Framework post · Presence Over Performance pillar · Educating</div>
+      <div class="item-note">Hook: a diagnostic list opening with "3 signs you're performing leadership instead of practicing it." CTA: save/share close, no hard ask. Confirm it is drafted and scheduled to go out today.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Key Metric</h2>
+    <div class="flag-line" style="margin-bottom:0;padding-bottom:0;border-bottom:none;">
+      <span class="status amber">Attention</span>No metric is currently tracked in your business brain. Flagged for the 32nd day running since August 8.
+    </div>
+    <div class="item-note" style="margin-top:14px;">Recommend picking one to track daily or weekly — for example ETA Masterclass sign-ups, new coaching clients booked, or LinkedIn engagement rate.</div>
+  </div>
+
+  <footer>Institute for Greatness · Generated automatically</footer>
+</div>
+</body>
+</html>
