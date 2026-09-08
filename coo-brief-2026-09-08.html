@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief · 2026-09-08</title>
+<style>
+  :root{
+    --primary:#E8294C;
+    --bg:#0A0A0A;
+    --card:#141414;
+    --card-border:#242424;
+    --text:#F2F2F0;
+    --text-dim:#9C9C98;
+    --text-faint:#6B6B68;
+    --green:#2ECC71; --green-bg:rgba(46,204,113,.12);
+    --amber:#F2A93B; --amber-bg:rgba(242,169,59,.13);
+    --red:#E5484D; --red-bg:rgba(229,72,77,.14);
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:40px 22px 70px;}
+
+  .header{margin-bottom:30px;}
+  .header .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);font-weight:700;}
+  .header h1{font-size:clamp(24px,4vw,32px);font-weight:700;letter-spacing:-.01em;margin:8px 0 4px;}
+  .header .sub{color:var(--text-dim);font-size:14px;}
+
+  .section{margin-bottom:22px;}
+  .section-title{
+    display:flex;align-items:center;gap:10px;
+    font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--text-dim);font-weight:700;margin-bottom:10px;
+  }
+  .section-title::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--primary);flex-shrink:0;}
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:var(--radius);
+    padding:8px 20px;
+  }
+  .card.pad{padding:18px 20px;}
+
+  .item{
+    display:flex;gap:14px;align-items:flex-start;
+    padding:14px 0;
+    border-bottom:1px solid var(--card-border);
+  }
+  .item:last-child{border-bottom:none;}
+  .item .time{
+    width:82px;flex-shrink:0;font-size:12.5px;color:var(--text-dim);
+    padding-top:2px;font-variant-numeric:tabular-nums;
+  }
+  .item .body{flex:1;min-width:0;}
+  .item .title{font-size:14.5px;font-weight:600;color:var(--text);}
+  .item .desc{font-size:13px;color:var(--text-dim);margin-top:3px;}
+  .item .meta{font-size:12px;color:var(--text-faint);margin-top:4px;}
+  .item a{color:var(--primary);text-decoration:none;}
+  .item a:hover{text-decoration:underline;}
+
+  .badge{
+    flex-shrink:0;font-size:10.5px;font-weight:700;letter-spacing:.04em;
+    text-transform:uppercase;padding:3px 9px;border-radius:999px;
+    white-space:nowrap;margin-top:1px;
+  }
+  .badge.green{background:var(--green-bg);color:var(--green);}
+  .badge.amber{background:var(--amber-bg);color:var(--amber);}
+  .badge.red{background:var(--red-bg);color:var(--red);}
+
+  .banner{
+    display:flex;gap:10px;align-items:flex-start;
+    font-size:13px;padding:12px 16px;border-radius:10px;margin-bottom:2px;
+  }
+  .banner.amber{background:var(--amber-bg);color:var(--amber);}
+  .banner.green{background:var(--green-bg);color:var(--green);}
+  .banner.red{background:var(--red-bg);color:var(--red);}
+  .banner b{color:inherit;}
+
+  .note-block{padding:16px 20px;font-size:13.5px;color:var(--text-dim);}
+  .note-block b{color:var(--text);}
+  .note-block .q{
+    display:block;margin-top:10px;padding:10px 14px;
+    border-left:2px solid var(--primary);
+    background:rgba(232,41,76,.06);
+    color:var(--text);font-style:italic;font-size:13.5px;border-radius:0 8px 8px 0;
+  }
+
+  .metric-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 20px;}
+  .metric-row .label{font-size:13.5px;color:var(--text-dim);}
+  .metric-row .value{font-size:15px;font-weight:700;color:var(--text-faint);}
+
+  footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--card-border);font-size:12px;color:var(--text-faint);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <div class="eyebrow">COO Morning Brief</div>
+    <h1>Good morning, Anthony</h1>
+    <div class="sub">Tuesday, September 8, 2026</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Today's Schedule</div>
+    <div class="banner amber"><span>&#9888;&#65039;</span><span>Six events today across your calendars, including a likely duplicate booking and a back-to-back with no buffer.</span></div>
+    <div class="card" style="margin-top:10px;">
+      <div class="item">
+        <div class="time">12:00&nbsp;PM</div>
+        <div class="body">
+          <div class="title">ACC linch ff</div>
+          <div class="desc">Lunch, 12:00 – 2:00 PM · Linda &amp; Anthony Calendar</div>
+          <div class="meta">Your response is still marked needs action.</div>
+        </div>
+        <div class="badge amber">Attention</div>
+      </div>
+      <div class="item">
+        <div class="time">3:30&nbsp;PM</div>
+        <div class="body">
+          <div class="title">ff call taipei</div>
+          <div class="desc">All Hands FF Reunion Hand Off, 3:30 – 4:30 PM · <a href="https://meet.google.com/aue-hqwv-ern" target="_blank" rel="noopener">Google Meet</a></div>
+          <div class="meta">Two entries exist for this meeting — see 6:00 PM below.</div>
+        </div>
+        <div class="badge amber">Attention</div>
+      </div>
+      <div class="item">
+        <div class="time">6:00&nbsp;PM</div>
+        <div class="body">
+          <div class="title">ff call taipei (duplicate)</div>
+          <div class="desc">Same title and description as the 3:30 PM entry, 6:00 – 7:00 PM · <a href="https://meet.google.com/aue-hqwv-ern" target="_blank" rel="noopener">Google Meet</a></div>
+          <div class="meta">Created a minute apart on September 7 — confirm which time is correct and delete the other.</div>
+        </div>
+        <div class="badge amber">Attention</div>
+      </div>
+      <div class="item">
+        <div class="time">7:00&nbsp;PM</div>
+        <div class="body">
+          <div class="title">UK rental income date</div>
+          <div class="desc">Recurring personal reminder, 7:00 – 7:30 PM · not a meeting</div>
+        </div>
+        <div class="badge green">On track</div>
+      </div>
+      <div class="item">
+        <div class="time">9:00&nbsp;PM</div>
+        <div class="body">
+          <div class="title">Laura / Anthony &ndash; MS Teams</div>
+          <div class="desc">Call with Laura Kreutzer (WSJ), 9:00 – 9:30 PM</div>
+        </div>
+        <div class="badge green">On track</div>
+      </div>
+      <div class="item">
+        <div class="time">9:30&nbsp;PM</div>
+        <div class="body">
+          <div class="title">Appointment with Anthony Tse &ndash; Ilef Shili</div>
+          <div class="desc">Daniel Paul AI, 9:30 – 10:00 PM · <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZWNlOGVhNDgtM2JmNy00YTM3LWFlM2MtZDFjODljMDMzY2Ey%40thread.v2/0" target="_blank" rel="noopener">Teams link</a></div>
+          <div class="meta">Starts the moment the Laura call ends — no buffer. Ilef's response is still marked needs action.</div>
+        </div>
+        <div class="badge amber">Attention</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Inbox Priorities</div>
+    <div class="banner green"><span>&#9989;</span><span>Nothing marked urgent, deadline-driven, or needing a response in the last 24 hours.</span></div>
+    <div class="card" style="margin-top:10px;">
+      <div class="item">
+        <div class="body">
+          <div class="title">Business Insider newsletter</div>
+          <div class="desc">"The new workplace status symbol" — no action needed.</div>
+        </div>
+        <div class="badge green">On track</div>
+      </div>
+      <div class="item">
+        <div class="body">
+          <div class="title">HMRC: Self Assessment reminder</div>
+          <div class="desc">"Do you still need to do a tax return?" — generic annual notice, not personalized to a specific deadline.</div>
+        </div>
+        <div class="badge green">On track</div>
+      </div>
+      <div class="item">
+        <div class="body">
+          <div class="title">MarsRhino: chair replacement parts</div>
+          <div class="desc">Replacement screws and a longer wrench for the gold chair are being posted — thread already resolved on your side.</div>
+        </div>
+        <div class="badge green">Resolved</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Tasks</div>
+    <div class="card" style="margin-top:0;">
+      <div class="item">
+        <div class="body">
+          <div class="title">Publish my first book</div>
+          <div class="desc">Not started · deadline 2024-06-30 · Project Planner (legacy personal item, unrelated to the business)</div>
+        </div>
+        <div class="badge red">Overdue</div>
+      </div>
+      <div class="item">
+        <div class="body">
+          <div class="title">Home renovation</div>
+          <div class="desc">In progress · deadline 2024-04-26 · Project Planner (legacy personal item, unrelated to the business)</div>
+        </div>
+        <div class="badge red">Overdue</div>
+      </div>
+    </div>
+    <div class="banner amber" style="margin-top:10px;"><span>&#9888;&#65039;</span><span>No dedicated business task tracker exists in Notion yet — flagged for the 32nd day running since August 8.</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Content Slot</div>
+    <div class="card pad">
+      <div class="note-block" style="padding:0;">
+        Today's post is on the calendar: <b>"Kelvin's story"</b> — a story post under the <b>Freedom Through Ownership (ETA)</b> pillar, nurturing intent.
+        <span class="q">"The day I signed the papers for the preschool group, I didn't feel like an owner. I felt like a fraud."</span>
+        <div style="margin-top:10px;">CTA: no hard sell, invite connection — <i>"If you're sitting on a business card that isn't really yours yet, tell me where you are in that story."</i></div>
+        <div style="margin-top:10px;color:var(--text-faint);">Confirm it is drafted and scheduled to go out today.</div>
+      </div>
+    </div>
+    <div class="banner green" style="margin-top:10px;"><span>&#9989;</span><span>On the calendar and ready — just needs your confirmation it's queued to publish.</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Key Metric</div>
+    <div class="card">
+      <div class="metric-row">
+        <div class="label">No metric currently tracked in your business brain.</div>
+        <div class="value">Not set</div>
+      </div>
+    </div>
+    <div class="banner amber" style="margin-top:10px;"><span>&#9888;&#65039;</span><span>Flagged for the 32nd day running since August 8. Recommend picking one to track daily or weekly — e.g. ETA Masterclass sign-ups, new coaching clients booked, or LinkedIn engagement rate.</span></div>
+  </div>
+
+  <footer>Pulled from Google Calendar, Gmail, and Notion · Generated automatically, review before acting on anything flagged.</footer>
+
+</div>
+</body>
+</html>
