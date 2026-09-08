@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CMO Daily Post · Institute for Greatness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#F05A28; --primary-light:#F59473;
+    --black:#003444; --ink:#003444; --white:#FFFFFF; --off-white:#F8F7F5;
+    --gray:#E4E3E0; --gray-text:#5b5b62; --gray-light:#F2F1EE;
+    --good:#16A34A; --warn:#D97706; --bad:#DC2626;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.04),0 8px 28px rgba(0,0,0,.06);
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 78%, #000) 0%, var(--primary) 48%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:radial-gradient(80% 60% at 96% -12%, color-mix(in srgb,var(--primary) 14%, transparent), transparent 60%), radial-gradient(60% 50% at 0% 6%, color-mix(in srgb,var(--primary-light) 10%, transparent), transparent 55%), var(--off-white);background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:840px;margin:0 auto;padding:34px 22px 70px;}
+
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px color-mix(in srgb,var(--primary) 30%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.82;font-weight:600;}
+  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.85;}
+
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-text);font-weight:700;margin:24px 0 12px;}
+  .card{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-text);margin-bottom:12px;}
+  .row{display:flex;align-items:flex-start;gap:10px;padding:8px 0;font-size:15px;border-bottom:1px solid var(--gray-light);}
+  .row:last-child{border-bottom:none;}
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;flex-shrink:0;}
+  .t-grn{background:#e7f6ee;color:var(--good);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+
+  .hookbox{background:linear-gradient(0deg, color-mix(in srgb,var(--primary) 7%, #fff), color-mix(in srgb,var(--primary) 7%, #fff)), #fff;border:1.5px solid var(--primary);border-radius:var(--r-md);padding:16px 20px;margin-bottom:16px;}
+  .hookbox .k{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--primary);font-weight:800;margin-bottom:6px;}
+  .hookbox .q{font-size:17px;font-weight:700;line-height:1.45;}
+  .hookbox .why{font-size:13px;color:var(--gray-text);margin-top:8px;}
+
+  .lipost{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:20px;}
+  .lihead{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+  .av{width:46px;height:46px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;}
+  .lihead .nm{font-weight:700;font-size:15px;} .lihead .mt{font-size:12px;color:var(--gray-text);}
+  .lipost .post{font-size:15px;line-height:1.65;white-space:pre-line;}
+  .lipost .post b{background:color-mix(in srgb,var(--primary) 16%, transparent);border-radius:4px;padding:0 2px;}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+  .chip{font-size:12px;font-weight:600;background:var(--gray-light);color:var(--gray-text);padding:5px 11px;border-radius:var(--pill);}
+  .score{display:inline-flex;align-items:center;gap:8px;background:#e7f6ee;color:var(--good);font-weight:700;font-size:13px;padding:6px 13px;border-radius:var(--pill);}
+
+  .diag{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+  .diagcell{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);padding:14px;text-align:center;box-shadow:var(--sh);}
+  .diagcell .n{font-size:22px;font-weight:800;color:var(--good);}
+  .diagcell .l{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-text);margin-top:4px;}
+
+  .comment{display:flex;gap:10px;padding:12px 0;border-bottom:1px solid var(--gray-light);}
+  .comment:last-child{border-bottom:none;}
+  .comment .av2{width:34px;height:34px;border-radius:50%;background:var(--black);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;}
+  .comment .txt{font-size:14px;line-height:1.55;}
+  .comment .lbl{display:block;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--primary);margin-bottom:3px;}
+
+  .note{font-size:12.5px;color:var(--gray-text);background:var(--gray-light);border-radius:10px;padding:10px 14px;margin-top:10px;}
+
+  footer{text-align:center;padding:30px 22px 10px;color:var(--gray-text);font-size:13px;}
+  footer b{color:var(--ink);}
+
+  @media(max-width:640px){.grid2{grid-template-columns:1fr;}.diag{grid-template-columns:repeat(2,1fr);}}
+</style>
+</head>
+<body data-theme="standard">
+  <div class="doc">
+
+    <div class="ohead"><div class="k">CMO · Daily post</div><h1>Today's post, in your voice</h1><div class="d">Tuesday, Sep 8 · Pillar: Freedom Through Ownership (ETA) · Intent: Nurturing · Story-Flow</div></div>
+
+    <div class="hookbox">
+      <div class="k">Chosen hook · Confession</div>
+      <div class="q">"The day I signed the papers for the preschool group, I didn't feel like an owner. I felt like a fraud."</div>
+      <div class="why">Chosen because it matches the calendar's "Moment of Truth" hook direction exactly, opens with the confessional vulnerability the Nurturing intent calls for, and earns the doubt-to-conviction arc the rest of the post has to deliver on.</div>
+    </div>
+
+    <div class="lipost">
+      <div class="lihead"><div class="av">AT</div><div><div class="nm">Anthony Tse · 1st</div><div class="mt">Master of Pivoting · Executive Coach · TEDx Speaker · now</div></div></div>
+      <div class="post"><b>The day I signed the papers for the preschool group, I didn't feel like an owner. I felt like a fraud.</b>
+
+I'd spent my whole career in banking, private equity, then my own hedge fund. Numbers, structures, term sheets. None of that prepared me for walking into a room of teachers and realizing I was the only man in it, and the only one who had never taught a child anything in his life.
+
+For the first ninety days I second guessed every decision. I kept the curriculum exactly as it was because I didn't trust myself to know what should change. I told the team straight: you're my mentors now, teach me everything. Some nights I lay awake wondering if I'd just spent everything I had on a mistake I didn't understand yet.
+
+Then the numbers started to move. Not because I'd found some clever multiple or negotiated harder. Because I'd finally stopped pretending to know and started actually listening. We digitized what was still running on paper and USB sticks. We raised fees where the value already justified it. Revenue across the group grew more than 10x before I sold it.
+
+I didn't feel like a fraud the day I signed. I felt like one for the ninety days after. The ownership showed up quietly, somewhere in month four, when I stopped asking permission to have an opinion in my own company.
+
+Who says a numbers guy can't run a preschool.
+
+If you're sitting on a business card that isn't really yours yet, tell me where you are in that story.</div>
+      <div class="chips"><span class="chip">1,444 chars</span><span class="chip">Hook: Confession</span><span class="chip">Variation B · Story-Flow</span><span class="chip">No em dashes</span><span class="chip">Zero banned words</span></div>
+      <div class="note">Note: the calendar entry labeled this "Kelvin's story," but Voice DNA fixes Kelvin as the laundromat-portfolio exit ($500K/year). The preschool acquisition, 90-day fraud feeling, and 10x revenue growth are Anthony's own verified biography (Section 7), so the post is told in first person rather than misattributed to Kelvin.</div>
+    </div>
+
+    <div class="grid2">
+      <div class="card"><h4>Hook options</h4>
+        <div class="row"><span>The day I signed the papers for the preschool group, I didn't feel like an owner. I felt like a fraud.</span><span class="tagi t-grn">chosen</span></div>
+        <div class="row">Revenue across five preschools grew more than 10x by the time I sold.</div>
+        <div class="row">Everyone tells you signing the papers is the finish line. It's the day the real work starts.</div>
+        <div class="row">I bought five preschools and spent the first ninety days waiting to get fired from my own company.</div>
+        <div class="row">I bought a business I knew nothing about, in a room with zero other men, and almost quit in month one.</div>
+      </div>
+      <div class="card"><h4>Publish check</h4>
+        <div class="row">Stops the scroll<span class="tagi t-grn">✓</span></div>
+        <div class="row">Matches Voice DNA<span class="tagi t-grn">✓</span></div>
+        <div class="row">Real biography only, no invented specifics<span class="tagi t-grn">✓</span></div>
+        <div class="row">CTA matches calendar direction (soft invite, no hard sell)<span class="tagi t-grn">✓</span></div>
+      </div>
+    </div>
+
+    <div class="sec">Invisibility Diagnostic</div>
+    <div class="diag">
+      <div class="diagcell"><div class="n">1/1</div><div class="l">Voice</div></div>
+      <div class="diagcell"><div class="n">1/1</div><div class="l">POV</div></div>
+      <div class="diagcell"><div class="n">1/1</div><div class="l">Specificity</div></div>
+      <div class="diagcell"><div class="n">1/1</div><div class="l">Asking</div></div>
+    </div>
+    <div style="text-align:center;margin-top:14px"><span class="score">Invisibility Diagnostic: 4 / 4 — cleared, no rewrite needed</span></div>
+
+    <div class="sec">Pinned comment options</div>
+    <div class="card">
+      <div class="comment"><div class="av2">EX</div><div class="txt"><span class="lbl">Extend</span>The part that surprised me most: the toxic culture at one of the five schools never fixed itself no matter how many staff I replaced. You can buy a client base and systems. You cannot buy culture. It's already there when you sign, good or broken.</div></div>
+      <div class="comment"><div class="av2">HU</div><div class="txt"><span class="lbl">Humanise</span>My own kid ended up graduating from one of those schools. That's the part I actually think about now, not the exit.</div></div>
+      <div class="comment"><div class="av2">CTA</div><div class="txt"><span class="lbl">CTA Amplifier</span>Tell me the stage you're at. Just signed and still finding your feet, or still deciding whether to sign at all. I read every comment.</div></div>
+    </div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>Built by Daniel Paul · Purely Personal</b></footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    window.addEventListener('load',function(){
+      if(!window.gsap)return; gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.ohead',{y:26,opacity:0,scale:.98,duration:.7,ease:'power3.out'});
+      gsap.from('.ohead h1',{y:14,opacity:0,duration:.7,delay:.12,ease:'power3.out'});
+      gsap.from('.card,.lipost,.hookbox,.diagcell',{y:20,opacity:0,duration:.55,stagger:.06,ease:'power2.out',scrollTrigger:{trigger:'.doc',start:'top 85%'}});
+    });
+  </script>
+</body>
+</html>
