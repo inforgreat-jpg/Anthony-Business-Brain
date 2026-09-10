@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief · 2026-09-10</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#F05A28; --primary-light:#F59473; --primary-dim: rgba(240,90,40,.14);
+    --bg:#0A0A0A; --card:#141414; --card-2:#1B1B1B; --line:#242424;
+    --ink:#F5F3F0; --ink-soft:#A9A6A0; --ink-faint:#6E6B66;
+    --good:#22C55E; --warn:#F0A93A; --bad:#EF4444;
+    --good-bg:rgba(34,197,94,.12); --warn-bg:rgba(240,169,58,.12); --bad-bg:rgba(239,68,68,.12);
+    --r:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Rethink Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:860px;margin:0 auto;padding:36px 20px 70px;}
+
+  .head{border-radius:var(--r);padding:26px 28px;margin-bottom:22px;background:linear-gradient(135deg,#1a1109 0%,#150d08 60%,#0A0A0A 100%);border:1px solid var(--line);position:relative;overflow:hidden;}
+  .head::after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,var(--primary-dim),transparent 70%);top:-140px;right:-80px;pointer-events:none;}
+  .head .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);font-weight:700;}
+  .head h1{font-size:clamp(22px,4vw,28px);font-weight:800;letter-spacing:-.01em;margin:6px 0 4px;color:var(--ink);}
+  .head .d{font-size:13px;color:var(--ink-soft);}
+
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;margin:26px 0 12px;display:flex;align-items:center;gap:8px;}
+  .sec::before{content:"";width:3px;height:12px;background:var(--primary);border-radius:2px;display:inline-block;}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;margin-bottom:12px;border-left:3px solid var(--primary);}
+  .item{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);}
+  .item:last-child{border-bottom:none;}
+  .item .when{color:var(--ink-soft);font-size:12.5px;width:100px;flex-shrink:0;padding-top:1px;font-variant-numeric:tabular-nums;}
+  .item .body{flex:1;font-size:14.5px;color:var(--ink);}
+  .item .body a{color:var(--primary-light);text-decoration:none;}
+  .item .body a:hover{text-decoration:underline;}
+  .item .sub{color:var(--ink-soft);font-size:13px;margin-top:2px;}
+  .pill{font-size:10.5px;font-weight:700;letter-spacing:.03em;padding:3px 9px;border-radius:999px;white-space:nowrap;flex-shrink:0;text-transform:uppercase;}
+  .p-green{background:var(--good-bg);color:var(--good);} .p-amber{background:var(--warn-bg);color:var(--warn);} .p-red{background:var(--bad-bg);color:var(--bad);}
+
+  .empty{color:var(--ink-soft);font-size:14px;padding:4px 0;}
+  .flag{font-size:12.5px;color:var(--ink-soft);margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);}
+  .flag b{color:var(--warn);font-weight:700;}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .stat{background:var(--card-2);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--primary);}
+  .stat .l{font-size:12px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.08em;}
+  .stat .n{font-size:20px;font-weight:800;margin-top:6px;color:var(--ink-soft);}
+  .stat .note{font-size:13px;color:var(--ink-soft);margin-top:6px;}
+
+  footer{text-align:center;padding:34px 20px 10px;color:var(--ink-faint);font-size:12.5px;}
+</style>
+</head>
+<body>
+  <div class="doc">
+
+    <div class="head">
+      <div class="k">COO · Morning Brief</div>
+      <h1>Good morning, Anthony</h1>
+      <div class="d">Thursday, September 10, 2026</div>
+    </div>
+
+    <div class="sec">Today's Schedule</div>
+    <div class="card">
+      <div class="item">
+        <span class="when">9:00 – 10:00 AM</span>
+        <div class="body">Hupo session: Anthony Tse &lt;&gt; Dean Jones — <a href="https://api.hupo.co/event/join/6a98e5468ae085995a671d85?coach=1&ref=event-update-email-link" target="_blank" rel="noopener">join link</a></div>
+        <span class="pill p-green">on track</span>
+      </div>
+      <div class="item">
+        <span class="when">10:30 – 11:30 AM</span>
+        <div class="body">"recording ms" — <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZWNlOGVhNDgtM2JmNy00YTM3LWFlM2MtZDFjODljMDMzY2Ey%40thread.v2/0" target="_blank" rel="noopener">Teams link</a>
+          <div class="sub">Untitled beyond "recording ms" — no attendees or description beyond the call link. Worth a quick check that this is what you meant to book.</div>
+        </div>
+        <span class="pill p-amber">unclear</span>
+      </div>
+      <div class="item">
+        <span class="when">12:00 – 1:00 PM</span>
+        <div class="body">Tony Pringle Coaching 9 / IFG — <a href="https://teams.microsoft.com/meet/454783349310838?p=iXn2RMxjjHnoiUFya3" target="_blank" rel="noopener">MS Teams</a>
+          <div class="sub">Antony Pringle has accepted.</div>
+        </div>
+        <span class="pill p-green">on track</span>
+      </div>
+      <div class="item">
+        <span class="when">5:00 – 6:00 PM</span>
+        <div class="body">Appointment with Anthony Tse — Ryan Shah, session 3 of 11 — <a href="https://teams.microsoft.com/meet/474052138622909?p=PsOIf96M6umUW9JwcZ" target="_blank" rel="noopener">MS Teams</a>
+          <div class="sub">Ryan's RSVP is still marked needs action.</div>
+        </div>
+        <span class="pill p-amber">unconfirmed</span>
+      </div>
+    </div>
+
+    <div class="sec">Inbox Priorities <span style="text-transform:none;letter-spacing:0;font-weight:500;color:var(--ink-faint)">(last 24h, max 5)</span></div>
+    <div class="card">
+      <div class="item">
+        <span class="when"></span>
+        <div class="body">Nothing marked urgent, deadline-driven, or genuinely needing a reply in the last 24 hours — the inbox was quiet.</div>
+        <span class="pill p-green">on track</span>
+      </div>
+      <div class="item">
+        <span class="when">7:09 PM</span>
+        <div class="body">Business Insider — "Coming soon: Small Business Insider" newsletter launch announcement.</div>
+        <span class="pill p-green">fyi</span>
+      </div>
+      <div class="item">
+        <span class="when">6:03 PM</span>
+        <div class="body">Penn Alumni (fhoopes@upenn.edu) — invitation to Penn Spectrum Weekend, Oct 15–17, as a Penn Alumni Leader.</div>
+        <span class="pill p-green">fyi</span>
+      </div>
+      <div class="item">
+        <span class="when">3:01 PM</span>
+        <div class="body">Penn Libraries newsletter — "Welcoming students to the Penn Libraries."</div>
+        <span class="pill p-green">fyi</span>
+      </div>
+      <div class="item">
+        <span class="when">8:09 AM</span>
+        <div class="body">Benhams landlord newsletter — new landlord rules and deadlines, general market update, not addressed to you personally.</div>
+        <span class="pill p-green">fyi</span>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div>
+        <div class="sec" style="margin-top:0">Tasks</div>
+        <div class="card">
+          <div class="item">
+            <span class="when"></span>
+            <div class="body">"Home renovation" — In progress<div class="sub">Deadline 2024-04-26 · Project Planner, legacy personal item unrelated to the business.</div></div>
+            <span class="pill p-red">overdue</span>
+          </div>
+          <div class="item">
+            <span class="when"></span>
+            <div class="body">"Publish my first book" — Not started<div class="sub">Deadline 2024-06-30 · Project Planner, legacy personal item unrelated to the business.</div></div>
+            <span class="pill p-red">overdue</span>
+          </div>
+          <div class="flag"><b>Attention:</b> no dedicated business task tracker exists in Notion yet — flagged for the 34th day running since August 8.</div>
+        </div>
+      </div>
+      <div>
+        <div class="sec" style="margin-top:0">Key Metric</div>
+        <div class="stat">
+          <div class="l">Tracked metric</div>
+          <div class="n">Not set yet</div>
+          <div class="note">No metric is currently tracked in the business brain — flagged for the 34th day running since August 8. Pick one to track daily or weekly: ETA Masterclass sign-ups, new coaching clients booked, or LinkedIn engagement rate.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">Content Slot</div>
+    <div class="card">
+      <div class="item">
+        <span class="when"></span>
+        <div class="body">
+          <b>Thursday, Sep 10 — Contrarian/Engagement post</b> · Lived Experience vs. Certification pillar, Engagement intent.
+          <div class="sub">Hook: "A certificate doesn't mean someone's ever been tested. Being laid off twice does." Topic: a framework isn't wisdom — the difference between a coach who's read about risk and one who's signed a personal guarantee and lived with the outcome. CTA: direct question to spark comments — "What's one piece of advice you got from someone who's never actually lived it?"</div>
+        </div>
+        <span class="pill p-green">on track</span>
+      </div>
+    </div>
+
+    <footer>The brain thinks. The team works. You approve.</footer>
+  </div>
+</body>
+</html>
