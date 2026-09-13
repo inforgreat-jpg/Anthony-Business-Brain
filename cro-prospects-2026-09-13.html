@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRO Weekly Prospect Pack &middot; Institute for Greatness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#F05A28; --primary-light:#F59473;
+    --bg:#0A0A0A; --surface:#141414; --surface2:#1B1B1B; --border:#2A2A2A;
+    --ink:#F4F1EC; --ink-dim:#B9B4AC; --muted:#8A857C;
+    --good:#34D399; --warn:#FBBF24; --bad:#F87171;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.5),0 12px 32px rgba(0,0,0,.45);
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 82%, #000) 0%, var(--primary) 50%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:
+    radial-gradient(70% 55% at 96% -10%, color-mix(in srgb,var(--primary) 20%, transparent), transparent 60%),
+    radial-gradient(55% 45% at 0% 4%, color-mix(in srgb,var(--primary-light) 10%, transparent), transparent 55%),
+    var(--bg);background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:900px;margin:0 auto;padding:34px 22px 70px;}
+
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 18px 46px color-mix(in srgb,var(--primary) 38%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.08);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;font-weight:600;}
+  .ohead h1{font-size:clamp(22px,4vw,30px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.88;}
+
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700;margin:26px 0 12px;}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);box-shadow:var(--sh);padding:16px 18px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
+  .stat .l{font-size:12px;color:var(--muted);} .stat .n{font-size:34px;font-weight:800;letter-spacing:-.02em;margin-top:4px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;}
+  .t-grn{background:rgba(52,211,153,.14);color:var(--good);} .t-amb{background:rgba(251,191,36,.14);color:var(--warn);} .t-blue{background:rgba(96,165,250,.14);color:#93C5FD;} .t-grey{background:var(--surface2);color:var(--muted);} .t-red{background:rgba(248,113,113,.14);color:var(--bad);}
+
+  .pcard{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--sh);padding:20px 22px;margin-bottom:16px;}
+  .pcard .ph{display:flex;align-items:flex-start;gap:12px;margin-bottom:10px;flex-wrap:wrap;}
+  .pcard .av{width:46px;height:46px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;}
+  .pcard .nm{font-weight:800;font-size:17px;} .pcard .rl{font-size:13px;color:var(--ink-dim);margin-top:1px;}
+  .pcard .signal{font-size:13px;color:var(--ink-dim);background:var(--surface2);border-radius:10px;padding:8px 12px;margin:10px 0;}
+  .modrow{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;}
+  .modchip{font-size:11px;font-weight:600;background:var(--surface2);color:var(--ink);padding:5px 10px;border-radius:var(--pill);}
+  .modchip b{color:var(--primary-light);}
+  .hook{font-style:italic;font-size:14px;color:var(--ink);border-left:3px solid var(--primary-light);padding:8px 12px;margin:10px 0;background:rgba(240,90,40,.08);}
+  .seq{margin-top:12px;}
+  .seq .m{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);font-size:13.5px;}
+  .seq .m:last-child{border-bottom:none;}
+  .seq .mlabel{flex-shrink:0;width:108px;font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--primary-light);padding-top:1px;}
+  .seq .mtext{color:var(--ink-dim);}
+
+  .note{background:linear-gradient(135deg, #000 0%, color-mix(in srgb,var(--primary) 30%, #000) 100%);color:#fff;border-radius:var(--r-md);padding:18px 22px;font-size:15px;margin-top:6px;box-shadow:0 18px 40px rgba(0,0,0,.5);border:1px solid var(--border);}
+  .note b{color:var(--primary-light);}
+
+  .priorow{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);}
+  .priorow:last-child{border-bottom:none;}
+  .prionum{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--surface2);color:var(--ink-dim);font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;}
+  .prio-1 .prionum{background:var(--primary);color:#fff;}
+
+  footer{text-align:center;padding:30px 22px 10px;color:var(--muted);font-size:13px;}
+  footer b{color:var(--ink);}
+
+  @media(max-width:640px){.grid3{grid-template-columns:1fr;} .seq .m{flex-direction:column;gap:2px;} .seq .mlabel{width:auto;}}
+</style>
+</head>
+<body data-theme="standard">
+  <div class="doc">
+
+    <div class="ohead"><div class="k">CRO &middot; Weekly prospect pack</div><h1>10 matched. 0 hot.</h1><div class="d">Sourced from your ETA ICP via Apify &middot; DMs drafted, nothing sent</div></div>
+
+    <div class="grid3">
+      <div class="stat"><div class="l">Prospects</div><div class="n">10</div></div>
+      <div class="stat"><div class="l">Hot</div><div class="n" style="color:var(--good);-webkit-text-fill-color:var(--good)">0</div></div>
+      <div class="stat"><div class="l">DMs drafted</div><div class="n">50</div></div>
+    </div>
+
+    <div class="card"><h4 style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px">Sourcing note</h4>
+    <div style="font-size:14px;color:var(--ink-dim)">This week's Apify pull against your ETA ICP surfaced a much deeper pool than usual, roughly 30 distinct profiles across several keyword and location passes. From that pool, this pack cuts it down to the 10 strongest matches. Filtered out: Reid Tileston, Will Maunder-Taylor, Guy Solomon, and Ben Ghirmai, all ETA professors, program founders, or fund GPs who advise or teach searchers rather than being one themselves (competitors to your ETA masterclass, per the standing rule). Antonia Heng was excluded again, she's the same duplicate flagged already in your funnel two weeks ago. Samuel Schuh was excluded as too early career, a university senior running an aspirational search fund with no capital or deal history yet. Konstantin J. and one other thin, single-connection profile were dropped as low-signal, generic titles with no real acquisition activity behind them. The 10 that remain are active, self-funded or platform searchers with real corporate, banking, or operating pedigree, several already own or have exited a business.</div></div>
+
+    <div class="sec">The prospects</div>
+
+    <!-- 1 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">JS</div><div><div class="nm">JB Stockslager</div><div class="rl">Acquisition Entrepreneur, Slingshot Stone · Operating Partner, Mosaic ETA &middot; Dallas, USA</div></div><span class="tagi t-amb" style="margin-left:auto">warm</span></div>
+      <div class="signal">Signal: Kellogg MBA, 6 years as a management consultant at Kearney, then CEO of Alliance Services, a 350-person PE-backed healthcare organization under Alpine Investors, from Apr 2022 to Oct 2024. Since Oct 2024 he has also been an Operating Partner at Mosaic ETA, a search-fund investing firm, advising other acquisition entrepreneurs. Since Feb 2025 he has been running his own self-funded search, Slingshot Stone, for a lower middle-market service business. Sits on the board of a Christian nonprofit and founded a giving community that directed over 105,000 dollars to charities.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>8/10</b> (role 9 &middot; pain 7 &middot; timing 8 &middot; relationship 5)</span>
+        <span class="modchip">Temp <b>Warm</b></span>
+        <span class="modchip">Style <b>Driver / Analytical</b></span>
+        <span class="modchip">Opener <b>Peer Opener</b></span>
+      </div>
+      <div class="hook">&ldquo;Ran a 350-person PE-backed healthcare CEO role, now searching to buy his own.&rdquo;</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 &middot; Connect</div><div class="mtext">Hi JB, from Kearney consultant to CEO of a 350-person PE-backed org, to now backing other searchers while running your own search, that's a rare full loop through the model. I made a similar jump from finance into buying something outside my lane. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 &middot; Icebreaker</div><div class="mtext">Advising acquisition entrepreneurs as an Operating Partner while also running your own search must give you an odd double vision, coaching the exact decision you're making yourself. Which side of that has taught you more this past year, the advising or the searching?</div></div>
+        <div class="m"><div class="mlabel">3 &middot; Value bridge</div><div class="mtext">Going from a 350-person P&amp;L at Alliance Services straight into a solo search is a real drop in headcount and a real jump in uncertainty. Has the CEO experience made the search faster, or has it just made you pickier about what you'll say yes to?</div></div>
+        <div class="m"><div class="mlabel">4 &middot; Pivot</div><div class="mtext">Different question, JB. After running board meetings with an operating board at Alliance Services, does reporting to no one right now feel like freedom or does it feel like something's missing?</div></div>
+        <div class="m"><div class="mlabel">5 &middot; Clean exit</div><div class="mtext">No pressure to reply, JB. Respect the full loop you've built, operator, investor, and now searcher again. If the search ever needs an outside perspective from someone who bought into an industry he knew nothing about, I'm around.</div></div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">YE</div><div><div class="nm">Youssef El Allame</div><div class="rl">Acquisition Entrepreneur, Dynasty Catalyst · NY Chapter President, Acquisition Lab &middot; New York, USA</div></div><span class="tagi t-amb" style="margin-left:auto">warm</span></div>
+      <div class="signal">Signal: Promoted from Analyst to Vice President in Investment Banking at TD Securities over 2017 to 2024, working on more than 20 billion dollars in transactions. Left in Sep 2024 to become an independent acquisition entrepreneur searching to buy and operate a business, explicitly framing it around honoring the seller's legacy while accelerating growth. Now also New York Chapter President of Acquisition Lab, organizing meetups for other searchers, and since Feb 2026 works part time training AI models for Mercor, likely to fund the search. Publicly documents his lessons on business, career, and freedom.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>8/10</b> (role 8 &middot; pain 9 &middot; timing 8 &middot; relationship 5)</span>
+        <span class="modchip">Temp <b>Warm</b></span>
+        <span class="modchip">Style <b>Expressive</b></span>
+        <span class="modchip">Opener <b>Directness Play</b></span>
+      </div>
+      <div class="hook">&ldquo;Left investment banking to search for a business, now training AI models to fund it.&rdquo;</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 &middot; Connect</div><div class="mtext">Hi Youssef, seven years climbing to VP in investment banking, then walking away to search for a business on your own terms, that takes real conviction. I made a similar jump from finance into buying something outside my lane. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 &middot; Icebreaker</div><div class="mtext">You call yourself an escaped investment banker, and now you're training AI models to keep the search funded while you look for a company to buy. What's been harder to let go of, the paycheck or the title?</div></div>
+        <div class="m"><div class="mlabel">3 &middot; Value bridge</div><div class="mtext">Building a New York chapter for other acquisition entrepreneurs while running your own search is a generous use of time most solo searchers don't make room for. Has leading that group changed how you evaluate your own deals?</div></div>
+        <div class="m"><div class="mlabel">4 &middot; Pivot</div><div class="mtext">Different one, Youssef. After 20 billion dollars in deals that were never yours to keep, does building something small and entirely your own feel bigger, or smaller, than the banking years?</div></div>
+        <div class="m"><div class="mlabel">5 &middot; Clean exit</div><div class="mtext">No pressure to respond, Youssef. Respect the decision to walk away from a title most people spend a career chasing. If the search ever needs a voice who's made his own leap out of finance, I'm around.</div></div>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">TF</div><div><div class="nm">Tse Fungwong</div><div class="rl">Business Owner &amp; CEO, TeamLogic IT Fort Lauderdale · Acquisition Entrepreneur, MMXXIV Holdings &middot; Fort Lauderdale, USA</div></div><span class="tagi t-amb" style="margin-left:auto">warm</span></div>
+      <div class="signal">Signal: Executive Director and Head of the Chief Data Office for APAC data strategy at J.P. Morgan Asset Management from 2020 to 2023, after co-founding an EdTech incubator in Hong Kong from 2018 to 2020. Left corporate life to become a self-funded searcher through MMXXIV Holdings in Feb 2024, with experience spanning financial services, IT, retail, import and export, and fast food. In Sep 2024 he bought and now runs TeamLogic IT Fort Lauderdale, a technology risk and cybersecurity franchise, while continuing to search for further acquisitions.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>7/10</b> (role 8 &middot; pain 7 &middot; timing 7 &middot; relationship 6)</span>
+        <span class="modchip">Temp <b>Warm</b></span>
+        <span class="modchip">Style <b>Analytical</b></span>
+        <span class="modchip">Opener <b>Peer Opener</b></span>
+      </div>
+      <div class="hook">&ldquo;Ran J.P. Morgan's APAC data strategy, now owns the IT franchise he bought himself.&rdquo;</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 &middot; Connect</div><div class="mtext">Hi Tse, running APAC data strategy at J.P. Morgan, co-founding an EdTech venture in Hong Kong, then buying your own IT franchise outright, that's a real arc through Asia and back into ownership. I made a similar jump from finance into buying a business outside my lane. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 &middot; Icebreaker</div><div class="mtext">Building an EdTech incubator in Hong Kong, then years later inside J.P. Morgan's Chief Data Office, then buying a cybersecurity franchise in Florida, that's three very different worlds. Which one taught you the most about actually running something?</div></div>
+        <div class="m"><div class="mlabel">3 &middot; Value bridge</div><div class="mtext">Searching across financial services, IT, retail, import and export, and fast food before landing on the franchise you bought shows real range in what you were willing to consider. Did that breadth make the final decision easier, or harder?</div></div>
+        <div class="m"><div class="mlabel">4 &middot; Pivot</div><div class="mtext">Different question, Tse. Does owning one franchise in Fort Lauderdale feel smaller than running data strategy for J.P. Morgan's whole APAC region, or exactly the point after that pace?</div></div>
+        <div class="m"><div class="mlabel">5 &middot; Clean exit</div><div class="mtext">No pressure to reply, Tse. Respect the range it took to go from Hong Kong EdTech to J.P. Morgan to owning your own franchise. If the next acquisition ever needs an outside voice, I've made a similar leap myself, happy to talk.</div></div>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">ND</div><div><div class="nm">Nicolas de Rosen</div><div class="rl">Entrepreneur in Acquisition, Entrepreneurs et Finance &middot; Paris, France</div></div><span class="tagi t-amb" style="margin-left:auto">warm</span></div>
+      <div class="signal">Signal: Co-CEO and co-founder of Sinteo from 2008 to 2012, growing it to more than 40 consultants before selling the business to ONET, a real prior exit. Went on to lead SaaS growth for 15 years internationally, including CEO of North America at iAdvize from 2017 to 2021, scaling US operations to a quarter of the company's revenue. Since Jun 2025 he has been leading a full-time search for a B2B company to acquire, operate, and grow, handling deal sourcing, financial modeling, and due diligence himself.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>7/10</b> (role 8 &middot; pain 6 &middot; timing 8 &middot; relationship 5)</span>
+        <span class="modchip">Temp <b>Warm</b></span>
+        <span class="modchip">Style <b>Expressive / Driver</b></span>
+        <span class="modchip">Opener <b>Pattern Interrupt</b></span>
+      </div>
+      <div class="hook">&ldquo;Already sold one company he built, now searching full time to buy and run another.&rdquo;</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 &middot; Connect</div><div class="mtext">Hi Nicolas, you built Sinteo to 40 consultants and sold it, then scaled iAdvize's US business to a quarter of company revenue, and now you're searching to buy again, that's someone who keeps choosing ownership. I made a similar jump from finance into buying outside my lane. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 &middot; Icebreaker</div><div class="mtext">You've already built and sold a company once. What made you choose to search and buy this time, instead of starting from zero again like you did with Sinteo?</div></div>
+        <div class="m"><div class="mlabel">3 &middot; Value bridge</div><div class="mtext">Scaling iAdvize's US operations to a quarter of total company revenue is the kind of result that usually gets someone offered a bigger corporate title, not pointed toward a solo search. What made the acquisition path pull harder than staying inside a growing company?</div></div>
+        <div class="m"><div class="mlabel">4 &middot; Pivot</div><div class="mtext">Different question, Nicolas. Does deal sourcing and due diligence on your own feel more like the early Sinteo days, or is it a completely different kind of building?</div></div>
+        <div class="m"><div class="mlabel">5 &middot; Clean exit</div><div class="mtext">No pressure to respond, Nicolas. Respect a second act built on your own terms after already proving you can build and sell one. If the search ever needs an outside perspective, I'm around.</div></div>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">CH</div><div><div class="nm">Cory Halbardier</div><div class="rl">CEO, J&amp;G Lawn and Garden · Acquisition Entrepreneur, Castleford Group &middot; Danville, California, USA</div></div><span class="tagi t-amb" style="margin-left:auto">warm</span></div>
+      <div class="signal">Signal: Wharton MBA with over 600 million dollars in career sales, featured on Forbes and Medium. Held COO roles at Blazeo, formerly ApexChat, from 2022 to 2025, and led global business development at Flex, a 25 billion dollar revenue contract manufacturer, from 2018 to 2020. Became Acquisition Entrepreneur and Managing Director at Castleford Group in Aug 2025, acquiring and operating small businesses while preserving their legacy, and in May 2026 took over as CEO of J&amp;G Lawn and Garden, a landscape maintenance and outdoor construction business.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>7/10</b> (role 8 &middot; pain 6 &middot; timing 7 &middot; relationship 5)</span>
+        <span class="modchip">Temp <b>Warm</b></span>
+        <span class="modchip">Style <b>Driver</b></span>
+        <span class="modchip">Opener <b>Authority Flip</b></span>
+      </div>
+      <div class="hook">&ldquo;Bought a landscaping company, now also helps other searchers acquire small businesses.&rdquo;</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 &middot; Connect</div><div class="mtext">Hi Cory, from global business development at a 25 billion dollar company to now running a landscaping business you bought yourself, plus helping other searchers do the same at Castleford, that's a deliberate move toward smaller and more yours. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 &middot; Icebreaker</div><div class="mtext">You've helped other acquisition entrepreneurs find and preserve a founder's legacy at Castleford, and now you're the one running J&amp;G Lawn and Garden day to day. What's surprised you most about being on the operating side instead of advising it?</div></div>
+        <div class="m"><div class="mlabel">3 &middot; Value bridge</div><div class="mtext">Going from 600 million dollars in career sales at a global manufacturer to leading a lawn care and outdoor services company is a genuine change in scale. Has that shift changed what you consider a meaningful win day to day?</div></div>
+        <div class="m"><div class="mlabel">4 &middot; Pivot</div><div class="mtext">Different question, Cory. Does helping other searchers at Castleford make your own acquisition sharper, or is running J&amp;G now the harder half of the job?</div></div>
+        <div class="m"><div class="mlabel">5 &middot; Clean exit</div><div class="mtext">No pressure to reply, Cory. Respect the move from advising acquisitions to actually running one. If it's ever useful to compare notes with someone who bought into an industry he knew nothing about, I'm around.</div></div>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">TD</div><div><div class="nm">Thomas Decant</div><div class="rl">Entrepreneur Through Acquisition, Valoria Participations &middot; Paris, France</div></div><span class="tagi t-amb" style="margin-left:auto">warm</span></div>
+      <div class="signal">Signal: INSEAD MBA, then over a decade at Microsoft rising through Azure roles until becoming Head of Sales for Azure, Corporate APAC, from 2022 to 2025. Left in Jan 2026 to conduct a full-time acquisition search in the Ile de France region, evaluating lower-middle-market businesses between 2 and 10 million euros in revenue, handling his own financial modeling, valuation, and due diligence.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>8/10</b> (role 8 &middot; pain 8 &middot; timing 8 &middot; relationship 5)</span>
+        <span class="modchip">Temp <b>Warm</b></span>
+        <span class="modchip">Style <b>Analytical / Driver</b></span>
+        <span class="modchip">Opener <b>Peer Opener</b></span>
+      </div>
+      <div class="hook">&ldquo;12 years leading Microsoft Azure sales in APAC, now searching full time to buy a company.&rdquo;</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 &middot; Connect</div><div class="mtext">Hi Thomas, 12 years inside Microsoft rising to Head of Sales for Azure across APAC, then walking away to search full time for a business to buy, that's a real bet on yourself. I made a similar jump from a big platform into buying something outside my lane. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 &middot; Icebreaker</div><div class="mtext">Leaving a Head of Sales role covering an entire region to now build your own financial models and run your own due diligence, that's a big drop in scale but a big jump in ownership. What made the timing right this year instead of five years ago?</div></div>
+        <div class="m"><div class="mlabel">3 &middot; Value bridge</div><div class="mtext">Targeting businesses between 2 and 10 million euros in revenue in Ile de France after selling enterprise cloud deals at global scale is a genuine change in altitude. Has the smaller scale made the work more interesting, or just different?</div></div>
+        <div class="m"><div class="mlabel">4 &middot; Pivot</div><div class="mtext">Different question, Thomas. After 12 years at Microsoft, does building an INSEAD network into a personal search feel like an advantage, or are you mostly starting the relationships fresh?</div></div>
+        <div class="m"><div class="mlabel">5 &middot; Clean exit</div><div class="mtext">No pressure to respond, Thomas. Respect the leap from a global sales seat into a full-time search of your own. If it's ever useful to talk to someone who made a similar jump out of a big platform, I'm around.</div></div>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">EW</div><div><div class="nm">Erik W.</div><div class="rl">Project Work ETA / Entrepreneurship Through Acquisition, Independent &middot; Munich, Germany</div></div><span class="tagi t-amb" style="margin-left:auto">warm</span></div>
+      <div class="signal">Signal: 15 plus years at Clariant, a specialty chemicals company, holding Global Head of Detergent Additives, Global Head of Marketing, and Head of Sales for Europe and Southern Africa. Left to become Managing Director at OSSOLA GmbH from 2023 to 2024, then independent consulting on SME operations. Since Feb 2024 has been working full time on identifying a Management Buy-In opportunity in process manufacturing, a search now running roughly two and a half years.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>7/10</b> (role 8 &middot; pain 8 &middot; timing 6 &middot; relationship 5)</span>
+        <span class="modchip">Temp <b>Warm</b></span>
+        <span class="modchip">Style <b>Analytical</b></span>
+        <span class="modchip">Opener <b>Pattern Interrupt</b></span>
+      </div>
+      <div class="hook">&ldquo;Fifteen years leading global teams at Clariant, now two years into finding a business to buy.&rdquo;</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 &middot; Connect</div><div class="mtext">Hi Erik, fifteen years holding Global Head roles at Clariant, then choosing a Management Buy-In search over another corporate title, that's a deliberate change in direction. I made a similar jump from a large company into buying a business outside my lane. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 &middot; Icebreaker</div><div class="mtext">Two and a half years into a Management Buy-In search after fifteen years running global teams at Clariant is long enough to have hit real friction. What's been the hardest part of searching without a big company's resources behind you?</div></div>
+        <div class="m"><div class="mlabel">3 &middot; Value bridge</div><div class="mtext">Going from Global Head of Marketing to Global Head of Detergent Additives to Head of Sales across Europe and Southern Africa shows real range inside one company. Has that range made the search faster, or just made you pickier about the right business?</div></div>
+        <div class="m"><div class="mlabel">4 &middot; Pivot</div><div class="mtext">Different one, Erik. After running global functions at Clariant, does searching for one process manufacturing business to run yourself feel smaller, or exactly the scale you wanted?</div></div>
+        <div class="m"><div class="mlabel">5 &middot; Clean exit</div><div class="mtext">No pressure to reply, Erik. Respect a search this long, that's a genuinely patient road. If two and a half years in ever needs an outside voice, I've made my own version of that leap, happy to talk.</div></div>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">MD</div><div><div class="nm">Maria Devassy</div><div class="rl">CEO &amp; Founder, Beem Ventures LLC &middot; Los Altos, California, USA</div></div><span class="tagi t-amb" style="margin-left:auto">warm</span></div>
+      <div class="signal">Signal: Wharton MBA with First Year Honors. 25 years across partnerships, alliances, IT, governance risk and compliance, and product management, with leadership roles at Compliance.ai, MetricStream, KPMG, and Oracle. Held EVP roles in business development and customer success at Compliance.ai from 2019 to 2023, then sat on its Board of Advisors. Since Mar 2024 has run Beem Ventures, her own search fund and business acquisition vehicle.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>7/10</b> (role 8 &middot; pain 6 &middot; timing 6 &middot; relationship 5)</span>
+        <span class="modchip">Temp <b>Warm</b></span>
+        <span class="modchip">Style <b>Analytical</b></span>
+        <span class="modchip">Opener <b>Authority Flip</b></span>
+      </div>
+      <div class="hook">&ldquo;25 years leading tech and compliance teams, now running her own search fund solo.&rdquo;</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 &middot; Connect</div><div class="mtext">Hi Maria, 25 years across GRC, product, and partnerships at Compliance.ai, MetricStream, KPMG, and Oracle, then choosing your own search fund over another EVP seat, that's a real second act. I made a similar jump into buying something outside my lane. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 &middot; Icebreaker</div><div class="mtext">Going from EVP roles and a board seat at Compliance.ai to founding Beem Ventures and running your own search, what part of 25 years in tech leadership turned out to actually prepare you for this?</div></div>
+        <div class="m"><div class="mlabel">3 &middot; Value bridge</div><div class="mtext">Building your career across GRC, product, and partnerships gave you a wide lens most searchers don't have. Has that range changed what kind of business you're actually looking for?</div></div>
+        <div class="m"><div class="mlabel">4 &middot; Pivot</div><div class="mtext">Different question, Maria. After sitting on the other side of a board table advising Compliance.ai, does building your own thing from scratch feel freer, or just less certain?</div></div>
+        <div class="m"><div class="mlabel">5 &middot; Clean exit</div><div class="mtext">No pressure to respond, Maria. Respect the choice to found something of your own after 25 years inside other people's companies. If the search ever needs an outside voice, I'm around.</div></div>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">RD</div><div><div class="nm">Robert Dolle</div><div class="rl">Self-Funded Searcher, Entrepreneurship Through Acquisition &middot; Oceanside, New York, USA</div></div><span class="tagi t-amb" style="margin-left:auto">warm</span></div>
+      <div class="signal">Signal: Career spanning Business Analyst at Merrill Lynch, Private Client Banker at J.P. Morgan, Citigold Relationship Manager at Citi, and Wealth Planning Strategist at UBS. Left private banking in Dec 2024 to become a self-funded searcher, sourcing lower middle-market deals in the Northeast United States with 1 to 5 million dollars in revenue and at least 500,000 dollars in SDE or EBITDA, targeting majority ownership with SBA and seller financing.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>7/10</b> (role 7 &middot; pain 7 &middot; timing 7 &middot; relationship 5)</span>
+        <span class="modchip">Temp <b>Warm</b></span>
+        <span class="modchip">Style <b>Analytical</b></span>
+        <span class="modchip">Opener <b>Peer Opener</b></span>
+      </div>
+      <div class="hook">&ldquo;Left private banking at UBS and Citi to search full time for a business to buy.&rdquo;</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 &middot; Connect</div><div class="mtext">Hi Robert, from Merrill Lynch to J.P. Morgan to Citi to UBS, then walking away from private banking to search for a business of your own, that's a real bet on yourself. I made a similar jump from finance into buying something outside my lane. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 &middot; Icebreaker</div><div class="mtext">Spending years advising other people's wealth at UBS, Citi, and J.P. Morgan, then deciding to build your own equity instead, what finally tipped that decision for you?</div></div>
+        <div class="m"><div class="mlabel">3 &middot; Value bridge</div><div class="mtext">Targeting majority ownership with SBA and seller financing instead of a bigger check from outside investors is a specific choice about how much control you want to keep. Has that structure made deals harder to find, or just better once you find them?</div></div>
+        <div class="m"><div class="mlabel">4 &middot; Pivot</div><div class="mtext">Different question, Robert. After years managing relationships for private banking clients, does sourcing your own deals feel like the same skill in a new direction, or something you had to learn from scratch?</div></div>
+        <div class="m"><div class="mlabel">5 &middot; Clean exit</div><div class="mtext">No pressure to reply, Robert. Respect the leap out of private banking into building something that's actually yours. If the search ever needs an outside voice, I've made a similar jump myself, happy to talk.</div></div>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="pcard">
+      <div class="ph"><div class="av">MK</div><div><div class="nm">Mannar Karyampudi</div><div class="rl">President, ComForCare Home Care · Acquisition Entrepreneur &middot; New York, USA</div></div><span class="tagi t-amb" style="margin-left:auto">warm</span></div>
+      <div class="signal">Signal: Led product at Evernote from 2019 to 2021 and Peloton Interactive from 2021 to 2023 as Lead and Group Product Manager. Since 2024 has run a self-funded acquisition platform targeting e-commerce, niche SaaS, essential services, health care, and light industrial companies with 1 to 2 million dollars in EBITDA. In Jan 2026 became President of ComForCare Home Care for Central and South Monmouth, New Jersey, describing his focus as building a more organized, data-driven home care agency while continuing to search for further acquisitions.</div>
+      <div class="modrow">
+        <span class="modchip">Fit <b>7/10</b> (role 8 &middot; pain 6 &middot; timing 7 &middot; relationship 5)</span>
+        <span class="modchip">Temp <b>Warm</b></span>
+        <span class="modchip">Style <b>Analytical / Driver</b></span>
+        <span class="modchip">Opener <b>Pattern Interrupt</b></span>
+      </div>
+      <div class="hook">&ldquo;Left product management at Peloton, now buying and running a home care business.&rdquo;</div>
+      <div class="seq">
+        <div class="m"><div class="mlabel">1 &middot; Connect</div><div class="mtext">Hi Mannar, from leading product at Evernote and Peloton to now running a home care agency you bought yourself, that's a real jump from software into an industry that runs on people, not features. I made a similar jump from finance into buying a business outside my lane. Would love to connect.</div></div>
+        <div class="m"><div class="mlabel">2 &middot; Icebreaker</div><div class="mtext">Building product roadmaps at Peloton and now building schedules and care plans at ComForCare are very different kinds of complexity. Which part of running a home care agency did your product background actually prepare you for?</div></div>
+        <div class="m"><div class="mlabel">3 &middot; Value bridge</div><div class="mtext">Targeting e-commerce, SaaS, and light industrial companies before landing on home care shows you cast a wide net before choosing. What made health care the one that made it past everything else?</div></div>
+        <div class="m"><div class="mlabel">4 &middot; Pivot</div><div class="mtext">Different question, Mannar. Does being data-driven at Peloton translate directly into a home care agency, or did you have to unlearn some of that instinct?</div></div>
+        <div class="m"><div class="mlabel">5 &middot; Clean exit</div><div class="mtext">No pressure to respond, Mannar. Respect the jump from software into an industry built on real people showing up every day. If the next acquisition ever needs an outside voice, I'm around.</div></div>
+      </div>
+    </div>
+
+    <div class="sec">Pipeline review</div>
+    <div class="card"><div style="font-size:14px;color:var(--ink-dim)">No dedicated deals or CRM tracker exists in Notion, your COO brief has flagged this for 37 days running since August 8. What is visible instead is your coaching calendar: recent Hupo sessions with Dean Jones (twice, most recently Sep 10), Kenny Yu (Sep 2), Ryan Shah (session 3 of 11, an ongoing program, Sep 10), and Lincoln Lee (Aug 14). These are active paying clients, not open deals, so they don't map to a Priority 1/2/3 sales triage or need a closer DM, they're already closed. Without a real pipeline document, this section can't responsibly assign priorities or generate next-action DMs this week, doing so would mean inventing deal stages and values that don't exist. Recommend setting up a simple tracker (prospect, stage, last contact, next action) so this section has something real to work from next week.</div></div>
+
+    <div class="note">Open <b>JB Stockslager</b> and <b>Youssef El Allame</b> first, both are mid-leap out of finance and banking into a search of their own, the closest mirror of your own arc in this batch. Thomas Decant is a close third, a fresh full-time search straight out of a long corporate sales career. Every DM here is a draft. You send, after you read it.</div>
+
+    <footer>The brain thinks. The team works. You approve. &middot; <b>Institute for Greatness</b></footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    window.addEventListener('load',function(){
+      if(!window.gsap)return; gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.ohead',{y:26,opacity:0,scale:.98,duration:.7,ease:'power3.out'});
+      gsap.from('.ohead h1',{y:14,opacity:0,duration:.7,delay:.12,ease:'power3.out'});
+      gsap.from('.card,.stat,.pcard,.note',{y:20,opacity:0,duration:.5,stagger:.05,ease:'power2.out',scrollTrigger:{trigger:'.doc',start:'top 85%'}});
+    });
+  </script>
+</body>
+</html>
