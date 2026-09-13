@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief · Purely Personal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#F05A28; --primary-light:#F59473;
+    --black:#003444; --ink:#003444; --white:#FFFFFF;
+    --bg:#0A0A0A; --panel:#141414; --panel-2:#191919; --border:#262626;
+    --gray-text:#9a9a9a; --gray-light:#1f1f1f;
+    --good:#22C55E; --warn:#F5A623; --bad:#EF4444;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.4),0 12px 30px rgba(0,0,0,.5);
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 78%, #000) 0%, var(--primary) 48%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:
+      radial-gradient(70% 55% at 96% -10%, color-mix(in srgb,var(--primary) 16%, transparent), transparent 60%),
+      radial-gradient(55% 45% at 0% 4%, color-mix(in srgb,var(--primary-light) 8%, transparent), transparent 55%),
+      var(--bg);
+    background-attachment:fixed;color:#EDEDED;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:860px;margin:0 auto;padding:34px 22px 70px;}
+
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px color-mix(in srgb,var(--primary) 35%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;font-weight:600;}
+  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.88;}
+
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-text);font-weight:700;margin:24px 0 12px;}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-text);margin-bottom:12px;}
+  .lead{font-size:16px;color:#F4F4F4;}
+  .row{display:flex;align-items:flex-start;gap:10px;padding:9px 0;font-size:14.5px;border-bottom:1px solid var(--gray-light);color:#DADADA;}
+  .row:last-child{border-bottom:none;}
+  .row .when{color:var(--gray-text);font-size:13px;width:78px;flex-shrink:0;}
+  .row .txt{flex:1;}
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;flex-shrink:0;}
+  .t-red{background:rgba(239,68,68,.14);color:var(--bad);}
+  .t-amb{background:rgba(245,166,35,.14);color:var(--warn);}
+  .t-grn{background:rgba(34,197,94,.14);color:var(--good);}
+  .t-grey{background:var(--gray-light);color:var(--gray-text);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .stat{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
+  .stat .l{font-size:12px;color:var(--gray-text);}
+  .stat .n{font-size:22px;font-weight:800;letter-spacing:-.02em;margin-top:4px;color:var(--warn);}
+  .stat .delta{font-size:13px;font-weight:600;margin-top:4px;color:var(--gray-text);}
+  .note{background:linear-gradient(135deg, #101010 0%, color-mix(in srgb,var(--primary) 22%, #101010) 100%);color:#fff;border:1px solid var(--border);border-radius:var(--r-md);padding:18px 22px;font-size:15px;margin-top:6px;box-shadow:0 14px 36px rgba(0,0,0,.4);}
+  .note b{color:var(--primary-light);}
+  .empty{color:var(--gray-text);font-size:14px;padding:6px 0;}
+
+  footer{text-align:center;padding:30px 22px 10px;color:var(--gray-text);font-size:13px;}
+  footer b{color:#EDEDED;}
+
+  @media(max-width:640px){.grid2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+  <div class="doc">
+
+    <div class="ohead"><div class="k">COO · Morning brief</div><h1>Good morning, Anthony</h1><div class="d">Sunday, 13 September 2026 · ran while you slept</div></div>
+
+    <div class="card"><h4>Today, in one line</h4><div class="lead">Quiet Sunday, nothing on the calendar and no post due, but two account security notices from the last day are worth a quick look before you move on.</div></div>
+
+    <div class="sec">Today's Schedule</div>
+    <div class="card"><h4>Calendar <span class="tagi t-grn" style="margin-left:8px;">on track</span></h4>
+      <div class="empty">No events on your calendar today.</div>
+    </div>
+
+    <div class="sec">Inbox Priorities <span style="text-transform:none;color:var(--gray-text);font-weight:500;">(last 24 hours, max 5)</span></div>
+    <div class="card">
+      <div class="row"><span class="when">8:34 PM</span><span class="txt">HSBC: login attempt from an "unrecognised browser" flagged on your account. Worth a quick check that this was you.</span><span class="tagi t-amb">verify</span></div>
+      <div class="row"><span class="when">1:03 PM</span><span class="txt">Google: security alert for anthonyt727@gmail.com, a linked account with xiemisc@gmail.com set as recovery. New sign-in flagged.</span><span class="tagi t-amb">verify</span></div>
+      <div class="row"><span class="when">rolling</span><span class="txt">Preply: six separate "New message from&hellip;" notifications (Carmen Grecia, Sara, Eddwyn, Mikaela, Victoria) since yesterday. Messages waiting on a reply.</span><span class="tagi t-amb">reply</span></div>
+      <div class="row"><span class="when">9:46 PM</span><span class="txt">ICA: auto-acknowledgement of your Singapore Arrival Card submission. No action needed.</span><span class="tagi t-grn">fyi</span></div>
+      <div class="row"><span class="when">4:01 PM</span><span class="txt">Wharton Club UK: reminder for the Angela Duckworth "Situated" conversation. Optional attendance.</span><span class="tagi t-grey">fyi</span></div>
+    </div>
+
+    <div class="sec">Tasks</div>
+    <div class="card"><h4>Overdue</h4>
+      <div class="row"><span class="txt">"Publish my first book" &mdash; Not started, deadline 2024-06-30 (Project Planner, legacy personal item unrelated to the business).</span><span class="tagi t-red">overdue</span></div>
+      <div class="row"><span class="txt">"Home renovation" &mdash; In progress, deadline 2024-04-26 (Project Planner, legacy personal item unrelated to the business).</span><span class="tagi t-red">overdue</span></div>
+    </div>
+    <div class="note">No dedicated business task tracker exists in Notion yet. Flagged for the <b>37th day running</b> since August 8.</div>
+
+    <div class="sec" style="margin-top:24px;">Content Slot</div>
+    <div class="card"><h4>Posting schedule <span class="tagi t-grn" style="margin-left:8px;">on track</span></h4>
+      <div class="empty">Today is Sunday. The posting schedule runs Monday through Friday, so no post is due. The current content calendar, Content Calendar Week of 2026-09-07, ran through Friday, September 11. No calendar has been built yet for the week of September 14.</div>
+    </div>
+
+    <div class="sec">Key Metric</div>
+    <div class="grid2">
+      <div class="stat"><div class="l">Tracked metric</div><div class="n">Not set</div><div class="delta">No metric is currently tracked in your business brain. Flagged for the 37th day running since August 8.</div></div>
+      <div class="stat"><div class="l">Suggestion</div><div class="n" style="font-size:16px;color:#DADADA;">Pick one number</div><div class="delta">For example: ETA Masterclass sign-ups, new coaching clients booked, or LinkedIn engagement rate.</div></div>
+    </div>
+
+    <div class="note">One thing to move the needle today: <b>confirm the HSBC and Google sign-in alerts were you.</b> Two separate account security notices landed within the last day &mdash; nothing has been touched on your behalf, this is a nudge to check both directly in-app before the day gets away from you.</div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>Built by Daniel Paul · Purely Personal</b></footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    window.addEventListener('load',function(){
+      if(!window.gsap)return; gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.ohead',{y:26,opacity:0,scale:.98,duration:.7,ease:'power3.out'});
+      gsap.from('.ohead h1',{y:14,opacity:0,duration:.7,delay:.12,ease:'power3.out'});
+      gsap.from('.card,.stat,.note',{y:20,opacity:0,duration:.55,stagger:.06,ease:'power2.out',scrollTrigger:{trigger:'.doc',start:'top 85%'}});
+    });
+  </script>
+</body>
+</html>
