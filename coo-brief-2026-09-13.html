@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief · 2026-09-13</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#F05A28;
+    --primary-light:#F59473;
+    --bg:#0A0A0A;
+    --card:#151515;
+    --card-border:#262626;
+    --ink:#F4F3F1;
+    --ink-soft:#9C9B96;
+    --ink-faint:#6B6A66;
+    --green:#22C55E;
+    --amber:#F5A524;
+    --red:#EF4444;
+    --r:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Rethink Sans',-apple-system,sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .doc{max-width:860px;margin:0 auto;padding:36px 20px 70px;}
+
+  .head{margin-bottom:28px;}
+  .head .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);font-weight:700;}
+  .head h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:6px 0 4px;color:var(--ink);}
+  .head .d{font-size:13px;color:var(--ink-soft);}
+
+  .sec-title{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;margin:26px 0 12px;}
+  .sec-title:first-of-type{margin-top:0;}
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:var(--r);
+    padding:18px 20px;
+    margin-bottom:12px;
+  }
+  .card.empty{color:var(--ink-soft);font-size:14px;}
+
+  .item{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid var(--card-border);}
+  .item:last-child{border-bottom:none;}
+  .item:first-child{padding-top:0;}
+
+  .dot{width:9px;height:9px;border-radius:50%;margin-top:6px;flex-shrink:0;}
+  .dot.green{background:var(--green);box-shadow:0 0 0 3px color-mix(in srgb, var(--green) 22%, transparent);}
+  .dot.amber{background:var(--amber);box-shadow:0 0 0 3px color-mix(in srgb, var(--amber) 22%, transparent);}
+  .dot.red{background:var(--red);box-shadow:0 0 0 3px color-mix(in srgb, var(--red) 22%, transparent);}
+
+  .item-body{flex:1;font-size:14.5px;color:var(--ink);}
+  .item-body .meta{display:block;font-size:12px;color:var(--ink-soft);margin-top:2px;}
+
+  .tag{font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;margin-left:auto;white-space:nowrap;flex-shrink:0;}
+  .tag.green{background:color-mix(in srgb, var(--green) 16%, transparent);color:var(--green);}
+  .tag.amber{background:color-mix(in srgb, var(--amber) 16%, transparent);color:var(--amber);}
+  .tag.red{background:color-mix(in srgb, var(--red) 16%, transparent);color:var(--red);}
+
+  .metric-card{
+    background:linear-gradient(135deg, color-mix(in srgb, var(--primary) 14%, var(--card)) 0%, var(--card) 60%);
+    border:1px solid var(--card-border);
+    border-radius:var(--r);
+    padding:20px 22px;
+    position:relative;
+    overflow:hidden;
+  }
+  .metric-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--primary);}
+  .metric-card .l{font-size:12px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.08em;font-weight:700;}
+  .metric-card .n{font-size:16px;font-weight:700;color:var(--ink);margin-top:8px;}
+  .metric-card .sub{font-size:13.5px;color:var(--ink-soft);margin-top:6px;}
+
+  footer{text-align:center;padding:34px 20px 10px;color:var(--ink-faint);font-size:12.5px;}
+</style>
+</head>
+<body>
+  <div class="doc">
+
+    <div class="head">
+      <div class="k">COO · Morning Brief</div>
+      <h1>Good morning, Anthony</h1>
+      <div class="d">Sunday, September 13, 2026</div>
+    </div>
+
+    <div class="sec-title">Today's Schedule</div>
+    <div class="card">
+      <div class="item">
+        <span class="dot green"></span>
+        <div class="item-body">No events on your calendar today.</div>
+        <span class="tag green">on track</span>
+      </div>
+    </div>
+
+    <div class="sec-title">Inbox Priorities</div>
+    <div class="card">
+      <div class="item">
+        <span class="dot green"></span>
+        <div class="item-body">
+          Nothing flagged urgent, deadline, or response-needed in the last 24 hours.
+          <span class="meta">Remaining inbox activity: 2 Preply lesson reminders, a Nextdoor "Fave Awards" notice, and a BOCHK savings-plan promo &mdash; no action required.</span>
+        </div>
+        <span class="tag green">on track</span>
+      </div>
+    </div>
+
+    <div class="sec-title">Tasks</div>
+    <div class="card">
+      <div class="item">
+        <span class="dot red"></span>
+        <div class="item-body">
+          "Publish my first book" &mdash; Not started
+          <span class="meta">Project Planner &middot; deadline 2024-06-30 &middot; legacy personal item unrelated to the business</span>
+        </div>
+        <span class="tag red">overdue</span>
+      </div>
+      <div class="item">
+        <span class="dot red"></span>
+        <div class="item-body">
+          "Home renovation" &mdash; In progress
+          <span class="meta">Project Planner &middot; deadline 2024-04-26 &middot; legacy personal item unrelated to the business</span>
+        </div>
+        <span class="tag red">overdue</span>
+      </div>
+      <div class="item">
+        <span class="dot amber"></span>
+        <div class="item-body">
+          No dedicated business task tracker exists in Notion yet.
+          <span class="meta">Flagged for the 37th day running since August 8</span>
+        </div>
+        <span class="tag amber">attention</span>
+      </div>
+    </div>
+
+    <div class="sec-title">Content Slot</div>
+    <div class="card">
+      <div class="item">
+        <span class="dot green"></span>
+        <div class="item-body">
+          Today is Sunday &mdash; the posting schedule runs Monday through Friday, so no post is due today.
+          <span class="meta">Current content calendar (Week of 2026-09-07) ran through Friday, September 11</span>
+        </div>
+        <span class="tag green">on track</span>
+      </div>
+      <div class="item">
+        <span class="dot amber"></span>
+        <div class="item-body">
+          No content calendar has been built yet for the week of September 14.
+        </div>
+        <span class="tag amber">attention</span>
+      </div>
+    </div>
+
+    <div class="sec-title">Key Metric</div>
+    <div class="metric-card">
+      <div class="l">Business Brain Tracking</div>
+      <div class="n">No metric currently tracked</div>
+      <div class="sub">Flagged for the 37th day running since August 8. Recommend picking one number to track daily or weekly &mdash; e.g. ETA Masterclass sign-ups, new coaching clients booked, or LinkedIn engagement rate.</div>
+    </div>
+
+    <footer>Institute for Greatness &middot; generated from Google Calendar, Gmail, and Notion</footer>
+  </div>
+</body>
+</html>
