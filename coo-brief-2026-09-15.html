@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief — September 15, 2026</title>
+<style>
+  :root {
+    --primary: #F05A28;
+    --primary-soft: rgba(240, 90, 40, 0.12);
+    --bg: #0A0A0A;
+    --card-bg: #141414;
+    --card-border: #232323;
+    --ink: #F2F0EC;
+    --ink-soft: #9C9A94;
+    --ink-faint: #635F58;
+    --green: #3DBE7A;
+    --green-bg: rgba(61, 190, 122, 0.12);
+    --amber: #E8A93D;
+    --amber-bg: rgba(232, 169, 61, 0.12);
+    --red: #E5484D;
+    --red-bg: rgba(229, 72, 77, 0.12);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 40px 20px 64px;
+  }
+  header {
+    margin-bottom: 32px;
+  }
+  .eyebrow {
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  h1 {
+    font-size: 28px;
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+  .subline {
+    color: var(--ink-soft);
+    font-size: 14px;
+  }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 22px 24px;
+    margin-bottom: 18px;
+  }
+  .card h2 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 0 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card h2::before {
+    content: "";
+    width: 3px;
+    height: 14px;
+    background: var(--primary);
+    border-radius: 2px;
+    display: inline-block;
+  }
+  .item {
+    display: flex;
+    gap: 12px;
+    padding: 12px 0;
+    border-top: 1px solid var(--card-border);
+  }
+  .item:first-of-type { border-top: none; padding-top: 0; }
+  .item:last-of-type { padding-bottom: 0; }
+  .status {
+    flex: none;
+    margin-top: 3px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 5px;
+    white-space: nowrap;
+    height: fit-content;
+  }
+  .status.green { color: var(--green); background: var(--green-bg); }
+  .status.amber { color: var(--amber); background: var(--amber-bg); }
+  .status.red   { color: var(--red);   background: var(--red-bg); }
+  .item-body { flex: 1; min-width: 0; }
+  .item-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 3px;
+  }
+  .item-title a { color: var(--ink); text-decoration: none; border-bottom: 1px dotted var(--ink-faint); }
+  .item-title a:hover { color: var(--primary); border-color: var(--primary); }
+  .item-meta {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .note {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin: 0;
+  }
+  .note.lead {
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--card-border);
+  }
+  .metric-value {
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--ink-faint);
+    margin: 0 0 4px;
+    letter-spacing: -0.02em;
+  }
+  footer {
+    text-align: center;
+    color: var(--ink-faint);
+    font-size: 12px;
+    margin-top: 32px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">COO Morning Brief</div>
+    <h1>Tuesday, September 15, 2026</h1>
+    <div class="subline">Anthony Tse · Institute for Greatness</div>
+  </header>
+
+  <section class="card">
+    <h2>Today's Schedule</h2>
+    <div class="item">
+      <span class="status amber">Attention</span>
+      <div class="item-body">
+        <p class="item-title">All day — "ST engineering ends – Hupo"</p>
+        <p class="item-meta">All-day calendar marker with no set time. Worth confirming what this signals for the Hupo coaching engagement.</p>
+      </div>
+    </div>
+    <div class="item">
+      <span class="status green">On track</span>
+      <div class="item-body">
+        <p class="item-title">4:00 – 5:00 PM SGT — Anthony / Elise</p>
+        <p class="item-meta">In person at Sarnies. Organized by Elise, Asia Startup Network.</p>
+      </div>
+    </div>
+    <div class="item">
+      <span class="status green">On track</span>
+      <div class="item-body">
+        <p class="item-title"><a href="https://us02web.zoom.us/j/84797295728?pwd=A62XaqavfjIn5iLPx5bcSbSsyQF0B8.1" target="_blank" rel="noopener">7:00 – 8:30 PM SGT — Leadership Embodiment webinar</a></p>
+        <p class="item-meta">Hosted by ICF Singapore, via Zoom. "How the Way You Stand and Sit Changes How You Think, Speak, and Lead."</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Inbox Priorities</h2>
+    <p class="note lead">No emails in the last 24 hours were flagged urgent, deadline, or response-needed for the business. Top items otherwise worth a glance:</p>
+    <div class="item">
+      <span class="status green">On track</span>
+      <div class="item-body">
+        <p class="item-title">Penn Alumni Ambassador Info Session — Nov 14</p>
+        <p class="item-meta">Correction notice on event timing. RSVP if you plan to attend.</p>
+      </div>
+    </div>
+    <div class="item">
+      <span class="status green">On track</span>
+      <div class="item-body">
+        <p class="item-title">Wharton in Focus: Hong Kong</p>
+        <p class="item-meta">Event invite from Wharton Alumni Relations. Register if interested.</p>
+      </div>
+    </div>
+    <div class="item">
+      <span class="status green">On track</span>
+      <div class="item-body">
+        <p class="item-title">UOB — 4 PayNow transfers received</p>
+        <p class="item-meta">S$38.06 each, credited to the account ending 3108. Informational, no action needed.</p>
+      </div>
+    </div>
+    <div class="item">
+      <span class="status green">On track</span>
+      <div class="item-body">
+        <p class="item-title">Landlord registration requirements webinar</p>
+        <p class="item-meta">30-minute session from My London Home on new rental property registration rules.</p>
+      </div>
+    </div>
+    <div class="item">
+      <span class="status green">On track</span>
+      <div class="item-body">
+        <p class="item-title">HSBC card installment offer</p>
+        <p class="item-meta">Promotional message on converting card spend to installments. No action needed.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Tasks</h2>
+    <div class="item">
+      <span class="status red">Overdue</span>
+      <div class="item-body">
+        <p class="item-title">"Publish my first book"</p>
+        <p class="item-meta">Not started · deadline 2024-06-30 · Project Planner, legacy personal item unrelated to the business.</p>
+      </div>
+    </div>
+    <div class="item">
+      <span class="status red">Overdue</span>
+      <div class="item-body">
+        <p class="item-title">"Home renovation"</p>
+        <p class="item-meta">In progress · deadline 2024-04-26 · Project Planner, legacy personal item unrelated to the business.</p>
+      </div>
+    </div>
+    <div class="item">
+      <span class="status amber">Attention</span>
+      <div class="item-body">
+        <p class="item-title">No dedicated business task tracker exists in Notion</p>
+        <p class="item-meta">Flagged repeatedly since August 8, 2026. Recommend setting one up so business tasks stop hiding behind legacy personal items.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Content Slot</h2>
+    <div class="item">
+      <span class="status amber">Attention</span>
+      <div class="item-body">
+        <p class="item-title">No post confirmed for today</p>
+        <p class="item-meta">Tuesday is a scheduled posting day, but the most recent content calendar on file — "Content Calendar — Week of 2026-09-07" — ran through Friday, September 11. No calendar has been built yet for the week of September 14.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Key Metric</h2>
+    <div class="item">
+      <span class="status amber">Attention</span>
+      <div class="item-body">
+        <p class="metric-value">— No metric tracked —</p>
+        <p class="item-meta">Nothing is currently tracked in the business brain. Recommend picking one to track daily or weekly — e.g. ETA Masterclass sign-ups, new coaching clients booked, or LinkedIn engagement rate.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>Generated from Google Calendar, Gmail, and Notion.</footer>
+</div>
+</body>
+</html>
