@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief · 2026-09-16</title>
+<style>
+  :root{
+    --primary:#F05A28;
+    --bg:#0A0A0A;
+    --card:#151515;
+    --card-border:#232323;
+    --ink:#F2F1ED;
+    --ink-soft:#9A9A94;
+    --ink-faint:#6B6B66;
+    --green:#22C55E;
+    --amber:#F0A93B;
+    --red:#EF4444;
+    --r:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:840px;margin:0 auto;padding:40px 20px 70px;}
+
+  header{margin-bottom:32px;}
+  header .eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);font-weight:700;margin-bottom:8px;}
+  header h1{font-size:clamp(24px,4vw,30px);font-weight:700;letter-spacing:-.02em;color:var(--ink);}
+  header .date{color:var(--ink-soft);font-size:14px;margin-top:6px;}
+
+  .section{margin-bottom:28px;}
+  .section-title{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--card-border);}
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:var(--r);
+    padding:16px 18px;
+    margin-bottom:10px;
+  }
+  .card:last-child{margin-bottom:0;}
+
+  .item{display:flex;gap:12px;align-items:flex-start;}
+  .item + .item{margin-top:14px;padding-top:14px;border-top:1px solid var(--card-border);}
+  .dot{flex-shrink:0;width:9px;height:9px;border-radius:50%;margin-top:6px;}
+  .dot.green{background:var(--green);box-shadow:0 0 8px color-mix(in srgb, var(--green) 55%, transparent);}
+  .dot.amber{background:var(--amber);box-shadow:0 0 8px color-mix(in srgb, var(--amber) 55%, transparent);}
+  .dot.red{background:var(--red);box-shadow:0 0 8px color-mix(in srgb, var(--red) 55%, transparent);}
+
+  .item .body{flex:1;min-width:0;}
+  .item .title{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:3px;}
+  .item .title a{color:inherit;text-decoration:none;border-bottom:1px solid var(--primary);}
+  .item .title a:hover{color:var(--primary);}
+  .item .meta{font-size:12.5px;color:var(--ink-faint);margin-bottom:5px;}
+  .item .desc{font-size:13.5px;color:var(--ink-soft);}
+
+  .badge{flex-shrink:0;font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 9px;border-radius:999px;white-space:nowrap;}
+  .badge.green{background:color-mix(in srgb, var(--green) 16%, transparent);color:var(--green);}
+  .badge.amber{background:color-mix(in srgb, var(--amber) 16%, transparent);color:var(--amber);}
+  .badge.red{background:color-mix(in srgb, var(--red) 16%, transparent);color:var(--red);}
+
+  .empty{font-size:14px;color:var(--ink-faint);font-style:italic;}
+
+  .metric-card{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .metric-label{font-size:13px;color:var(--ink-soft);}
+  .metric-value{font-size:22px;font-weight:700;color:var(--ink);}
+  .metric-note{font-size:13.5px;color:var(--ink-soft);margin-top:8px;}
+
+  footer{text-align:center;color:var(--ink-faint);font-size:12.5px;margin-top:40px;}
+  footer .brand{color:var(--primary);font-weight:600;}
+
+  @media(max-width:640px){
+    .wrap{padding:28px 16px 50px;}
+    .item{flex-wrap:wrap;}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header>
+      <div class="eyebrow">COO · Morning Brief</div>
+      <h1>Good morning, Anthony</h1>
+      <div class="date">Wednesday, September 16, 2026 · Singapore time</div>
+    </header>
+
+    <!-- Today's Schedule -->
+    <div class="section">
+      <div class="section-title">Today's Schedule</div>
+      <div class="card">
+        <div class="item">
+          <span class="dot green"></span>
+          <div class="body">
+            <div class="title">Hupo session: Anthony Tse &amp; Dean Jones</div>
+            <div class="meta">11:00 AM – 12:00 PM SGT · <a href="https://api.hupo.co/event/join/6aa20f93ebbce8d4f934017b?coach=1&amp;ref=event-update-email-link" style="color:var(--ink-faint);border-bottom:1px solid var(--card-border);text-decoration:none;">join link</a></div>
+          </div>
+          <span class="badge green">On Track</span>
+        </div>
+        <div class="item">
+          <span class="dot green"></span>
+          <div class="body">
+            <div class="title">Meeting with Adeling Ng</div>
+            <div class="meta">2:30 PM – 3:30 PM SGT · Suntec CoffeeSmith #02-413</div>
+          </div>
+          <span class="badge green">On Track</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inbox Priorities -->
+    <div class="section">
+      <div class="section-title">Inbox Priorities <span style="text-transform:none;font-weight:400;">(last 24 hours, max 5)</span></div>
+      <div class="card">
+        <div class="item">
+          <span class="dot amber"></span>
+          <div class="body">
+            <div class="title">Google security alert on anthonyt727@gmail.com</div>
+            <div class="meta">Google · this morning</div>
+            <div class="desc">Clipchamp was granted access to the account; xiemisc@gmail.com is listed as the recovery email. Worth a quick check that this was you.</div>
+          </div>
+          <span class="badge amber">Attention</span>
+        </div>
+        <div class="item">
+          <span class="dot amber"></span>
+          <div class="body">
+            <div class="title">GrabPay wallet balance is low</div>
+            <div class="meta">Grab · daily statement</div>
+            <div class="desc">Balance SGD 3.67 after SGD 29.90 spent today. Top up before you need to ride again.</div>
+          </div>
+          <span class="badge amber">Attention</span>
+        </div>
+        <div class="item">
+          <span class="dot green"></span>
+          <div class="body">
+            <div class="title">Penn Fund thank-you note</div>
+            <div class="meta">University of Pennsylvania</div>
+            <div class="desc">Personal acknowledgment for a recent gift. No action needed.</div>
+          </div>
+          <span class="badge green">On Track</span>
+        </div>
+        <div class="item">
+          <span class="dot green"></span>
+          <div class="body">
+            <div class="title">Russell Reynolds fireside chat invite</div>
+            <div class="meta">Russell Reynolds Associates</div>
+            <div class="desc">Invitation-only session on leading transformation, Sep 22. Optional, register if interested.</div>
+          </div>
+          <span class="badge green">On Track</span>
+        </div>
+        <div class="item">
+          <span class="dot green"></span>
+          <div class="body">
+            <div class="title">UOB PayNow transfer confirmed</div>
+            <div class="meta">UOB banking alert</div>
+            <div class="desc">Self-initiated transfer completed successfully. No action needed.</div>
+          </div>
+          <span class="badge green">On Track</span>
+        </div>
+      </div>
+      <div class="card" style="margin-top:10px;">
+        <div class="desc" style="font-size:13.5px;">No emails in the last 24 hours were flagged urgent, deadline, or response needed for the business.</div>
+      </div>
+    </div>
+
+    <!-- Tasks -->
+    <div class="section">
+      <div class="section-title">Tasks</div>
+      <div class="card">
+        <div class="item">
+          <span class="dot red"></span>
+          <div class="body">
+            <div class="title">Publish my first book</div>
+            <div class="meta">Project Planner · Not started · deadline 2024-06-30</div>
+            <div class="desc">Legacy personal item, unrelated to the business.</div>
+          </div>
+          <span class="badge red">Overdue</span>
+        </div>
+        <div class="item">
+          <span class="dot red"></span>
+          <div class="body">
+            <div class="title">Home renovation</div>
+            <div class="meta">Project Planner · In progress · deadline 2024-04-26</div>
+            <div class="desc">Legacy personal item, unrelated to the business.</div>
+          </div>
+          <span class="badge red">Overdue</span>
+        </div>
+      </div>
+      <div class="card" style="margin-top:10px;">
+        <div class="item" style="border-top:none;">
+          <span class="dot amber"></span>
+          <div class="body">
+            <div class="desc">No dedicated business task tracker exists in Notion yet. Flagged for the 40th day running since August 8.</div>
+          </div>
+          <span class="badge amber">Attention</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Slot -->
+    <div class="section">
+      <div class="section-title">Content Slot</div>
+      <div class="card">
+        <div class="item" style="border-top:none;">
+          <span class="dot amber"></span>
+          <div class="body">
+            <div class="title">No post confirmed for today</div>
+            <div class="desc">Today is Wednesday, a scheduled posting day. The most recent content calendar on file, Content Calendar Week of 2026-09-07, ran through Friday September 11. No calendar has been built yet for the week of September 14.</div>
+          </div>
+          <span class="badge amber">Attention</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key Metric -->
+    <div class="section">
+      <div class="section-title">Key Metric</div>
+      <div class="card metric-card">
+        <div>
+          <div class="metric-label">Tracked metric</div>
+          <div class="metric-value">Not set</div>
+          <div class="metric-note">No metric is currently tracked in your business brain. Flagged for the 40th day running since August 8. Recommend picking one to track daily or weekly — for example ETA Masterclass sign-ups, new coaching clients booked, or LinkedIn engagement rate.</div>
+        </div>
+        <span class="badge amber">Attention</span>
+      </div>
+    </div>
+
+    <footer>Generated from Google Calendar, Gmail &amp; Notion · <span class="brand">Institute for Greatness</span></footer>
+  </div>
+</body>
+</html>
