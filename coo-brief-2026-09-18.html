@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief · 2026-09-18</title>
+<style>
+  :root{
+    --primary:#F05A28; --primary-light:#F59473;
+    --bg:#0A0A0A; --card:#161616; --card-border:#262626;
+    --ink:#F4F3F1; --ink-soft:#A9A7A2; --ink-faint:#6E6C68;
+    --green:#22C55E; --amber:#F5A524; --red:#EF4444;
+    --green-bg:rgba(34,197,94,.12); --amber-bg:rgba(245,165,36,.12); --red-bg:rgba(239,68,68,.14);
+    --r:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:820px;margin:0 auto;padding:36px 20px 60px;}
+
+  .head{margin-bottom:28px;}
+  .head .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);font-weight:700;}
+  .head h1{font-size:clamp(24px,4vw,30px);font-weight:700;letter-spacing:-.01em;margin:6px 0 4px;color:var(--ink);}
+  .head .d{font-size:13px;color:var(--ink-soft);}
+
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;margin:26px 0 12px;}
+  .sec:first-of-type{margin-top:0;}
+
+  .card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--r);padding:16px 18px;margin-bottom:10px;border-left:3px solid var(--primary);}
+  .card.empty{border-left-color:var(--card-border);}
+  .row{display:flex;align-items:flex-start;gap:12px;padding:9px 0;font-size:14.5px;border-bottom:1px solid var(--card-border);color:var(--ink);}
+  .row:last-child{border-bottom:none;}
+  .row .when{color:var(--ink-soft);font-size:12.5px;width:150px;flex-shrink:0;padding-top:1px;}
+  .row .txt{flex:1;}
+  .row a{color:var(--primary-light);text-decoration:none;}
+  .row a:hover{text-decoration:underline;}
+  .tag{font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px;white-space:nowrap;letter-spacing:.03em;text-transform:uppercase;flex-shrink:0;}
+  .t-green{background:var(--green-bg);color:var(--green);}
+  .t-amber{background:var(--amber-bg);color:var(--amber);}
+  .t-red{background:var(--red-bg);color:var(--red);}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .stat{background:var(--card);border:1px solid var(--card-border);border-radius:var(--r);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--primary);}
+  .stat .l{font-size:12px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;}
+  .stat .n{font-size:20px;font-weight:700;margin-top:6px;color:var(--ink);}
+  .stat .note{font-size:13px;color:var(--ink-soft);margin-top:6px;}
+
+  .empty-line{color:var(--ink-soft);font-size:14px;padding:2px 0;}
+
+  footer{text-align:center;padding:34px 20px 8px;color:var(--ink-faint);font-size:12.5px;}
+  footer b{color:var(--ink-soft);}
+
+  @media(max-width:640px){.grid2{grid-template-columns:1fr;} .row{flex-wrap:wrap;} .row .when{width:100%;}}
+</style>
+</head>
+<body>
+  <div class="doc">
+
+    <div class="head">
+      <div class="k">COO · Morning Brief</div>
+      <h1>Good morning, Anthony</h1>
+      <div class="d">Friday, September 18, 2026 · Asia/Singapore</div>
+    </div>
+
+    <div class="sec">Today's Schedule</div>
+    <div class="card">
+      <div class="row"><span class="tag t-amber">Attention</span><span class="txt">5:00 PM Sep 17 – 7:00 AM Sep 18 SGT: "PEF Singapore" is on the calendar marked TBC, no further details attached.</span></div>
+      <div class="row"><span class="tag t-green">On track</span><span class="txt">8:00 – 9:00 AM SGT: "Tennis with Henry" marked TBC.</span></div>
+    </div>
+
+    <div class="sec">Inbox Priorities <span style="color:var(--ink-faint);text-transform:none;font-weight:500;">(last 24 hours, max 5)</span></div>
+    <div class="card">
+      <div class="row"><span class="tag t-amber">Attention</span><span class="txt">DBS: "Final Reminder — Changes to DBS IDEAL cross-border payments." Reads as a deadline notice for a business banking change; worth a skim to confirm it doesn't need action.</span></div>
+      <div class="row"><span class="tag t-amber">Attention</span><span class="txt">HMRC: "Making Tax Digital for Income Tax — are you ready?" Webinar notice on an upcoming compliance deadline for landlords/businesses.</span></div>
+      <div class="row"><span class="tag t-green">On track</span><span class="txt">HSBC: eStatement/eAdvice notification ready to view — routine, no action needed.</span></div>
+      <div class="row"><span class="tag t-green">On track</span><span class="txt">Wharton Club HK: "Last 20 Seats" — AI Workshop Series and upcoming Penn-Wharton events, FYI only.</span></div>
+      <div class="row"><span class="tag t-green">On track</span><span class="txt">ISCA Centre: follow-up on a prior visit to ISCA House, soft business-development pitch, no reply required.</span></div>
+    </div>
+    <div class="empty-line" style="margin:-2px 0 4px 2px;">No email in the last 24 hours was explicitly flagged "urgent," "deadline," or "response needed" by its sender — the two above are the closest to genuine deadlines and are worth a glance.</div>
+
+    <div class="sec">Tasks</div>
+    <div class="card">
+      <div class="row"><span class="tag t-red">Overdue</span><span class="txt">"Publish my first book" — Not started, deadline 2024-06-30 (Project Planner, legacy personal item).</span></div>
+      <div class="row"><span class="tag t-red">Overdue</span><span class="txt">"Home renovation" — In progress, deadline 2024-04-26 (Project Planner, legacy personal item).</span></div>
+    </div>
+    <div class="empty-line" style="margin:-2px 0 4px 2px;">No dedicated business task tracker exists in Notion yet — flagged for the 42nd day running since August 8.</div>
+
+    <div class="sec">Content Slot</div>
+    <div class="card empty">
+      <div class="row" style="border-bottom:none;"><span class="tag t-amber">Attention</span><span class="txt">Today is Friday, a scheduled posting day. The most recent content calendar on file, "Content Calendar — Week of 2026-09-07," ran through Friday September 11. No content calendar has been built for the week of September 14, so no post is confirmed for today.</span></div>
+    </div>
+
+    <div class="sec">Key Metric</div>
+    <div class="grid2">
+      <div class="stat">
+        <div class="l">Tracked metric</div>
+        <div class="n" style="color:var(--ink-soft);font-weight:600;">Not set</div>
+        <div class="note">No metric is currently tracked in the business brain — flagged for the 42nd day running since August 8.</div>
+      </div>
+      <div class="stat">
+        <div class="l">Suggested to track</div>
+        <div class="n" style="font-size:15px;">ETA Masterclass sign-ups, new coaching clients booked, or LinkedIn engagement rate</div>
+      </div>
+    </div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>Purely Personal</b></footer>
+  </div>
+</body>
+</html>
