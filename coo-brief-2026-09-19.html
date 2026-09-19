@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Brief · September 19, 2026</title>
+<style>
+  :root{
+    --primary:#F05A28;
+    --bg:#0A0A0A;
+    --card:#151515;
+    --card-border:#262626;
+    --ink:#F5F4F2;
+    --ink-soft:#A9A7A2;
+    --ink-faint:#6E6C68;
+    --green:#22C55E; --green-bg:rgba(34,197,94,.12);
+    --amber:#F5A623; --amber-bg:rgba(245,166,35,.12);
+    --red:#EF4444; --red-bg:rgba(239,68,68,.12);
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:40px 20px 64px;}
+
+  .head{margin-bottom:28px;}
+  .head .eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--primary);font-weight:700;}
+  .head h1{font-size:clamp(24px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:8px 0 4px;}
+  .head .date{font-size:14px;color:var(--ink-soft);}
+
+  .section{margin-top:30px;}
+  .section h2{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+  .section h2::before{content:"";width:3px;height:14px;background:var(--primary);border-radius:2px;display:inline-block;}
+
+  .card{
+    background:var(--card); border:1px solid var(--card-border); border-radius:var(--radius);
+    padding:16px 18px; margin-bottom:10px;
+  }
+  .card:last-child{margin-bottom:0;}
+  .card-top{display:flex; align-items:flex-start; justify-content:space-between; gap:12px;}
+  .card-title{font-size:15px; font-weight:600; color:var(--ink);}
+  .card-meta{font-size:12.5px; color:var(--ink-faint); margin-top:2px;}
+  .card-body{font-size:13.5px; color:var(--ink-soft); margin-top:8px;}
+  .card a{color:var(--primary); text-decoration:none; font-weight:600;}
+  .card a:hover{text-decoration:underline;}
+
+  .badge{
+    font-size:10.5px; font-weight:700; letter-spacing:.04em; text-transform:uppercase;
+    padding:3px 9px; border-radius:999px; white-space:nowrap; flex-shrink:0;
+  }
+  .badge.green{background:var(--green-bg); color:var(--green);}
+  .badge.amber{background:var(--amber-bg); color:var(--amber);}
+  .badge.red{background:var(--red-bg); color:var(--red);}
+
+  .empty{font-size:13.5px; color:var(--ink-faint); font-style:italic;}
+
+  .metric-card{
+    background:linear-gradient(135deg, color-mix(in srgb,var(--primary) 14%, var(--card)), var(--card));
+    border:1px solid var(--card-border); border-radius:var(--radius); padding:20px 18px;
+  }
+  .metric-card .n{font-size:15px; font-weight:600; color:var(--ink);}
+  .metric-card .sub{font-size:13px; color:var(--ink-soft); margin-top:6px;}
+
+  footer{margin-top:36px; padding-top:18px; border-top:1px solid var(--card-border); font-size:12px; color:var(--ink-faint); text-align:center;}
+</style>
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="head">
+      <div class="eyebrow">COO · Morning Brief</div>
+      <h1>Good morning, Anthony</h1>
+      <div class="date">Saturday, September 19, 2026</div>
+    </div>
+
+    <div class="section">
+      <h2>Today's Schedule</h2>
+      <div class="card">
+        <div class="card-top">
+          <div>
+            <div class="card-title">ETA Masterclass — VIP Office Hours</div>
+            <div class="card-meta">9:00 PM – 10:00 PM SGT · Microsoft Teams</div>
+          </div>
+          <span class="badge green">On track</span>
+        </div>
+        <div class="card-body">
+          Come prepared with questions from the preceding masterclass modules.
+          <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_YmEwZjQ5YmEtMDYwNC00YTE2LTgxYzYtNzNjMWYzNTAzYmYz%40thread.v2/0?context=%7b%22Tid%22%3a%22ab8254ff-5e7a-489b-9b72-ab97cb37f6b7%22%2c%22Oid%22%3a%22491a9a07-8a20-447c-a67f-a481d376fefe%22%7d" target="_blank" rel="noopener">Join meeting →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Inbox Priorities (last 24 hours, max 5)</h2>
+      <div class="card">
+        <div class="card-top">
+          <div class="card-title">Suspicious "email verification" notice from immigration.gov.tw</div>
+          <span class="badge amber">Attention needed</span>
+        </div>
+        <div class="card-body">Sent twice within two minutes requesting a verification code — classic phishing pattern. Recommend not entering any code and verifying independently before acting.</div>
+      </div>
+      <div class="card">
+        <div class="card-top">
+          <div class="card-title">OCBC: new letters available</div>
+          <span class="badge green">On track</span>
+        </div>
+        <div class="card-body">New documents ready to view in the OCBC app under Documents. No action needed.</div>
+      </div>
+      <div class="card">
+        <div class="card-top">
+          <div class="card-title">HSBC (HK): eStatement / eAdvice ready</div>
+          <span class="badge green">On track</span>
+        </div>
+        <div class="card-body">Routine notification, no action needed.</div>
+      </div>
+      <div class="card">
+        <div class="card-top">
+          <div class="card-title">HSBC (UK): current account statement ready</div>
+          <span class="badge green">On track</span>
+        </div>
+        <div class="card-body">Statement for account ending 7422 is available to view. No action needed.</div>
+      </div>
+      <div class="card">
+        <div class="card-top">
+          <div class="card-title">Wise: 399 TWD spent at Uni-President Enterprise</div>
+          <span class="badge green">On track</span>
+        </div>
+        <div class="card-body">Informational transaction alert. No action needed.</div>
+      </div>
+      <div class="card-body" style="margin-top:6px;">No emails in the last 24 hours were flagged urgent, deadline, or response needed for the business.</div>
+    </div>
+
+    <div class="section">
+      <h2>Tasks</h2>
+      <div class="card">
+        <div class="card-top">
+          <div class="card-title">Publish my first book</div>
+          <span class="badge red">Overdue</span>
+        </div>
+        <div class="card-body">Not started · deadline 2024-06-30 (Project Planner, legacy personal item unrelated to the business).</div>
+      </div>
+      <div class="card">
+        <div class="card-top">
+          <div class="card-title">Home renovation</div>
+          <span class="badge red">Overdue</span>
+        </div>
+        <div class="card-body">In progress · deadline 2024-04-26 (Project Planner, legacy personal item unrelated to the business).</div>
+      </div>
+      <div class="card">
+        <div class="card-top">
+          <div class="card-title">No dedicated business task tracker in Notion</div>
+          <span class="badge amber">Attention needed</span>
+        </div>
+        <div class="card-body">Flagged for the 43rd day running since August 8.</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Content Slot</h2>
+      <div class="card">
+        <div class="card-top">
+          <div class="card-title">No post due today</div>
+          <span class="badge amber">Attention needed</span>
+        </div>
+        <div class="card-body">
+          Saturday isn't a scheduled posting day (cadence runs Monday–Friday). The most recent content calendar on file, "Content Calendar — Week of 2026-09-07," ran through Friday, September 11. No content calendar has been built for the weeks of September 14 or September 21.
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Key Metric</h2>
+      <div class="metric-card">
+        <div class="n">Not currently tracked</div>
+        <div class="sub">No metric is tracked in your business brain yet — flagged for the 43rd day running since August 8. Recommend picking one number to track daily or weekly, for example ETA Masterclass sign-ups, new coaching clients booked, or LinkedIn engagement rate.</div>
+      </div>
+    </div>
+
+    <footer>Institute for Greatness · Generated automatically while you slept</footer>
+  </div>
+</body>
+</html>
