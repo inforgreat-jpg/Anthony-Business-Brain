@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Brief — September 20, 2026</title>
+<style>
+  :root {
+    --primary: #F05A28;
+    --primary-soft: rgba(240, 90, 40, 0.12);
+    --bg: #0A0A0A;
+    --card: #141414;
+    --card-border: #232323;
+    --ink: #F2F0EC;
+    --ink-soft: #9B9A96;
+    --ink-faint: #605F5B;
+    --green: #3DD68C;
+    --green-soft: rgba(61, 214, 140, 0.12);
+    --amber: #F2B84B;
+    --amber-soft: rgba(242, 184, 75, 0.12);
+    --red: #EF5350;
+    --red-soft: rgba(239, 83, 80, 0.14);
+    --divider: #1F1F1F;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 40px 20px 64px;
+  }
+  header {
+    margin-bottom: 32px;
+  }
+  .eyebrow {
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+  .subhead {
+    color: var(--ink-soft);
+    font-size: 14.5px;
+    line-height: 1.5;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 22px 24px;
+    margin-bottom: 18px;
+  }
+  .card-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--ink);
+  }
+  .card-title .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--primary);
+    flex-shrink: 0;
+  }
+  ol.items, ul.items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  li.item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .badge {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 6px;
+    line-height: 1.6;
+    white-space: nowrap;
+    margin-top: 1px;
+  }
+  .badge.green { background: var(--green-soft); color: var(--green); }
+  .badge.amber { background: var(--amber-soft); color: var(--amber); }
+  .badge.red { background: var(--red-soft); color: var(--red); }
+  .item-body { flex: 1; min-width: 0; }
+  .item-title {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+  .item-sub {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .item-sub a { color: var(--ink-soft); text-decoration: underline; text-decoration-color: var(--ink-faint); }
+  .footnote {
+    font-size: 13px;
+    color: var(--ink-faint);
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--divider);
+    line-height: 1.5;
+  }
+  .calm-line {
+    font-size: 14px;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+  .metric-value {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+  footer {
+    text-align: center;
+    color: var(--ink-faint);
+    font-size: 12px;
+    margin-top: 30px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">COO Brief</div>
+    <h1>Sunday, September 20, 2026</h1>
+    <div class="subhead">Good morning, Anthony. Here's the shape of your day and business.</div>
+  </header>
+
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>Today's Schedule</div>
+    <ol class="items">
+      <li class="item">
+        <span class="badge amber">Attention</span>
+        <div class="item-body">
+          <div class="item-title">All-day: "Calendly renewal - 9/23/2025"</div>
+          <div class="item-sub">A recurring all-day reminder sits on today's calendar, but its title still references a date from last year. Not a meeting &mdash; worth a glance to confirm it's still accurate or clean it up.</div>
+        </div>
+      </li>
+    </ol>
+    <div class="footnote">No other events on the calendar today.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>Inbox Priorities <span style="color:var(--ink-faint); font-weight:400; font-size:12.5px;">(last 24 hours, max 5)</span></div>
+    <ol class="items">
+      <li class="item">
+        <span class="badge green">On track</span>
+        <div class="item-body">
+          <div class="item-title">HSBC: mobile cash withdrawal confirmed</div>
+          <div class="item-sub">Notification of a successful mobile cash withdrawal on your HSBC account. Informational, no action needed.</div>
+        </div>
+      </li>
+      <li class="item">
+        <span class="badge green">On track</span>
+        <div class="item-body">
+          <div class="item-title">HSBC: credit card transaction notification</div>
+          <div class="item-sub">A card transaction alert from HSBC. Informational, no action needed.</div>
+        </div>
+      </li>
+      <li class="item">
+        <span class="badge green">On track</span>
+        <div class="item-body">
+          <div class="item-title">Wise: transfer sent confirmation</div>
+          <div class="item-sub">Confirmation that an outgoing Wise transfer was sent. Informational, no action needed.</div>
+        </div>
+      </li>
+      <li class="item">
+        <span class="badge green">On track</span>
+        <div class="item-body">
+          <div class="item-title">HSBC: fund transfer credit advice received</div>
+          <div class="item-sub">Advice of an incoming fund transfer credited to your account. Informational, no action needed.</div>
+        </div>
+      </li>
+      <li class="item">
+        <span class="badge green">On track</span>
+        <div class="item-body">
+          <div class="item-title">Landlord webinar invite for Thursday, September 24</div>
+          <div class="item-sub">A 30-minute webinar on new rental property registration requirements. Optional, no response required today.</div>
+        </div>
+      </li>
+    </ol>
+    <div class="footnote">No emails in the last 24 hours were flagged urgent, deadline, or response-needed for the business.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>Tasks</div>
+    <ol class="items">
+      <li class="item">
+        <span class="badge red">Overdue</span>
+        <div class="item-body">
+          <div class="item-title">"Publish my first book" &mdash; Not started</div>
+          <div class="item-sub">Deadline was 2024-06-30 (Project Planner &mdash; legacy personal item, unrelated to the business).</div>
+        </div>
+      </li>
+      <li class="item">
+        <span class="badge red">Overdue</span>
+        <div class="item-body">
+          <div class="item-title">"Home renovation" &mdash; In progress</div>
+          <div class="item-sub">Deadline was 2024-04-26 (Project Planner &mdash; legacy personal item, unrelated to the business).</div>
+        </div>
+      </li>
+    </ol>
+    <div class="footnote">
+      <span class="badge amber" style="margin-right:6px;">Attention</span>
+      No dedicated business task tracker exists in Notion yet. Flagged for the 44th day running since August 8.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>Content Slot</div>
+    <ol class="items">
+      <li class="item">
+        <span class="badge amber">Attention</span>
+        <div class="item-body">
+          <div class="item-title">No post due today &mdash; but next week is unplanned</div>
+          <div class="item-sub">Today is Sunday; the posting schedule runs Monday&ndash;Friday, so nothing is due today. The most recent content calendar on file, Content Calendar &mdash; Week of 2026-09-07, ran through Friday, September 11. No content calendar has been built for the week of September 14 or the week of September 21 &mdash; tomorrow's Monday post is not yet planned.</div>
+        </div>
+      </li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>Key Metric</div>
+    <div class="metric-value">
+      <span class="badge amber" style="margin-right:6px;">Attention</span>
+      No metric is currently tracked in your business brain. Flagged for the 44th day running since August 8. Recommend picking one to track daily or weekly &mdash; for example, ETA Masterclass sign-ups, new coaching clients booked, or LinkedIn engagement rate.
+    </div>
+  </div>
+
+  <footer>Institute for Greatness &middot; COO Brief</footer>
+</div>
+</body>
+</html>
