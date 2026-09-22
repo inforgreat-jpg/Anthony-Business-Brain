@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Brief · September 22, 2026</title>
+<style>
+  :root{
+    --primary:#F05A28;
+    --bg:#0A0A0A;
+    --card:#141414;
+    --card-border:#232323;
+    --ink:#F3F1EE;
+    --ink-soft:#A8A5A0;
+    --ink-faint:#6E6B67;
+    --green:#2FBF71;
+    --green-bg:rgba(47,191,113,.12);
+    --amber:#F0A93A;
+    --amber-bg:rgba(240,169,58,.12);
+    --red:#EF4444;
+    --red-bg:rgba(239,68,68,.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    padding:40px 20px 70px;
+  }
+  .doc{max-width:760px;margin:0 auto;}
+
+  header{margin-bottom:32px;}
+  header .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);font-weight:700;}
+  header h1{font-size:clamp(24px,4vw,32px);font-weight:700;letter-spacing:-.01em;margin:8px 0 4px;}
+  header .date{font-size:14px;color:var(--ink-soft);}
+
+  .section-title{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;margin:36px 0 14px;display:flex;align-items:center;gap:10px;}
+  .section-title::after{content:"";flex:1;height:1px;background:var(--card-border);}
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-left:3px solid var(--primary);
+    border-radius:10px;
+    padding:16px 18px;
+    margin-bottom:10px;
+  }
+  .card:last-child{margin-bottom:0;}
+  .card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:6px;}
+  .card-title{font-size:15px;font-weight:600;color:var(--ink);}
+  .card-meta{font-size:12.5px;color:var(--ink-faint);margin-bottom:4px;}
+  .card-body{font-size:14px;color:var(--ink-soft);}
+  .card-body a{color:var(--primary);text-decoration:none;}
+  .card-body a:hover{text-decoration:underline;}
+
+  .status{
+    font-size:10.5px;
+    font-weight:700;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    padding:3px 9px;
+    border-radius:999px;
+    white-space:nowrap;
+    flex-shrink:0;
+  }
+  .status-green{background:var(--green-bg);color:var(--green);}
+  .status-amber{background:var(--amber-bg);color:var(--amber);}
+  .status-red{background:var(--red-bg);color:var(--red);}
+
+  .empty-note{
+    font-size:13.5px;
+    color:var(--ink-faint);
+    padding:10px 2px 2px;
+    font-style:italic;
+  }
+
+  .metric-card{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:10px;
+    padding:20px 22px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .metric-card .metric-value{font-size:15px;font-weight:600;color:var(--ink-soft);}
+  .metric-card .metric-note{font-size:13px;color:var(--ink-faint);margin-top:4px;max-width:480px;}
+
+  footer{text-align:center;padding:40px 10px 0;color:var(--ink-faint);font-size:12.5px;}
+
+  @media(max-width:480px){
+    .card-top{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+  <div class="doc">
+
+    <header>
+      <div class="eyebrow">COO Morning Brief</div>
+      <h1>Good morning, Anthony</h1>
+      <div class="date">Tuesday, September 22, 2026</div>
+    </header>
+
+    <div class="section-title">Today's Schedule</div>
+
+    <div class="card" style="border-left-color:var(--amber);">
+      <div class="card-top">
+        <div class="card-title">All day — "Calendly renewal - 9/23/2025"</div>
+        <span class="status status-amber">Attention</span>
+      </div>
+      <div class="card-meta">Recurring all-day reminder, Sep 20–24</div>
+      <div class="card-body">Not a meeting — but the title still references last year's date. Worth a glance to confirm it's still accurate.</div>
+    </div>
+
+    <div class="card" style="border-left-color:var(--green);">
+      <div class="card-top">
+        <div class="card-title">2:00 – 2:20 PM SGT — Chat with Yiqiao (Leo) Wang</div>
+        <span class="status status-green">On track</span>
+      </div>
+      <div class="card-meta">Confirmed · Video call</div>
+      <div class="card-body"><a href="https://app.cal.com/video/77Qgke2JmAHXtoeh3cpJek" target="_blank" rel="noopener">Join via Cal.com</a></div>
+    </div>
+
+    <div class="card" style="border-left-color:var(--green);">
+      <div class="card-top">
+        <div class="card-title">5:00 – 6:00 PM SGT — Appointment with Ryan Shah (4 of 11)</div>
+        <span class="status status-green">On track</span>
+      </div>
+      <div class="card-meta">Confirmed · Attendee accepted · Microsoft Teams</div>
+      <div class="card-body"><a href="https://teams.microsoft.com/meet/474052138622909?p=PsOIf96M6umUW9JwcZ" target="_blank" rel="noopener">Join via Teams</a></div>
+    </div>
+
+    <div class="section-title">Inbox Priorities <span style="text-transform:none;letter-spacing:normal;font-weight:400;">(last 24 hours, max 5)</span></div>
+
+    <div class="card" style="border-left-color:var(--amber);">
+      <div class="card-top">
+        <div class="card-title">CLN legalization for Taiwan Gold Card — response needed</div>
+        <span class="status status-amber">Attention</span>
+      </div>
+      <div class="card-meta">info@visadc.com · replied 9:22 PM</div>
+      <div class="card-body">Says the original Certificate of Loss of Nationality shouldn't be shipped until the required legalization steps are confirmed. Personal document matter, not a business item — but it's the one thread genuinely waiting on you.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title">"THANK YOU!" — Sonja Lee, Huntsman community dinner</div>
+        <span class="status status-green">On track</span>
+      </div>
+      <div class="card-meta">sonjalee@upenn.edu · 9:14 PM</div>
+      <div class="card-body">Appreciation note for organizing the community and hosting dinner. No action needed.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title">"Want me to look at how your business earns?"</div>
+        <span class="status status-green">On track</span>
+      </div>
+      <div class="card-meta">hello@witandwire.com · 8:51 PM</div>
+      <div class="card-body">Cold outreach pitch. No action needed.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title">Nvidia and AI Vendor Financing — market newsletter</div>
+        <span class="status status-green">On track</span>
+      </div>
+      <div class="card-meta">account@seekingalpha.com · 10:05 AM</div>
+      <div class="card-body">Informational only.</div>
+    </div>
+
+    <div class="empty-note">No emails in the last 24 hours were flagged urgent, deadline, or response-needed for the business itself.</div>
+
+    <div class="section-title">Tasks</div>
+
+    <div class="card" style="border-left-color:var(--red);">
+      <div class="card-top">
+        <div class="card-title">"Publish my first book"</div>
+        <span class="status status-red">Overdue</span>
+      </div>
+      <div class="card-meta">Not started · Deadline 2024-06-30</div>
+      <div class="card-body">Project Planner — legacy personal item, unrelated to the business.</div>
+    </div>
+
+    <div class="card" style="border-left-color:var(--red);">
+      <div class="card-top">
+        <div class="card-title">"Home renovation"</div>
+        <span class="status status-red">Overdue</span>
+      </div>
+      <div class="card-meta">In progress · Deadline 2024-04-26</div>
+      <div class="card-body">Project Planner — legacy personal item, unrelated to the business.</div>
+    </div>
+
+    <div class="empty-note">No dedicated business task tracker exists in Notion yet. Flagged for the 46th day running since August 8.</div>
+
+    <div class="section-title">Content Slot</div>
+
+    <div class="card" style="border-left-color:var(--amber);">
+      <div class="card-top">
+        <div class="card-title">Today's post is not planned</div>
+        <span class="status status-amber">Attention</span>
+      </div>
+      <div class="card-body">The posting schedule runs Monday through Friday, so a post is due today. The most recent content calendar on file — Content Calendar Week of 2026-09-07 — ran through Friday, September 11. No content calendar has been built for the weeks of September 14 or September 21.</div>
+    </div>
+
+    <div class="section-title">Key Metric</div>
+
+    <div class="metric-card">
+      <div>
+        <div class="metric-value">Not currently tracked</div>
+        <div class="metric-note">Flagged for the 46th day running since August 8. Recommend picking one number to track daily or weekly — e.g. ETA Masterclass sign-ups, new coaching clients booked, or LinkedIn engagement rate.</div>
+      </div>
+      <span class="status status-amber">Attention</span>
+    </div>
+
+    <footer>Generated from Google Calendar, Gmail, and Notion · Institute for Greatness</footer>
+  </div>
+</body>
+</html>
