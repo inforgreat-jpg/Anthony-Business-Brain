@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief · Institute for Greatness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#E8294C; --primary-light:#F0728A;
+    --bg:#0A0A0A; --card:#141416; --card-border:#242428;
+    --ink:#F4F4F5; --ink-dim:#A1A1AA; --ink-faint:#6b6b72;
+    --good:#22C55E; --warn:#F59E0B; --bad:#EF4444;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.3),0 12px 32px rgba(0,0,0,.45);
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 80%, #000) 0%, var(--primary) 50%, var(--primary-light) 100%);
+  }
+  :root:not([data-theme="dark"]){}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Rethink Sans',sans-serif;
+    background:
+      radial-gradient(70% 55% at 100% -10%, color-mix(in srgb,var(--primary) 16%, transparent), transparent 60%),
+      radial-gradient(55% 45% at 0% 0%, color-mix(in srgb,var(--primary-light) 8%, transparent), transparent 55%),
+      var(--bg);
+    background-attachment:fixed;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  .doc{max-width:840px;margin:0 auto;padding:34px 20px 70px;}
+
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px color-mix(in srgb,var(--primary) 35%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;font-weight:600;}
+  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.85;}
+
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);font-weight:700;margin:26px 0 12px;}
+  .card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:12px;}
+  .lead{font-size:16px;color:var(--ink);}
+  .row{display:flex;align-items:flex-start;gap:10px;padding:9px 0;font-size:14.5px;border-bottom:1px solid var(--card-border);color:var(--ink);}
+  .row:last-child{border-bottom:none;}
+  .row .when{color:var(--ink-dim);font-size:13px;width:88px;flex-shrink:0;padding-top:1px;}
+  .row .txt{flex:1;}
+  .row .link{color:var(--primary-light);font-size:12.5px;text-decoration:none;display:block;margin-top:2px;}
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;flex-shrink:0;}
+  .t-red{background:color-mix(in srgb, var(--bad) 20%, transparent);color:var(--bad);}
+  .t-amb{background:color-mix(in srgb, var(--warn) 20%, transparent);color:var(--warn);}
+  .t-grn{background:color-mix(in srgb, var(--good) 20%, transparent);color:var(--good);}
+  .t-grey{background:rgba(255,255,255,.06);color:var(--ink-dim);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .stat{background:var(--card);border:1px solid var(--card-border);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
+  .stat .l{font-size:12px;color:var(--ink-dim);}
+  .stat .n{font-size:30px;font-weight:800;letter-spacing:-.02em;margin-top:4px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .stat .delta{font-size:13px;font-weight:600;margin-top:4px;color:var(--ink-dim);}
+  .note{background:linear-gradient(135deg, #141416 0%, color-mix(in srgb,var(--primary) 22%, #141416) 100%);border:1px solid var(--card-border);color:var(--ink);border-radius:var(--r-md);padding:18px 22px;font-size:14.5px;margin-top:6px;box-shadow:var(--sh);}
+  .note b{color:var(--primary-light);}
+  .empty{color:var(--ink-dim);font-size:14px;padding:6px 0;}
+  .badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px;}
+
+  footer{text-align:center;padding:30px 22px 10px;color:var(--ink-faint);font-size:13px;}
+  footer b{color:var(--ink-dim);}
+
+  @media(max-width:640px){.grid2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body data-theme="dark">
+  <div class="doc">
+
+    <div class="ohead"><div class="k">COO · Morning brief</div><h1>Good morning, Anthony</h1><div class="d">Wednesday, 23 September 2026 · Singapore time</div></div>
+
+    <div class="card"><h4>Today, in one line</h4><div class="lead">One all-day training block in HK, Berenise's monthly media posts are due, and an ICF Singapore coaching session runs 8–9:30 PM &mdash; no urgent email needs a reply, but today's content slot has nothing queued.</div></div>
+
+    <div class="grid2">
+      <div class="card"><h4>Calendar</h4>
+        <div class="row"><span class="when">All day</span><span class="txt">Momenta training &mdash; HK</span><span class="tagi t-grn">on track</span></div>
+        <div class="row"><span class="when">All day</span><span class="txt">Monthly Media Posts Due &mdash; Berenise</span><span class="tagi t-amb">due today</span></div>
+        <div class="row"><span class="when">All day</span><span class="txt">"Calendly renewal &ndash; 9/23/2025" reminder &mdash; title still says 2025, worth a glance</span><span class="tagi t-grey">stale</span></div>
+        <div class="row"><span class="when">8:00 PM</span><span class="txt">Breakthrough Coaching: Mastering the Blend of Presence &amp; Skills to Inspire &mdash; ICF Singapore, via Zoom<a class="link" href="https://us02web.zoom.us/j/89618740025" target="_blank" rel="noopener">Zoom link</a></span><span class="tagi t-grn">confirmed</span></div>
+      </div>
+      <div class="card"><h4>Inbox Priorities · last 24h</h4>
+        <div class="row"><span class="txt">No business email in the last 24 hours was flagged urgent, deadline, or response needed.</span></div>
+        <div class="row"><span class="txt">Sonja Lee (Penn Huntsman), thank-you note for organizing the community dinner &mdash; already replied</span><span class="tagi t-grn">closed</span></div>
+        <div class="row"><span class="txt">HSBC HK &amp; Wise, fund transfer confirmations landed overnight &mdash; FYI only</span><span class="tagi t-grey">fyi</span></div>
+        <div class="row"><span class="txt">HSBC Expat, monthly statement ready to view</span><span class="tagi t-grey">fyi</span></div>
+        <div class="row"><span class="txt">Wharton alumni newsletters (WPEN, Wharton Club UK) &mdash; informational</span><span class="tagi t-grey">fyi</span></div>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="card"><h4>Tasks</h4>
+        <div class="row"><span class="txt">"Publish my first book" &mdash; not started, deadline 2024-06-30 (Project Planner, legacy personal item)</span><span class="tagi t-red">overdue</span></div>
+        <div class="row"><span class="txt">"Home renovation" &mdash; in progress, deadline 2024-04-26 (Project Planner, legacy personal item)</span><span class="tagi t-red">overdue</span></div>
+        <div class="row"><span class="txt">No dedicated business task tracker exists in Notion yet &mdash; flagged for the 47th day running since August 8</span><span class="tagi t-amb">attention</span></div>
+      </div>
+      <div class="stat"><div class="l">Key Metric</div><div class="n" style="font-size:16px;background:none;-webkit-text-fill-color:var(--ink-dim);color:var(--ink-dim)">Not set yet</div><div class="delta">Flagged for the 47th day running since Aug 8. Pick one number to track daily &mdash; e.g. ETA Masterclass sign-ups, new coaching clients booked, or LinkedIn engagement rate.</div></div>
+    </div>
+
+    <div class="sec">Content slot</div>
+    <div class="card"><div class="row"><span class="txt">Today is Wednesday &mdash; the Mon&ndash;Fri posting schedule calls for a post, but nothing is planned. The most recent content calendar on file, <b>Content Calendar &mdash; Week of 2026-09-07</b>, ran through Friday Sept 11. No calendar has been built for the weeks of Sept 14 or Sept 21.</span><span class="tagi t-red">no post queued</span></div></div>
+
+    <div class="note">One thing to move the needle today: <b>get Berenise's monthly media posts logged</b> and <b>stand up a content calendar for this week</b> before today's Mon&ndash;Fri slot goes unfilled again. Nothing has been sent on your behalf &mdash; this is a recommendation waiting on your yes.</div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>Institute for Greatness</b></footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    window.addEventListener('load',function(){
+      if(!window.gsap)return; gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.ohead',{y:26,opacity:0,scale:.98,duration:.7,ease:'power3.out'});
+      gsap.from('.ohead h1',{y:14,opacity:0,duration:.7,delay:.12,ease:'power3.out'});
+      gsap.from('.card,.stat,.note',{y:20,opacity:0,duration:.55,stagger:.07,ease:'power2.out',scrollTrigger:{trigger:'.doc',start:'top 85%'}});
+    });
+  </script>
+</body>
+</html>
