@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CFO Weekly Report · Institute for Greatness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#F05A28; --primary-light:#F59473; --primary-dim: color-mix(in srgb, #F05A28 22%, #0A0A0A);
+    --bg:#0A0A0A; --panel:#141414; --panel-2:#191919; --border:rgba(255,255,255,.09); --border-soft:rgba(255,255,255,.05);
+    --ink:#F5F3F0; --sub:#A8A6A2; --faint:#6f6d6a;
+    --good:#34C77B; --good-bg:rgba(52,199,123,.12);
+    --warn:#F0A82A; --warn-bg:rgba(240,168,42,.12);
+    --bad:#F0483E; --bad-bg:rgba(240,72,62,.14);
+    --r-md:14px; --r-lg:20px; --pill:9999px;
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 82%, #000) 0%, var(--primary) 55%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Rethink Sans',sans-serif;
+    background:
+      radial-gradient(70% 50% at 100% -10%, color-mix(in srgb,var(--primary) 16%, transparent), transparent 60%),
+      radial-gradient(55% 40% at -5% 10%, color-mix(in srgb,var(--primary) 8%, transparent), transparent 55%),
+      var(--bg);
+    background-attachment:fixed;
+    color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  .doc{max-width:900px;margin:0 auto;padding:36px 20px 80px;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+
+  .ohead{border-radius:var(--r-lg);padding:28px 30px;margin-bottom:24px;color:#fff;background:var(--grad);box-shadow:0 20px 50px color-mix(in srgb,var(--primary) 32%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.10);top:-130px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;font-weight:700;}
+  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:6px 0 4px;}
+  .ohead .d{font-size:13px;opacity:.88;}
+  .ohead .headline{margin-top:16px;font-size:15px;font-weight:600;background:rgba(0,0,0,.18);border-radius:10px;padding:12px 14px;line-height:1.5;}
+
+  .sec{font-size:12px;letter-spacing:.11em;text-transform:uppercase;color:var(--sub);font-weight:700;margin:28px 0 12px;display:flex;align-items:center;gap:8px;}
+  .sec .n{width:20px;height:20px;border-radius:50%;background:var(--primary-dim);color:var(--primary-light);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+
+  .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+  .stat{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-md);padding:16px 16px 15px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;}
+  .stat.good::before{background:var(--good);} .stat.warn::before{background:var(--warn);} .stat.bad::before{background:var(--bad);}
+  .stat .l{font-size:11.5px;color:var(--sub);font-weight:600;letter-spacing:.01em;}
+  .stat .n{font-size:26px;font-weight:800;letter-spacing:-.02em;margin-top:6px;}
+  .stat .delta{font-size:12.5px;font-weight:700;margin-top:5px;display:flex;align-items:center;gap:5px;}
+  .tag{font-size:10px;font-weight:800;padding:2px 8px;border-radius:var(--pill);text-transform:uppercase;letter-spacing:.05em;}
+  .tag.good{background:var(--good-bg);color:var(--good);} .tag.warn{background:var(--warn-bg);color:var(--warn);} .tag.bad{background:var(--bad-bg);color:var(--bad);}
+  .stat .note{font-size:12px;color:var(--faint);margin-top:6px;}
+
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-md);padding:20px 22px;margin-bottom:14px;}
+  .card.accent{border-left:4px solid var(--primary);}
+  .card.gap{border-style:dashed;border-color:var(--border);background:var(--panel-2);}
+  .card h4{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--sub);margin-bottom:6px;display:flex;align-items:center;justify-content:space-between;gap:10px;}
+  .card p{font-size:14.5px;color:var(--ink);}
+  .card .sub{font-size:13px;color:var(--sub);margin-top:6px;}
+
+  table{width:100%;border-collapse:collapse;margin-top:4px;}
+  th{text-align:left;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--sub);font-weight:700;padding:9px 10px;border-bottom:1px solid var(--border);}
+  td{padding:11px 10px;font-size:14px;border-bottom:1px solid var(--border-soft);vertical-align:middle;}
+  tr:last-child td{border-bottom:none;}
+  td.num{text-align:right;}
+  .pill{font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:var(--pill);text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;}
+  .pill.bad{background:var(--bad-bg);color:var(--bad);} .pill.warn{background:var(--warn-bg);color:var(--warn);}
+  .cust{font-weight:700;} .inv{color:var(--faint);font-size:12.5px;}
+
+  .flags{background:var(--bad-bg);border:1px solid color-mix(in srgb,var(--bad) 45%, transparent);border-radius:var(--r-md);padding:6px 18px;}
+  .flag{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid color-mix(in srgb,var(--bad) 22%, transparent);}
+  .flag:last-child{border-bottom:none;}
+  .flag .num{width:24px;height:24px;border-radius:50%;background:var(--bad);color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+  .flag .t{font-size:14.5px;color:var(--ink);}
+  .flag .t b{color:#fff;}
+  .flag .step{font-size:13px;color:var(--sub);margin-top:4px;}
+  .flag .step b{color:var(--primary-light);font-weight:700;}
+
+  .msgbox{background:var(--panel-2);border:1px solid var(--border);border-radius:var(--r-md);padding:18px 20px;}
+  .msgbox .label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--sub);font-weight:700;margin-bottom:10px;}
+  .msgbox .msg{font-size:15px;line-height:1.65;color:var(--ink);font-style:italic;border-left:3px solid var(--primary);padding-left:14px;}
+  .msgbox .meta{font-size:12px;color:var(--faint);margin-top:12px;}
+
+  footer{text-align:center;padding:34px 22px 10px;color:var(--faint);font-size:12.5px;}
+  footer b{color:var(--sub);}
+
+  @media(max-width:720px){.grid4{grid-template-columns:1fr 1fr;}}
+  @media(max-width:460px){.grid4{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+  <div class="doc">
+
+    <div class="ohead">
+      <div class="k">CFO · Weekly Revenue Report</div>
+      <h1>Institute for Greatness</h1>
+      <div class="d">Friday, 25 September 2026 · week of Sep 18–25 · source: Zoho Books (live ledger)</div>
+      <div class="headline">Zero cash collected for the second straight week, while SGD 4,500 sits 52–61 days overdue on a single client. No pipeline tracker and no monthly revenue target exist anywhere in the business's systems.</div>
+    </div>
+
+    <div class="sec"><span class="n">1</span>Weekly Revenue</div>
+    <div class="grid4">
+      <div class="stat bad">
+        <div class="l">Revenue Received</div>
+        <div class="n mono">SGD 0</div>
+        <div class="delta"><span class="tag bad">flat · $0</span></div>
+        <div class="note">vs SGD 0 last week (Sep 11–18) — 2nd straight week at zero</div>
+      </div>
+      <div class="stat bad">
+        <div class="l">Unpaid &amp; Overdue</div>
+        <div class="n mono">SGD 4,500</div>
+        <div class="delta"><span class="tag bad">7+ days</span></div>
+        <div class="note">2 invoices, both to Momenta, 52 &amp; 61 days past due</div>
+      </div>
+      <div class="stat warn">
+        <div class="l">30-Day Run Rate</div>
+        <div class="n mono">SGD 1,250</div>
+        <div class="delta"><span class="tag warn">no target set</span></div>
+        <div class="note">1 payment in the trailing 30 days (Hupo, 31 Aug)</div>
+      </div>
+      <div class="stat good">
+        <div class="l">Expenses This Week</div>
+        <div class="n mono">SGD 52.90</div>
+        <div class="delta"><span class="tag good">controlled</span></div>
+        <div class="note">Travel only — Gojek + Taiwan Taxi, 18 Sep</div>
+      </div>
+    </div>
+
+    <div class="sec"><span class="n">2</span>Pipeline Health</div>
+    <div class="card gap">
+      <h4>No pipeline / CRM tracker found <span class="tag warn">data gap</span></h4>
+      <p>Notion was searched in full — revenue, deals, CRM, prospects, clients — and holds no pipeline database. The daily COO Brief has been flagging this exact gap for 49 consecutive days since 8 Aug. Total pipeline value, active deal count, and stalled-deal (21+ day) analysis can't be produced until a tracker exists.</p>
+      <div class="sub">Recommended: a lightweight Notion or Zoho deal list with stage + last-activity date, so this check can run for real next week.</div>
+    </div>
+
+    <div class="sec"><span class="n">3</span>Unpaid Invoices</div>
+    <div class="card accent" style="padding:8px 8px 4px;">
+      <table>
+        <tr><th>Client</th><th>Invoice</th><th>Issued</th><th>Due</th><th class="num">Amount</th><th>Status</th></tr>
+        <tr>
+          <td><span class="cust">Momenta</span></td>
+          <td><span class="inv">INV-000010</span></td>
+          <td>11 Jun</td>
+          <td>26 Jul</td>
+          <td class="num mono">SGD 3,000</td>
+          <td><span class="pill bad">61 days overdue</span></td>
+        </tr>
+        <tr>
+          <td><span class="cust">Momenta</span></td>
+          <td><span class="inv">INV-000011</span></td>
+          <td>20 Jun</td>
+          <td>4 Aug</td>
+          <td class="num mono">SGD 1,500</td>
+          <td><span class="pill bad">52 days overdue</span></td>
+        </tr>
+        <tr>
+          <td><span class="cust">Momenta</span></td>
+          <td><span class="inv">INV-000035</span></td>
+          <td>24 Sep</td>
+          <td>8 Nov</td>
+          <td class="num mono">SGD 2,350</td>
+          <td><span class="pill warn">draft — not sent</span></td>
+        </tr>
+      </table>
+    </div>
+    <div class="card" style="margin-top:-2px;"><p><b>Total outstanding (sent, unpaid):</b> <span class="mono">SGD 4,500</span> — Momenta's Net 45 terms passed weeks ago on both. <b>Unbilled:</b> <span class="mono">SGD 2,350</span> still sitting in draft.</p></div>
+
+    <div class="sec"><span class="n">4</span>Monthly Run Rate</div>
+    <div class="card">
+      <h4>Projected vs target</h4>
+      <p>Trailing 30-day collected: <b class="mono">SGD 1,250</b>. Month-to-date September: <b class="mono">SGD 0</b>. No formal monthly revenue target exists — the Business Inbox (Section 8) explicitly lists "Clients needed per month" as unset. Average deal size on file ranges SGD 488–8,000, so one closed coaching engagement would reset this figure; nothing has closed in 25 days.</p>
+      <div class="sub">Recommend setting an explicit monthly SGD target now so this check has something to measure against next week.</div>
+    </div>
+
+    <div class="sec"><span class="n">5</span>Attention Flags</div>
+    <div class="flags">
+      <div class="flag">
+        <div class="num">1</div>
+        <div>
+          <div class="t">Momenta owes <b>SGD 4,500</b> across two invoices, <b>52 and 61 days</b> past their Net 45 due dates.</div>
+          <div class="step">Next step: <b>send the follow-up message below today</b> and set a hard payment deadline.</div>
+        </div>
+      </div>
+      <div class="flag">
+        <div class="num">2</div>
+        <div>
+          <div class="t">A third Momenta invoice, <b>INV-000035 (SGD 2,350)</b>, has sat in draft since 24 Sep and was never sent — that's unbilled revenue.</div>
+          <div class="step">Next step: <b>issue INV-000035 today</b> so the 45-day clock starts.</div>
+        </div>
+      </div>
+      <div class="flag">
+        <div class="num">3</div>
+        <div>
+          <div class="t">No monthly revenue target or pipeline tracker exists anywhere in the business's systems — this report can't score progress against a plan.</div>
+          <div class="step">Next step: <b>pick one number to track weekly</b> (e.g. ETA Masterclass sign-ups or new coaching clients booked) and set a SGD target for October.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec"><span class="n">✓</span>Copy-Ready Follow-Up</div>
+    <div class="msgbox">
+      <div class="label">To: Momenta — re: INV-000010 &amp; INV-000011</div>
+      <div class="msg">Invoices INV-000010 (SGD 3,000) and INV-000011 (SGD 1,500), totaling SGD 4,500, are now 61 and 52 days past due, so please confirm payment this week.</div>
+      <div class="meta">No contact email on file in Zoho for Momenta — paste into your existing thread with your Momenta contact.</div>
+    </div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>Built by Daniel Paul · Purely Personal</b></footer>
+  </div>
+</body>
+</html>
