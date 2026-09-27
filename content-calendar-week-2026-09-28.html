@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Content Calendar — Week of 2026-09-28</title>
+<style>
+  :root {
+    --brand: #F05A28;
+    --ink: #003444;
+    --bg: #0A0A0A;
+    --panel: #151515;
+    --panel-border: #262626;
+    --text: #F2EFEA;
+    --text-dim: #A8A8A8;
+    --blue: #4C8DFF;
+    --green: #35C56A;
+    --amber: #F0B429;
+    --red: #F0523B;
+    --purple: #B385F5;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    padding: 40px 20px 60px;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; }
+
+  header {
+    border-top: 4px solid var(--brand);
+    background: linear-gradient(180deg, rgba(240,90,40,0.10), rgba(240,90,40,0) 70%);
+    padding: 28px 28px 22px;
+    border-radius: 4px 4px 0 0;
+    margin-bottom: 4px;
+  }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 12px;
+    color: var(--brand);
+    font-weight: 700;
+    margin: 0 0 8px;
+  }
+  h1 {
+    margin: 0 0 6px;
+    font-size: 28px;
+    letter-spacing: -0.01em;
+  }
+  .sub { color: var(--text-dim); font-size: 14px; margin: 0; }
+
+  .pillars {
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin: 24px 0;
+  }
+  .pillars h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    margin: 0 0 14px;
+  }
+  .pillar-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+  .chip {
+    font-size: 13px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--panel-border);
+    background: #1c1c1c;
+    color: var(--text);
+  }
+  .flag-ok {
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--green);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  thead th {
+    background: var(--brand);
+    color: #0A0A0A;
+    text-align: left;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 14px 16px;
+    font-weight: 700;
+  }
+  tbody td {
+    padding: 16px;
+    font-size: 13.5px;
+    line-height: 1.5;
+    border-top: 1px solid var(--panel-border);
+    vertical-align: top;
+  }
+  tbody tr:nth-child(even) { background: #121212; }
+  .day-cell { white-space: nowrap; font-weight: 700; color: var(--text); }
+  .pillar-cell { color: var(--text-dim); min-width: 150px; }
+  .topic-cell { min-width: 260px; }
+  .hook-cell, .cta-cell { color: #D8D3CC; min-width: 220px; }
+
+  .badge {
+    display: inline-block;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .badge-educating { background: rgba(76,141,255,0.18); color: var(--blue); border: 1px solid rgba(76,141,255,0.4); }
+  .badge-nurturing { background: rgba(53,197,106,0.18); color: var(--green); border: 1px solid rgba(53,197,106,0.4); }
+  .badge-softselling { background: rgba(240,180,41,0.18); color: var(--amber); border: 1px solid rgba(240,180,41,0.4); }
+  .badge-hardselling { background: rgba(240,82,59,0.18); color: var(--red); border: 1px solid rgba(240,82,59,0.4); }
+  .badge-engagement { background: rgba(179,133,245,0.18); color: var(--purple); border: 1px solid rgba(179,133,245,0.4); }
+
+  .format-tag { font-size: 12.5px; color: var(--text-dim); }
+
+  .legend {
+    margin-top: 22px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    font-size: 12.5px;
+    color: var(--text-dim);
+  }
+  .legend span.dot {
+    display: inline-block;
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    margin-right: 6px;
+  }
+
+  footer {
+    margin-top: 28px;
+    padding-top: 16px;
+    border-top: 1px solid var(--panel-border);
+    font-size: 12px;
+    color: #6b6b6b;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  @media (max-width: 760px) {
+    table, thead, tbody, th, td, tr { display: block; }
+    thead { display: none; }
+    tbody tr { border-top: 1px solid var(--panel-border); padding: 14px 0; }
+    tbody td { border-top: none; padding: 6px 16px; }
+    tbody td::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--brand);
+      margin-bottom: 4px;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <p class="eyebrow">Institute for Greatness · Content Ops</p>
+    <h1>Content Calendar — Week of Sep 28, 2026</h1>
+    <p class="sub">Monday, Sep 28 → Friday, Oct 2, 2026 · Built from positioning, ICP, and Voice DNA · Saved to Notion</p>
+  </header>
+
+  <section class="pillars">
+    <h2>Active Territories Confirmed This Week</h2>
+    <div class="pillar-chips">
+      <span class="chip">Presence Over Performance</span>
+      <span class="chip">The Pivot / Career Changer</span>
+      <span class="chip">Freedom Through Ownership (ETA)</span>
+      <span class="chip">Lived Experience vs. Certification</span>
+      <span class="chip">Time Value / Reallocation</span>
+    </div>
+    <div class="flag-ok">✓ No pillar has run 3+ times in a row — all five territories rotated once each across the last two tracked weeks (Aug 31, Sep 7) and again this week, with no repeated slot pairing.</div>
+  </section>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Day</th>
+        <th>Pillar</th>
+        <th>Topic / Angle</th>
+        <th>Intent</th>
+        <th>Format</th>
+        <th>Hook Direction</th>
+        <th>CTA Direction</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="day-cell" data-label="Day">Monday<br>Sep 28</td>
+        <td class="pillar-cell" data-label="Pillar">Freedom Through Ownership (ETA)</td>
+        <td class="topic-cell" data-label="Topic / Angle">The David → Janet → Kelvin Ladder — a 3-stage framework for reading readiness to move from salaried safety to owned freedom, built on Anthony's own arc from employee to side-owner to portfolio owner.</td>
+        <td data-label="Intent"><span class="badge badge-educating">Educating</span></td>
+        <td class="format-tag" data-label="Format">Framework post<br><span style="color:var(--text-dim)">Variation A · saves &amp; reposts</span></td>
+        <td class="hook-cell" data-label="Hook Direction">Stage-naming formula: "You don't jump from employee to owner. You move through three stages — and most people quit at stage one because they expect it to feel like stage three."</td>
+        <td class="cta-cell" data-label="CTA Direction">Save/share close, no hard ask: "Save this if you don't know which stage you're actually in yet."</td>
+      </tr>
+      <tr>
+        <td class="day-cell" data-label="Day">Tuesday<br>Sep 29</td>
+        <td class="pillar-cell" data-label="Pillar">Presence Over Performance</td>
+        <td class="topic-cell" data-label="Topic / Angle">The Mirror moment during the hedge fund years — outwardly winning (nominated Best New Asian Hedge Fund), inwardly hollow, and the repeated realization that presence had become performance for other people's approval.</td>
+        <td data-label="Intent"><span class="badge badge-nurturing">Nurturing</span></td>
+        <td class="format-tag" data-label="Format">Story post<br><span style="color:var(--text-dim)">Variation B · build connection</span></td>
+        <td class="hook-cell" data-label="Hook Direction">The Mirror Analogy: "I looked into the mirror and the person looking back at me told me I wasn't fulfilled. This wasn't the first time. It kept happening." Context → doubt/fear → soul-searching → decision → conviction.</td>
+        <td class="cta-cell" data-label="CTA Direction">No hard sell, invite connection: "If you've had your own mirror moment recently, tell me what it said to you."</td>
+      </tr>
+      <tr>
+        <td class="day-cell" data-label="Day">Wednesday<br>Sep 30</td>
+        <td class="pillar-cell" data-label="Pillar">Lived Experience vs. Certification</td>
+        <td class="topic-cell" data-label="Topic / Angle">"I have the certificate. I don't lead with it." — Anthony discloses his ICF certification but names the real qualifier: two layoffs and a hedge fund launched after 50 rejections.</td>
+        <td data-label="Intent"><span class="badge badge-softselling">Soft Selling</span></td>
+        <td class="format-tag" data-label="Format">Soft-sell post<br><span style="color:var(--text-dim)">Drive DMs</span></td>
+        <td class="hook-cell" data-label="Hook Direction">Contradiction formula: "I'm ICF-certified. That's not why clients hire me."</td>
+        <td class="cta-cell" data-label="CTA Direction">DM keyword ask: "DM me the word TESTED and I'll send you the 3 questions I wish someone had asked me before I paid for coaching."</td>
+      </tr>
+      <tr>
+        <td class="day-cell" data-label="Day">Thursday<br>Oct 1</td>
+        <td class="pillar-cell" data-label="Pillar">Time Value / Reallocation</td>
+        <td class="topic-cell" data-label="Topic / Angle">Contrarian take on "busy" as a symptom of linear conditioning — a full calendar is not the same as a full life, and most of what's booked could be deleted without changing anything real.</td>
+        <td data-label="Intent"><span class="badge badge-engagement">Engagement</span></td>
+        <td class="format-tag" data-label="Format">Contrarian/Engagement post<br><span style="color:var(--text-dim)">Spark conversation</span></td>
+        <td class="hook-cell" data-label="Hook Direction">"Who Says" contrarian: "A full calendar is not proof of a full life. Half of what's on yours today, you could delete and nothing real would change."</td>
+        <td class="cta-cell" data-label="CTA Direction">Direct question to spark comments: "What's one recurring thing on your calendar you'd delete tomorrow if you were honest?"</td>
+      </tr>
+      <tr>
+        <td class="day-cell" data-label="Day">Friday<br>Oct 2</td>
+        <td class="pillar-cell" data-label="Pillar">The Pivot / Career Changer</td>
+        <td class="topic-cell" data-label="Topic / Angle">The Zig-Zag Map — reframing pivot paths as non-linear by design, naming linear conditioning (the strategic enemy) as the belief that there's only one map for a successful career.</td>
+        <td data-label="Intent"><span class="badge badge-educating">Educating</span></td>
+        <td class="format-tag" data-label="Format">Framework post<br><span style="color:var(--text-dim)">Repeats Monday's intent — best-performing default</span></td>
+        <td class="hook-cell" data-label="Hook Direction">Contradiction formula: "You've been successful for years. And yet, something still doesn't feel right. That's not a sign you're broken. It's a sign you're following someone else's map."</td>
+        <td class="cta-cell" data-label="CTA Direction">Save-worthy close: "Save this if your career has never been a straight line and you're tired of pretending it should be."</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="legend">
+    <div><span class="dot" style="background:var(--blue)"></span>Educating</div>
+    <div><span class="dot" style="background:var(--green)"></span>Nurturing</div>
+    <div><span class="dot" style="background:var(--amber)"></span>Soft Selling</div>
+    <div><span class="dot" style="background:var(--red)"></span>Hard Selling</div>
+    <div><span class="dot" style="background:var(--purple)"></span>Engagement</div>
+  </div>
+
+  <footer>
+    <span>Sources: brand-positioning-anthony-tse.md · icp-anthony-tse.md · voice-dna-anthony-tse.md</span>
+    <span>Brand color #F05A28 detected from positioning doc · Saved to Notion: Content Calendar — Week of 2026-09-28</span>
+  </footer>
+
+</div>
+</body>
+</html>
