@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief · Sunday, September 27 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Poppins:wght@300;400;500;600;700;800&family=Oswald:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #F05A28;
+  --primary-dark: #C44010;
+  --primary-light: #F59473;
+  --primary-rgb: 240, 90, 40;
+  --bg-page: #0A0A0A;
+  --bg-card: #111111;
+  --bg-card-2: #181818;
+  --bg-card-3: #1F1F1F;
+  --border: rgba(255,255,255,0.07);
+  --border-bright: rgba(255,255,255,0.13);
+  --text-primary: #FFFFFF;
+  --text-secondary: rgba(255,255,255,0.60);
+  --text-muted: rgba(255,255,255,0.32);
+  --good: #22C55E; --good-bg: rgba(34,197,94,0.10); --good-bd: rgba(34,197,94,0.30);
+  --warn: #F5A524; --warn-bg: rgba(245,165,36,0.10); --warn-bd: rgba(245,165,36,0.30);
+  --bad:  #EF4444; --bad-bg:  rgba(239,68,68,0.10);  --bad-bd:  rgba(239,68,68,0.30);
+  --r-sm: 8px; --r-md: 14px; --r-lg: 22px; --r-pill: 9999px;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-heading: 'Oswald', sans-serif;
+  --font-body: 'Poppins', system-ui, sans-serif;
+  --font-mono: 'DM Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body); background: var(--bg-page); color: var(--text-primary);
+  -webkit-font-smoothing: antialiased; min-height: 100vh; line-height: 1.6;
+  background-image: radial-gradient(ellipse 70% 50% at 50% -10%, rgba(var(--primary-rgb),0.10) 0%, transparent 60%);
+}
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-card); }
+::-webkit-scrollbar-thumb { background: rgba(var(--primary-rgb),0.35); border-radius: 3px; }
+
+.wrap { max-width: 760px; margin: 0 auto; padding: 44px 20px 70px; }
+
+/* HEADER */
+.head { margin-bottom: 30px; }
+.head__eyebrow { font-family: var(--font-heading); font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--primary); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.head__eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 12px rgba(var(--primary-rgb),0.7); }
+.head__title { font-family: var(--font-display); font-size: clamp(28px, 5vw, 40px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 8px; }
+.head__date { font-size: 14px; color: var(--text-secondary); }
+.head__date b { color: var(--text-primary); font-weight: 600; }
+
+/* SECTION LABELS */
+.sec { display: flex; align-items: center; justify-content: space-between; margin: 34px 0 14px; }
+.sec__title { font-family: var(--font-heading); font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); }
+.sec:first-of-type { margin-top: 0; }
+
+/* CARD */
+.card { background: var(--bg-card); border: 1px solid var(--border-bright); border-radius: var(--r-lg); padding: 20px 22px; margin-bottom: 12px; position: relative; overflow: hidden; }
+.card + .card { margin-top: 12px; }
+.card::before { content:""; position:absolute; top:0; left:0; bottom:0; width:3px; }
+.card--good::before { background: var(--good); }
+.card--warn::before { background: var(--warn); }
+.card--bad::before { background: var(--bad); }
+.card--flat::before { background: var(--border-bright); }
+
+.item { display: flex; align-items: flex-start; gap: 14px; }
+.item + .item { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); }
+.badge { flex-shrink: 0; font-family: var(--font-heading); font-size: 9.5px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; padding: 4px 9px; border-radius: var(--r-pill); border: 1px solid transparent; margin-top: 2px; white-space: nowrap; }
+.badge--good { background: var(--good-bg); color: var(--good); border-color: var(--good-bd); }
+.badge--warn { background: var(--warn-bg); color: var(--warn); border-color: var(--warn-bd); }
+.badge--bad  { background: var(--bad-bg);  color: var(--bad);  border-color: var(--bad-bd); }
+
+.item__body { flex: 1; min-width: 0; }
+.item__title { font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 3px; line-height: 1.4; }
+.item__meta { font-size: 12.5px; color: var(--text-muted); margin-bottom: 5px; font-family: var(--font-mono); letter-spacing: 0.01em; }
+.item__note { font-size: 13.5px; color: var(--text-secondary); line-height: 1.6; }
+.item__note b { color: var(--text-primary); font-weight: 600; }
+
+.empty-line { font-size: 14px; color: var(--text-secondary); padding: 2px 0; }
+
+/* KEY METRIC */
+.metric { display: flex; align-items: center; gap: 20px; }
+.metric__num { font-family: var(--font-display); font-size: 34px; font-weight: 800; color: var(--text-muted); letter-spacing: -0.02em; line-height: 1; }
+.metric__body .item__title { margin-bottom: 4px; }
+
+/* FOOTER */
+footer { text-align: center; padding: 40px 20px 6px; color: var(--text-muted); font-size: 12.5px; letter-spacing: 0.02em; }
+footer b { color: var(--text-secondary); }
+
+@media (max-width: 480px) {
+  .metric { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="head">
+    <div class="head__eyebrow">COO · Morning Brief</div>
+    <h1 class="head__title">Good morning, Anthony.</h1>
+    <div class="head__date">Sunday, <b>September 27, 2026</b> · compiled while you slept</div>
+  </div>
+
+  <div class="sec"><div class="sec__title">Today's Schedule</div></div>
+  <div class="card card--warn">
+    <div class="item">
+      <span class="badge badge--warn">Attention</span>
+      <div class="item__body">
+        <div class="item__title">"Purely Personal — subscription ends Sept 28" reminder</div>
+        <div class="item__meta">ALL DAY · through Sept 28</div>
+        <div class="item__note">Renewal decision needed within <b>1 day</b>. No other meetings are on today's calendar.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec"><div class="sec__title">Inbox Priorities</div></div>
+  <div class="card card--good">
+    <div class="item">
+      <span class="badge badge--good">On track</span>
+      <div class="item__body">
+        <div class="item__title">Nothing needs a reply</div>
+        <div class="item__note">No emails in the last 24 hours were flagged urgent, deadline, or response-needed for the business. Everything that landed was personal or a newsletter — Laver Cup updates, a Business Insider newsletter, two Seeking Alpha notes, an HSBC FX outlook, a Wharton Club dinner reminder, a Preply lesson notice, and an Uber receipt.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec"><div class="sec__title">Tasks</div></div>
+  <div class="card card--bad">
+    <div class="item">
+      <span class="badge badge--bad">Overdue</span>
+      <div class="item__body">
+        <div class="item__title">Publish my first book</div>
+        <div class="item__meta">DEADLINE 2024-06-30 · NOT STARTED · Project Planner</div>
+        <div class="item__note">Legacy personal item, unrelated to the business.</div>
+      </div>
+    </div>
+    <div class="item">
+      <span class="badge badge--bad">Overdue</span>
+      <div class="item__body">
+        <div class="item__title">Home renovation</div>
+        <div class="item__meta">DEADLINE 2024-04-26 · IN PROGRESS · Project Planner</div>
+        <div class="item__note">Legacy personal item, unrelated to the business.</div>
+      </div>
+    </div>
+    <div class="item">
+      <span class="badge badge--warn">Attention</span>
+      <div class="item__body">
+        <div class="item__title">No dedicated business task tracker in Notion</div>
+        <div class="item__note">Flagged for the <b>51st day running</b> since August 8 — worth setting one up so real deadlines don't hide behind personal to-dos.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec"><div class="sec__title">Content Slot</div></div>
+  <div class="card card--good">
+    <div class="item">
+      <span class="badge badge--good">On track</span>
+      <div class="item__body">
+        <div class="item__title">No post due today</div>
+        <div class="item__note">The posting schedule runs Monday–Friday, so Sunday is off-cycle. The most recent content calendar on file, <b>Week of 2026-09-07</b>, ran through Friday, September 11 — nothing has been built for the weeks since. A blank <b>Content Calendar — Week of 2026-09-28</b> database now exists in Notion, ready to be filled before Monday.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec"><div class="sec__title">Key Metric</div></div>
+  <div class="card card--warn">
+    <div class="item">
+      <span class="badge badge--warn">Attention</span>
+      <div class="item__body">
+        <div class="item__title">No metric currently tracked</div>
+        <div class="item__note">Flagged for the <b>51st day running</b> since August 8. Recommend picking one number to track daily or weekly — ETA Masterclass sign-ups, new coaching clients booked, or LinkedIn engagement rate.</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>Anthony's Business Brain · <b>COO Morning Brief</b></footer>
+</div>
+</body>
+</html>
