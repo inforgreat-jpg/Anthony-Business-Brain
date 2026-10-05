@@ -277,7 +277,7 @@ const S = {
 const LS_KEY = "blocktown-sports-v1";
 
 function defaultPlayer(id){
-  return {id, name: id==="p1" ? "Carlo" : "Nene", lang:"en", diff: id==="p1" ? "hard" : "easy",
+  return {id, name: id==="p1" ? "Carlo" : "Nene", lang:"zh", diff: id==="p1" ? "hard" : "easy",
     auto: id!=="p1", cash:0, given:0, spent:0, workTotal:0, bizTotal:0, level:"worker",
     shifts:{date:"", n:0}, biz:{}, items:[], weeks:{}, lastTick:"", created: new Date().toISOString()};
 }
@@ -322,14 +322,19 @@ function blip(freq=660, len=0.08){
     g.gain.setValueAtTime(0.06, actx.currentTime); g.gain.exponentialRampToValueAtTime(0.0001, actx.currentTime + len);
     o.connect(g); g.connect(actx.destination); o.start(); o.stop(actx.currentTime + len); } catch(e) {}
 }
+function isCantonese(v){ return /yue|zh[-_]hk|hong ?kong|cantonese|粵|粤|廣東|广东/i.test((v.lang||"")+" "+(v.name||"")); }
 function pickVoice(lang){
-  try { const vs = speechSynthesis.getVoices(); const want = lang === "zh" ? ["zh-CN","zh_CN","cmn-Hans","zh"] : ["en-US","en_US","en"];
-    for (const w of want) { const v = vs.find(v => v.lang && v.lang.replace("_","-").toLowerCase().startsWith(w.replace("_","-").toLowerCase())); if (v) return v; } } catch(e) {}
+  try { const vs = speechSynthesis.getVoices(); const norm = x => (x||"").replace("_","-").toLowerCase();
+    const want = lang === "zh" ? ["zh-cn","cmn-cn","cmn-hans","zh-hans","zh-sg","zh-tw","cmn-tw","cmn","zh"] : ["en-us","en-gb","en"];
+    for (const w of want) { const v = vs.find(v => norm(v.lang).startsWith(w) && !isCantonese(v)); if (v) return v; } } catch(e) {}
   return null;
 }
+// Traditional -> Simplified map for the characters this game uses, so Mandarin voices read them as mainland Mandarin
+const T2S_T = "乾來個們儲動員單團報場塊夠學將幫幾庫後從態撿擁攤時會東樂樣歲沒淨測為爾狀獎現盃稱簡約級給網練習聲腳補裡覺設試語誰讀變貨買資賺賽載這週過還錢錯鎮長閃開闆關隊難顧餓體麼", T2S_S = "干来个们储动员单团报场块够学将帮几库后从态捡拥摊时会东乐样岁没净测为尔状奖现杯称简约级给网练习声脚补里觉设试语谁读变货买资赚赛载这周过还钱错镇长闪开板关队难顾饿体么";
+const toSimp = t => [...t].map(c => { const i = T2S_T.indexOf(c); return i < 0 ? c : T2S_S[i]; }).join("");
 function speak(text, lang){
   try { if (!("speechSynthesis" in window)) return false; speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(text.replace(/[\u{1F300}-\u{1FAFF}☀-➿]/gu, ""));
+    const u = new SpeechSynthesisUtterance((lang === "zh" ? toSimp(text) : text).replace(/[\u{1F300}-\u{1FAFF}☀-➿]/gu, ""));
     u.lang = lang === "zh" ? "zh-CN" : "en-US"; const v = pickVoice(lang); if (v) u.voice = v; u.rate = 0.9;
     speechSynthesis.speak(u); return !!v || true; } catch(e) { return false; }
 }
@@ -778,8 +783,13 @@ document.addEventListener("click", e => {
       S.queue.push({type:"msg", icon:it.emoji, text:msg, sub:L(p.lang,"shopSub")}); render(); autoSay(msg + " " + L(p.lang,"shopSub")); break; }
     case "set": { let v = el.dataset.val; if (v === "true") v = true; else if (v === "false") v = false; p[el.dataset.field] = v; savePlayer(p); render(); break; }
     case "rename": { const v = (document.getElementById("nick").value || "").trim().slice(0,16); if (v) { p.name = v; savePlayer(p); render(); } break; }
-    case "testVoice": { const has = !!pickVoice(p.lang); speak(L(p.lang,"voiceOk"), p.lang);
-      const note = document.getElementById("voiceNote"); if (note) note.textContent = has ? "✅" : (p.lang==="zh" ? "No Mandarin voice was found on this device. Install a Chinese (China) voice in the tablet's text-to-speech settings." : "No English voice was found on this device."); break; }
+    case "testVoice": { const v = pickVoice(p.lang); speak(L(p.lang,"voiceOk"), p.lang);
+      const note = document.getElementById("voiceNote"); if (!note) break;
+      if (v) note.textContent = "✅ " + v.name + " (" + v.lang + ")";
+      else if (p.lang === "zh") { let canto = false; try { canto = speechSynthesis.getVoices().some(isCantonese); } catch(e) {}
+        note.textContent = canto ? "⚠️ 這台平板只有粵語聲音。請在平板的「文字轉語音」設置裡下載「中文（中國）」普通話聲音。 Only a Cantonese voice is installed. Add a Chinese (China) Mandarin voice in the tablet's text-to-speech settings."
+                                 : "⚠️ 沒有找到普通話聲音。請在平板的「文字轉語音」設置裡下載「中文（中國）」聲音。 No Mandarin voice found. Add a Chinese (China) voice in the tablet's text-to-speech settings."; }
+      else note.textContent = "⚠️ No English voice found on this device."; break; }
     case "ffwd": S.team.dayOffset = (S.team.dayOffset||0) + 1; saveTeam(); tickAll(); render(); break;
     case "sound": S.team.sound = S.team.sound === false; saveTeam(); render(); break;
     case "reset": S.confirmReset = true; render(); break;
