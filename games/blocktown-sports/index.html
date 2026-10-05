@@ -1,0 +1,794 @@
+<title>Blocktown Sports</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Nunito:wght@600;800&family=Noto+Sans+TC:wght@500;800&display=swap">
+<style>
+/* Layout: a blocky sports town. Sky above, grass-and-dirt ground strip, chunky bevelled "block" panels. Single deliberate daytime look. */
+:root{
+  --sky1:#7cc8f5; --sky2:#d6efff;
+  --grass:#5dbb3f; --grass-dk:#3e8d2a;
+  --dirt:#8a5a32; --dirt-dk:#664120;
+  --wood:#c48a52; --wood-dk:#8f5d31;
+  --stone:#8b8f98; --stone-lt:#c9ccd3;
+  --paper:#fffaf0; --ink:#1d261b; --ink-soft:#4f5a4b;
+  --gold:#f6c22d; --gold-dk:#c08d12;
+  --p1:#22a99e; --p2:#ff8638;
+  --heart:#e2453c; --warn:#f0a020; --good:#3fae3a;
+  --court:#3a78b5; --sand:#e8cf8e;
+  --font-display:"Pixelify Sans","Noto Sans TC",ui-monospace,monospace;
+  --font-body:"Nunito","Noto Sans TC",system-ui,sans-serif;
+  --bevel:inset -4px -4px 0 rgba(0,0,0,.22), inset 4px 4px 0 rgba(255,255,255,.35);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{min-height:100%}
+body{margin:0;background:linear-gradient(var(--sky1),var(--sky2) 70%);background-attachment:fixed;color:var(--ink);font-family:var(--font-body);font-size:17px;-webkit-tap-highlight-color:transparent}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+h1,h2,h3{font-family:var(--font-display);font-weight:700;margin:0;text-wrap:balance;letter-spacing:.02em}
+.wrap{max-width:1100px;margin:0 auto;padding-inline:16px;padding-block:12px 120px}
+.ground{position:fixed;left:0;right:0;bottom:0;height:56px;z-index:0;pointer-events:none;
+  background:
+    linear-gradient(var(--grass) 0 14px, var(--grass-dk) 14px 18px, transparent 18px),
+    repeating-linear-gradient(90deg,var(--dirt) 0 24px,var(--dirt-dk) 24px 28px);
+}
+.ground::before{content:"";position:absolute;inset:0 0 auto 0;height:14px;background:repeating-linear-gradient(90deg,transparent 0 20px,rgba(255,255,255,.18) 20px 24px)}
+main{position:relative;z-index:1}
+
+/* block primitives */
+.block{background:var(--paper);border:3px solid var(--ink);box-shadow:var(--bevel),0 6px 0 rgba(29,38,27,.25);padding:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:8px 18px;border:3px solid var(--ink);background:var(--stone-lt);box-shadow:var(--bevel);font-family:var(--font-display);font-size:19px;font-weight:700;line-height:1.1;text-align:center}
+.btn:active{transform:translateY(2px);box-shadow:inset 4px 4px 0 rgba(0,0,0,.2)}
+.btn.go{background:var(--grass);color:#fff;text-shadow:2px 2px 0 rgba(0,0,0,.35)}
+.btn.gold{background:var(--gold)}
+.btn.wood{background:var(--wood);color:#fff;text-shadow:2px 2px 0 rgba(0,0,0,.3)}
+.btn.small{min-height:40px;font-size:16px;padding:4px 12px}
+.tile[disabled]{opacity:.5;cursor:not-allowed}
+.btn[disabled]{opacity:.45;cursor:not-allowed;transform:none}
+.say{min-width:44px;min-height:44px;border:3px solid var(--ink);background:#fff;box-shadow:var(--bevel);font-size:20px;padding:0;flex:none}
+.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.spread{justify-content:space-between}
+.muted{color:var(--ink-soft)}
+.num{font-family:var(--font-display);font-variant-numeric:tabular-nums}
+
+/* top bar */
+.topbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 14px;background:var(--wood);border:3px solid var(--ink);box-shadow:var(--bevel);color:#fff;margin-bottom:16px}
+.topbar h1{font-size:22px;text-shadow:2px 2px 0 rgba(0,0,0,.35)}
+.topbar .grow{flex:1;min-width:0}
+.sync{font-size:13px;font-weight:800;padding:3px 8px;background:rgba(0,0,0,.25)}
+
+/* home */
+.hero{text-align:center;padding-block:24px 8px}
+.hero h1{font-size:clamp(30px,6vw,52px);color:#fff;text-shadow:4px 4px 0 var(--ink)}
+.hero p{font-family:var(--font-display);font-size:22px;margin:10px 0 0;color:var(--ink)}
+.pick{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:24px}
+.kid{display:flex;flex-direction:column;align-items:center;gap:10px;padding:22px;border:3px solid var(--ink);box-shadow:var(--bevel),0 8px 0 rgba(29,38,27,.3);background:var(--paper)}
+.kid .face{width:120px;height:120px;image-rendering:pixelated;border:3px solid var(--ink)}
+.kid .nm{font-family:var(--font-display);font-size:32px}
+.kid.p1{border-top:12px solid var(--p1)} .kid.p2{border-top:12px solid var(--p2)}
+.homeLinks{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+
+/* hub */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;align-items:start}
+.sec h2{font-size:22px}
+.sec .head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.sec .head h2{flex:1;min-width:0}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border:3px solid var(--ink);background:var(--gold);font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--ink)}
+.piggy{display:flex;align-items:center;gap:14px}
+.piggy .big{font-size:44px;line-height:1}
+.coins{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px;max-width:320px}
+.gb{width:22px;height:22px;background:var(--gold);border:2px solid var(--gold-dk);box-shadow:inset -3px -3px 0 rgba(0,0,0,.15),inset 3px 3px 0 rgba(255,255,255,.5)}
+.cn{width:14px;height:14px;border-radius:50%;background:var(--gold);border:2px solid var(--gold-dk);align-self:center}
+.energy{display:flex;gap:6px;margin:6px 0 12px}
+.energy i{width:24px;height:24px;border:2px solid var(--ink);background:var(--gold);font-style:normal;display:grid;place-items:center;font-size:14px}
+.energy i.off{background:var(--stone-lt);opacity:.5}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.tile{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 8px;border:3px solid var(--ink);background:#fff;box-shadow:var(--bevel);text-align:center;min-width:0}
+.tile .em{font-size:44px;line-height:1.1;width:72px;height:72px;display:grid;place-items:center;background:linear-gradient(var(--grass) 0 12px,var(--dirt) 12px);border:3px solid var(--ink)}
+.tile .t{font-weight:800;line-height:1.2}
+.tile .s{font-size:14px;color:var(--ink-soft)}
+.tile.locked .em{filter:grayscale(.8);opacity:.7}
+.hp{width:100%;height:16px;border:2px solid var(--ink);background:#eee;position:relative}
+.hp b{position:absolute;inset:0 auto 0 0;background:var(--good)}
+.hp.mid b{background:var(--warn)} .hp.low b{background:var(--heart)}
+.vault .bar{height:34px;border:3px solid var(--ink);background:#fff;display:flex;overflow:hidden}
+.vault .bar span{height:100%}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:14px;margin-top:6px}
+.legend i{display:inline-block;width:14px;height:14px;border:2px solid var(--ink);vertical-align:-2px;margin-right:4px}
+.shopRow{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px}
+.levels{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.levels span{padding:3px 8px;border:2px solid var(--ink);font-size:14px;font-weight:800;background:#fff;opacity:.45}
+.levels span.on{opacity:1;background:var(--gold)}
+
+/* modal + games */
+.veil{position:fixed;inset:0;z-index:10;background:rgba(20,30,20,.55);display:flex;align-items:center;justify-content:center;padding:16px}
+.dlg{width:min(720px,100%);max-height:calc(100% - 8px);overflow:auto;background:var(--paper);border:4px solid var(--ink);box-shadow:var(--bevel),0 10px 0 rgba(0,0,0,.3);padding:18px}
+.dlg h2{font-size:24px}
+.dlg .head{display:flex;gap:10px;align-items:center;margin-bottom:12px}
+.dlg .head h2{flex:1;min-width:0}
+.center{text-align:center}
+.burst{font-size:64px;line-height:1.1}
+.arena{position:relative;width:100%;height:min(52vh,420px);border:4px solid var(--ink);overflow:hidden;touch-action:manipulation;user-select:none}
+.arena.court{background:linear-gradient(90deg,transparent calc(50% - 2px),#fff calc(50% - 2px) calc(50% + 2px),transparent 0),linear-gradient(transparent 12%,#fff 12% calc(12% + 4px),transparent 0 calc(88% - 4px),#fff calc(88% - 4px) 88%,transparent 0),var(--court)}
+.arena.sand{background:radial-gradient(circle at 30% 40%,rgba(255,255,255,.35) 0 2px,transparent 3px) 0 0/22px 22px,var(--sand)}
+.arena.field{background:repeating-linear-gradient(90deg,#57b33b 0 40px,#4ea535 40px 80px)}
+.arena.grass{background:repeating-linear-gradient(0deg,#4aa832 0 30px,#43982d 30px 60px)}
+.tgt{position:absolute;display:grid;place-items:center;border:0;background:transparent;padding:0;line-height:1;transform:translate(-50%,-50%);filter:drop-shadow(2px 3px 0 rgba(0,0,0,.3))}
+.tgt.drift{animation:drift 2.4s ease-in-out infinite alternate}
+.tgt.pop{animation:pop .25s forwards}
+@keyframes drift{from{margin-left:-14px}to{margin-left:14px}}
+@keyframes pop{to{transform:translate(-50%,-50%) scale(1.6);opacity:0}}
+.prog{display:flex;gap:4px;flex-wrap:wrap;margin:10px 0}
+.prog i{width:18px;height:18px;border:2px solid var(--ink);background:#fff}
+.prog i.on{background:var(--gold)}
+.order{display:flex;flex-direction:column;align-items:center;gap:14px;padding-block:20px}
+.fan{display:flex;align-items:center;gap:10px;font-size:64px}
+.bubble{font-size:52px;background:#fff;border:3px solid var(--ink);padding:6px 14px;box-shadow:var(--bevel)}
+.choices{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.choices button{font-size:52px;width:96px;height:96px;border:3px solid var(--ink);background:#fff;box-shadow:var(--bevel)}
+.shake{animation:shake .3s}
+@keyframes shake{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.days{display:flex;flex-direction:column;gap:8px;margin:12px 0}
+.day{border:3px solid var(--ink);background:#fff;padding:8px 12px;display:grid;grid-template-columns:110px 1fr;gap:8px;align-items:start}
+.day .dn{font-family:var(--font-display);font-weight:700}
+.day ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px;min-width:0}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+.compare>div{border:3px solid var(--ink);padding:10px;background:#fff;text-align:center}
+.field-row{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.field-row label{font-weight:800}
+input[type=text],select{font:inherit;min-height:48px;padding:6px 10px;border:3px solid var(--ink);background:#fff;width:100%}
+.seg{display:flex;gap:8px;flex-wrap:wrap}
+.seg button{flex:1;min-width:120px}
+.seg button.sel{background:var(--gold)}
+.float{position:fixed;z-index:30;font-family:var(--font-display);font-size:32px;font-weight:700;color:var(--gold);text-shadow:2px 2px 0 var(--ink);pointer-events:none;animation:floatUp 1s forwards}
+@keyframes floatUp{to{transform:translateY(-70px);opacity:0}}
+
+/* board */
+.kids2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px}
+.stat{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0}
+.stat div{border:2px solid var(--ink);padding:8px;background:#fff}
+.stat b{display:block;font-family:var(--font-display);font-size:22px}
+.stat small{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-soft)}
+.chart{display:flex;align-items:flex-end;gap:10px;height:150px;padding:8px 4px 0;border-bottom:3px solid var(--ink);margin-top:8px}
+.chart .wk{flex:1;display:flex;gap:3px;align-items:flex-end;height:100%;min-width:0}
+.chart .wk span{flex:1;min-height:2px;border:2px solid var(--ink);border-bottom:0}
+.xl{display:flex;gap:10px;padding:4px 4px 0}
+.xl span{flex:1;text-align:center;font-size:12px;color:var(--ink-soft);min-width:0}
+.c-work{background:var(--wood)} .c-biz{background:var(--gold)}
+.q{border-left:6px solid var(--gold);background:#fff;padding:8px 12px;margin:8px 0}
+.q small{display:block;color:var(--ink-soft)}
+.log{font-size:15px;margin:0;padding-left:18px}
+@media (max-width:520px){.day{grid-template-columns:1fr}.stat{grid-template-columns:1fr 1fr}.topbar h1{font-size:18px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+
+<div class="ground" aria-hidden="true"></div>
+<main id="app" class="wrap"></main>
+<div id="layer"></div>
+
+<script>
+"use strict";
+// ---------- constants ----------
+const PAY = 5, SHIFTS = 5, GOAL = 600, DECAY = 8, FIX_GAIN = 35;
+const BIZ = {
+  snack: {price:40, base:3, emoji:"🌭", bg:"field", fixTarget:"🥡",
+    name:{en:"Baseball Snack Stand", zh:"棒球小吃攤"},
+    fix:{en:"Clean up the trash at the stand!", zh:"把小吃攤的垃圾清乾淨！"},
+    bad:{en:"Rain! The game was cancelled 🌧️", zh:"下雨了！比賽取消了 🌧️"},
+    great:{en:"Big game day! Lots of hungry fans ⚾", zh:"大比賽日！好多餓肚子的球迷 ⚾"}},
+  tennis: {price:80, base:5, emoji:"🎾", bg:"court", fixTarget:"🕳️",
+    name:{en:"Tennis Academy", zh:"網球學院"},
+    fix:{en:"Patch the holes in the nets!", zh:"把球網上的破洞補好！"},
+    bad:{en:"Students went on holiday 🏖️", zh:"學生去度假了 🏖️"},
+    great:{en:"New students joined! 🎉", zh:"有新學生報名了！🎉"}},
+  golf: {price:150, base:9, emoji:"⛳", bg:"grass", fixTarget:"🌿",
+    name:{en:"Golf Driving Range", zh:"高爾夫練習場"},
+    fix:{en:"Mow the tall grass!", zh:"把長長的草剪短！"},
+    bad:{en:"Rainy day, few golfers 🌧️", zh:"下雨天，很少人來打球 🌧️"},
+    great:{en:"Sunny! Lots of golfers ☀️", zh:"大晴天！好多人來打球 ☀️"}}
+};
+const BIZ_IDS = ["snack","tennis","golf"];
+const JOBS = {
+  balls:{emoji:"🎾", type:"tap", target:"🎾", bg:"court",
+    title:{en:"Ball Collector", zh:"撿球員"}, at:{en:"at the Tennis Academy", zh:"在網球學院"},
+    instr:{en:"Pick up all the tennis balls!", zh:"把網球都撿起來！"}},
+  rake:{emoji:"🏌️", type:"tap", target:"👣", bg:"sand",
+    title:{en:"Bunker Raker", zh:"沙坑整理員"}, at:{en:"at the Golf Range", zh:"在高爾夫練習場"},
+    instr:{en:"Smooth out the footprints in the sand!", zh:"把沙坑裡的腳印抹平！"}},
+  hotdog:{emoji:"🌭", type:"order", bg:"field",
+    title:{en:"Snack Seller", zh:"小吃售貨員"}, at:{en:"at the Ballpark", zh:"在棒球場"},
+    instr:{en:"Give each fan what they want!", zh:"給每位球迷他們想要的東西！"}}
+};
+const SHOP = [
+  {id:"cap", emoji:"🧢", price:4, en:"Golf cap", zh:"高爾夫球帽"},
+  {id:"glove", emoji:"🧤", price:6, en:"Baseball glove", zh:"棒球手套"},
+  {id:"vball", emoji:"🏐", price:8, en:"Volleyball", zh:"排球"},
+  {id:"trophy", emoji:"🏆", price:12, en:"Shiny trophy", zh:"閃亮獎盃"}
+];
+const LEVELS = ["worker","saver","owner","investor"];
+const KID_COLORS = {p1:"#22a99e", p2:"#ff8638"};
+
+const T = {
+ en:{
+  title:"Blocktown Sports", who:"Who's playing today?", board:"Board Meeting", settings:"Settings", back:"Back",
+  piggy:"Piggy bank", work:"Go to work", workSub:"Earn a salary: ${n} for every shift.", shiftsLeft:"Shifts left today",
+  tired:"You worked hard today! Rest, and come back tomorrow.", biz:"Businesses",
+  buy:"Buy for ${n}", need:"Save ${n} more", earns:"Makes about ${n} a day", care:"Care",
+  fixIt:"Take care of it", ownerWork:"Owners work too! There's no salary for this, but a business you take care of earns more.",
+  vault:"Team Vault", vaultSub:"Save together to build the {g}!", give:"Put in ${n}", buildIt:"Build it!",
+  built:"You built the Blocktown Ballpark together! 🎉", shop:"Fun Shop", shopSub:"Spending is fun, but money you spend is gone.",
+  have:"Yours", lv_worker:"Worker", lv_saver:"Saver", lv_owner:"Owner", lv_investor:"Investor",
+  soon:"coming soon", ballpark:"Blocktown Ballpark",
+  up_saver:"You're a Saver now! You kept your money instead of spending it all.",
+  up_owner:"You saved enough capital! Now you own a business. Take good care of it.",
+  levelUp:"Level up!", sleepT:"While you were sleeping…", sleepDays:"{n} days went by.",
+  sleepBiz:"Your businesses earned ${n}.", working:"Money working in your businesses", sleeping:"Money sitting in the piggy bank",
+  grew:"earned ${n} 💪", still:"${n}, and it didn't grow 😴",
+  lesson:"Money never sleeps. But only money that's working grows!",
+  noBiz:"You don't own a business yet, so your money didn't grow. Work, save, and buy one!",
+  low:"😟 Nobody took care of it. Fewer customers.", normal:"Normal day", weekOf:"Week of {d}",
+  ok:"OK!", start:"Start!", again:"Work again", toTown:"Back to town",
+  paid:"Great work! You earned ${n}.", fixed:"All done! Care is now {n}%.", whatWant:"What does this fan want?",
+  help:"Help {name}", helpSub:"Teammates help each other.", lang:"Language", diff:"Difficulty",
+  easy:"Easy (age 6–7)", hard:"Normal (age 8+)", nick:"Nickname", auto:"Read aloud automatically", testVoice:"Test the voice",
+  voiceOk:"Hello! This is how I sound.", save:"Save", synced:"☁️ Synced", local:"📱 This tablet only",
+  boughtBiz:"You bought the {b}!", bought:"You bought a {i}.", gave:"{name} put ${n} in the team vault.",
+  stadiumMsg:"Next: the stock market! (coming soon)", tooltipSay:"Read aloud", progress:"{a} of {b}",
+  loading:"Loading the town…", sound:"Sounds", on:"On", off:"Off", owns:"Owned by {name}",
+  needCare:"Needs care!", yes:"Yes", no:"No"
+ },
+ zh:{
+  title:"方塊鎮體育公司", who:"今天誰來玩？", board:"董事會", settings:"設置", back:"返回",
+  piggy:"存錢罐", work:"去上班", workSub:"賺工資：每上一班賺 ${n}。", shiftsLeft:"今天還能上幾班",
+  tired:"你今天很努力了！休息一下，明天再來。", biz:"生意",
+  buy:"花 ${n} 買下", need:"還要存 ${n}", earns:"每天大約賺 ${n}", care:"狀態",
+  fixIt:"去照顧它", ownerWork:"老闆也要工作！這個沒有工資，但是照顧好的生意會賺更多錢。",
+  vault:"團隊金庫", vaultSub:"一起存錢建造{g}！", give:"存入 ${n}", buildIt:"開始建造！",
+  built:"你們一起建好了方塊鎮棒球場！🎉", shop:"快樂商店", shopSub:"花錢很開心，但是花掉的錢就沒有了。",
+  have:"已擁有", lv_worker:"工人", lv_saver:"儲蓄家", lv_owner:"老闆", lv_investor:"投資者",
+  soon:"即將推出", ballpark:"方塊鎮棒球場",
+  up_saver:"你成為儲蓄家了！你把錢存起來，沒有全部花掉。",
+  up_owner:"你存夠了資本！現在你有自己的生意了。要好好照顧它。",
+  levelUp:"升級了！", sleepT:"你睡覺的時候……", sleepDays:"過了 {n} 天。",
+  sleepBiz:"你的生意賺了 ${n}。", working:"在生意裡工作的錢", sleeping:"躺在存錢罐裡的錢",
+  grew:"賺了 ${n} 💪", still:"${n}，一分都沒有變多 😴",
+  lesson:"錢從來不睡覺。但是只有在工作的錢才會變多！",
+  noBiz:"你還沒有生意，所以錢沒有變多。努力工作、存錢，然後買一個吧！",
+  low:"😟 沒人照顧，客人變少了。", normal:"普通的一天", weekOf:"{d} 那一週",
+  ok:"好的！", start:"開始！", again:"再上一班", toTown:"回到小鎮",
+  paid:"做得好！你賺了 ${n}。", fixed:"完成了！狀態現在是 {n}%。", whatWant:"這位球迷想要什麼？",
+  help:"幫{name}", helpSub:"隊友要互相幫忙。", lang:"語言", diff:"難度",
+  easy:"簡單（6–7歲）", hard:"普通（8歲以上）", nick:"暱稱", auto:"自動朗讀", testVoice:"測試聲音",
+  voiceOk:"你好！這是我的聲音。", save:"保存", synced:"☁️ 已同步", local:"📱 只存在這台平板",
+  boughtBiz:"你買下了{b}！", bought:"你買了{i}。", gave:"{name} 往團隊金庫存入了 ${n}。",
+  stadiumMsg:"下一步：股票市場！（即將推出）", tooltipSay:"朗讀", progress:"{a} / {b}",
+  loading:"小鎮加載中……", sound:"聲音", on:"開", off:"關", owns:"{name}的生意",
+  needCare:"需要照顧！", yes:"是", no:"否"
+ }
+};
+const DAYN = {en:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"], zh:["週日","週一","週二","週三","週四","週五","週六"]};
+
+// ---------- state ----------
+const S = {
+  mode:"local", db:null, ready:false,
+  players:{p1:null, p2:null}, team:null,
+  ui:{screen:"home", pid:null}, queue:[], game:null, confirmReset:false, flash:null
+};
+const LS_KEY = "blocktown-sports-v1";
+
+function defaultPlayer(id){
+  return {id, name: id==="p1" ? "Carlo" : "Nene", lang:"en", diff: id==="p1" ? "hard" : "easy",
+    auto: id!=="p1", cash:0, given:0, spent:0, workTotal:0, bizTotal:0, level:"worker",
+    shifts:{date:"", n:0}, biz:{}, items:[], weeks:{}, lastTick:"", created: new Date().toISOString()};
+}
+function defaultTeam(){ return {built:false, dayOffset:0, log:[], sound:true}; }
+
+// ---------- helpers ----------
+const clone = o => JSON.parse(JSON.stringify(o));
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function L(lang, key, v){ let s = (T[lang]||T.en)[key] ?? T.en[key] ?? key; if(v) for(const k in v) s = s.split("{"+k+"}").join(v[k]); return s; }
+function P(){ return S.players[S.ui.pid]; }
+function tl(key, v){ const p = P(); return L(p ? p.lang : "en", key, v); }
+function nm(obj, lang){ return obj[lang] || obj.en; }
+function sib(pid){ return pid === "p1" ? "p2" : "p1"; }
+
+function dstr(d){ return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
+function pdate(s){ const [y,m,d] = s.split("-").map(Number); return new Date(y, m-1, d, 12); }
+function addDays(s, n){ const d = pdate(s); d.setDate(d.getDate()+n); return dstr(d); }
+function diffDays(a, b){ return Math.round((pdate(b) - pdate(a)) / 86400000); }
+function today(){ return addDays(dstr(new Date()), (S.team && S.team.dayOffset) || 0); }
+function weekKey(s){ const d = pdate(s); const dow = (d.getDay()+6)%7; d.setDate(d.getDate()-dow); return dstr(d); }
+function dayLabel(s, lang){ const d = pdate(s); return DAYN[lang][d.getDay()] + " " + (d.getMonth()+1) + "/" + d.getDate(); }
+function hash(str){ let h = 2166136261; for(let i=0;i<str.length;i++){ h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); } return ((h>>>0) % 10000) / 10000; }
+
+function levelOf(p){
+  if (BIZ_IDS.some(b => p.biz[b])) return "owner";
+  if (p.given > 0 || p.cash + p.given >= 20) return "saver";
+  return "worker";
+}
+function vaultTotal(){ const a = S.players.p1, b = S.players.p2; const sum = (a?a.given:0) + (b?b.given:0); return S.team && S.team.built ? Math.max(0, sum - GOAL) : sum; }
+function shiftsUsed(p){ return p.shifts.date === today() ? p.shifts.n : 0; }
+function bumpWeek(p, date, field, n){ const k = weekKey(date); p.weeks[k] = p.weeks[k] || {w:0, b:0}; p.weeks[k][field] += n;
+  const keys = Object.keys(p.weeks).sort(); while (keys.length > 16) delete p.weeks[keys.shift()]; }
+function hpClass(h){ return h >= 70 ? "" : h >= 40 ? "mid" : "low"; }
+function careFactor(h){ return h >= 70 ? 1 : h >= 40 ? 0.7 : 0.4; }
+
+// ---------- sound + speech ----------
+let actx = null;
+function blip(freq=660, len=0.08){
+  if (S.team && S.team.sound === false) return;
+  try { actx = actx || new (window.AudioContext || window.webkitAudioContext)();
+    const o = actx.createOscillator(), g = actx.createGain(); o.type = "square"; o.frequency.value = freq;
+    g.gain.setValueAtTime(0.06, actx.currentTime); g.gain.exponentialRampToValueAtTime(0.0001, actx.currentTime + len);
+    o.connect(g); g.connect(actx.destination); o.start(); o.stop(actx.currentTime + len); } catch(e) {}
+}
+function pickVoice(lang){
+  try { const vs = speechSynthesis.getVoices(); const want = lang === "zh" ? ["zh-CN","zh_CN","cmn-Hans","zh"] : ["en-US","en_US","en"];
+    for (const w of want) { const v = vs.find(v => v.lang && v.lang.replace("_","-").toLowerCase().startsWith(w.replace("_","-").toLowerCase())); if (v) return v; } } catch(e) {}
+  return null;
+}
+function speak(text, lang){
+  try { if (!("speechSynthesis" in window)) return false; speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text.replace(/[\u{1F300}-\u{1FAFF}☀-➿]/gu, ""));
+    u.lang = lang === "zh" ? "zh-CN" : "en-US"; const v = pickVoice(lang); if (v) u.voice = v; u.rate = 0.9;
+    speechSynthesis.speak(u); return !!v || true; } catch(e) { return false; }
+}
+try { if ("speechSynthesis" in window) speechSynthesis.onvoiceschanged = () => {}; } catch(e) {}
+function sayBtn(text, lang){ return `<button class="say" data-act="say" data-text="${esc(text)}" data-lang="${lang}" aria-label="${esc(L(lang,"tooltipSay"))}" title="${esc(L(lang,"tooltipSay"))}">🔊</button>`; }
+function autoSay(text){ const p = P(); if (p && p.auto) speak(text, p.lang); }
+
+// ---------- pixel avatar ----------
+const FACE = ["HHHHHHHH","BBBBBBBB","HSSSSSSH","SSSSSSSS","SWKSSKWS","SSSNNSSS","SSMMMMSS","SSSSSSSS"];
+const faceCache = {};
+function faceURL(pid){
+  if (faceCache[pid]) return faceCache[pid];
+  const pal = {H:"#3b2a1f", B:KID_COLORS[pid], S:"#e9b98d", W:"#ffffff", K:"#2b2b52", N:"#c98f66", M:"#9a4a3a"};
+  const c = document.createElement("canvas"); c.width = c.height = 8; const g = c.getContext("2d");
+  FACE.forEach((row,y) => [...row].forEach((ch,x) => { g.fillStyle = pal[ch]; g.fillRect(x,y,1,1); }));
+  return (faceCache[pid] = c.toDataURL());
+}
+
+// ---------- persistence ----------
+const chains = {};
+function persist(path, data){
+  if (S.mode === "db" && S.db) {
+    const body = clone(data);
+    chains[path] = (chains[path] || Promise.resolve()).then(() => S.db.doc(path).set(body)).catch(err => {
+      console.warn("save failed", path, err && err.code);
+      if (err && err.code === "unavailable") return new Promise(r => setTimeout(r, 800 + Math.random()*800)).then(() => S.db.doc(path).set(body)).catch(()=>{});
+    });
+  } else {
+    try { localStorage.setItem(LS_KEY, JSON.stringify({players:S.players, team:S.team})); } catch(e) {}
+  }
+}
+const savePlayer = p => persist("players/" + p.id, p);
+const saveTeam = () => persist("team/main", S.team);
+function addLog(en, zh){ S.team.log.unshift({d: today(), en, zh}); S.team.log = S.team.log.slice(0, 30); saveTeam(); }
+
+function loadLocal(){
+  let data = null; try { data = JSON.parse(localStorage.getItem(LS_KEY) || "null"); } catch(e) {}
+  S.players.p1 = (data && data.players && data.players.p1) || defaultPlayer("p1");
+  S.players.p2 = (data && data.players && data.players.p2) || defaultPlayer("p2");
+  S.team = (data && data.team) || defaultTeam();
+  S.ready = true; render();
+}
+
+async function boot(){
+  render();
+  let db = null;
+  try { db = window.claude && window.claude.use ? await window.claude.use("db") : null; } catch(e) { db = null; }
+  if (!db) { S.mode = "local"; loadLocal(); return; }
+  S.mode = "db"; S.db = db;
+  const seen = {p1:false, p2:false, team:false};
+  const check = () => { if (!S.ready && seen.p1 && seen.p2 && seen.team) { S.ready = true; } render(); };
+  const sub = (path, key, make) => db.doc(path).onSnapshot(snap => {
+    if (!snap.exists) { const d = make(); if (key === "team") S.team = d; else S.players[key] = d; persist(path, d); }
+    else { const d = clone(snap.data()); if (key === "team") S.team = Object.assign(defaultTeam(), d); else S.players[key] = Object.assign(defaultPlayer(key), d); }
+    seen[key] = true; check();
+  }, err => { console.warn("sync stopped", err && err.code); if (!S.ready) { S.mode = "local"; loadLocal(); } });
+  sub("players/p1", "p1", () => defaultPlayer("p1"));
+  sub("players/p2", "p2", () => defaultPlayer("p2"));
+  sub("team/main", "team", defaultTeam);
+  setTimeout(() => { if (!S.ready) { S.mode = "local"; loadLocal(); } }, 12000);
+}
+
+// ---------- time passing ----------
+function tick(p){
+  const now = today();
+  if (!p.lastTick) { p.lastTick = now; savePlayer(p); return null; }
+  let n = diffDays(p.lastTick, now);
+  if (n <= 0) return null;
+  const capped = Math.min(n, 60), start = addDays(now, -capped);
+  const days = []; let total = 0; const piggyBefore = p.cash;
+  for (let i = 1; i <= capped; i++) {
+    const d = addDays(start, i); const items = [];
+    for (const b of BIZ_IDS) {
+      const st = p.biz[b]; if (!st) continue;
+      const r = hash(p.id + b + d);
+      const ev = r < 0.15 ? "bad" : r > 0.85 ? "great" : "normal";
+      const evf = ev === "bad" ? 0.3 : ev === "great" ? 1.6 : 1;
+      const inc = Math.max(0, Math.round(BIZ[b].base * careFactor(st.health) * evf));
+      items.push({b, inc, ev, h: st.health});
+      st.earned = (st.earned || 0) + inc; total += inc; bumpWeek(p, d, "b", inc);
+      st.health = Math.max(10, st.health - DECAY);
+    }
+    days.push({d, items});
+  }
+  p.cash += total; p.bizTotal += total; p.lastTick = now;
+  const owned = BIZ_IDS.some(b => p.biz[b]);
+  if (owned || piggyBefore > 0) {
+    // keep the replay until this kid opens their own profile, even if Dad or a sibling advanced the clock
+    const prev = p.replay;
+    p.replay = prev ? {n: prev.n + n, days: prev.days.concat(days).slice(-60), total: prev.total + total, piggyBefore: prev.piggyBefore, owned: prev.owned || owned}
+                    : {n, days, total, piggyBefore, owned};
+  }
+  savePlayer(p);
+  return p.replay || null;
+}
+function tickAll(){ for (const id of ["p1","p2"]) if (S.players[id]) tick(S.players[id]); }
+
+function checkLevel(p){
+  const lv = levelOf(p);
+  if (LEVELS.indexOf(lv) > LEVELS.indexOf(p.level || "worker")) { p.level = lv; savePlayer(p); S.queue.push({type:"level", lv}); }
+}
+
+// ---------- render ----------
+function render(){
+  const app = document.getElementById("app");
+  if (S.game) return; // games manage their own DOM in the layer
+  if (!S.ready) { app.innerHTML = `<div class="hero"><h1>Blocktown Sports</h1><p>${esc(L("en","loading"))}<br>${esc(L("zh","loading"))}</p></div>`; return; }
+  if (S.ui.screen === "home") app.innerHTML = homeView();
+  else if (S.ui.screen === "hub") app.innerHTML = hubView();
+  else if (S.ui.screen === "board") app.innerHTML = boardView();
+  renderLayer();
+}
+function syncBadge(lang){ return `<span class="sync">${esc(L(lang, S.mode === "db" ? "synced" : "local"))}</span>`; }
+
+function homeView(){
+  const kid = id => { const p = S.players[id]; const lv = levelOf(p);
+    return `<button class="kid ${id}" data-act="open" data-pid="${id}">
+      <img class="face" src="${faceURL(id)}" alt="">
+      <span class="nm">${esc(p.name)}</span>
+      <span class="badge">${esc(L(p.lang, "lv_"+lv))} · <span class="num">$${p.cash}</span></span>
+    </button>`; };
+  return `<div class="hero"><h1>Blocktown Sports</h1><p>方塊鎮體育公司</p></div>
+    <div class="block center"><div class="row" style="justify-content:center">
+      <h2>${esc(L("en","who"))} · ${esc(L("zh","who"))}</h2>${sayBtn(L("zh","who"),"zh")}${sayBtn(L("en","who"),"en")}</div></div>
+    <div class="pick">${kid("p1")}${kid("p2")}</div>
+    <div class="homeLinks"><button class="btn wood" data-act="board">📋 Board Meeting · 董事會</button></div>
+    <p class="center muted" style="margin-top:14px">${syncBadge("en")}</p>`;
+}
+
+function coinsHTML(n, easy){
+  if (!easy || n <= 0) return "";
+  const tens = Math.floor(n/10), ones = n % 10, maxT = 20;
+  let h = ""; for (let i=0;i<Math.min(tens,maxT);i++) h += `<i class="gb" title="$10"></i>`;
+  if (tens > maxT) h += `<b class="num">+${tens-maxT}×$10</b>`;
+  for (let i=0;i<ones;i++) h += `<i class="cn" title="$1"></i>`;
+  return `<div class="coins" aria-hidden="true">${h}</div>`;
+}
+function hpBar(h){ return `<div class="hp ${hpClass(h)}" role="img" aria-label="${h}%"><b style="width:${h}%"></b></div>`; }
+
+function hubView(){
+  const p = P(), lang = p.lang, easy = p.diff === "easy", lv = levelOf(p), used = shiftsUsed(p), left = SHIFTS - used;
+  const other = S.players[sib(p.id)];
+  const levels = LEVELS.map(l => `<span class="${LEVELS.indexOf(l) <= LEVELS.indexOf(lv) ? "on" : ""}">${esc(L(lang,"lv_"+l))}${l==="investor" ? " · "+esc(L(lang,"soon")) : ""}</span>`).join("");
+  const jobs = Object.entries(JOBS).map(([id,j]) => `<button class="tile" data-act="job" data-job="${id}" ${left<=0?"disabled":""}>
+      <span class="em">${j.emoji}</span><span class="t">${esc(nm(j.title,lang))}</span><span class="s">${esc(nm(j.at,lang))}</span>
+      <span class="badge num">+$${PAY}</span></button>`).join("");
+  const energy = Array.from({length:SHIFTS}, (_,i) => `<i class="${i < left ? "" : "off"}">⚡</i>`).join("");
+  const bizTiles = BIZ_IDS.map(b => { const B = BIZ[b], st = p.biz[b];
+    if (st) return `<div class="tile"><span class="em">${B.emoji}</span><span class="t">${esc(nm(B.name,lang))}</span>
+        <span class="s">${esc(L(lang,"earns",{n:B.base}))}</span>
+        <span class="s" style="width:100%">${esc(L(lang,"care"))} ${st.health}%${st.health<40?" · "+esc(L(lang,"needCare")):""}</span>${hpBar(st.health)}
+        <button class="btn small go" data-act="fix" data-biz="${b}" data-owner="${p.id}" ${st.health>=100?"disabled":""}>🔧 ${esc(L(lang,"fixIt"))}</button></div>`;
+    const can = p.cash >= B.price;
+    return `<div class="tile locked"><span class="em">${B.emoji}</span><span class="t">${esc(nm(B.name,lang))}</span>
+        <span class="s">${esc(L(lang,"earns",{n:B.base}))}</span>
+        ${can ? `<button class="btn small gold" data-act="buy" data-biz="${b}">${esc(L(lang,"buy",{n:B.price}))}</button>`
+              : `<span class="badge" style="background:#fff">🔒 ${esc(L(lang,"need",{n:B.price-p.cash}))}</span>`}</div>`; }).join("");
+  const otherBiz = BIZ_IDS.filter(b => other.biz[b]).map(b => { const st = other.biz[b];
+    return `<div class="tile"><span class="em">${BIZ[b].emoji}</span><span class="t">${esc(nm(BIZ[b].name,lang))}</span>
+      <span class="s">${esc(L(lang,"owns",{name:other.name}))}</span>${hpBar(st.health)}
+      <button class="btn small" data-act="fix" data-biz="${b}" data-owner="${other.id}" ${st.health>=100?"disabled":""}>🤝 ${esc(L(lang,"help",{name:other.name}))}</button></div>`; }).join("");
+  const v = vaultTotal(), a = S.players.p1.given, bb = S.players.p2.given, built = S.team.built;
+  const pa = built ? 100 : Math.min(100, a/GOAL*100), pb = built ? 0 : Math.min(100-pa, bb/GOAL*100);
+  const vaultBody = built ? `<p><b>${esc(L(lang,"built"))}</b></p><p class="muted">${esc(L(lang,"stadiumMsg"))}</p>
+      <p>${esc(L(lang,"vault"))}: <b class="num">$${v}</b></p>` :
+    `<div class="bar" role="img" aria-label="$${v} / $${GOAL}"><span style="width:${pa}%;background:${KID_COLORS.p1}"></span><span style="width:${pb}%;background:${KID_COLORS.p2}"></span></div>
+     <div class="row spread" style="margin-top:6px"><b class="num">$${v} / $${GOAL}</b><span class="legend">
+       <span><i style="background:${KID_COLORS.p1}"></i>${esc(S.players.p1.name)} $${a}</span><span><i style="background:${KID_COLORS.p2}"></i>${esc(S.players.p2.name)} $${bb}</span></span></div>
+     <div class="row" style="margin-top:12px">
+       <button class="btn small gold" data-act="give" data-n="5" ${p.cash<5?"disabled":""}>${esc(L(lang,"give",{n:5}))}</button>
+       <button class="btn small gold" data-act="give" data-n="10" ${p.cash<10?"disabled":""}>${esc(L(lang,"give",{n:10}))}</button>
+       ${v >= GOAL ? `<button class="btn go" data-act="buildPark">🏟️ ${esc(L(lang,"buildIt"))}</button>` : ""}</div>`;
+  const shop = SHOP.map(it => { const has = p.items.includes(it.id);
+    return `<button class="tile" data-act="shop" data-item="${it.id}" ${has || p.cash < it.price ? "disabled" : ""}>
+      <span style="font-size:40px">${it.emoji}</span><span class="t">${esc(it[lang]||it.en)}</span>
+      <span class="badge num" ${has?'style="background:#fff"':""}>${has ? esc(L(lang,"have")) : "$"+it.price}</span></button>`; }).join("");
+  return `<div class="topbar">
+      <button class="btn small" data-act="home">⬅ ${esc(L(lang,"back"))}</button>
+      <img src="${faceURL(p.id)}" alt="" width="44" height="44" style="image-rendering:pixelated;border:3px solid var(--ink)">
+      <div class="grow"><h1>${esc(p.name)} ${p.items.map(i => SHOP.find(s=>s.id===i)?.emoji||"").join("")}</h1></div>
+      ${syncBadge(lang)}
+      <button class="btn small" data-act="settings">⚙️ ${esc(L(lang,"settings"))}</button>
+    </div>
+    <div class="grid">
+      <section class="block sec">
+        <div class="head"><h2>🐷 ${esc(L(lang,"piggy"))}</h2>${sayBtn(L(lang,"piggy")+": $"+p.cash, lang)}</div>
+        <div class="piggy"><span class="big num">$${p.cash}</span><span class="badge">${esc(L(lang,"lv_"+lv))}</span></div>
+        ${coinsHTML(p.cash, easy)}
+        <div class="levels">${levels}</div>
+      </section>
+      <section class="block sec">
+        <div class="head"><h2>👷 ${esc(L(lang,"work"))}</h2>${sayBtn(L(lang,"work")+". "+L(lang,"workSub",{n:PAY}), lang)}</div>
+        <p class="muted" style="margin:0">${esc(L(lang,"workSub",{n:PAY}))}</p>
+        <div class="row" style="gap:8px;margin-top:8px"><b>${esc(L(lang,"shiftsLeft"))}</b></div>
+        <div class="energy" aria-label="${left}/${SHIFTS}">${energy}</div>
+        ${left<=0 ? `<p><b>😴 ${esc(L(lang,"tired"))}</b></p>` : ""}
+        <div class="tiles">${jobs}</div>
+      </section>
+      <section class="block sec">
+        <div class="head"><h2>🏪 ${esc(L(lang,"biz"))}</h2>${sayBtn(L(lang,"ownerWork"), lang)}</div>
+        <div class="tiles">${bizTiles}</div>
+        ${otherBiz ? `<h3 style="margin:16px 0 8px;font-size:18px">🤝 ${esc(L(lang,"helpSub"))}</h3><div class="tiles">${otherBiz}</div>` : ""}
+      </section>
+      <section class="block sec vault">
+        <div class="head"><h2>🏦 ${esc(L(lang,"vault"))}</h2>${sayBtn(L(lang,"vaultSub",{g:L(lang,"ballpark")}), lang)}</div>
+        <p class="muted" style="margin:0 0 10px">${esc(L(lang,"vaultSub",{g:L(lang,"ballpark")}))} 🏟️</p>
+        ${vaultBody}
+      </section>
+      <section class="block sec">
+        <div class="head"><h2>🛍️ ${esc(L(lang,"shop"))}</h2>${sayBtn(L(lang,"shopSub"), lang)}</div>
+        <p class="muted" style="margin:0 0 10px">${esc(L(lang,"shopSub"))}</p>
+        <div class="shopRow">${shop}</div>
+      </section>
+    </div>`;
+}
+
+function boardView(){
+  const pp = [S.players.p1, S.players.p2];
+  const weeks = []; let wk = weekKey(today()); for (let i=0;i<6;i++){ weeks.unshift(wk); wk = addDays(wk, -7); }
+  const kidCard = p => {
+    const max = Math.max(1, ...weeks.map(w => Math.max(p.weeks[w]?.w||0, p.weeks[w]?.b||0)));
+    const bars = weeks.map(w => { const x = p.weeks[w] || {w:0,b:0};
+      return `<div class="wk"><span class="c-work" style="height:${x.w/max*100}%" title="Work $${x.w}"></span><span class="c-biz" style="height:${x.b/max*100}%" title="Businesses $${x.b}"></span></div>`; }).join("");
+    const labels = weeks.map(w => { const d = pdate(w); return `<span>${d.getMonth()+1}/${d.getDate()}</span>`; }).join("");
+    const tot = Math.max(1, p.workTotal + p.bizTotal);
+    const biz = BIZ_IDS.filter(b => p.biz[b]).map(b => `<li>${BIZ[b].emoji} ${BIZ[b].name.en}: care ${p.biz[b].health}%, earned $${p.biz[b].earned||0} so far (paid $${BIZ[b].price})</li>`).join("") || "<li>No businesses yet</li>";
+    return `<section class="block">
+      <div class="row"><img src="${faceURL(p.id)}" width="48" height="48" alt="" style="image-rendering:pixelated;border:3px solid var(--ink)">
+        <h2 style="flex:1">${esc(p.name)}</h2><span class="badge">${esc(L("en","lv_"+levelOf(p)))}</span></div>
+      <div class="stat"><div><small>Piggy bank</small><b>$${p.cash}</b></div><div><small>Gave to team</small><b>$${p.given}</b></div><div><small>Spent</small><b>$${p.spent}</b></div></div>
+      <p style="margin:6px 0 4px"><b>Where the money came from (all time)</b></p>
+      <div class="vault"><div class="bar" style="height:26px"><span class="c-work" style="width:${p.workTotal/tot*100}%"></span><span class="c-biz" style="width:${p.bizTotal/tot*100}%"></span></div></div>
+      <div class="legend"><span><i class="c-work"></i>Salary from work $${p.workTotal}</span><span><i class="c-biz"></i>Income from businesses $${p.bizTotal}</span></div>
+      <p style="margin:14px 0 0"><b>Last 6 weeks</b></p>
+      <div class="chart" role="img" aria-label="Weekly work and business income">${bars}</div><div class="xl">${labels}</div>
+      <ul style="margin:12px 0 0;padding-left:18px">${biz}</ul>
+    </section>`; };
+  const qs = [
+    ["Where did the money that bought your business come from in the first place?","你買生意的錢，最開始是從哪裡來的？"],
+    ["Which business needs the most care right now? What happens if nobody helps it?","現在哪個生意最需要照顧？如果沒人幫忙會怎樣？"],
+    ["When it rained and the snack stand earned less, whose fault was that?","下雨天小吃攤賺得少，是誰的錯？"],
+    ["If you had $20 right now, would you keep it, give it to the team, or buy something? Why?","如果你現在有 $20，你會存起來、交給團隊，還是買東西？為什麼？"],
+    ["How much more does the team need for the Ballpark? How many shifts is that?","團隊還差多少錢建棒球場？要上幾班才夠？"]
+  ];
+  const log = (S.team.log||[]).slice(0,10).map(l => `<li>${esc(l.d)}: ${esc(l.en)}</li>`).join("") || "<li>Nothing yet</li>";
+  const v = vaultTotal();
+  return `<div class="topbar"><button class="btn small" data-act="home">⬅ Back · 返回</button><div class="grow"><h1>📋 Board Meeting · 董事會</h1></div>${syncBadge("en")}</div>
+    <div class="block" style="margin-bottom:18px"><h2 style="font-size:20px">For the Advisor</h2>
+      <p style="margin:6px 0 0">The managers report, the Advisor asks questions. Ask one or two of these each weekend and let the kids explain their choices.</p>
+      ${qs.map(q => `<div class="q">${esc(q[0])}<small>${esc(q[1])}</small></div>`).join("")}
+    </div>
+    <div class="block" style="margin-bottom:18px"><h2 style="font-size:20px">🏦 Team Vault: $${v}${S.team.built ? " (Ballpark built ✅)" : " / $"+GOAL+" for the Ballpark"}</h2></div>
+    <div class="kids2">${kidCard(pp[0])}${kidCard(pp[1])}</div>
+    <div class="block" style="margin-top:18px"><h2 style="font-size:20px">Recent activity</h2><ul class="log">${log}</ul></div>
+    <div class="block" style="margin-top:18px"><h2 style="font-size:20px">Advisor tools</h2>
+      <p class="muted">Today in the game: ${esc(today())}${S.team.dayOffset ? ` (moved ${S.team.dayOffset} day${S.team.dayOffset>1?"s":""} ahead for testing)` : ""}</p>
+      <div class="row"><button class="btn small" data-act="ffwd">⏩ Move time forward 1 day (testing)</button>
+        <button class="btn small" data-act="sound">🔈 Sounds: ${S.team.sound === false ? "Off" : "On"}</button>
+        ${S.confirmReset ? `<span><b>Erase all progress for both kids?</b></span><button class="btn small" style="background:var(--heart);color:#fff" data-act="resetYes">Yes, erase</button><button class="btn small" data-act="resetNo">Keep it</button>`
+          : `<button class="btn small" data-act="reset">🗑️ Reset the whole game</button>`}</div>
+    </div>`;
+}
+
+// ---------- layer: modals ----------
+function renderLayer(){
+  const layer = document.getElementById("layer");
+  if (S.game) return;
+  const m = S.queue[0];
+  if (!m) { layer.innerHTML = ""; return; }
+  const p = P(); const lang = p ? p.lang : "en";
+  let html = "";
+  if (m.type === "level") {
+    const msg = L(lang, "up_"+m.lv);
+    html = `<div class="center"><div class="burst">${m.lv==="owner"?"🏪":"🐷"}✨</div><div class="head" style="justify-content:center"><h2>${esc(L(lang,"levelUp"))} ${esc(L(lang,"lv_"+m.lv))}</h2>${sayBtn(msg,lang)}</div><p>${esc(msg)}</p>
+      <button class="btn go" data-act="next">${esc(L(lang,"ok"))}</button></div>`;
+  } else if (m.type === "msg") {
+    html = `<div class="center"><div class="burst">${m.icon||"🎉"}</div><div class="head" style="justify-content:center"><h2>${esc(m.text)}</h2>${sayBtn(m.text,lang)}</div>${m.sub?`<p>${esc(m.sub)}</p>`:""}
+      <button class="btn go" data-act="next">${esc(L(lang,"ok"))}</button></div>`;
+  } else if (m.type === "sleep") html = sleepHTML(m.r, lang, p);
+  else if (m.type === "settings") html = settingsHTML(p);
+  layer.innerHTML = `<div class="veil"><div class="dlg" role="dialog" aria-modal="true">${html}</div></div>`;
+}
+
+function sleepHTML(r, lang, p){
+  let list = "";
+  const line = it => { const B = BIZ[it.b]; const msg = it.ev === "normal" ? L(lang,"normal") : nm(B[it.ev], lang);
+    return `<li>${B.emoji} <b class="num">+$${it.inc}</b> · ${esc(msg)}${it.h < 40 ? " · "+esc(L(lang,"low")) : ""}</li>`; };
+  if (r.owned && r.days.length <= 14) {
+    list = r.days.map(d => `<div class="day"><span class="dn">${esc(dayLabel(d.d, lang))}</span><ul>${d.items.map(line).join("")}</ul></div>`).join("");
+  } else if (r.owned) {
+    const wk = {}; r.days.forEach(d => { const k = weekKey(d.d); wk[k] = (wk[k]||0) + d.items.reduce((s,i)=>s+i.inc,0); });
+    list = Object.entries(wk).map(([k,v]) => `<div class="day"><span class="dn">${esc(L(lang,"weekOf",{d:dayLabel(k,lang)}))}</span><ul><li><b class="num">+$${v}</b></li></ul></div>`).join("");
+  }
+  const summary = r.owned ? `${L(lang,"sleepDays",{n:r.n})} ${L(lang,"sleepBiz",{n:r.total})} ${L(lang,"lesson")}` : `${L(lang,"sleepDays",{n:r.n})} ${L(lang,"noBiz")}`;
+  const compare = r.owned ? `<div class="compare">
+      <div><div style="font-size:36px">🏪💪</div><b>${esc(L(lang,"working"))}</b><div class="num" style="font-size:22px">${esc(L(lang,"grew",{n:r.total}))}</div></div>
+      <div><div style="font-size:36px">🐷😴</div><b>${esc(L(lang,"sleeping"))}</b><div class="num" style="font-size:22px">${esc(L(lang,"still",{n:r.piggyBefore}))}</div></div></div>
+      <p class="center num" style="font-size:20px">🐷 $${r.piggyBefore} + 🏪 $${r.total} = $${r.piggyBefore + r.total}</p>
+      <p class="center"><b>${esc(L(lang,"lesson"))}</b></p>`
+    : `<div class="compare" style="grid-template-columns:1fr"><div><div style="font-size:36px">🐷😴</div><b>${esc(L(lang,"sleeping"))}</b><div class="num" style="font-size:22px">${esc(L(lang,"still",{n:r.piggyBefore}))}</div></div></div><p class="center"><b>${esc(L(lang,"noBiz"))}</b></p>`;
+  return `<div class="head"><h2>🌙 ${esc(L(lang,"sleepT"))}</h2>${sayBtn(summary, lang)}</div>
+    <p style="margin:0">${esc(L(lang,"sleepDays",{n:r.n}))} ${r.owned ? `<b>${esc(L(lang,"sleepBiz",{n:r.total}))}</b>` : ""}</p>
+    ${r.owned ? `<div class="days">${list}</div>` : ""}${compare}
+    <div class="center"><button class="btn go" data-act="next">${esc(L(lang,"ok"))}</button></div>`;
+}
+
+function settingsHTML(p){
+  const lang = p.lang;
+  const seg = (field, opts) => `<div class="seg">${opts.map(([val,label]) => `<button class="btn small ${p[field]===val?"sel":""}" data-act="set" data-field="${field}" data-val="${val}">${esc(label)}</button>`).join("")}</div>`;
+  return `<div class="head"><h2>⚙️ ${esc(L(lang,"settings"))}</h2></div>
+    <div class="field-row"><label for="nick">${esc(L(lang,"nick"))}</label>
+      <div class="row" style="flex-wrap:nowrap"><input id="nick" type="text" maxlength="16" value="${esc(p.name)}"><button class="btn small go" data-act="rename">${esc(L(lang,"save"))}</button></div></div>
+    <div class="field-row"><label>${esc(L(lang,"lang"))}</label>${seg("lang",[["en","English"],["zh","中文（繁體）"]])}</div>
+    <div class="field-row"><label>${esc(L(lang,"diff"))}</label>${seg("diff",[["easy",L(lang,"easy")],["hard",L(lang,"hard")]])}</div>
+    <div class="field-row"><label>${esc(L(lang,"auto"))}</label>${seg("auto",[[true,L(lang,"on")],[false,L(lang,"off")]])}</div>
+    <div class="field-row"><button class="btn small" data-act="testVoice">🔊 ${esc(L(lang,"testVoice"))}</button><span id="voiceNote" class="muted"></span></div>
+    <div class="center"><button class="btn go" data-act="next">${esc(L(lang,"ok"))}</button></div>`;
+}
+
+// ---------- mini-games ----------
+function startGame(kind, id, ownerPid){
+  const p = P(), lang = p.lang, easy = p.diff === "easy";
+  let cfg;
+  if (kind === "job") { const j = JOBS[id]; cfg = {kind, id, type:j.type, target:j.target, bg:j.bg, title:nm(j.title,lang), instr:nm(j.instr,lang), icon:j.emoji}; }
+  else { const B = BIZ[id]; cfg = {kind, id, ownerPid, type:"tap", target:B.fixTarget, bg:B.bg, title:nm(B.name,lang), instr:nm(B.fix,lang), icon:"🔧"}; }
+  cfg.count = cfg.type === "order" ? (easy ? 6 : 8) : kind === "fix" ? (easy ? 6 : 8) : (easy ? 8 : 12);
+  cfg.done = 0; S.game = cfg;
+  const layer = document.getElementById("layer");
+  layer.innerHTML = `<div class="veil"><div class="dlg" role="dialog" aria-modal="true">
+    <div class="head"><h2>${cfg.icon} ${esc(cfg.title)}</h2>${sayBtn(cfg.instr, lang)}</div>
+    <p style="margin:0 0 6px;font-size:20px"><b>${esc(cfg.instr)}</b></p>
+    <div class="prog" id="prog">${Array.from({length:cfg.count},()=>"<i></i>").join("")}</div>
+    <div id="stage"></div></div></div>`;
+  autoSay(cfg.instr);
+  if (cfg.type === "tap") setupTap(cfg, easy); else setupOrder(cfg, easy, lang);
+}
+function setupTap(cfg, easy){
+  const stage = document.getElementById("stage");
+  stage.innerHTML = `<div class="arena ${cfg.bg}" id="arena"></div>`;
+  const arena = document.getElementById("arena");
+  const cols = 5, rows = 4, cells = []; for (let r=0;r<rows;r++) for (let c=0;c<cols;c++) cells.push([c,r]);
+  cells.sort(() => Math.random() - 0.5);
+  const size = easy ? 60 : 46;
+  cells.slice(0, cfg.count).forEach(([c,r], i) => {
+    const b = document.createElement("button"); b.className = "tgt" + (easy ? "" : " drift"); b.textContent = cfg.target;
+    b.style.left = ((c + 0.5 + (Math.random()-0.5)*0.4) / cols * 100) + "%";
+    b.style.top = ((r + 0.5 + (Math.random()-0.5)*0.4) / rows * 100) + "%";
+    b.style.fontSize = size + "px"; b.style.width = b.style.height = (size + 16) + "px"; b.style.animationDelay = (-i*0.37) + "s";
+    b.setAttribute("aria-label", cfg.target);
+    b.addEventListener("click", () => { if (b.dataset.hit) return; b.dataset.hit = 1; b.classList.remove("drift"); b.classList.add("pop"); blip(520 + cfg.done*40); progress(cfg); setTimeout(() => b.remove(), 260); });
+    arena.appendChild(b);
+  });
+}
+function setupOrder(cfg, easy, lang){
+  const items = easy ? ["🌭","🥤"] : ["🌭","🥤","🍿"];
+  const fans = ["🧒","👧","👦","👩","👨","🧓","👵"];
+  const stage = document.getElementById("stage");
+  const next = () => {
+    if (cfg.done >= cfg.count) return;
+    const want = items[Math.floor(Math.random()*items.length)], fan = fans[Math.floor(Math.random()*fans.length)];
+    stage.innerHTML = `<div class="arena field" style="height:auto"><div class="order">
+      <div class="fan"><span>${fan}</span><span class="bubble">${want}</span></div>
+      <div class="row"><b style="color:#fff;text-shadow:2px 2px 0 #000;font-size:20px">${esc(L(lang,"whatWant"))}</b></div>
+      <div class="choices">${items.map(it => `<button data-it="${it}" aria-label="${it}">${it}</button>`).join("")}</div></div></div>`;
+    stage.querySelectorAll(".choices button").forEach(btn => btn.addEventListener("click", () => {
+      if (btn.dataset.it === want) { blip(700); progress(cfg); setTimeout(next, 250); }
+      else { blip(180, .15); btn.classList.remove("shake"); void btn.offsetWidth; btn.classList.add("shake"); }
+    }));
+  };
+  next();
+}
+function progress(cfg){
+  cfg.done++;
+  const pips = document.querySelectorAll("#prog i"); if (pips[cfg.done-1]) pips[cfg.done-1].classList.add("on");
+  if (cfg.done >= cfg.count) setTimeout(() => finishGame(cfg), 350);
+}
+function finishGame(cfg){
+  const p = P(), lang = p.lang; let body = "";
+  if (cfg.kind === "job") {
+    p.cash += PAY; p.workTotal += PAY; bumpWeek(p, today(), "w", PAY);
+    const t = today(); p.shifts = {date:t, n: shiftsUsed(p) + 1}; savePlayer(p); checkLevel(p);
+    [880,1040,1320].forEach((f,i) => setTimeout(() => blip(f,.1), i*110));
+    const msg = L(lang,"paid",{n:PAY}); autoSay(msg);
+    const left = SHIFTS - shiftsUsed(p);
+    body = `<div class="burst">💵</div><div class="head" style="justify-content:center"><h2>${esc(msg)}</h2>${sayBtn(msg,lang)}</div>
+      <p class="num" style="font-size:22px">🐷 $${p.cash}</p>${coinsHTML(PAY, true).replace('class="coins"','class="coins" style="justify-content:center;margin-inline:auto"')}
+      <div class="row" style="justify-content:center;margin-top:14px">${left>0?`<button class="btn go" data-act="jobAgain" data-job="${cfg.id}">${esc(L(lang,"again"))}</button>`:""}<button class="btn" data-act="endGame">${esc(L(lang,"toTown"))}</button></div>`;
+  } else {
+    const owner = S.players[cfg.ownerPid]; const st = owner.biz[cfg.id];
+    st.health = Math.min(100, st.health + FIX_GAIN); savePlayer(owner);
+    if (owner.id !== p.id) addLog(`${p.name} helped take care of ${owner.name}'s ${BIZ[cfg.id].name.en}.`, `${p.name}幫${owner.name}照顧了${BIZ[cfg.id].name.zh}。`);
+    [660,880].forEach((f,i) => setTimeout(() => blip(f,.1), i*110));
+    const msg = L(lang,"fixed",{n:st.health}); autoSay(msg + " " + L(lang,"ownerWork"));
+    body = `<div class="burst">🔧✨</div><div class="head" style="justify-content:center"><h2>${esc(msg)}</h2>${sayBtn(msg+" "+L(lang,"ownerWork"),lang)}</div>
+      ${hpBar(st.health)}<p>${esc(owner.id===p.id ? L(lang,"ownerWork") : L(lang,"helpSub"))}</p>
+      <div class="row" style="justify-content:center">${st.health<100?`<button class="btn go" data-act="fixAgain" data-biz="${cfg.id}" data-owner="${owner.id}">🔧 ${esc(L(lang,"fixIt"))}</button>`:""}<button class="btn" data-act="endGame">${esc(L(lang,"toTown"))}</button></div>`;
+  }
+  document.querySelector("#layer .dlg").innerHTML = `<div class="center">${body}</div>`;
+}
+function endGame(){ S.game = null; document.getElementById("layer").innerHTML = ""; render(); }
+
+// ---------- actions ----------
+function floatText(txt, el){ const r = el.getBoundingClientRect(); const f = document.createElement("div"); f.className = "float"; f.textContent = txt;
+  f.style.left = (r.left + r.width/2 - 30) + "px"; f.style.top = (r.top) + "px"; document.body.appendChild(f); setTimeout(() => f.remove(), 1000); }
+
+function openPlayer(pid){
+  S.ui = {screen:"hub", pid}; S.queue = [];
+  const p = P(); tick(p); const r = p.replay;
+  if (r) { S.queue.push({type:"sleep", r}); delete p.replay; savePlayer(p); }
+  const o = S.players[sib(pid)]; if (o) tick(o);
+  checkLevel(p);
+  render(); window.scrollTo(0,0);
+  if (r) autoSay(r.owned ? `${L(p.lang,"sleepBiz",{n:r.total})} ${L(p.lang,"lesson")}` : L(p.lang,"noBiz"));
+}
+
+document.addEventListener("click", e => {
+  const el = e.target.closest("[data-act]"); if (!el || el.disabled) return;
+  const act = el.dataset.act, p = P();
+  switch (act) {
+    case "say": speak(el.dataset.text, el.dataset.lang); break;
+    case "open": openPlayer(el.dataset.pid); break;
+    case "home": S.ui = {screen:"home", pid:null}; S.queue = []; S.confirmReset = false; render(); break;
+    case "board": S.ui = {screen:"board", pid:null}; tickAll(); render(); window.scrollTo(0,0); break;
+    case "settings": S.queue.unshift({type:"settings"}); renderLayer(); break;
+    case "next": S.queue.shift(); renderLayer(); break;
+    case "job": if (shiftsUsed(p) < SHIFTS) startGame("job", el.dataset.job); break;
+    case "jobAgain": S.game = null; if (shiftsUsed(p) < SHIFTS) startGame("job", el.dataset.job); else endGame(); break;
+    case "fix": startGame("fix", el.dataset.biz, el.dataset.owner); break;
+    case "fixAgain": S.game = null; startGame("fix", el.dataset.biz, el.dataset.owner); break;
+    case "endGame": endGame(); break;
+    case "buy": { const b = el.dataset.biz, B = BIZ[b]; if (p.cash < B.price || p.biz[b]) break;
+      p.cash -= B.price; p.biz[b] = {health:100, earned:0, since:today()}; savePlayer(p);
+      addLog(`${p.name} bought the ${B.name.en} for $${B.price}.`, `${p.name}花 $${B.price} 買下了${B.name.zh}。`);
+      blip(880); const msg = L(p.lang,"boughtBiz",{b:nm(B.name,p.lang)});
+      S.queue.push({type:"msg", icon:B.emoji+"🎉", text:msg, sub:L(p.lang,"ownerWork")}); checkLevel(p); render(); autoSay(msg); break; }
+    case "give": { const n = Number(el.dataset.n); if (p.cash < n) break; p.cash -= n; p.given += n; savePlayer(p);
+      addLog(`${p.name} put $${n} in the team vault.`, `${p.name}往團隊金庫存入了 $${n}。`);
+      blip(760); floatText("+$"+n, el); checkLevel(p); render(); break; }
+    case "buildPark": if (vaultTotal() >= GOAL && !S.team.built) { S.team.built = true; saveTeam();
+      addLog("The kids built the Blocktown Ballpark together!", "孩子們一起建好了方塊鎮棒球場！");
+      S.queue.push({type:"msg", icon:"🏟️🎉", text:L(p.lang,"built"), sub:L(p.lang,"stadiumMsg")}); render(); autoSay(L(p.lang,"built")); } break;
+    case "shop": { const it = SHOP.find(s => s.id === el.dataset.item); if (!it || p.items.includes(it.id) || p.cash < it.price) break;
+      p.cash -= it.price; p.spent += it.price; p.items.push(it.id); savePlayer(p);
+      addLog(`${p.name} bought a ${it.en} for $${it.price}.`, `${p.name}花 $${it.price} 買了${it.zh}。`);
+      blip(600); const msg = L(p.lang,"bought",{i:it[p.lang]||it.en});
+      S.queue.push({type:"msg", icon:it.emoji, text:msg, sub:L(p.lang,"shopSub")}); render(); autoSay(msg + " " + L(p.lang,"shopSub")); break; }
+    case "set": { let v = el.dataset.val; if (v === "true") v = true; else if (v === "false") v = false; p[el.dataset.field] = v; savePlayer(p); render(); break; }
+    case "rename": { const v = (document.getElementById("nick").value || "").trim().slice(0,16); if (v) { p.name = v; savePlayer(p); render(); } break; }
+    case "testVoice": { const has = !!pickVoice(p.lang); speak(L(p.lang,"voiceOk"), p.lang);
+      const note = document.getElementById("voiceNote"); if (note) note.textContent = has ? "✅" : (p.lang==="zh" ? "No Mandarin voice was found on this device. Install a Chinese (China) voice in the tablet's text-to-speech settings." : "No English voice was found on this device."); break; }
+    case "ffwd": S.team.dayOffset = (S.team.dayOffset||0) + 1; saveTeam(); tickAll(); render(); break;
+    case "sound": S.team.sound = S.team.sound === false; saveTeam(); render(); break;
+    case "reset": S.confirmReset = true; render(); break;
+    case "resetNo": S.confirmReset = false; render(); break;
+    case "resetYes": S.confirmReset = false; S.players.p1 = Object.assign(defaultPlayer("p1"), {name:S.players.p1.name, lang:S.players.p1.lang, diff:S.players.p1.diff, auto:S.players.p1.auto});
+      S.players.p2 = Object.assign(defaultPlayer("p2"), {name:S.players.p2.name, lang:S.players.p2.lang, diff:S.players.p2.diff, auto:S.players.p2.auto});
+      S.team = defaultTeam(); savePlayer(S.players.p1); savePlayer(S.players.p2); saveTeam(); render(); break;
+  }
+});
+
+boot();
+</script>
