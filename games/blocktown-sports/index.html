@@ -47,6 +47,11 @@ main{position:relative;z-index:1}
 .btn[disabled]{opacity:.45;cursor:not-allowed;transform:none}
 .say{min-width:44px;min-height:44px;border:3px solid var(--ink);background:#fff;box-shadow:var(--bevel);font-size:20px;padding:0;flex:none}
 .row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.words{display:flex;gap:8px;flex-wrap:wrap;margin:-4px 0 12px}
+.word{display:inline-flex;flex-direction:column;align-items:flex-start;gap:0;padding:4px 10px 5px;border:2px solid var(--ink);background:#fff3c4;box-shadow:inset -3px -3px 0 rgba(0,0,0,.12);line-height:1.15;text-align:left}
+.word b{font-family:var(--font-display);font-size:20px}
+.word small{font-size:13px;font-weight:800;color:var(--ink-soft)}
+
 .spread{justify-content:space-between}
 .muted{color:var(--ink-soft)}
 .num{font-family:var(--font-display);font-variant-numeric:tabular-nums}
@@ -206,6 +211,12 @@ const SHOP = [
   {id:"trophy", emoji:"🏆", price:12, en:"Shiny trophy", zh:"閃亮獎盃"}
 ];
 const LEVELS = ["worker","saver","owner","investor"];
+// Money words, always shown in both languages. Tap one to hear Mandarin, then English.
+const WORDS = {
+  piggy:{zh:"存錢罐", en:"Piggy bank"}, save:{zh:"存錢", en:"Save"}, salary:{zh:"工資", en:"Salary"},
+  business:{zh:"生意", en:"Business"}, owner:{zh:"老闆", en:"Owner"}, vault:{zh:"團隊金庫", en:"Team vault"},
+  spend:{zh:"花錢", en:"Spend"}, income:{zh:"收入", en:"Income"}, capital:{zh:"資本", en:"Capital"}
+};
 const KID_COLORS = {p1:"#22a99e", p2:"#ff8638"};
 
 const T = {
@@ -339,6 +350,16 @@ function speak(text, lang){
     speechSynthesis.speak(u); return !!v || true; } catch(e) { return false; }
 }
 try { if ("speechSynthesis" in window) speechSynthesis.onvoiceschanged = () => {}; } catch(e) {}
+function wordChips(keys, lang){
+  return `<div class="words">${keys.map(k => { const w = WORDS[k], a = lang === "zh" ? w.zh : w.en, b = lang === "zh" ? w.en : w.zh;
+    return `<button class="word" data-act="word" data-k="${k}" aria-label="${esc(w.zh+" "+w.en)}"><b>${esc(a)}</b><small>${esc(b)}</small></button>`; }).join("")}</div>`;
+}
+function speakBoth(w){
+  try { if (!("speechSynthesis" in window)) return; speechSynthesis.cancel();
+    const mk = (text, lang) => { const u = new SpeechSynthesisUtterance(lang === "zh" ? toSimp(text) : text);
+      u.lang = lang === "zh" ? "zh-CN" : "en-US"; const v = pickVoice(lang); if (v) u.voice = v; u.rate = 0.85; return u; };
+    speechSynthesis.speak(mk(w.zh, "zh")); speechSynthesis.speak(mk(w.en, "en")); } catch(e) {}
+}
 function sayBtn(text, lang){ return `<button class="say" data-act="say" data-text="${esc(text)}" data-lang="${lang}" aria-label="${esc(L(lang,"tooltipSay"))}" title="${esc(L(lang,"tooltipSay"))}">🔊</button>`; }
 function autoSay(text){ const p = P(); if (p && p.auto) speak(text, p.lang); }
 
@@ -521,12 +542,14 @@ function hubView(){
     <div class="grid">
       <section class="block sec">
         <div class="head"><h2>🐷 ${esc(L(lang,"piggy"))}</h2>${sayBtn(L(lang,"piggy")+": $"+p.cash, lang)}</div>
+        ${wordChips(["save"], lang)}
         <div class="piggy"><span class="big num">$${p.cash}</span><span class="badge">${esc(L(lang,"lv_"+lv))}</span></div>
         ${coinsHTML(p.cash, easy)}
         <div class="levels">${levels}</div>
       </section>
       <section class="block sec">
         <div class="head"><h2>👷 ${esc(L(lang,"work"))}</h2>${sayBtn(L(lang,"work")+". "+L(lang,"workSub",{n:PAY}), lang)}</div>
+        ${wordChips(["salary"], lang)}
         <p class="muted" style="margin:0">${esc(L(lang,"workSub",{n:PAY}))}</p>
         <div class="row" style="gap:8px;margin-top:8px"><b>${esc(L(lang,"shiftsLeft"))}</b></div>
         <div class="energy" aria-label="${left}/${SHIFTS}">${energy}</div>
@@ -535,6 +558,7 @@ function hubView(){
       </section>
       <section class="block sec">
         <div class="head"><h2>🏪 ${esc(L(lang,"biz"))}</h2>${sayBtn(L(lang,"ownerWork"), lang)}</div>
+        ${wordChips(["business","owner"], lang)}
         <div class="tiles">${bizTiles}</div>
         ${otherBiz ? `<h3 style="margin:16px 0 8px;font-size:18px">🤝 ${esc(L(lang,"helpSub"))}</h3><div class="tiles">${otherBiz}</div>` : ""}
       </section>
@@ -545,6 +569,7 @@ function hubView(){
       </section>
       <section class="block sec">
         <div class="head"><h2>🛍️ ${esc(L(lang,"shop"))}</h2>${sayBtn(L(lang,"shopSub"), lang)}</div>
+        ${wordChips(["spend"], lang)}
         <p class="muted" style="margin:0 0 10px">${esc(L(lang,"shopSub"))}</p>
         <div class="shopRow">${shop}</div>
       </section>
@@ -609,6 +634,7 @@ function renderLayer(){
   if (m.type === "level") {
     const msg = L(lang, "up_"+m.lv);
     html = `<div class="center"><div class="burst">${m.lv==="owner"?"🏪":"🐷"}✨</div><div class="head" style="justify-content:center"><h2>${esc(L(lang,"levelUp"))} ${esc(L(lang,"lv_"+m.lv))}</h2>${sayBtn(msg,lang)}</div><p>${esc(msg)}</p>
+      <div style="display:flex;justify-content:center">${wordChips(m.lv==="owner" ? ["capital","owner"] : ["save"], lang)}</div>
       <button class="btn go" data-act="next">${esc(L(lang,"ok"))}</button></div>`;
   } else if (m.type === "msg") {
     html = `<div class="center"><div class="burst">${m.icon||"🎉"}</div><div class="head" style="justify-content:center"><h2>${esc(m.text)}</h2>${sayBtn(m.text,lang)}</div>${m.sub?`<p>${esc(m.sub)}</p>`:""}
@@ -636,6 +662,7 @@ function sleepHTML(r, lang, p){
       <p class="center"><b>${esc(L(lang,"lesson"))}</b></p>`
     : `<div class="compare" style="grid-template-columns:1fr"><div><div style="font-size:36px">🐷😴</div><b>${esc(L(lang,"sleeping"))}</b><div class="num" style="font-size:22px">${esc(L(lang,"still",{n:r.piggyBefore}))}</div></div></div><p class="center"><b>${esc(L(lang,"noBiz"))}</b></p>`;
   return `<div class="head"><h2>🌙 ${esc(L(lang,"sleepT"))}</h2>${sayBtn(summary, lang)}</div>
+    ${r.owned ? wordChips(["income"], lang) : ""}
     <p style="margin:0">${esc(L(lang,"sleepDays",{n:r.n}))} ${r.owned ? `<b>${esc(L(lang,"sleepBiz",{n:r.total}))}</b>` : ""}</p>
     ${r.owned ? `<div class="days">${list}</div>` : ""}${compare}
     <div class="center"><button class="btn go" data-act="next">${esc(L(lang,"ok"))}</button></div>`;
@@ -755,6 +782,7 @@ document.addEventListener("click", e => {
   const act = el.dataset.act, p = P();
   switch (act) {
     case "say": speak(el.dataset.text, el.dataset.lang); break;
+    case "word": { const w = WORDS[el.dataset.k]; if (w) { speakBoth(w); blip(990,.05); } break; }
     case "open": openPlayer(el.dataset.pid); break;
     case "home": S.ui = {screen:"home", pid:null}; S.queue = []; S.confirmReset = false; render(); break;
     case "board": S.ui = {screen:"board", pid:null}; tickAll(); render(); window.scrollTo(0,0); break;
