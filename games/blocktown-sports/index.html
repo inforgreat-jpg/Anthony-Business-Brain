@@ -288,8 +288,8 @@ const S = {
 const LS_KEY = "blocktown-sports-v1";
 
 function defaultPlayer(id){
-  return {id, name: id==="p1" ? "Carlo" : "Nene", lang:"zh", diff: id==="p1" ? "hard" : "easy",
-    auto: id!=="p1", cash:0, given:0, spent:0, workTotal:0, bizTotal:0, level:"worker",
+  return {id, name: id==="p1" ? "Carlos" : "Nene", lang:"zh", diff: id==="p1" ? "easy" : "hard",
+    auto: id==="p1", cash:0, given:0, spent:0, workTotal:0, bizTotal:0, level:"worker",
     shifts:{date:"", n:0}, biz:{}, items:[], weeks:{}, lastTick:"", created: new Date().toISOString()};
 }
 function defaultTeam(){ return {built:false, dayOffset:0, log:[], sound:true}; }
@@ -365,12 +365,13 @@ function autoSay(text){ const p = P(); if (p && p.auto) speak(text, p.lang); }
 
 // ---------- pixel avatar ----------
 const FACE = ["HHHHHHHH","BBBBBBBB","HSSSSSSH","SSSSSSSS","SWKSSKWS","SSSNNSSS","SSMMMMSS","SSSSSSSS"];
+const FACE_LONG = ["HHHHHHHH","BBBBBBBB","HSSSSSSH","HSSSSSSH","HWKSSKWH","HSSNNSSH","HSMMMMSH","HSSSSSSH"]; // Nene: long hair
 const faceCache = {};
 function faceURL(pid){
   if (faceCache[pid]) return faceCache[pid];
   const pal = {H:"#3b2a1f", B:KID_COLORS[pid], S:"#e9b98d", W:"#ffffff", K:"#2b2b52", N:"#c98f66", M:"#9a4a3a"};
   const c = document.createElement("canvas"); c.width = c.height = 8; const g = c.getContext("2d");
-  FACE.forEach((row,y) => [...row].forEach((ch,x) => { g.fillStyle = pal[ch]; g.fillRect(x,y,1,1); }));
+  (pid === "p2" ? FACE_LONG : FACE).forEach((row,y) => [...row].forEach((ch,x) => { g.fillStyle = pal[ch]; g.fillRect(x,y,1,1); }));
   return (faceCache[pid] = c.toDataURL());
 }
 
