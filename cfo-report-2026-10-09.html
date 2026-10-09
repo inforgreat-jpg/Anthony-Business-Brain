@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CFO Weekly Revenue Report 2026-10-09</title>
+<style>
+:root{--primary:#F05A28;--bg:#0A0A0A;--card:#141414;--line:#262626;--text:#F2F2F2;--muted:#9A9A9A;--good:#22C55E;--warn:#F59E0B;--bad:#EF4444}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;line-height:1.55;padding:32px 16px 64px}
+.doc{max-width:900px;margin:0 auto}
+header{border-bottom:3px solid var(--primary);padding-bottom:16px;margin-bottom:28px}
+h1{font-size:26px}h1 span{color:var(--primary)}
+.sub{color:var(--muted);font-size:14px;margin-top:4px}
+h2{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--primary);margin:32px 0 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;border-top:4px solid var(--muted)}
+.card.green{border-top-color:var(--good)}.card.amber{border-top-color:var(--warn)}.card.red{border-top-color:var(--bad)}
+.label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.val{font-size:26px;font-weight:700;margin:6px 0 2px}
+.note{font-size:13px;color:var(--muted)}
+.badge{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;margin-top:8px}
+.amber .badge{background:rgba(245,158,11,.15);color:var(--warn)}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:14px}
+th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line)}
+th{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+tr:last-child td{border-bottom:0}
+.flag{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--bad);border-radius:8px;padding:14px 16px;margin-bottom:10px}
+.flag b{display:block;margin-bottom:4px}.flag .next{color:var(--primary);font-size:14px}
+.msg{background:var(--card);border:1px dashed var(--line);border-radius:12px;padding:16px;color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+<div class="doc">
+<header>
+<h1>CFO <span>Weekly Revenue</span> Report</h1>
+<div class="sub">Institute for Greatness · Week ending 2026-10-09 · Sources: Notion, Gmail</div>
+</header>
+
+<h2>Metrics</h2>
+<div class="grid">
+  <div class="card amber"><div class="label">Weekly Revenue</div><div class="val">No data</div><div class="note">No revenue log in Notion. No client payment confirmations in Gmail this week.</div><span class="badge">UNVERIFIED</span></div>
+  <div class="card amber"><div class="label">Pipeline Health</div><div class="val">No data</div><div class="note">No deals database found in Notion. Stalled-deal check (21+ days) could not run.</div><span class="badge">UNVERIFIED</span></div>
+  <div class="card amber"><div class="label">Unpaid Invoices</div><div class="val">None found</div><div class="note">No invoices sent from Gmail in the last 30 days. Notion has no invoice tracker.</div><span class="badge">UNVERIFIED</span></div>
+  <div class="card amber"><div class="label">Monthly Run Rate</div><div class="val">No target</div><div class="note">Business Inbox lists "no monthly revenue target provided". Offer prices: SGD 6,000 coaching, 488 to 888 masterclass.</div><span class="badge">UNVERIFIED</span></div>
+</div>
+
+<h2>Pipeline</h2>
+<div class="card amber"><div class="label">Total value · Active deals</div><div class="val">Not tracked</div><div class="note">Search for pipeline, CRM and deals in Notion returned only COO briefs. The Cro prospect reports (2026-07-16, 2026-07-18) hold leads, not valued deals.</div></div>
+
+<h2>Unpaid Invoices</h2>
+<table>
+<thead><tr><th>Client</th><th>Amount</th><th>Sent</th><th>Days overdue</th><th>Status</th></tr></thead>
+<tbody><tr><td colspan="5" style="color:var(--muted)">No outstanding invoices found in Notion or Gmail. Zoho Books was not part of this run and may hold the real invoice ledger.</td></tr></tbody>
+</table>
+
+<h2>Attention Flags</h2>
+<div class="flag"><b>No revenue or invoice source in Notion</b>Weekly revenue, pipeline value and unpaid invoices cannot be measured.<div class="next">Next step: create one Notion database with Client, Amount, Invoice date, Paid date and Stage, then rerun this report.</div></div>
+<div class="flag"><b>No monthly revenue target on file</b>Run rate cannot be scored green, amber or red.<div class="next">Next step: set a monthly target in business-inbox-anthony-tse.md Section 8 (clients needed per month).</div></div>
+<div class="flag"><b>Invoices may live in Zoho Books, not Notion or Gmail</b>The Zoho Books connector is available and was not queried.<div class="next">Next step: approve Zoho Books as a source for this routine so invoices and payments are read directly.</div></div>
+
+<h2>Follow-up Message</h2>
+<div class="msg">No invoice is 7+ days unpaid in the data available, so no follow-up message was drafted.</div>
+</div>
+</body>
+</html>
