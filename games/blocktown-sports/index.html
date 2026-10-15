@@ -334,8 +334,10 @@ function blip(freq=660, len=0.08){
     o.connect(g); g.connect(actx.destination); o.start(); o.stop(actx.currentTime + len); } catch(e) {}
 }
 function isCantonese(v){ return /yue|zh[-_]hk|hong ?kong|cantonese|粵|粤|廣東|广东/i.test((v.lang||"")+" "+(v.name||"")); }
+let VOICES = [];
+function loadVoices(){ try { const v = speechSynthesis.getVoices(); if (v && v.length) VOICES = v; } catch(e) {} return VOICES; }
 function pickVoice(lang){
-  try { const vs = speechSynthesis.getVoices(); const norm = x => (x||"").replace("_","-").toLowerCase();
+  try { const vs = loadVoices(); const norm = x => (x||"").replace("_","-").toLowerCase();
     const want = lang === "zh" ? ["zh-cn","cmn-cn","cmn-hans","zh-hans","zh-sg","zh-tw","cmn-tw","cmn","zh"] : ["en-us","en-gb","en"];
     for (const w of want) { const v = vs.find(v => norm(v.lang).startsWith(w) && !isCantonese(v)); if (v) return v; } } catch(e) {}
   return null;
@@ -344,12 +346,21 @@ function pickVoice(lang){
 const T2S_T = "乾來個們儲動員單團報場塊夠學將幫幾庫後從態撿擁攤時會東樂樣歲沒淨測為爾狀獎現盃稱簡約級給網練習聲腳補裡覺設試語誰讀變貨買資賺賽載這週過還錢錯鎮長閃開闆關隊難顧餓體麼", T2S_S = "干来个们储动员单团报场块够学将帮几库后从态捡拥摊时会东乐样岁没净测为尔状奖现杯称简约级给网练习声脚补里觉设试语谁读变货买资赚赛载这周过还钱错镇长闪开板关队难顾饿体么";
 const toSimp = t => [...t].map(c => { const i = T2S_T.indexOf(c); return i < 0 ? c : T2S_S[i]; }).join("");
 function speak(text, lang){
-  try { if (!("speechSynthesis" in window)) return false; speechSynthesis.cancel();
+  try { if (!("speechSynthesis" in window)) return false;
+    if (lang === "zh" && noMandarin()) { warnNoMandarin(); return false; }
+    speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance((lang === "zh" ? toSimp(text) : text).replace(/[\u{1F300}-\u{1FAFF}☀-➿]/gu, ""));
     u.lang = lang === "zh" ? "zh-CN" : "en-US"; const v = pickVoice(lang); if (v) u.voice = v; u.rate = 0.9;
     speechSynthesis.speak(u); return !!v || true; } catch(e) { return false; }
 }
-try { if ("speechSynthesis" in window) speechSynthesis.onvoiceschanged = () => {}; } catch(e) {}
+try { if ("speechSynthesis" in window) { loadVoices(); speechSynthesis.addEventListener("voiceschanged", loadVoices); } } catch(e) {}
+// The device knows its voices but none is Mandarin: stay silent rather than read Chinese in Cantonese
+function noMandarin(){ return loadVoices().length > 0 && !pickVoice("zh"); }
+let warnedVoice = false;
+function warnNoMandarin(){
+  if (warnedVoice) return; warnedVoice = true;
+  S.queue.unshift({type:"voice"}); renderLayer();
+}
 function wordChips(keys, lang){
   return `<div class="words">${keys.map(k => { const w = WORDS[k], a = lang === "zh" ? w.zh : w.en, b = lang === "zh" ? w.en : w.zh;
     return `<button class="word" data-act="word" data-k="${k}" aria-label="${esc(w.zh+" "+w.en)}"><b>${esc(a)}</b><small>${esc(b)}</small></button>`; }).join("")}</div>`;
@@ -358,7 +369,8 @@ function speakBoth(w){
   try { if (!("speechSynthesis" in window)) return; speechSynthesis.cancel();
     const mk = (text, lang) => { const u = new SpeechSynthesisUtterance(lang === "zh" ? toSimp(text) : text);
       u.lang = lang === "zh" ? "zh-CN" : "en-US"; const v = pickVoice(lang); if (v) u.voice = v; u.rate = 0.85; return u; };
-    speechSynthesis.speak(mk(w.zh, "zh")); speechSynthesis.speak(mk(w.en, "en")); } catch(e) {}
+    if (noMandarin()) warnNoMandarin(); else speechSynthesis.speak(mk(w.zh, "zh"));
+    speechSynthesis.speak(mk(w.en, "en")); } catch(e) {}
 }
 function sayBtn(text, lang){ return `<button class="say" data-act="say" data-text="${esc(text)}" data-lang="${lang}" aria-label="${esc(L(lang,"tooltipSay"))}" title="${esc(L(lang,"tooltipSay"))}">🔊</button>`; }
 function autoSay(text){ const p = P(); if (p && p.auto) speak(text, p.lang); }
@@ -642,6 +654,7 @@ function renderLayer(){
       <button class="btn go" data-act="next">${esc(L(lang,"ok"))}</button></div>`;
   } else if (m.type === "sleep") html = sleepHTML(m.r, lang, p);
   else if (m.type === "settings") html = settingsHTML(p);
+  else if (m.type === "voice") html = voiceHelpHTML();
   layer.innerHTML = `<div class="veil"><div class="dlg" role="dialog" aria-modal="true">${html}</div></div>`;
 }
 
@@ -669,6 +682,22 @@ function sleepHTML(r, lang, p){
     <div class="center"><button class="btn go" data-act="next">${esc(L(lang,"ok"))}</button></div>`;
 }
 
+function chineseVoices(){ return loadVoices().filter(v => /^(zh|cmn|yue)/i.test(v.lang || "")); }
+function voiceHelpHTML(){
+  const list = chineseVoices().map(v => `<li>${esc(v.name)} (${esc(v.lang)})${isCantonese(v) ? " · 粵語 Cantonese" : ""}</li>`).join("") || "<li>None</li>";
+  return `<div class="head"><h2>🔇 沒有普通話聲音 · No Mandarin voice</h2></div>
+    <p>這台設備沒有安裝普通話（中國大陸）聲音，所以遊戲不會用粵語朗讀。請家長安裝：</p>
+    <p>This device has no mainland Mandarin voice installed, so the game stays quiet instead of reading Chinese in Cantonese. A parent can add one:</p>
+    <ul>
+      <li><b>iPhone / iPad:</b> Settings → Accessibility → Spoken Content → Voices → Chinese (China mainland) → download one, e.g. Tingting.</li>
+      <li><b>Redmi / Android:</b> Settings → search "Text-to-speech" → Preferred engine: <b>Speech Services by Google</b> → ⚙️ → Install voice data → <b>Chinese (China)</b>.</li>
+      <li><b>Amazon Fire:</b> Settings → Accessibility → Text-to-Speech → install a Chinese (China) voice.</li>
+      <li><b>Windows PC:</b> Settings → Time & language → Speech → Add voices → <b>Chinese (Simplified, China)</b>. Then restart the browser.</li>
+      <li><b>Mac:</b> System Settings → Accessibility → Spoken Content → System voice → Manage voices → Chinese (China mainland).</li>
+    </ul>
+    <p class="muted">Chinese voices found on this device:</p><ul class="muted">${list}</ul>
+    <div class="center"><button class="btn go" data-act="next">好的 OK</button></div>`;
+}
 function settingsHTML(p){
   const lang = p.lang;
   const seg = (field, opts) => `<div class="seg">${opts.map(([val,label]) => `<button class="btn small ${p[field]===val?"sel":""}" data-act="set" data-field="${field}" data-val="${val}">${esc(label)}</button>`).join("")}</div>`;
@@ -812,13 +841,12 @@ document.addEventListener("click", e => {
       S.queue.push({type:"msg", icon:it.emoji, text:msg, sub:L(p.lang,"shopSub")}); render(); autoSay(msg + " " + L(p.lang,"shopSub")); break; }
     case "set": { let v = el.dataset.val; if (v === "true") v = true; else if (v === "false") v = false; p[el.dataset.field] = v; savePlayer(p); render(); break; }
     case "rename": { const v = (document.getElementById("nick").value || "").trim().slice(0,16); if (v) { p.name = v; savePlayer(p); render(); } break; }
-    case "testVoice": { const v = pickVoice(p.lang); speak(L(p.lang,"voiceOk"), p.lang);
-      const note = document.getElementById("voiceNote"); if (!note) break;
-      if (v) note.textContent = "✅ " + v.name + " (" + v.lang + ")";
-      else if (p.lang === "zh") { let canto = false; try { canto = speechSynthesis.getVoices().some(isCantonese); } catch(e) {}
-        note.textContent = canto ? "⚠️ 這台平板只有粵語聲音。請在平板的「文字轉語音」設置裡下載「中文（中國）」普通話聲音。 Only a Cantonese voice is installed. Add a Chinese (China) Mandarin voice in the tablet's text-to-speech settings."
-                                 : "⚠️ 沒有找到普通話聲音。請在平板的「文字轉語音」設置裡下載「中文（中國）」聲音。 No Mandarin voice found. Add a Chinese (China) voice in the tablet's text-to-speech settings."; }
-      else note.textContent = "⚠️ No English voice found on this device."; break; }
+    case "testVoice": { loadVoices(); const v = pickVoice(p.lang);
+      const note = document.getElementById("voiceNote");
+      if (p.lang === "zh" && noMandarin()) { warnedVoice = false; warnNoMandarin(); break; }
+      speak(L(p.lang,"voiceOk"), p.lang);
+      if (note) note.textContent = v ? "✅ " + v.name + " (" + v.lang + ")" : "⚠️ The device did not list its voices. If you hear Cantonese, a Mandarin voice needs to be installed.";
+      break; }
     case "ffwd": S.team.dayOffset = (S.team.dayOffset||0) + 1; saveTeam(); tickAll(); render(); break;
     case "sound": S.team.sound = S.team.sound === false; saveTeam(); render(); break;
     case "reset": S.confirmReset = true; render(); break;
